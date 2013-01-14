@@ -1,0 +1,39 @@
+
+<body>
+		<header>
+		<div class="row">
+			<div class="five columns">
+				<div id="map_canvas" class="maps">
+					
+				</div>
+			</div>
+			
+			<div class="seven columns">
+				<div class="detail">
+					<?php echo form_open('home/besteltaxi');?>
+					<input name="adres1" type="text" value="<?php echo $_POST['adres1'];?>" placeholder="Brasschaat" id="address1">
+					<input name="adres2" type="text" value="<?php echo $_POST['adres2'];?>" placeholder="Antwerpen Centrum" id="address2">
+					<input name="tijd" type="text" value="<?php echo $_POST['tijd'];?>" placeholder="12 December 12:12" id="timedate">
+					<input name="personen" type="text" placeholder="Hoeveel personen?">
+					<img src="<?php echo base_url();?>images/fbnl.png" width="250px" id="facebooklogin">
+					<button class="thoughtbot help" id="help">?</button>
+					<button class="thoughtbot" id="order">Bevestigen.</button>
+					<?php echo form_close();?>
+				</div>
+			</div>
+			
+			
+			
+		</div>   
+		<div class="nav">
+			 <a href="index.html"><img src="<?php echo base_url();?>images/logo.png" width="200px"></a>
+			 <div class="social">
+			 	<img src="<?php echo base_url();?>images/f.png" width="15px;">
+			 	<img src="<?php echo base_url();?>images/t.png" width="50px;">
+			 	<img src="<?php echo base_url();?>images/p.png" width="25px;">
+			 	
+			 </div>
+		</div>
+		    
+		</header>
+	

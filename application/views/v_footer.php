@@ -1,0 +1,86 @@
+
+		<footer>
+		    <div class="row">
+		        <div class="four columns">
+		        	<h1>Contact</h1>
+		        		<ul>
+				        	<li>Jeroen Wouters</li>
+				        	<li>Nick Van Walleghem</li>
+				       </ul> 	
+		        </div>
+		        <div class="four columns">
+		        	<h1>Sitemap</h1>
+		        	<ul>
+		        		<li>Home</li>
+		        		<li>Registreer</li>
+		        		<li>Zoek</li>
+		        		<li>Beheer</li>
+		        		<li>Favorieten</li>
+		        		<li>Disclaimer</li>
+		        	</ul> 	
+		        </div>
+		        <div class="four columns">
+		        	<h1>Partners</h1>
+		        	<ul>
+		        		<li>Karel de Grote-Hogeschool</li>
+ 		        	</ul>
+		        </div>
+		    </div>
+		</footer>  
+  
+  <!-- Included JS Files (Uncompressed) -->
+  <!--
+  
+  <script src="<?php echo base_url();?>javascripts/jquery.js"></script>
+  
+  <script src="<?php echo base_url();?>javascripts/jquery.foundation.mediaQueryToggle.js"></script>
+  
+  <script src="<?php echo base_url();?>javascripts/jquery.foundation.forms.js"></script>
+  
+  <script src="<?php echo base_url();?>javascripts/jquery.foundation.reveal.js"></script>
+  
+  <script src="<?php echo base_url();?>javascripts/jquery.foundation.orbit.js"></script>
+  
+  <script src="<?php echo base_url();?>javascripts/jquery.foundation.navigation.js"></script>
+  
+  <script src="<?php echo base_url();?>javascripts/jquery.foundation.buttons.js"></script>
+  
+  <script src="<?php echo base_url();?>javascripts/jquery.foundation.tabs.js"></script>
+  
+  <script src="<?php echo base_url();?>javascripts/jquery.foundation.tooltips.js"></script>
+  
+  <script src="<?php echo base_url();?>javascripts/jquery.foundation.accordion.js"></script>
+  
+  <script src="<?php echo base_url();?>javascripts/jquery.placeholder.js"></script>
+  
+  <script src="<?php echo base_url();?>javascripts/jquery.foundation.alerts.js"></script>
+  
+  <script src="<?php echo base_url();?>javascripts/jquery.foundation.topbar.js"></script>
+  
+  <script src="<?php echo base_url();?>javascripts/jquery.foundation.joyride.js"></script>
+  
+  <script src="<?php echo base_url();?>javascripts/jquery.foundation.clearing.js"></script>
+  
+  <script src="<?php echo base_url();?>javascripts/jquery.foundation.magellan.js"></script>
+  
+  -->
+  
+  <!-- Included JS Files (Compressed) -->
+   <script src="<?php echo base_url();?>javascripts/foundation.min.js"></script>
+  <script src="<?php echo base_url();?>javascripts/app.js"></script>
+  <script src="<?php echo base_url();?>javascripts/jquery.js"></script>
+  <script type="text/javascript" src="http://code.jquery.com/ui/1.9.1/jquery-ui.min.js"></script>
+  <script src="<?php echo base_url();?>javascripts/timepicker.js"></script>
+  <script src="<?php echo base_url();?>javascripts/maps.js"></script>
+  <script src="http://maps.google.com/maps?file=api&v=2&key=AIzaSyBJGHEABxmLTzSTZ0HGDlmBMTuX1ktrsBc" type="text/javascript"></script>
+  <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
+  <script src="<?php echo base_url();?>javascripts/user.js"></script>
+  
+ 
+  
+  <!-- Initialize JS Plugins -->
+  
+  
+  
+</body>
+</html>
