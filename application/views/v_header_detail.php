@@ -1,5 +1,5 @@
 
-		<header>
+ 		<header>
 		<div class="row">
 			<div class="five columns">
 				<div id="map_canvas" class="maps">
@@ -18,7 +18,9 @@
 					<button class="thoughtbot help" id="help">?</button>
 					<button class="thoughtbot" id="order">Bevestigen.</button>
 					<?php echo form_close();?>
-					<?php echo validation_errors();?>
+					<div class="errors detail">
+						<?php echo validation_errors();?>
+					</div>
 				</div>
 			</div>
 			

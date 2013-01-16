@@ -1,4 +1,4 @@
-
+	
 		<header>
 		   
 		<div class="row">
@@ -17,7 +17,9 @@
 				<input name="tijd" type="text" value="<?php if(isset($flashdata_val_home)){ echo $flashdata_val_home['tijd'];}?>" placeholder="12 December 12:12" id="timedate">
 				<button class="thoughtbot" type="submit">Taxi!</button>
 				<?php echo form_close();?>
-				<?php if(isset($flashdata_val_home)){ echo $flashdata_val_home['error'];}  ?>
+				<div class="errors">
+					<?php if(isset($flashdata_val_home)){ echo $flashdata_val_home['error'];}  ?>
+				</div>
 				</div>
 			</div>
 			
