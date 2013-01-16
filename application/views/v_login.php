@@ -21,7 +21,7 @@
 			<?php echo form_open('admin/login');?>
 		
 		<p class="field">
-						<input type="text" name="user"  id="login" placeholder="Username or email">
+						<input type="text" name="user"  id="login" placeholder="Username">
 						<i class="icon-user icon-large"></i>
 		</p>
 		

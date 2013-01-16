@@ -108,7 +108,7 @@ button.thoughtbot {
   padding: 12px 0 14px 0;
   text-align: center;
   text-shadow: 0px -1px 1px rgba(0, 0, 0, 0.8);
-  width: 140px; }
+  width: 200px; }
   button.thoughtbot:hover {
     background-color: #f37873;
     background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f37873), color-stop(50%, #db504d), color-stop(50%, #cb0500), color-stop(100%, #a20601));
@@ -129,8 +129,22 @@ button.thoughtbot {
     -webkit-box-shadow: inset 0px 0px 0px 1px rgba(255, 115, 100, 0.4);
     box-shadow: inset 0px 0px 0px 1px rgba(255, 115, 100, 0.4); }
     
+.nonactive{
+	background-image: none !important; 
+	background-color: gray !important; 
+	border: 1px solid white !important;
+	-webkit-box-shadow: none !important;
+	box-shadow: none !important;
+	
+	&:hover{
+		background-image: none !important; 
+		background-color: gray !important;
+	}
+	
+}
+    
 .help{
-	width: 30px !important;
+	width: 20px !important;
 	float: left !important;
 	margin-right: 5px;
 }
