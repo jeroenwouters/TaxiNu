@@ -20,7 +20,9 @@ class Admin extends CI_Controller {
 	public function index()
 	{
 		if($this->session->userdata('logged_in')){
+			$this->load->view('v_head_admin');
 			$this->load->view('v_admin');
+			$this->load->view('v_footer_admin');
 		}else{
 			$this->load->view('v_login');
 		}
@@ -42,7 +44,9 @@ class Admin extends CI_Controller {
 			);
 			$this->session->set_userdata('logged_in', $sess_array);
 			}
+			$this->load->view('v_head_admin');
 			$this->load->view('v_admin');
+			$this->load->view('v_footer_admin');
 		}
 		else
 		{
