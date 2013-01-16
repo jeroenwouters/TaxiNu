@@ -1,5 +1,4 @@
 
-<body>
 		<header>
 		<div class="row">
 			<div class="five columns">
