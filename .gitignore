@@ -1,1 +1,6 @@
+<<<<<<< HEAD
 .DS_store
+=======
+# Exclude OS X folder attributes
+.DS_Store
+>>>>>>> .ds_store bij gitignore
