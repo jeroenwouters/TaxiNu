@@ -27,7 +27,15 @@
 		        </div>
 		    </div>
 		</footer>  
-  
+ <div id="loginhelp" class="reveal-modal small" style="background-color: black; color: white; top: 100px; opacity: 1; visibility: hidden; display: none;">
+  <p class="lead">Geen Facebook account?</p>
+  <p>Met de volgende gegevens zijn we tevreden!</p>
+  <input type="text" placeholder="Naam">
+  <input type="text" placeholder="Telefoonnummer">
+  <button class="thoughtbot" id="verder">Verder</button>
+  <a class="close-reveal-modal">×</a>
+</div>
+<div class="reveal-modal-bg" style="opacity: 0.8; display: none; cursor: pointer;"></div>s
   <!-- Included JS Files (Uncompressed) -->
   <!--
   
@@ -37,7 +45,7 @@
   
   <script src="<?php echo base_url();?>javascripts/jquery.foundation.forms.js"></script>
   
-  <script src="<?php echo base_url();?>javascripts/jquery.foundation.reveal.js"></script>
+
   
   <script src="<?php echo base_url();?>javascripts/jquery.foundation.orbit.js"></script>
   
@@ -71,6 +79,7 @@
   <script src="<?php echo base_url();?>javascripts/jquery.js"></script>
   <script type="text/javascript" src="http://code.jquery.com/ui/1.9.1/jquery-ui.min.js"></script>
   <script src="<?php echo base_url();?>javascripts/timepicker.js"></script>
+  <script src="<?php echo base_url();?>javascripts/jquery.foundation.reveal.js"></script>
   <?php if($this->uri->segment(2) == 'detail'){?>
   	<script src="<?php echo base_url();?>javascripts/maps.js"></script>
   <?php } ?>

@@ -14,10 +14,9 @@
 					<input name="adres2" type="text" value="<?php echo $_POST['adres2'];?>" placeholder="Antwerpen Centrum" id="address2">
 					<input name="tijd" type="text" value="<?php echo $_POST['tijd'];?>" placeholder="12 December 12:12" id="timedate">
 					<input name="personen" type="text" placeholder="Hoeveel personen?">
-					<img src="<?php echo base_url();?>images/fbnl2.png" id="facebooklogin">
-					<button class="thoughtbot help" id="help">?</button>
-					<button class="thoughtbot" id="order">Bevestigen.</button>
+					<button type="submit" class="thoughtbot" id="order">Bevestigen.</button>
 					<?php echo form_close();?>
+					<button class="thoughtbot" id="help">Login</button>
 					<div class="errors detail">
 						<?php echo validation_errors();?>
 					</div>
