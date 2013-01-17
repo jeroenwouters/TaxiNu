@@ -131,14 +131,14 @@ button.thoughtbot {
     
 .nonactive{
 	background-image: none !important; 
-	background-color: gray !important; 
+	background-color: rgba(235,235,235,0.81) !important; 
 	border: 1px solid white !important;
 	-webkit-box-shadow: none !important;
 	box-shadow: none !important;
 	
 	&:hover{
 		background-image: none !important; 
-		background-color: gray !important;
+		background-color: rgba(235,235,235,0.81) !important;
 	}
 	
 }
@@ -146,7 +146,6 @@ button.thoughtbot {
 .help{
 	width: 20px !important;
 	float: left !important;
-	margin-right: 5px;
 }
     
 @media only screen
@@ -236,8 +235,17 @@ and (max-width: 480px){
 	.rounded(5px);
 }
 
-.errors .detail{
-	bottom: 0px;
+#line{
+	bottom: -180px !important;
+	max-height: 300px;
+}
+
+#help{
+	margin-top: -50px;
+}
+
+#order{
+	margin-left: 230px !important;
 	
 }
 

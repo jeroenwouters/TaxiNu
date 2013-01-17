@@ -17,7 +17,7 @@
 					<button type="submit" class="thoughtbot" id="order">Bevestigen.</button>
 					<?php echo form_close();?>
 					<button class="thoughtbot" id="help">Login</button>
-					<div class="errors detail">
+					<div class="errors" id="line">
 						<?php echo validation_errors();?>
 					</div>
 				</div>
