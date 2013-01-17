@@ -1,8 +1,5 @@
 $(document).ready(function() {
     $('#timedate').datetimepicker();
-    $("#order").click(function() {
-	    	alert("Gelieve eerst in te loggen.");
-	});
 	
 	var user_input1 = document.getElementById('address1');
 	var user_input2 = document.getElementById('address2');
@@ -16,9 +13,7 @@ $(document).ready(function() {
 	$("#help").click(function() {
       $("#loginhelp").reveal();
     });
-   
-    $('#order').addClass('nonactive');
-    
+       
     $('#facebooklogin').click(function(){
 	    console.log('test');
 	    $('#order').removeClass('nonactive');

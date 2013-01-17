@@ -28,14 +28,16 @@
 		    </div>
 		</footer>  
  <div id="loginhelp" class="reveal-modal small" style="background-color: black; color: white; top: 100px; opacity: 1; visibility: hidden; display: none;">
+  <p><img src="<?php echo base_url();?>images/fbnl2.png" id="facebooklogin"></p></br></br></br></br>
   <p class="lead">Geen Facebook account?</p>
   <p>Met de volgende gegevens zijn we tevreden!</p>
   <input type="text" placeholder="Naam">
   <input type="text" placeholder="Telefoonnummer">
+  <input type="text" placeholder="E-mail">
   <button class="thoughtbot" id="verder">Verder</button>
   <a class="close-reveal-modal">×</a>
 </div>
-<div class="reveal-modal-bg" style="opacity: 0.8; display: none; cursor: pointer;"></div>s
+<div class="reveal-modal-bg" style="opacity: 0.8; display: none; cursor: pointer;"></div>
   <!-- Included JS Files (Uncompressed) -->
   <!--
   

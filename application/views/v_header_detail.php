@@ -14,7 +14,7 @@
 					<input name="adres2" type="text" value="<?php echo $_POST['adres2'];?>" placeholder="Antwerpen Centrum" id="address2">
 					<input name="tijd" type="text" value="<?php echo $_POST['tijd'];?>" placeholder="12 December 12:12" id="timedate">
 					<input name="personen" type="text" placeholder="Hoeveel personen?">
-					<button type="submit" class="thoughtbot" id="order">Bevestigen.</button>
+					<button type="submit" class="thoughtbot nonactive" id="order">Bevestigen.</button>
 					<?php echo form_close();?>
 					<button class="thoughtbot" id="help">Login</button>
 					<div class="errors" id="line">
