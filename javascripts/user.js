@@ -13,6 +13,10 @@ $(document).ready(function() {
 	$("#help").click(function() {
       $("#loginhelp").reveal();
     });
+    
+    $("#settings").click(function() {
+      $("#settings_modal").reveal();
+    });
        
     $('#facebooklogin').click(function(){
 	    console.log('test');

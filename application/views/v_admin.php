@@ -1,11 +1,17 @@
 
 	<header> 
 		<img src="<?php echo base_url();?>images/logo.png" width="180px">
+		<div id="settings">
+			<img src="<?php echo base_url();?>images/settings.png">
+		</div>
+		<div id="welkom">
+				<p>Welkom --bedrijf--'s dispatcher</p>
+		</div>	
 	</header>
 	
 		<div class="wrapper">
 			<div class="col" id="col1">
-				<h1>Active</h1>
+				<h1>Aanvragen</h1>
 				<ul class="ritten">	
 					<li class="rit" id="1">
 						<img src="<?php echo base_url();?>images/drag.png" class="mark" width="20px">
@@ -31,7 +37,7 @@
 			</div>
 			
 			<div class="col" id="col2">
-				<h1>Request</h1>
+				<h1>In Wacht</h1>
 				<ul class="ritten">	
 					<li class="rit" id="3">
 						<img src="<?php echo base_url();?>images/drag.png" class="mark" width="20px">
@@ -47,7 +53,7 @@
 			</div>
 			
 			<div class="col" id="col3">
-				<h1> Zone 03 </h1>
+				<h1>Bevestigd</h1>
 				<ul class="ritten">	
 					<li class="rit" id="4">
 						<img src="<?php echo base_url();?>images/drag.png" class="mark" width="20px">
@@ -84,16 +90,18 @@
 			</div>
 			
 			<div class="col" id="col4">
-				<h1> Zone 04 </h1>
+				<h1>Taxi 1</h1>
 				<ul class="ritten">
 				</ul>
 			</div>
 			
 			<div class="col" id="col5">
-				<h1> Zone 05 </h1>
+				<h1>Taxi 2 </h1>
 				<ul class="ritten">
 				</ul>
 			</div>
+			
+			
 		</div>
 		
 		<div id="checkmodal" class="reveal-modal large" style="background-color: black; color: white;">
@@ -114,6 +122,17 @@
 			  
 			  </div>
 			  
+			  
+			  
+			  
+			  <a class="close-reveal-modal">&#215;</a>		
+		</div>
+		
+		<div id="settings_modal" class="reveal-modal large" style="background-color: black; color: white;">
+			  
+			  <p class="lead">Instellingen</p>
+			  
+			 			  
 			  
 			  
 			  
