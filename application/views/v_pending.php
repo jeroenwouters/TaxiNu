@@ -3,16 +3,46 @@
 
 <head>
 	<title>Admin TaxiNu</title>
+	<link rel="stylesheet" href="<?php echo base_url();?>stylesheets/foundation.min.css">
+  <link rel="stylesheet" href="<?php echo base_url();?>stylesheets/app.css">
+   <link rel="stylesheet/less" type="text/css" href="<?php echo base_url();?>stylesheets/styles.less">
+   <link rel="stylesheet" media="all" type="text/css" href="http://code.jquery.com/ui/1.9.1/themes/smoothness/jquery-ui.css" />
+    
+  <script src="<?php echo base_url();?>javascripts/less.js" type="text/javascript"></script>
+  <script src="<?php echo base_url();?>javascripts/modernizr.foundation.js"></script>
 
 </head>
 <body>
-	<input type="hidden" id="hiddenid" name="id" value="<?php echo $id;?>"/>
-	<table id="taxibestellingen">
-		<tr>
-			<th>Berijven</th>
-			<th>Bevestig</th>
-		</tr>
-	</table>
+<header>
+		   
+		<div class="row">
+		
+			<div class="twelve colums">
+				<input type="hidden" id="hiddenid" name="id" value="<?php echo $id;?>"/>
+				<table id="taxibestellingen">
+					<tr>
+						<th>Bedrijven</th>
+						<th>Bevestig</th>
+					</tr>
+				</table>
+				<div id="loading">
+					<h3>Uw aanvraag is verstuurd. Wachten op antwoord taxibedrijf.</h3>
+					<div id="loader">
+					<img src="<?php echo base_url();?>images/loader.gif">
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="nav">
+			 <img src="<?php echo base_url();?>images/logo.png" width="200px">
+			 <div class="social">
+			 	<img src="<?php echo base_url();?>images/f.png" width="15px;">
+			 	<img src="<?php echo base_url();?>images/t.png" width="50px;">
+			 	<img src="<?php echo base_url();?>images/p.png" width="25px;">
+			 	
+			 </div>
+		</div>
+</header>
 	
 		 <script src="http://js.pusher.com/1.12/pusher.min.js" type="text/javascript"></script>
 	 <script src="<?php echo base_url();?>javascripts/jquery.js"></script>
