@@ -18,24 +18,39 @@
 		<div class="row">
 		
 			<div class="twelve colums">
-				<input type="hidden" id="hiddenid" name="id" value="<?php echo $id;?>"/>
-				<table id="taxibestellingen">
-					<tr>
-						<th>Bedrijven</th>
-						<th>Bevestig</th>
-					</tr>
-				</table>
+				
 				<div id="loading">
 					<h3>Uw aanvraag is verstuurd. Wachten op antwoord taxibedrijf.</h3>
 					<div id="loader">
 					<img src="<?php echo base_url();?>images/loader.gif">
 					</div>
+					<input type="hidden" id="hiddenid" name="id" value="<?php echo $id;?>"/>
+					<h3>Bevestigd</h3>
+					<ul id="bedrijven">
+						<li>
+							<p>DTM TAXI</p>
+							<p>Wachttijd: <span class="minutes">10</span> min.</p>
+							<button class="thoughtbot">Bevestig</button>
+						</li>
+						<li>
+							<p>Antwerp TAXI</p>
+							<p>Wachttijd: <span class="minutes">15</span> min.</p>
+							<button class="thoughtbot">Bevestig</button>
+						</li>
+					</ul>
+				<br>
+				<br>
+				<table id="taxibestellingen" style="clear: left;">
+					<tr>
+						<th>Bedrijven</th>
+						<th>Bevestig</th>
+					</tr>
+				</table>
 				</div>
 			</div>
 		</div>
 		<div class="nav">
-			 <img src="<?php echo base_url();?>images/logo.png" width="200px">
-			 <div class="social">
+			 <a href="<?php echo base_url();?>"><img src="<?php echo base_url();?>images/logo.png" width="200px"></a>			 <div class="social">
 			 	<img src="<?php echo base_url();?>images/f.png" width="15px;">
 			 	<img src="<?php echo base_url();?>images/t.png" width="50px;">
 			 	<img src="<?php echo base_url();?>images/p.png" width="25px;">
