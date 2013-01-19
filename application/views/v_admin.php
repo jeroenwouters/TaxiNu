@@ -11,7 +11,7 @@
 			<p>+</p>
 		</div>
 		<div id="extra_kolom">
-			<input type="text" id="nieuw_kolom">
+			<input type="text" id="nieuw_kolom" placeholder="Naam nieuwe kolom">
 		</div>
 		
 		

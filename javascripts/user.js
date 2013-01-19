@@ -35,6 +35,16 @@ $(document).ready(function() {
 	   liid = $(this).attr('id');
 	   console.log("click"); 
     });
+    
+    $("#extra_kolom_btn p").click(function(){
+	    
+	    var naamkolom = $('#nieuw_kolom').val(); 
+	    var kolomhtml = $('<div class="col" class="new"><h1>'+ naamkolom +'</h1><ul class="ritten"></ul></div>');
+	    
+	    console.log(naamkolom);
+	    $(".wrapper").append(kolomhtml);   
+	    
+    });
 
     
     $( "li" ).draggable({

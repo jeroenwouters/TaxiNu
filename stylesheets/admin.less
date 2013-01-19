@@ -22,8 +22,10 @@ h1{
 }
 
 header{
+	position: fixed;
 	width: 100%; 
 	height: 50px;
+	z-index: 100;
 	border-bottom: #dfdede solid 1px;
 	background: #ffffff; /* Old browsers */
 	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
@@ -94,12 +96,19 @@ header{
 		font-size: large;
 		background-color: rgba(225,225,225,0.75);
 		
+		&:hover{
+			background-color: gray;
+			cursor: pointer;
+		}
 	}
 }
 
 .wrapper{
-	width: 100%; 
-	height: 100%;
+	width: 2000px; 
+	height: 150%;
+	overflow: auto; 
+	white-space: nowrap;
+	padding-top: 50px;
 
 	.col{
 		border-right: #dfdede solid 1px;
@@ -117,6 +126,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 		width: 255px;		
 		height: 100%;
 		float: left;
+		display: inline;
 	}
 }
 
