@@ -87,4 +87,44 @@ $(document).ready(function() {
     
     }); 
     
+    $("#location").click(function(){huidigeLocatie();});
+    
+    
+    
 });
+
+function huidigeLocatie(){
+	 
+	 getGPS();
+ }
+
+function getGPS() {
+	if (navigator.geolocation) {  
+		navigator.geolocation.getCurrentPosition(showGPS, gpsError);
+	} else {  
+		alert("No GPS Functionality.");  
+	}
+}
+
+function gpsError(error) {
+	alert("GPS Error: "+error.code+", "+error.message);
+}
+
+function showGPS(position) {
+	 codeLatLng(position.coords.latitude, position.coords.longitude);
+	}
+
+function codeLatLng(lat, lng) {
+	geocoder = new google.maps.Geocoder();
+    var latlng = new google.maps.LatLng(lat, lng);
+    geocoder.geocode({'latLng': latlng}, function(results, status) {
+      if (status == google.maps.GeocoderStatus.OK) {
+      	console.log(results);
+        if (results[1]) {
+          $("#address1").val(results[0].formatted_address);
+        }
+      } else {
+        alert("Adres niet gevonden: " + status);
+      }
+    });
+}
