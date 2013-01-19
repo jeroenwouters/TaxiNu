@@ -7,6 +7,15 @@
 		<div id="welkom">
 				<p>Welkom --bedrijf--'s dispatcher</p>
 		</div>	
+		<div id="extra_kolom_btn">
+			<p>+</p>
+		</div>
+		<div id="extra_kolom">
+			<input type="text" id="nieuw_kolom">
+		</div>
+		
+		
+		
 	</header>
 	
 		<div class="wrapper">
