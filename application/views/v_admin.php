@@ -32,16 +32,6 @@
 						<p class="telklant">0475338844</p>
 						<button class="thoughtbot check">Check</button>
 					</li>
-					<li class="rit" id="2">
-						<img src="<?php echo base_url();?>images/drag.png" class="mark" width="20px">
-						<p class="vertrek">Kalmthout</p>
-						<p class="bestemming">Antwerpen</p>
-						<div class="maps"></div> 
-						<p class="uur">15:11</p>
-						<p class="naamklant">Den Jhon</p>
-						<p class="telklant">0475338844</p>
-						<button class="thoughtbot check">Check</button>
-					</li>
 				</ul>
 			</div>
 			

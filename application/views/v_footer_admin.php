@@ -47,7 +47,11 @@
   <script src="<?php echo base_url();?>javascripts/user.js"></script>
   <!-- Initialize JS Plugins -->
   <script src="http://js.pusher.com/1.12/pusher.min.js" type="text/javascript"></script>
-  <script src="<?php echo base_url();?>javascripts/pusher_admin.js"></script>
-   
+  
+  
+   <!-- backbone -->
+   <script src="<?php echo base_url();?>javascripts/underscore.js"></script>
+   <script src="<?php echo base_url();?>javascripts/backbone.js"></script>
+   <script src="<?php echo base_url();?>javascripts/backbone_app.js"></script>
 </body>
 </html>

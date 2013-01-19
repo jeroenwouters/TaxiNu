@@ -22,10 +22,15 @@ class Api extends REST_Controller
     {  
         
         $this->load->model('m_bestellingen');
-        $query = $this->m_bestellingen->get( $this->uri->segment(3)); 
+        
+        if($this->uri->segment(3) == ""){
+	         $query = $this->m_bestellingen->get_all(); 
+        }else{
+        	$query = $this->m_bestellingen->get( $this->uri->segment(3)); 
+        }
         
         foreach($query->result() as $r){
-        $bestelling = array('id' => $r->id, 'adres1' => $r->Adres1, 'adres2' => $r->Adres2, 'tijd' => $r->Tijd, 'Personen' => $r->Personen);
+        $bestelling[] = array('id' => $r->id, 'adres1' => $r->Adres1, 'adres2' => $r->Adres2, 'tijd' => $r->Tijd, 'Personen' => $r->Personen);
 		}
          
         echo json_encode($bestelling);
@@ -51,7 +56,7 @@ class Api extends REST_Controller
 	    $this->load->model('m_bestellingen');
 	    $this->m_bestellingen->delete($this->uri->segment(3));
     }
-    
+    /*
     function bestellingen_get()
     {
         $this->load->model('m_bestellingen');
@@ -61,15 +66,7 @@ class Api extends REST_Controller
         $bestellingen[] = array('id' => $r->id, 'adres1' => $r->Adres1, 'adres2' => $r->Adres2, 'tijd' => $r->Tijd, 'Personen' => $r->Personen);
 		}
 		                
-        if($bestellingen)
-        {
-            $this->response($bestellingen, 200); // 200 being the HTTP response code
-        }
-
-        else
-        {
-            $this->response(array('error' => 'Couldn\'t find any bestellingen!'), 404);
-        }
+		echo json_encode($bestellingen);
     }
-
+    */
 }
