@@ -22,16 +22,7 @@
 			<div class="col" id="col1">
 				<h1>Aanvragen</h1>
 				<ul class="ritten">	
-					<li class="rit" id="1">
-						<img src="<?php echo base_url();?>images/drag.png" class="mark" width="20px">
-						<p class="vertrek">Kappelen</p>
-						<p class="bestemming">Antwerpen</p>
-						<div class="maps"></div> 
-						<p class="uur">12:12</p>
-						<p class="naamklant">Den Dannie</p>
-						<p class="telklant">0475338844</p>
-						<button class="thoughtbot check">Check</button>
-					</li>
+					
 				</ul>
 			</div>
 			
