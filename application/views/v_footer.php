@@ -31,10 +31,10 @@
   <p><img src="<?php echo base_url();?>images/fbnl.png" id="facebooklogin"></p></br></br></br></br>
   <p class="lead">Geen Facebook account?</p>
   <p>Met de volgende gegevens zijn we tevreden!</p>
-  <input type="text" placeholder="Naam">
-  <input type="text" placeholder="Telefoonnummer">
-  <input type="text" placeholder="E-mail">
-  <button class="thoughtbot" id="verder">Verder</button>
+  <input type="text" name="NaamBox" placeholder="Naam">
+  <input type="text" name="TelBox" placeholder="Telefoonnummer">
+  <input type="text" name="EmailBox" placeholder="E-mail">
+  <button class="thoughtbot" type="submit" id="verder">Verder</button>
   <a class="close-reveal-modal">×</a>
 </div>
 <div class="reveal-modal-bg" style="opacity: 0.8; display: none; cursor: pointer;"></div>

@@ -17,18 +17,22 @@ $(document).ready(function() {
     $("#settings").click(function() {
       $("#settings_modal").reveal();
     });
-       
+    /*
     $('#facebooklogin').click(function(){
 	    console.log('test');
 	    $('#order').removeClass('nonactive');
 	});
-	    
-	     
+	*/
+	//Op da form in die box moet jquery validatie komen zodat als die velden zijn ingevuld dat die dan in hidden fields worden gezeten. 
+	//Zodat die mee worden gestuurd met de rest van de info in de POST.         
     $('#verder').click(function(){
+    	$("input[name=naam]").val($("input[name=NaamBox]").val());
+    	$("input[name=tel]").val($("input[name=TelBox]").val());
+    	$("input[name=email]").val($("input[name=EmailBox]").val());
+    	
     	$('#order').removeClass('nonactive');
     	$('#loginhelp').trigger('reveal:close');
     });
-    
    var liid; 
     
     $("li").mousedown(function(){

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Machine: localhost
--- Genereertijd: 14 jan 2013 om 19:27
+-- Genereertijd: 20 jan 2013 om 15:19
 -- Serverversie: 5.5.25
 -- PHP-versie: 5.4.4
 
@@ -27,48 +27,23 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `tblBestellingen` (
-  `pkBestellingen` int(99) NOT NULL AUTO_INCREMENT,
-  `fkAdmin` int(99) NOT NULL,
+  `id` int(99) NOT NULL AUTO_INCREMENT,
   `Adres1` varchar(99) NOT NULL,
   `Adres2` varchar(99) NOT NULL,
   `Tijd` datetime NOT NULL,
   `Personen` int(9) NOT NULL,
-  PRIMARY KEY (`pkBestellingen`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=37 ;
+  `Status` int(1) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=73 ;
 
 --
 -- Gegevens worden uitgevoerd voor tabel `tblBestellingen`
 --
 
-INSERT INTO `tblBestellingen` (`pkBestellingen`, `fkAdmin`, `Adres1`, `Adres2`, `Tijd`, `Personen`) VALUES
-(9, 0, 'Fortsebaan 38, 2930 Brasschaat', 'Meir, Antwerpen', '2013-01-07 14:02:00', 5),
-(10, 0, 'Fortsebaan 38, 2930 Brasschaat', 'Meir, Antwerpen', '2013-01-08 08:32:00', 5),
-(11, 0, 'Fortsebaan 38, 2930 Brasschaat', 'Meir, Antwerpen', '2013-01-08 08:32:00', 5),
-(12, 0, 'Fortsebaan 38, 2930 Brasschaat', 'Meir, Antwerpen', '2013-01-02 00:00:00', 5),
-(13, 0, 'Fortsebaan 38, 2930 Brasschaat', 'Meir, Antwerpen', '2013-01-02 00:00:00', 3),
-(14, 0, 'Fortsebaan 38, 2930 Brasschaat', 'Meir, Antwerpen', '2013-01-02 00:00:00', 3),
-(15, 0, 'Fortsebaan 38, 2930 Brasschaat', 'Meir, Antwerpen', '2013-01-02 00:00:00', 3),
-(16, 0, 'Fortsebaan 38, 2930 Brasschaat', 'Meir, Antwerpen', '2013-01-02 00:00:00', 3),
-(17, 0, 'Fortsebaan 38, 2930 Brasschaat', 'Meir, Antwerpen', '2013-01-02 00:00:00', 3),
-(18, 0, 'Fortsebaan 38, 2930 Brasschaat', 'Meir, Antwerpen', '2013-01-02 00:00:00', 3),
-(19, 0, 'Fortsebaan 38, 2930 Brasschaat', 'antwerpen', '2013-01-07 14:55:00', 3),
-(20, 0, 'Fortsebaan 38, 2930 Brasschaat', 'antwerpen', '2013-01-07 14:55:00', 3),
-(21, 0, 'Fortsebaan 38, 2930 Brasschaat', 'antwerpen', '2013-01-07 14:55:00', 3),
-(22, 0, 'Fortsebaan 38, 2930 Brasschaat', 'antwerpen', '2013-01-07 14:55:00', 3),
-(23, 0, 'Fortsebaan 38, 2930 Brasschaat', 'antwerpen', '2013-01-07 14:55:00', 3),
-(24, 0, 'Fortsebaan 38, 2930 Brasschaat', 'antwerpen', '2013-01-07 14:55:00', 3),
-(25, 0, 'Fortsebaan 38, 2930 Brasschaat', 'antwerpen', '2013-01-07 14:55:00', 3),
-(26, 0, 'Fortsebaan 38, 2930 Brasschaat', 'antwerpen', '2013-01-07 14:55:00', 3),
-(27, 0, 'Fortsebaan 38, 2930 Brasschaat', 'antwerpen', '2013-01-07 14:55:00', 3),
-(28, 0, 'Fortsebaan 38, 2930 Brasschaat', 'antwerpen', '2013-01-07 14:55:00', 3),
-(29, 0, 'Fortsebaan 38, 2930 Brasschaat', 'antwerpen', '2013-01-07 14:55:00', 3),
-(30, 0, 'Fortsebaan 38, 2930 Brasschaat', 'antwerpen', '2013-01-07 14:55:00', 3),
-(31, 0, 'Fortsebaan 38, 2930 Brasschaat', 'antwerpen', '2013-01-07 14:55:00', 3),
-(32, 0, 'Fortsebaan 38, 2930 Brasschaat', 'antwerpen', '2013-01-07 14:55:00', 3),
-(33, 0, 'Fortsebaan 38, 2930 Brasschaat', 'antwerpen', '2013-01-07 14:55:00', 3),
-(34, 0, 'Fortsebaan 38, 2930 Brasschaat', 'antwerpen', '2013-01-07 14:55:00', 3),
-(35, 0, 'Fortsebaan 38, 2930 Brasschaat', 'Meir, Antwerpen', '2013-01-07 15:22:00', 5),
-(36, 0, 'Fortsebaan 38, 2930 Brasschaat', 'Meir, Antwerpen', '2013-01-07 14:55:00', 5);
+INSERT INTO `tblBestellingen` (`id`, `Adres1`, `Adres2`, `Tijd`, `Personen`, `Status`) VALUES
+(35, 'Fortsebaan 38, 2930 Brasschaat', 'Meir, Antwerpen', '2013-01-07 15:22:00', 5, 0),
+(71, 'Fortsebaan, Brasschaat, België', 'Bierwertslei, Brasschaat, België', '2013-01-19 20:46:00', 2, 0),
+(72, 'Fortsebaan 28-64, 2930 Brasschaat, België', 'Bierwertslei 3, Brasschaat, België', '2013-01-20 13:11:00', 5, 0);
 
 -- --------------------------------------------------------
 

@@ -51,7 +51,7 @@ class Home extends CI_Controller {
 			$_POST['error'] = validation_errors();
 			$this->session->set_flashdata('val_home', $_POST);
 			redirect('');
-		}else{
+		}else{			
 			$this->load->view('v_head');
 			$this->load->view('v_header_detail', $_POST);
 			$this->load->view('v_info');
@@ -59,6 +59,7 @@ class Home extends CI_Controller {
 		}
 		
 	}
+	
 	
 	public function besteltaxi()
 	{
