@@ -4,3 +4,4 @@
 # Exclude OS X folder attributes
 .DS_Store
 >>>>>>> .ds_store bij gitignore
+application/config/config.php
