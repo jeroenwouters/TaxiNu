@@ -25,13 +25,45 @@ $(document).ready(function() {
 	*/
 	//Op da form in die box moet jquery validatie komen zodat als die velden zijn ingevuld dat die dan in hidden fields worden gezeten. 
 	//Zodat die mee worden gestuurd met de rest van de info in de POST.         
+    $('#form1').validate({
+	    rules: { 
+		    NaamBox: "required",    
+		    TelBox: {
+			required: true, 
+			digits: true},
+		    EmailBox: {            
+			required: true, 
+			email: true }	
+		}, 	
+		messages: {
+			NaamBox: "Gelieve uw naam in te voeren",
+			TelBox: "Gelieve uw telefoonnr. zonder tekens in te voeren.",
+			EmailBox: "Gelieve een geldig emailadres in te geven."
+		}
+    });
+    
+    
+    
     $('#verder').click(function(){
-    	$("input[name=naam]").val($("input[name=NaamBox]").val());
+    	
+    	var valid = $('#form1').valid(); 
+    	
+    	if(valid){
+	    	
+	    $("input[name=naam]").val($("input[name=NaamBox]").val());
     	$("input[name=tel]").val($("input[name=TelBox]").val());
     	$("input[name=email]").val($("input[name=EmailBox]").val());
     	
     	$('#order').removeClass('nonactive');
     	$('#loginhelp').trigger('reveal:close');
+	    	
+    	}else{
+	    	
+	    	alert("Form is not valid!"); 
+	    	
+    	}
+    	
+    	
     });
    var liid; 
     
@@ -98,7 +130,6 @@ $(document).ready(function() {
 });
 
 function huidigeLocatie(){
-	 
 	 getGPS();
  }
 

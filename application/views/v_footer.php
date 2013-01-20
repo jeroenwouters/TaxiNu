@@ -31,10 +31,12 @@
   <p><img src="<?php echo base_url();?>images/fbnl.png" id="facebooklogin"></p></br></br></br></br>
   <p class="lead">Geen Facebook account?</p>
   <p>Met de volgende gegevens zijn we tevreden!</p>
-  <input type="text" name="NaamBox" placeholder="Naam">
-  <input type="text" name="TelBox" placeholder="Telefoonnummer">
-  <input type="text" name="EmailBox" placeholder="E-mail">
-  <button class="thoughtbot" type="submit" id="verder">Verder</button>
+  <form id="form1" method="post" action=""> 
+  	<input type="text" name="NaamBox" placeholder="Naam">
+  	<input type="text" name="TelBox" placeholder="Telefoonnummer">
+  	<input type="text" name="EmailBox" placeholder="E-mail">
+  	<button class="thoughtbot" type="submit" id="verder">Verder</button>
+  </form>
   <a class="close-reveal-modal">×</a>
 </div>
 <div class="reveal-modal-bg" style="opacity: 0.8; display: none; cursor: pointer;"></div>
@@ -80,6 +82,7 @@
   <script src="<?php echo base_url();?>javascripts/app.js"></script>
   <script src="<?php echo base_url();?>javascripts/jquery.js"></script>
   <script type="text/javascript" src="http://code.jquery.com/ui/1.9.1/jquery-ui.min.js"></script>
+  <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.10.0/jquery.validate.js"></script>
   <script src="<?php echo base_url();?>javascripts/timepicker.js"></script>
   <script src="<?php echo base_url();?>javascripts/jquery.foundation.reveal.js"></script>
   <?php if($this->uri->segment(2) == 'detail'){?>

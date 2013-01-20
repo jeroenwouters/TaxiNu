@@ -23,6 +23,7 @@
   <link rel="stylesheet" href="<?php echo base_url();?>stylesheets/app.css">
    <link rel="stylesheet/less" type="text/css" href="<?php echo base_url();?>stylesheets/styles.less">
    <link rel="stylesheet" media="all" type="text/css" href="http://code.jquery.com/ui/1.9.1/themes/smoothness/jquery-ui.css" />
+   
     
   <script src="<?php echo base_url();?>javascripts/less.js" type="text/javascript"></script>
   <script src="<?php echo base_url();?>javascripts/modernizr.foundation.js"></script>
