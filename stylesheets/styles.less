@@ -17,6 +17,11 @@ html, body{
     color: #FFF;
 }
 
+*{
+	overflow: inherit;
+	
+}
+
 h1{
 	font-size: 30px;
 	font-style: normal !important;
@@ -73,8 +78,11 @@ header{
 	.search{
 		width: 98%;
 		margin-top: 22%;
-		margin-left: 7%;
+		margin-left: 2%;
 		
+		img{
+			visibility: hidden;
+		}
 	}
 }
 
@@ -212,6 +220,11 @@ button.thoughtbot {
 @media only screen
 and (max-width: 480px){
 	
+	body{
+		height: 300px;
+		
+	}
+	
 	#titel{
 		position: absolute;
 		visibility: hidden;
@@ -220,9 +233,18 @@ and (max-width: 480px){
 	
 	.search{
 		position: absolute; 
-		top: 0;
-		margin-left: 100px !important;
+		top: -50px;
+		left: 38px;	
+		margin-top: 10px;
+		overflow: visible;
 		
+		#logophone{
+			
+			visibility: visible;
+			margin-bottom: 20px;
+			margin-left: -10px;
+			
+		}
 	}
 	
 	.nav{
@@ -233,7 +255,64 @@ and (max-width: 480px){
 	button.thoughtbot {
 		float: left;
 		clear: left;
-  }
+	}
+	
+	header{
+		overflow: hidden;
+	}
+	
+	footer{
+		visibility: hidden;
+		height: 1px;
+		overflow: hidden;
+		
+	}
+	
+	h1{
+		font-size: 1.3em !important;
+		font-weight: bold;
+		
+	}
+	
+	.ad{
+	margin-top: 0px !important;
+	margin-bottom: 0px !important;
+	padding-left: 0px !important;
+	margin-left: -30px;
+	overflow: hidden;
+	height: 240px;	
+	
+		li{
+		font-size: 1.2em;
+		list-style-type: square !important;
+		}
+		
+		img{
+		width: 250px;
+		}
+	}
+	
+	.maps{
+		margin: 0 !important; 
+		visibility: hidden;
+		height: 0px;
+		overflow: hidden;
+	}
+	
+	#map_canvas{
+		height: 0px;
+		margin: 0 !important; 
+		visibility: hidden;
+		overflow: hidden;	
+	}
+	.detail{
+		margin-top: 0 !important;
+	}
+	
+	#order{
+		margin-left: 0px !important;	
+	}
+
 	
 }
 
@@ -253,6 +332,7 @@ and (max-width: 480px){
 	margin-bottom: 30px !important;
 	padding-left: 30px !important;
 	overflow: hidden;
+	
 }
 
 #mobiles{
@@ -308,11 +388,11 @@ and (max-width: 480px){
 }
 
 #help{
-	margin-top: -50px;
+	margin-top: -70px;
 }
 
 #order{
-	margin-left: 230px !important;
+	margin-left: 230px;
 	
 }
 

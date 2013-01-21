@@ -1,5 +1,21 @@
 $(document).ready(function() {
-    $('#timedate').datetimepicker();
+    
+    
+
+	  enquire.register("screen and (min-width: 500px)", function() {
+
+          ///slideshow code here
+          $('#timedate').datetimepicker();
+
+      }).listen();
+      
+      enquire.register("screen and (max-width: 500px)", function() {
+
+          ///slideshow code here
+          $('.errors').remove();
+
+      }).listen();
+    
 	
 	var user_input1 = document.getElementById('address1');
 	var user_input2 = document.getElementById('address2');
@@ -166,3 +182,4 @@ function codeLatLng(lat, lng) {
       }
     });
 }
+
