@@ -6,8 +6,8 @@
 		</div>
 		<div id="welkom">
 				<?php $sessiondata = $this->session->userdata('logged_in');?>
-
-				<p>Welkom --<?php echo $sessiondata['username'];?>--'s dispatcher</p>
+				<input id="hiddenid" hidden="" value="<?php echo $sessiondata['id'];?>"/>
+				<p>Welkom <strong><?php echo $sessiondata['username'];?></strong></p>
 		</div>	
 		<div id="extra_kolom_btn">
 			<p>+</p>
@@ -38,36 +38,7 @@
 			<div class="col" id="col3">
 				<h1>Bevestigd</h1>
 				<ul class="ritten">	
-					<li class="rit" id="4">
-						<img src="<?php echo base_url();?>images/drag.png" class="mark" width="20px">
-						<p class="vertrek">Brasschaat </p>
-						<p class="bestemming">Antwerpen</p>
-						<div class="maps"></div> 
-						<p class="uur">10:14</p>
-						<p class="naamklant">Den Jhon</p>
-						<p class="telklant">0475338844</p>
-						<button class="thoughtbot check">Check</button>
-					</li>
-					<li class="rit" id="5">
-						<img src="<?php echo base_url();?>images/drag.png" class="mark" width="20px">
-						<p class="vertrek">Antwerpen</p>
-						<p class="bestemming">Borgerhout</p>
-						<div class="maps"></div> 
-						<p class="uur">12:12</p>
-						<p class="naamklant">Den Jhon</p>
-						<p class="telklant">0475338844</p>
-						<button class="thoughtbot check">Check</button>
-					</li>
-					<li class="rit" id="6">
-						<img src="<?php echo base_url();?>images/drag.png" class="mark" width="20px">
-						<p class="vertrek">Antwerpen</p>
-						<p class="bestemming">Brussel</p>
-						<div class="maps"></div> 
-						<p class="uur">12:12</p>
-						<p class="naamklant">Den Jhon</p>
-						<p class="telklant">0475338844</p>
-						<button class="thoughtbot check">Check</button>
-					</li>
+					
 				</ul>
 
 			</div>

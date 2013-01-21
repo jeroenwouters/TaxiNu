@@ -9,7 +9,7 @@
 			
 			<div class="seven columns">
 				<div class="detail">
-					<?php echo form_open('home/besteltaxi');?>
+					<?php echo form_open('home/besteltaxi/');?>
 					<input name="adres1" type="text" value="<?php echo $_POST['adres1'];?>" placeholder="Brasschaat" id="address1">
 					<input name="adres2" type="text" value="<?php echo $_POST['adres2'];?>" placeholder="Antwerpen Centrum" id="address2">
 					<input name="tijd" type="text" value="<?php echo $_POST['tijd'];?>" placeholder="12 December 12:12" id="timedate">

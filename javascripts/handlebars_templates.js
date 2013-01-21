@@ -17,6 +17,7 @@ var module_bestelling_template1 =
 <p class="naamklant">{{naam}}</p> \
 <p class="telklant">{{tel}}</p> \
 <p class="personen">{{personen}}</p> \
+<p><input class="wachttijd"> minuten</p> \
 <button class="go thoughtbot">Go!</button>';
 
 var module_bestelling_template2 = 

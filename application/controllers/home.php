@@ -106,12 +106,30 @@ class Home extends CI_Controller {
 		
 		$_POST['id'] = $this->m_bestellingen->insertbestelling($_POST);
 		$data['id'] = $_POST['id'];
-		
+		$_POST['status'] = 1;
 		$this->load->library('pusher');
 		$this->pusher->trigger('admin_all', 'taxi_bestelt', $_POST);
 
 		$this->load->view('v_pending', $data);
 		}
+	}
+	
+	public function bevestig()
+	{
+		$data['Status'] = 3;
+		$this->load->model('m_status');
+		$this->m_status->update($data, $this->uri->segment(4), $this->uri->segment(3));
+		
+		$data2['Afgerond'] = 1;
+		$this->load->model('m_bestellingen');
+		$this->m_bestellingen->update($data2, $this->uri->segment(3));
+		
+		$this->load->library('pusher');
+		$datapush['idbestelling'] = $this->uri->segment(3);
+		$datapush['iduser'] = $this->uri->segment(4);
+		$this->pusher->trigger('admin_all', 'admin_'.$this->uri->segment(4), $this->uri->segment(3));
+		$this->pusher->trigger('admin_all', 'delete', $datapush);
+		echo 'Taxi komt eraan';
 	}
 }
 

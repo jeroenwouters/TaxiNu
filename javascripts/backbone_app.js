@@ -4,7 +4,10 @@
 
 var Bestelling = Backbone.Model.extend({
 	setstatus: function(newstatus){
-		this.set({'status': newstatus});
+		this.set({
+		'status': newstatus,
+		'wachttijd': $('.wachttijd').val()
+		});
 		this.save();
 	}
 });
@@ -44,7 +47,7 @@ var BestellingRevealView = Backbone.View.extend({
 	},
 	
 	render: function(status){
-		if(status == 1){
+		if(status == 1 || status == 3){
 			this.$el.html(this.template1(this.model.toJSON()));
 		}
 		if(status == 2){
@@ -69,8 +72,11 @@ var BestellingListView = Backbone.View.extend({
 	},
 	
 	addOne: function(bestelling){
-		var bestellingView = new BestellingView({model: bestelling});
-		$('#col'+bestelling.get('status')+' ul').append(bestellingView.render().el);
+		console.log(bestelling.get('status'));
+		if(bestelling.get('afgerond') == null || bestelling.get('status') == 3){
+			var bestellingView = new BestellingView({model: bestelling});
+			$('#col'+bestelling.get('status')+' ul').append(bestellingView.render().el);
+		}
 	},
 	
 	addAll: function(){
@@ -118,17 +124,51 @@ WEB_SOCKET_DEBUG = true;
     
     var channel = pusher.subscribe('admin_all');
     channel.bind('taxi_bestelt', function(data) {
-    	//var newbestelling = new Bestelling(data);
-    	//AdminPanel.bestellingList.add(newbestelling);
-    	AdminPanel.bestellingList.fetch();
+    	var newbestelling = new Bestelling(data);
+    	AdminPanel.bestellingList.add(newbestelling);
+    	//AdminPanel.bestellingList.fetch();
     });
     
+    channel.bind('admin_'+$('#hiddenid').val(), function(data) {
+    	$('#'+data).remove();
+    	var modelget = AdminPanel.bestellingList.get(data);
+    	var bestellingView = new BestellingView({model: modelget});
+		$('#col3 ul').append(bestellingView.render(3).el);
+    });
+    
+     channel.bind('delete', function(data) {
+     	if(data.iduser != $('#hiddenid').val()){
+	     	$('#'+data.idbestelling).remove();
+     	}
+     });
 //Document 
 
 $(document).ready(function() {
 	console.log('document ready!');//Alleen Test
 	AdminPanel.start();
 });
+
+    $( "col1 ul" ).droppable({
+            activeClass: "ui-state-default",
+            hoverClass: "ui-state-hover",
+            drop: function( event, ui ) {
+                
+                $( "#"+liid ).appendTo( this );
+               
+                
+    }
+    }).sortable({items: "li"});
+
+    $( "col2 ul" ).droppable({
+            activeClass: "ui-state-default",
+            hoverClass: "ui-state-hover",
+            drop: function( event, ui ) {
+                
+                $( "#"+liid ).appendTo( this );
+               
+                
+    }
+    }).sortable({items: "li"});
 
 
 

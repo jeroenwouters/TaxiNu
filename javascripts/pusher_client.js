@@ -11,6 +11,6 @@
     
     var channel = pusher.subscribe('client');
     channel.bind('client_'+$('#hiddenid').val(), function(data) {
-    	console.log(data);
-    	$('#bedrijven').append('<li><p>'+data+'</p><button class="thoughtbot">Bevestig</button>');
+    	console.log(data.fkUser);
+    	$('#bedrijven').append('<li><p>'+data.Username+'</p><p>Wachttijd: <span class="minutes">'+data.Wachttijd+'</span> min.</p><a href="http://localhost:8888/TaxiNu/home/bevestig/'+data.fkBestelling+'/'+data.fkUser+'"><button class="thoughtbot">Bevestig</button>');
     });
