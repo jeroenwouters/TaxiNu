@@ -31,7 +31,7 @@
   <p><img src="<?php echo base_url();?>images/fbnl.png" id="facebooklogin"></p></br></br></br></br>
   <p class="lead">Geen Facebook account?</p>
   <p>Met de volgende gegevens zijn we tevreden!</p>
-  <form id="form1" method="post" action=""> 
+  <form onsubmit="return false" id="form1"> 
   	<input type="text" name="NaamBox" placeholder="Naam">
   	<input type="text" name="TelBox" placeholder="Telefoonnummer">
   	<input type="text" name="EmailBox" placeholder="E-mail">
