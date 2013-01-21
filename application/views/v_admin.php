@@ -29,16 +29,7 @@
 			<div class="col" id="col2">
 				<h1>In Wacht</h1>
 				<ul class="ritten">	
-					<li class="rit" id="3">
-						<img src="<?php echo base_url();?>images/drag.png" class="mark" width="20px">
-						<p class="vertrek">Brasschaat </p>
-						<p class="bestemming">Antwerpen</p>
-						<div class="maps"></div> 
-						<p class="uur">20:30</p>
-						<p class="naamklant">Den Jhon</p>
-						<p class="telklant">0475338844</p>
-						<button class="thoughtbot check">Check</button>
-					</li>
+					
 				</ul>
 			</div>
 			
@@ -105,7 +96,7 @@
 						<p class="naamklant">Naam klant:</p>
 						<p class="telklant">Telefoonnr.:</p>
 						<p class="Personen">Personen:</p>
-						<button class="thoughtbot">Go!</button>
+						
 			  </div>
 			  
 			  <div class="inforit">

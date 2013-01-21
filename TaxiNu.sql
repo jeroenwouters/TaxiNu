@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Machine: localhost
--- Genereertijd: 21 jan 2013 om 11:00
+-- Genereertijd: 21 jan 2013 om 13:02
 -- Serverversie: 5.5.25
 -- PHP-versie: 5.4.4
 
@@ -32,19 +32,20 @@ CREATE TABLE `tblBestellingen` (
   `Adres2` varchar(99) NOT NULL,
   `Tijd` datetime NOT NULL,
   `Personen` int(9) NOT NULL,
-  `Status` int(1) NOT NULL,
+  `Status` int(1) NOT NULL DEFAULT '1',
   `Naam` varchar(99) DEFAULT NULL,
   `Email` varchar(99) DEFAULT NULL,
   `Tel` int(15) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=74 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=75 ;
 
 --
 -- Gegevens worden uitgevoerd voor tabel `tblBestellingen`
 --
 
 INSERT INTO `tblBestellingen` (`id`, `Adres1`, `Adres2`, `Tijd`, `Personen`, `Status`, `Naam`, `Email`, `Tel`) VALUES
-(73, 'Fortsebaan 28-64, 2930 Brasschaat, België', 'Bierwertslei, Brasschaat, België', '2013-01-20 16:18:00', 2, 0, 'jeroen', 'jeroen.wou@gmail.com', 498845545);
+(73, 'Fortsebaan 28-64, 2930 Brasschaat, België', 'Bierwertslei, Brasschaat, België', '2013-01-20 16:18:00', 2, 1, 'jeroen', 'jeroen.wou@gmail.com', 498845545),
+(74, 'Boskapellei 2-42, 2930 Brasschaat, België', 'Fortsebaan 38, Brasschaat, België', '2013-01-21 11:33:00', 5, 1, 'jeroen', 'jeroen.wou@gmail.com', 498845545);
 
 -- --------------------------------------------------------
 

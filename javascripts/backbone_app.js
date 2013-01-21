@@ -2,7 +2,12 @@
 
 //Models
 
-var Bestelling = Backbone.Model.extend({});
+var Bestelling = Backbone.Model.extend({
+	setstatus: function(newstatus){
+		this.set({'status': newstatus});
+		this.save();
+	}
+});
 
 var BestellingList = Backbone.Collection.extend({
 	model: Bestelling,
@@ -11,13 +16,50 @@ var BestellingList = Backbone.Collection.extend({
 
 //Views
 var BestellingView = Backbone.View.extend({
-  //template: _.template('<li class="rit" id="<%= id %>"><img src="http://localhost:8888/TaxiNu/images/drag.png" class="mark" width="20px"><p class="vertrek"><%= adres1 %></p><p class="bestemming"><%= adres2 %></p><div class="maps"></div><p class="uur"><%= tijd %></p><p class="naamklant">Den Jhon</p><p class="telklant">0475338844</p><button class="thoughtbot check">Check</button></li>'),
   template: Handlebars.compile(bestelling_tempalte),
+  
+  events: {
+	  "click button" : "showmodule", 
+  },
   
   render: function(){
     this.$el.html(this.template(this.model.toJSON()));
     return this;
+  },
+  
+  showmodule: function(){
+  	  var bestellingRevealView = new BestellingRevealView({model: this.model});
+	  $('#checkmodal').reveal();
+	  $('#checkmodal .inforit').html(bestellingRevealView.render(this.model.get('status')).el);
+	  //$('#checkmodal .go').click(;
   }
+});
+
+var BestellingRevealView = Backbone.View.extend({
+	template1: Handlebars.compile(module_bestelling_template1),
+	template2: Handlebars.compile(module_bestelling_template2),
+	
+	events: {
+		"click button" : "go",
+	},
+	
+	render: function(status){
+		if(status == 1){
+			this.$el.html(this.template1(this.model.toJSON()));
+		}
+		if(status == 2){
+			this.$el.html(this.template2(this.model.toJSON()));
+		}
+		return this;
+	},
+	
+	go: function(){
+		this.model.setstatus(2);
+		$('#'+this.model.get('id')).remove();
+		$('#checkmodal').trigger('reveal:close');
+		var bestellingView = new BestellingView({model: this.model});
+		$('#col'+this.model.get('status')+' ul').append(bestellingView.render(this.model.get('status')).el);
+	}
 });
 
 var BestellingListView = Backbone.View.extend({
@@ -28,7 +70,7 @@ var BestellingListView = Backbone.View.extend({
 	
 	addOne: function(bestelling){
 		var bestellingView = new BestellingView({model: bestelling});
-		this.$el.append(bestellingView.render().el);
+		$('#col'+bestelling.get('status')+' ul').append(bestellingView.render().el);
 	},
 	
 	addAll: function(){
@@ -48,7 +90,7 @@ var AdminPanel = new (Backbone.Router.extend({
 	initialize: function(){
 		this.bestellingList = new BestellingList();
 		this.bestellingListView = new BestellingListView({collection: this.bestellingList});
-		$('#col1 ul').append(this.bestellingListView.el);
+		//$('#col1 ul').append(this.bestellingListView.el);
 	},
 	start: function(){
 		Backbone.history.start({pushState: true});
