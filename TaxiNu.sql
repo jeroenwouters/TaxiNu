@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Machine: localhost
--- Genereertijd: 20 jan 2013 om 15:19
+-- Genereertijd: 21 jan 2013 om 11:00
 -- Serverversie: 5.5.25
 -- PHP-versie: 5.4.4
 
@@ -33,17 +33,18 @@ CREATE TABLE `tblBestellingen` (
   `Tijd` datetime NOT NULL,
   `Personen` int(9) NOT NULL,
   `Status` int(1) NOT NULL,
+  `Naam` varchar(99) DEFAULT NULL,
+  `Email` varchar(99) DEFAULT NULL,
+  `Tel` int(15) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=73 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=74 ;
 
 --
 -- Gegevens worden uitgevoerd voor tabel `tblBestellingen`
 --
 
-INSERT INTO `tblBestellingen` (`id`, `Adres1`, `Adres2`, `Tijd`, `Personen`, `Status`) VALUES
-(35, 'Fortsebaan 38, 2930 Brasschaat', 'Meir, Antwerpen', '2013-01-07 15:22:00', 5, 0),
-(71, 'Fortsebaan, Brasschaat, België', 'Bierwertslei, Brasschaat, België', '2013-01-19 20:46:00', 2, 0),
-(72, 'Fortsebaan 28-64, 2930 Brasschaat, België', 'Bierwertslei 3, Brasschaat, België', '2013-01-20 13:11:00', 5, 0);
+INSERT INTO `tblBestellingen` (`id`, `Adres1`, `Adres2`, `Tijd`, `Personen`, `Status`, `Naam`, `Email`, `Tel`) VALUES
+(73, 'Fortsebaan 28-64, 2930 Brasschaat, België', 'Bierwertslei, Brasschaat, België', '2013-01-20 16:18:00', 2, 0, 'jeroen', 'jeroen.wou@gmail.com', 498845545);
 
 -- --------------------------------------------------------
 
