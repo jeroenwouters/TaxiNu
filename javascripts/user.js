@@ -27,7 +27,8 @@ $(document).ready(function() {
 	//Zodat die mee worden gestuurd met de rest van de info in de POST.         
     $('#form1').validate({
 	    rules: { 
-		    NaamBox: "required",    
+		    NaamBox: {required: true,
+			          minlength: 3},    
 		    TelBox: {
 			required: true, 
 			digits: true},
@@ -56,6 +57,7 @@ $(document).ready(function() {
     	
     	$('#order').removeClass('nonactive');
     	$('#loginhelp').trigger('reveal:close');
+    	$('#help').html("Info"); 
 	    	
     	}else{
 	    	
@@ -120,6 +122,7 @@ $(document).ready(function() {
     	$('#checkmodal .inforit').html(info);
     	$('#checkmodal .inforit .check').remove();
     	$('#checkmodal .inforit .mark').remove(); 
+    	
     
     }); 
     
