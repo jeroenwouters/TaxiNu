@@ -27,25 +27,10 @@
 					<input type="hidden" id="hiddenid" name="id" value="<?php echo $id;?>"/>
 					<h3>Bevestigd</h3>
 					<ul id="bedrijven">
-						<li>
-							<p>DTM TAXI</p>
-							<p>Wachttijd: <span class="minutes">10</span> min.</p>
-							<button class="thoughtbot">Bevestig</button>
-						</li>
-						<li>
-							<p>Antwerp TAXI</p>
-							<p>Wachttijd: <span class="minutes">15</span> min.</p>
-							<button class="thoughtbot">Bevestig</button>
-						</li>
+						
 					</ul>
 				<br>
 				<br>
-				<table id="taxibestellingen" style="clear: left;">
-					<tr>
-						<th>Bedrijven</th>
-						<th>Bevestig</th>
-					</tr>
-				</table>
 				</div>
 			</div>
 		</div>

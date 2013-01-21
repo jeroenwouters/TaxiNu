@@ -42,6 +42,12 @@ class Api extends REST_Controller
     	$id = $data['id'];
 	    $this->load->model('m_bestellingen');
 	    $this->m_bestellingen->update($data, $id);
+	    if($data['status'] == 2){
+		    $this->load->library('pusher');
+		    $sessiondata = $this->session->userdata('logged_in');
+		    $databedrijf = $sessiondata['username'];
+		    $this->pusher->trigger('client', 'client_'.$id, $databedrijf);
+	    }
     } 	
     
     function bestelling_post()

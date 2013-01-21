@@ -5,7 +5,9 @@
 			<img src="<?php echo base_url();?>images/settings.png">
 		</div>
 		<div id="welkom">
-				<p>Welkom --bedrijf--'s dispatcher</p>
+				<?php $sessiondata = $this->session->userdata('logged_in');?>
+
+				<p>Welkom --<?php echo $sessiondata['username'];?>--'s dispatcher</p>
 		</div>	
 		<div id="extra_kolom_btn">
 			<p>+</p>

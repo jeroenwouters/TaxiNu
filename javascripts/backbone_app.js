@@ -118,8 +118,9 @@ WEB_SOCKET_DEBUG = true;
     
     var channel = pusher.subscribe('admin_all');
     channel.bind('taxi_bestelt', function(data) {
-    	var newbestelling = new Bestelling(data);
-    	AdminPanel.bestellingList.add(newbestelling);
+    	//var newbestelling = new Bestelling(data);
+    	//AdminPanel.bestellingList.add(newbestelling);
+    	AdminPanel.bestellingList.fetch();
     });
     
 //Document 

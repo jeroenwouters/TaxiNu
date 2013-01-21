@@ -20,5 +20,12 @@ Class M_users extends CI_Model
      return false;
    }
  }
+ 
+ function getuser(){
+ 	 $sessiondata = $this->session->userdata('logged_in');
+	 $this->db->where('pkUsers', $sessiondata['id']);
+	 $query = $this->db->get('tblUsers');
+	 return($query);
+ }
 }
 ?>

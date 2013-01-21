@@ -60,17 +60,7 @@ class Admin extends CI_Controller {
    session_destroy();
    redirect('admin', 'refresh');
    }
-   
-   function bevestigtaxi()
-   {	
-   		$session_data = $this->session->userdata('logged_in');
-   		$data['bedrijf'] = $session_data['username'];
-   		
-   		$this->load->library('pusher');
-	   $this->pusher->trigger('client', 'client_'.$this->uri->segment(3), $data );
-	   
-	   redirect('admin'); 
-   }
+  
    
 
 	

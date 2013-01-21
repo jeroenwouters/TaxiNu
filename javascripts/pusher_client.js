@@ -11,5 +11,6 @@
     
     var channel = pusher.subscribe('client');
     channel.bind('client_'+$('#hiddenid').val(), function(data) {
-     	$('#taxibestellingen tr:last').after('<tr><td>'+data.bedrijf+'</td>/tr>');
+    	console.log(data);
+    	$('#bedrijven').append('<li><p>'+data+'</p><button class="thoughtbot">Bevestig</button>');
     });
