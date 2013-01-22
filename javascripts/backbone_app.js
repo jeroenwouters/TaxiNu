@@ -171,4 +171,16 @@ $(document).ready(function() {
     }).sortable({items: "li"});
 
 
+$("#extra_kolom_btn p").click(function(){
+	    
+	    var naamkolom = $('#nieuw_kolom').val(); 
+	    var kolomhtml = $('<div class="col" class="new"><h1>'+ naamkolom +'</h1><ul class="ritten"></ul></div>');
+	    
+	    console.log(naamkolom);
+	    $(".wrapper").append(kolomhtml);   
+	    
+    });
 
+ $("#settings").click(function() {
+      $("#settings_modal").reveal();
+    });
