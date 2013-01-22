@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Machine: localhost
--- Genereertijd: 21 jan 2013 om 13:02
+-- Genereertijd: 22 jan 2013 om 12:21
 -- Serverversie: 5.5.25
 -- PHP-versie: 5.4.4
 
@@ -32,20 +32,42 @@ CREATE TABLE `tblBestellingen` (
   `Adres2` varchar(99) NOT NULL,
   `Tijd` datetime NOT NULL,
   `Personen` int(9) NOT NULL,
-  `Status` int(1) NOT NULL DEFAULT '1',
   `Naam` varchar(99) DEFAULT NULL,
   `Email` varchar(99) DEFAULT NULL,
   `Tel` int(15) DEFAULT NULL,
+  `Afgerond` int(1) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=75 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=130 ;
 
 --
 -- Gegevens worden uitgevoerd voor tabel `tblBestellingen`
 --
 
-INSERT INTO `tblBestellingen` (`id`, `Adres1`, `Adres2`, `Tijd`, `Personen`, `Status`, `Naam`, `Email`, `Tel`) VALUES
-(73, 'Fortsebaan 28-64, 2930 Brasschaat, België', 'Bierwertslei, Brasschaat, België', '2013-01-20 16:18:00', 2, 1, 'jeroen', 'jeroen.wou@gmail.com', 498845545),
-(74, 'Boskapellei 2-42, 2930 Brasschaat, België', 'Fortsebaan 38, Brasschaat, België', '2013-01-21 11:33:00', 5, 1, 'jeroen', 'jeroen.wou@gmail.com', 498845545);
+INSERT INTO `tblBestellingen` (`id`, `Adres1`, `Adres2`, `Tijd`, `Personen`, `Naam`, `Email`, `Tel`, `Afgerond`) VALUES
+(128, 'Fortsebaan 28-64, 2930 Brasschaat, België', 'Bierwertslei, Brasschaat, België', '2013-01-21 20:56:00', 5, 'Jeroen', 'jeroen.wou@gmail.com', 498845545, 1),
+(129, 'Fortsebaan 28-64, 2930 Brasschaat, België', 'Bierwertslei, Brasschaat, België', '2013-01-21 20:56:00', 5, 'Jeroen', 'jeroen.wou@gmail.com', 498845545, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Tabelstructuur voor tabel `tblStatus`
+--
+
+CREATE TABLE `tblStatus` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `fkBestelling` int(11) DEFAULT NULL,
+  `fkUser` int(11) DEFAULT NULL,
+  `Status` int(11) DEFAULT '1',
+  `Wachttijd` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=136 ;
+
+--
+-- Gegevens worden uitgevoerd voor tabel `tblStatus`
+--
+
+INSERT INTO `tblStatus` (`id`, `fkBestelling`, `fkUser`, `Status`, `Wachttijd`) VALUES
+(135, 128, 1, 3, 4);
 
 -- --------------------------------------------------------
 
@@ -57,6 +79,7 @@ CREATE TABLE `tblUsers` (
   `pkUsers` int(99) NOT NULL AUTO_INCREMENT,
   `Username` varchar(99) NOT NULL,
   `Pass` varchar(99) NOT NULL,
+  `Naam` int(11) DEFAULT NULL,
   PRIMARY KEY (`pkUsers`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
@@ -64,9 +87,9 @@ CREATE TABLE `tblUsers` (
 -- Gegevens worden uitgevoerd voor tabel `tblUsers`
 --
 
-INSERT INTO `tblUsers` (`pkUsers`, `Username`, `Pass`) VALUES
-(1, 'admin', '21232f297a57a5a743894a0e4a801fc3'),
-(2, 'admin2', 'c84258e9c39059a89ab77d846ddab909');
+INSERT INTO `tblUsers` (`pkUsers`, `Username`, `Pass`, `Naam`) VALUES
+(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 0),
+(2, 'admin2', 'c84258e9c39059a89ab77d846ddab909', 0);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
