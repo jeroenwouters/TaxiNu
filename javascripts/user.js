@@ -29,10 +29,7 @@ $(document).ready(function() {
 	$("#help").click(function() {
       $("#loginhelp").reveal();
     });
-    
-    $("#settings").click(function() {
-      $("#settings_modal").reveal();
-    });
+ 
     /*
     $('#facebooklogin').click(function(){
 	    console.log('test');
@@ -83,65 +80,8 @@ $(document).ready(function() {
     	
     	
     });
-   var liid; 
-    
-    $("li").mousedown(function(){
-	   liid = $(this).attr('id');
-	   console.log("click"); 
-    });
-    
-    $("#extra_kolom_btn p").click(function(){
-	    
-	    var naamkolom = $('#nieuw_kolom').val(); 
-	    var kolomhtml = $('<div class="col" class="new"><h1>'+ naamkolom +'</h1><ul class="ritten"></ul></div>');
-	    
-	    console.log(naamkolom);
-	    $(".wrapper").append(kolomhtml);   
-	    
-    });
-
-    
-    $( "li" ).draggable({
-            helper: "clone",
-            revert: "invalid",
-            cursor: "move",
-            
-             start: function(e, ui)
-             {
-	             $(ui.helper).addClass("ui-draggable-helper");
-	             $(this).hide();
-	         },
-	         stop: function(e, ui)
-             {
-	             $(this).show();
-	         }
-        });
-    
-    $( "ul" ).droppable({
-            activeClass: "ui-state-default",
-            hoverClass: "ui-state-hover",
-            drop: function( event, ui ) {
-                
-                $( "#"+liid ).appendTo( this );
-               
-                
-            }
-    }).sortable({items: "li"});
-    
-    $(".check").click(function(){
-    	$('#checkmodal').reveal();
-    	id = $(this).parent().attr('id'); 
-    	
-    	var info = $('#'+id).html();
-    	console.log(info); 
-    	
-    	$('#checkmodal .inforit').html(info);
-    	$('#checkmodal .inforit .check').remove();
-    	$('#checkmodal .inforit .mark').remove(); 
-    	
-    
-    }); 
-    
+      
+      
     $("#location").click(function(){huidigeLocatie();});
     
     
