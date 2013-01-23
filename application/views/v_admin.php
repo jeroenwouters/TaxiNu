@@ -86,7 +86,7 @@
 			  
 			  <p class="lead">Instellingen</p>
 			  
-			  <button class="thoughtbot" id="loguit">Uitloggen</button>
+			  <a href="<?php echo base_url();?>admin/logout"><button class="thoughtbot" id="loguit">Uitloggen</button></a>
 			 			  
 			  
 			  
