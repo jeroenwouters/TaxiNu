@@ -35,7 +35,7 @@
 				</ul>
 			</div>
 			
-			<div class="col" id="col3">
+			<div class="col new" id="col3">
 				<h1>Bevestigd</h1>
 				<ul class="ritten">	
 					
@@ -43,13 +43,13 @@
 
 			</div>
 			
-			<div class="col" id="col4">
+			<div class="col new" id="col4">
 				<h1>Taxi 1</h1>
 				<ul class="ritten">
 				</ul>
 			</div>
 			
-			<div class="col" id="col5">
+			<div class="col new" id="col5">
 				<h1>Taxi 2 </h1>
 				<ul class="ritten">
 				</ul>

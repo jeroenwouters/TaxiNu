@@ -1,5 +1,4 @@
 //Backbone.emulateHTTP = true
-
 //Models
 
 var Bestelling = Backbone.Model.extend({
@@ -20,13 +19,18 @@ var BestellingList = Backbone.Collection.extend({
 //Views
 var BestellingView = Backbone.View.extend({
   template: Handlebars.compile(bestelling_tempalte),
+  template2: Handlebars.compile(bestelling_tempalte2),
   
   events: {
 	  "click button" : "showmodule", 
   },
   
-  render: function(){
-    this.$el.html(this.template(this.model.toJSON()));
+  render: function(status){
+  	if(status == 3){
+	  	this.$el.html(this.template2(this.model.toJSON()));
+  	}else{
+    	this.$el.html(this.template(this.model.toJSON()));
+    }
     return this;
   },
   
@@ -75,7 +79,8 @@ var BestellingListView = Backbone.View.extend({
 		console.log(bestelling.get('status'));
 		if(bestelling.get('afgerond') == null || bestelling.get('status') == 3){
 			var bestellingView = new BestellingView({model: bestelling});
-			$('#col'+bestelling.get('status')+' ul').append(bestellingView.render().el);
+			$('#col'+bestelling.get('status')+' ul').append(bestellingView.render(bestelling.get('status')).el);
+			col3drag();
 		}
 	},
 	
@@ -134,53 +139,69 @@ WEB_SOCKET_DEBUG = true;
     	var modelget = AdminPanel.bestellingList.get(data);
     	var bestellingView = new BestellingView({model: modelget});
 		$('#col3 ul').append(bestellingView.render(3).el);
-    });
+		col3drag();
+	});
     
      channel.bind('delete', function(data) {
      	if(data.iduser != $('#hiddenid').val()){
 	     	$('#'+data.idbestelling).remove();
      	}
      });
+  
+    
 //Document 
-
 $(document).ready(function() {
 	console.log('document ready!');//Alleen Test
 	AdminPanel.start();
-});
-
-    $( "col1 ul" ).droppable({
-            activeClass: "ui-state-default",
-            hoverClass: "ui-state-hover",
-            drop: function( event, ui ) {
-                
-                $( "#"+liid ).appendTo( this );
-               
-                
-    }
-    }).sortable({items: "li"});
-
-    $( "col2 ul" ).droppable({
-            activeClass: "ui-state-default",
-            hoverClass: "ui-state-hover",
-            drop: function( event, ui ) {
-                
-                $( "#"+liid ).appendTo( this );
-               
-                
-    }
-    }).sortable({items: "li"});
-
+ });
 
 $("#extra_kolom_btn p").click(function(){
 	    
 	    var naamkolom = $('#nieuw_kolom').val(); 
-	    var kolomhtml = $('<div class="col" class="new"><h1>'+ naamkolom +'</h1><ul class="ritten"></ul></div>');
+	    var kolomhtml = $('<div class="col new"><h1>'+ naamkolom +'</h1><ul class="ritten"></ul></div>');
 	    
 	    console.log(naamkolom);
 	    $(".wrapper").append(kolomhtml);   
-	    
+	    col3drag();
     });
 
  $("#settings").click(function() {
       $("#settings_modal").reveal();
     });
+ 
+
+var liid; 
+    
+function col3drag(){
+	$("#col3 li").mousedown(function(){
+	   liid = $(this).attr('id');
+	   console.log("click"); 
+    });
+    
+    $( "#col3 li" ).draggable({
+            helper: "clone",
+            revert: "invalid",
+            cursor: "move",
+            
+             start: function(e, ui)
+             {
+	             $(ui.helper).addClass("ui-draggable-helper");
+	             $(this).hide();
+	         },
+	         stop: function(e, ui)
+             {
+	             $(this).show();
+	         }
+        });
+        
+        $( ".new ul" ).droppable({
+            activeClass: "ui-state-default",
+            hoverClass: "ui-state-hover",
+            drop: function( event, ui ) {
+                
+                $( "#"+liid ).appendTo( this );
+               
+                
+            }
+       }).sortable({items: "li"});
+}
