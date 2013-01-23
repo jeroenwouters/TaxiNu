@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Machine: localhost
--- Genereertijd: 22 jan 2013 om 12:21
+-- Genereertijd: 23 jan 2013 om 13:08
 -- Serverversie: 5.5.25
 -- PHP-versie: 5.4.4
 
@@ -37,15 +37,14 @@ CREATE TABLE `tblBestellingen` (
   `Tel` int(15) DEFAULT NULL,
   `Afgerond` int(1) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=130 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=138 ;
 
 --
 -- Gegevens worden uitgevoerd voor tabel `tblBestellingen`
 --
 
 INSERT INTO `tblBestellingen` (`id`, `Adres1`, `Adres2`, `Tijd`, `Personen`, `Naam`, `Email`, `Tel`, `Afgerond`) VALUES
-(128, 'Fortsebaan 28-64, 2930 Brasschaat, België', 'Bierwertslei, Brasschaat, België', '2013-01-21 20:56:00', 5, 'Jeroen', 'jeroen.wou@gmail.com', 498845545, 1),
-(129, 'Fortsebaan 28-64, 2930 Brasschaat, België', 'Bierwertslei, Brasschaat, België', '2013-01-21 20:56:00', 5, 'Jeroen', 'jeroen.wou@gmail.com', 498845545, NULL);
+(137, 'Fortsebaan 28-64, 2930 Brasschaat, België', 'Bierwertslei, Brasschaat, België', '0000-00-00 00:00:00', 3, 'Jeroen', 'jeroen.wou@gmail.com', 498845545, 1);
 
 -- --------------------------------------------------------
 
@@ -60,14 +59,14 @@ CREATE TABLE `tblStatus` (
   `Status` int(11) DEFAULT '1',
   `Wachttijd` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=136 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=144 ;
 
 --
 -- Gegevens worden uitgevoerd voor tabel `tblStatus`
 --
 
 INSERT INTO `tblStatus` (`id`, `fkBestelling`, `fkUser`, `Status`, `Wachttijd`) VALUES
-(135, 128, 1, 3, 4);
+(143, 137, 1, 3, 3);
 
 -- --------------------------------------------------------
 
@@ -88,8 +87,8 @@ CREATE TABLE `tblUsers` (
 --
 
 INSERT INTO `tblUsers` (`pkUsers`, `Username`, `Pass`, `Naam`) VALUES
-(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 0),
-(2, 'admin2', 'c84258e9c39059a89ab77d846ddab909', 0);
+(1, 'AntwerpTax', '21232f297a57a5a743894a0e4a801fc3', 0),
+(2, 'DtmTaxi', 'c84258e9c39059a89ab77d846ddab909', 0);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

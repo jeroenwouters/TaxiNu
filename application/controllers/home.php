@@ -109,8 +109,11 @@ class Home extends CI_Controller {
 		$_POST['status'] = 1;
 		$this->load->library('pusher');
 		$this->pusher->trigger('admin_all', 'taxi_bestelt', $_POST);
-
+		
+		$this->load->view('v_head');
 		$this->load->view('v_pending', $data);
+		$this->load->view('v_info');
+		$this->load->view('v_footer');
 		}
 	}
 	
@@ -129,7 +132,11 @@ class Home extends CI_Controller {
 		$datapush['iduser'] = $this->uri->segment(4);
 		$this->pusher->trigger('admin_all', 'admin_'.$this->uri->segment(4), $this->uri->segment(3));
 		$this->pusher->trigger('admin_all', 'delete', $datapush);
-		echo 'Taxi komt eraan';
+		
+		$this->load->view('v_head');
+		$this->load->view('v_taxibesteld');
+		$this->load->view('v_info');
+		$this->load->view('v_footer');
 	}
 }
 
