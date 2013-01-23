@@ -17,7 +17,7 @@
 					 <input type="hidden" name="naam">
 					 <input type="hidden" name="tel">
 					 <input type="hidden" name="email">
-					<button type="submit" class="thoughtbot nonactive" id="order">Bevestigen.</button>
+					<button type="submit" class="thoughtbot nonactive" id="order" disabled="disabled">Bevestigen.</button>
 					<?php echo form_close();?>
 					<button class="thoughtbot" id="help">Login</button>
 					<div class="errors" id="line">

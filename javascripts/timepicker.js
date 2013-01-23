@@ -40,18 +40,19 @@
 	function Timepicker() {
 		this.regional = []; // Available regional settings, indexed by language code
 		this.regional[''] = { // Default regional settings
-			currentText: 'Now',
-			closeText: 'Done',
+			currentText: 'Nu',
+			closeText: 'Klaar',
 			amNames: ['AM', 'A'],
 			pmNames: ['PM', 'P'],
 			timeFormat: 'HH:mm',
+			dateFormat: 'dd/mm/yy',
 			timeSuffix: '',
-			timeOnlyTitle: 'Choose Time',
-			timeText: 'Time',
-			hourText: 'Hour',
-			minuteText: 'Minute',
-			secondText: 'Second',
-			millisecText: 'Millisecond',
+			timeOnlyTitle: 'Kies uur',
+			timeText: 'Tijd',
+			hourText: 'Uur',
+			minuteText: 'Min.',
+			secondText: 'Sec.',
+			millisecText: 'Milliseconden',
 			timezoneText: 'Time Zone',
 			isRTL: false
 		};
