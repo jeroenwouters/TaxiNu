@@ -58,7 +58,7 @@
 			
 		</div>
 		
-		<div id="checkmodal" class="reveal-modal large" style="background-color: black; color: white;">
+		<div id="checkmodal" class="reveal-modal xlarge" style="background-color: black; color: white;">
 			  <div class="mapsmodal"></div>
 			  <p class="lead">Gegevens rit</p>
 			  
@@ -86,6 +86,7 @@
 			  
 			  <p class="lead">Instellingen</p>
 			  
+			  <button class="thoughtbot" id="loguit">Uitloggen</button>
 			 			  
 			  
 			  

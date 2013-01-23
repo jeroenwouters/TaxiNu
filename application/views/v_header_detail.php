@@ -8,6 +8,9 @@
 			</div>
 			
 			<div class="seven columns">
+				<div class="errors" id="line">
+						<?php echo validation_errors();?>
+					</div>
 				<div class="detail">
 					<?php echo form_open('home/besteltaxi/');?>
 					<input name="adres1" type="text" value="<?php echo $_POST['adres1'];?>" placeholder="Brasschaat" id="address1">
@@ -20,9 +23,7 @@
 					<button type="submit" class="thoughtbot nonactive" id="order" disabled="disabled">Bevestigen.</button>
 					<?php echo form_close();?>
 					<button class="thoughtbot" id="help">Login</button>
-					<div class="errors" id="line">
-						<?php echo validation_errors();?>
-					</div>
+				
 				</div>
 			</div>
 			
