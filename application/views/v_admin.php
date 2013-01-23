@@ -69,6 +69,7 @@
 						<p class="naamklant">Naam klant:</p>
 						<p class="telklant">Telefoonnr.:</p>
 						<p class="Personen">Personen:</p>
+						<p class="Wachttijd">Wachttijd:</p>
 						
 			  </div>
 			  
