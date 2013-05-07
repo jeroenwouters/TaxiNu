@@ -99,7 +99,7 @@ class Home extends CI_Controller {
 			$this->load->view('v_footer');
 		}else{
 		$tijd = $_POST['tijd'];
-		$_POST['tijd'] = substr($tijd, 6, 4).'-'.substr($tijd, 0, 2).'-'.substr($tijd, 3, 2).' '.substr($tijd, 11, 5);
+		$_POST['tijd'] = substr($tijd, 6, 4).'-'.substr($tijd, 3, 2).'-'.substr($tijd, 0, 2).' '.substr($tijd, 11, 5);
 		
 		$this->load->model('m_bestellingen');
 		
