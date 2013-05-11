@@ -21,7 +21,7 @@ class Home extends CI_Controller {
 	{
 		$this->load->view('v_head');
 		$this->load->view('v_header_home');
-		$this->load->view('v_info');
+		//$this->load->view('v_info');
 		$this->load->view('v_footer');
 	}
 	
@@ -54,7 +54,7 @@ class Home extends CI_Controller {
 		}else{			
 			$this->load->view('v_head');
 			$this->load->view('v_header_detail', $_POST);
-			$this->load->view('v_info');
+			//$this->load->view('v_info');
 			$this->load->view('v_footer');
 		}
 		
@@ -95,7 +95,7 @@ class Home extends CI_Controller {
 			
 			$this->load->view('v_head');
 			$this->load->view('v_header_detail',$_POST);
-			$this->load->view('v_info');
+			//$this->load->view('v_info');
 			$this->load->view('v_footer');
 		}else{
 		$tijd = $_POST['tijd'];
@@ -112,7 +112,7 @@ class Home extends CI_Controller {
 		
 		$this->load->view('v_head');
 		$this->load->view('v_pending', $data);
-		$this->load->view('v_info');
+		//$this->load->view('v_info');
 		$this->load->view('v_footer');
 		}
 	}
@@ -135,7 +135,7 @@ class Home extends CI_Controller {
 		
 		$this->load->view('v_head');
 		$this->load->view('v_taxibesteld');
-		$this->load->view('v_info');
+		//$this->load->view('v_info');
 		$this->load->view('v_footer');
 	}
 }

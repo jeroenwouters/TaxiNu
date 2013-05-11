@@ -13,7 +13,7 @@ var Bestelling = Backbone.Model.extend({
 
 var BestellingList = Backbone.Collection.extend({
 	model: Bestelling,
-	url: 'http://localhost:8888/TaxiNu/api/bestelling/'
+	url: '../../api/bestelling/'
 });
 
 //Views

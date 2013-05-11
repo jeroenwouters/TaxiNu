@@ -18,7 +18,7 @@
 		adres2 = splitadres1[1];
 		var tijd = data.tijd.substr(10, 6)
 		   
-		$('#col2 li:last').after('<li class="rit" id="'+data.id+'"><img src="http://localhost:8888/TaxiNu/images/drag.png" class="mark" width="20px"><p class="vertrek">'+adres1+'</p><p class="bestemming">'+adres2+'</p><div class="maps"></div><p class="uur">'+tijd+'</p><p class="naamklant">Den Jhon</p><p class="telklant">0475338844</p><button class="thoughtbot check">Check</button></li>');     	
+		$('#col2 li:last').after('<li class="rit" id="'+data.id+'"><img src="http://www.taxinu.be:8888/TaxiNu/images/drag.png" class="mark" width="20px"><p class="vertrek">'+adres1+'</p><p class="bestemming">'+adres2+'</p><div class="maps"></div><p class="uur">'+tijd+'</p><p class="naamklant">Den Jhon</p><p class="telklant">0475338844</p><button class="thoughtbot check">Check</button></li>');     	
 		
 		$(".check").click(function(){
     	$('#checkmodal').reveal();

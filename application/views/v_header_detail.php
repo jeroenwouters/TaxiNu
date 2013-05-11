@@ -22,7 +22,7 @@
 					 <input type="hidden" name="email">
 					<button type="submit" class="thoughtbot nonactive" id="order" disabled="disabled">Bevestigen.</button>
 					<?php echo form_close();?>
-					<button class="thoughtbot" id="help">Login</button>
+					<button class="thoughtbot" id="help">Uw gegevens</button>
 				
 				</div>
 			</div>

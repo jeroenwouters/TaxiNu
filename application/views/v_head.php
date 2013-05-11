@@ -23,7 +23,7 @@
   <link rel="stylesheet" href="<?php echo base_url();?>stylesheets/app.css">
    <link rel="stylesheet/less" type="text/css" href="<?php echo base_url();?>stylesheets/styles.less">
    <link rel="stylesheet" media="all" type="text/css" href="http://code.jquery.com/ui/1.9.1/themes/smoothness/jquery-ui.css" />
-   <meta name="viewport" content="user-scalable=yes;">
+   <meta name="viewport" content="user-scalable=yes">
    
     
   <script src="<?php echo base_url();?>javascripts/less.js" type="text/javascript"></script>
@@ -35,6 +35,13 @@
   <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
+<style>
+	header{
+	position: relative;
+	background-image: url(http://www.taxinu.be/images/straat2.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;}
+</style>
 
 </head>
 <body>
