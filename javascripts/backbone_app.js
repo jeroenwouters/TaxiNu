@@ -1,4 +1,4 @@
-//Backbone.emulateHTTP = true
+Backbone.emulateHTTP = true
 //Models
 
 var Bestelling = Backbone.Model.extend({
@@ -13,7 +13,7 @@ var Bestelling = Backbone.Model.extend({
 
 var BestellingList = Backbone.Collection.extend({
 	model: Bestelling,
-	url: '../../api/bestelling/'
+	url: '../api/bestelling/'
 });
 
 //Views
