@@ -28,9 +28,7 @@
 		    </div>
 		</footer>  
  <div id="loginhelp" class="reveal-modal small" style="background-color: black; color: white; top: 100px; opacity: 1; visibility: hidden; display: none;">
-  <p><img src="<?php echo base_url();?>images/fbnl.png" id="facebooklogin"></p></br></br></br></br>
-  <p class="lead">Geen Facebook account?</p>
-  <p>Met de volgende gegevens zijn we tevreden!</p>
+  <p>We hebben enkele gegevens van u nodig!</p>
   <form onsubmit="return false" id="form1"> 
   	<input type="text" name="NaamBox" placeholder="Naam">
   	<input type="text" name="TelBox" placeholder="Telefoonnummer">
