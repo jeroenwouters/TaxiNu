@@ -28,34 +28,6 @@
 				</ul>
 			</div>
 			
-			<div class="col" id="col2">
-				<h1>In Wacht</h1>
-				<ul class="ritten">	
-					
-				</ul>
-			</div>
-			
-			<div class="col new" id="col3">
-				<h1>Bevestigd</h1>
-				<ul class="ritten">	
-					
-				</ul>
-
-			</div>
-			
-			<div class="col new" id="col4">
-				<h1>Taxi 1</h1>
-				<ul class="ritten">
-				</ul>
-			</div>
-			
-			<div class="col new" id="col5">
-				<h1>Taxi 2 </h1>
-				<ul class="ritten">
-				</ul>
-			</div>
-			
-			
 		</div>
 		
 		<div id="checkmodal" class="reveal-modal xlarge" style="background-color: black; color: white;">
@@ -68,9 +40,7 @@
 						<p class="uur">Uur:</p>
 						<p class="naamklant">Naam klant:</p>
 						<p class="telklant">Telefoonnr.:</p>
-						<p class="Personen">Personen:</p>
-						<p class="Wachttijd">Wachttijd:</p>
-						
+						<p class="Personen">Personen:</p>						
 			  </div>
 			  
 			  <div class="inforit">

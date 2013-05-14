@@ -44,9 +44,10 @@ class Admin extends CI_Controller {
 			);
 			$this->session->set_userdata('logged_in', $sess_array);
 			}
-			$this->load->view('v_head_admin');
-			$this->load->view('v_admin');
-			$this->load->view('v_footer_admin');
+			// $this->load->view('v_head_admin');
+			// $this->load->view('v_admin');
+			// $this->load->view('v_footer_admin');
+			redirect('admin');
 		}
 		else
 		{
@@ -60,7 +61,15 @@ class Admin extends CI_Controller {
    redirect('admin', 'refresh');
    }
   
-   
+   public function getuser()
+	{
+		if($this->session->userdata('logged_in')){
+			$data = $this->session->userdata('logged_in');
+			echo json_encode($data);
+		}else{
+			$this->load->view('v_login');
+		}
+	}
 
 	
 }

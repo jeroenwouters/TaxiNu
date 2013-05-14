@@ -40,3 +40,8 @@ var module_bestelling_template2 =
 <p class="naamklant">{{naam}}</p> \
 <p class="telklant">{{tel}}</p> \
 <p class="personen">{{personen}}</p>';
+
+var taxi_template = 
+'<h1>{{login}}</h1> \
+<ul class="ritten"> \
+</ul>';

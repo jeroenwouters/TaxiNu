@@ -84,4 +84,23 @@ class Api extends REST_Controller
 		echo json_encode($bestellingen);
     }
     */
+    function taxi_get()  
+    {  
+        $this->load->model('m_taxis');
+        
+        $query = $this->m_taxis->get( $_GET['userid']);
+        
+        foreach($query->result() as $r){
+            $taxis[] = array('id' => $r->id, 'fkuser' => $r->fkUser, 'login' => $r->Login);
+        }
+
+        echo json_encode($taxis);
+    } 
+
+    function taxi_post()
+    {
+        $data = $this->request->body;
+        $this->load->model('m_taxis');
+        $this->m_taxis->insert($data);
+    }   
 }

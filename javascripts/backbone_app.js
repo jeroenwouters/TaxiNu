@@ -1,4 +1,7 @@
+
+//Backbone Options
 Backbone.emulateHTTP = true
+
 //Models
 
 var Bestelling = Backbone.Model.extend({
@@ -16,20 +19,38 @@ var BestellingList = Backbone.Collection.extend({
 	url: 'api/bestelling/'
 });
 
+var Taxi = Backbone.Model.extend({
+	
+});
+
+var TaxiList = Backbone.Collection.extend({
+	model: Taxi,
+	url: 'api/taxi/'
+});
+
+var User = Backbone.Model.extend({
+	url: 'admin/getuser',
+	
+	parse: function(data, options) {
+		AdminPanel.taxiList.fetch( { data: { userid: data.id} });
+	}
+})
+
+
 //Views
 var BestellingView = Backbone.View.extend({
   template: Handlebars.compile(bestelling_tempalte),
   template2: Handlebars.compile(bestelling_tempalte2),
   
   events: {
-	  "click button" : "showmodule", 
+	  "click button" : "showmodule",
   },
   
   render: function(status){
   	if(status == 3){
 	  	this.$el.html(this.template2(this.model.toJSON()));
   	}else{
-    	this.$el.html(this.template(this.model.toJSON()));
+    	this.$el.html(this.template2(this.model.toJSON()));
     }
     return this;
   },
@@ -39,7 +60,8 @@ var BestellingView = Backbone.View.extend({
 	  $('#checkmodal').reveal();
 	  $('#checkmodal .inforit').html(bestellingRevealView.render(this.model.get('status')).el);
 	  //$('#checkmodal .go').click(;
-  }
+  },
+
 });
 
 var BestellingRevealView = Backbone.View.extend({
@@ -52,7 +74,7 @@ var BestellingRevealView = Backbone.View.extend({
 	
 	render: function(status){
 		if(status == 1 || status == 3){
-			this.$el.html(this.template1(this.model.toJSON()));
+			this.$el.html(this.template2(this.model.toJSON()));
 		}
 		if(status == 2){
 			this.$el.html(this.template2(this.model.toJSON()));
@@ -80,8 +102,39 @@ var BestellingListView = Backbone.View.extend({
 		if(bestelling.get('afgerond') == null || bestelling.get('status') == 3){
 			var bestellingView = new BestellingView({model: bestelling});
 			$('#col'+bestelling.get('status')+' ul').append(bestellingView.render(bestelling.get('status')).el);
-			col3drag();
 		}
+	},
+	
+	addAll: function(){
+		this.collection.forEach(this.addOne, this);
+	},
+	
+	render: function(){
+		this.addAll();
+	}
+});
+
+var TaxiView = Backbone.View.extend({
+  className: "col",
+
+  template: Handlebars.compile(taxi_template),
+  
+  render: function(){
+	 this.$el.html(this.template(this.model.toJSON()));
+    return this;
+  },
+  
+});
+
+var TaxiListView = Backbone.View.extend({
+	initialize: function(){
+		this.collection.on('add', this.addOne, this);
+		this.collection.on('reset', this.addAll, this);
+	},
+	
+	addOne: function(taxi){
+		var taxiView = new TaxiView({model: taxi});
+		$('.wrapper').append(taxiView.render().el);
 	},
 	
 	addAll: function(){
@@ -101,14 +154,19 @@ var AdminPanel = new (Backbone.Router.extend({
 	initialize: function(){
 		this.bestellingList = new BestellingList();
 		this.bestellingListView = new BestellingListView({collection: this.bestellingList});
+		this.taxiList = new TaxiList();
+		this.taxiListView = new TaxiListView({collection: this.taxiList});
+		this.user = new User();
 		//$('#col1 ul').append(this.bestellingListView.el);
 	},
 	start: function(){
 		Backbone.history.start({pushState: true});
 		this.bestellingList.fetch();
+		this.user.fetch();
 	},
 	index: function(){
 		this.bestellingList.fetch();
+		this.user.fetch();
 	}
 }));
 
@@ -172,13 +230,12 @@ $("#extra_kolom_btn p").click(function(){
 
 var liid; 
     
-function col3drag(){
-	$("#col3 li").mousedown(function(){
+function col1drag(){
+	$("#col1 li").mousedown(function(){
 	   liid = $(this).attr('id');
-	   console.log("click"); 
     });
     
-    $( "#col3 li" ).draggable({
+    $( "#col1 li" ).draggable({
             helper: "clone",
             revert: "invalid",
             cursor: "move",
@@ -198,10 +255,8 @@ function col3drag(){
             activeClass: "ui-state-default",
             hoverClass: "ui-state-hover",
             drop: function( event, ui ) {
-                
-                $( "#"+liid ).appendTo( this );
-               
-                
+                $( "#"+liid ).appendTo( this );  
             }
        }).sortable({items: "li"});
+
 }
