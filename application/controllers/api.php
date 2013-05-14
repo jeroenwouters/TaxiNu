@@ -32,7 +32,7 @@ class Api extends REST_Controller
         $this->load->model('m_status');
         foreach($query->result() as $r){
         		$status = $this->m_status->getstatusbyuser($r->id);
-        			$bestelling[] = array('id' => $r->id, 'adres1' => $r->Adres1, 'adres2' => $r->Adres2, 'tijd' => $r->Tijd, 'personen' => $r->Personen, 'naam' => $r->Naam, 'email' => $r->Email, 'tel' => $r->Tel, 'status' => $status, 'afgerond' => $r->Afgerond);
+        			$bestelling[] = array('id' => $r->id, 'adres1' => $r->Adres1, 'adres2' => $r->Adres2, 'tijd' => $r->Tijd, 'personen' => $r->Personen, 'naam' => $r->Naam, 'email' => $r->Email, 'tel' => $r->Tel, 'status' => $status['status'], 'afgerond' => $r->Afgerond, 'taxi' => $status['taxi']);
 		}
          
         echo json_encode($bestelling);
@@ -44,6 +44,7 @@ class Api extends REST_Controller
     	$status['fkBestelling'] = $data['id'];
     	$status['Status'] = $data['status'];
     	$status['Wachttijd'] = $data['wachttijd'];
+        $status['fkTaxi'] = $data['taxi'];
     	
     	$sessiondata = $this->session->userdata('logged_in');
     	

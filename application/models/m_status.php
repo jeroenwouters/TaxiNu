@@ -9,12 +9,14 @@ Class M_status extends CI_Model
 		if ($query->num_rows() > 0)
 		{
 			foreach($query->result() as $r){
-				$status = $r->Status;
+				$data['status'] = $r->Status;
+				$data['taxi'] = $r->fkTaxi;
 			}
 		}else{
-			$status = 1;
+			$data['status'] = 1;
+			$data['taxi'] = 0;
 		}
-		return($status);
+		return($data);
 	}
 
    function insert($data){

@@ -25,7 +25,7 @@ var Taxi = Backbone.Model.extend({
 
 var TaxiList = Backbone.Collection.extend({
 	model: Taxi,
-	url: 'api/taxi/'
+	url: 'api/taxi/',
 });
 
 var User = Backbone.Model.extend({
@@ -46,12 +46,13 @@ var BestellingView = Backbone.View.extend({
 	  "click button" : "showmodule",
   },
   
-  render: function(status){
-  	if(status == 3){
-	  	this.$el.html(this.template2(this.model.toJSON()));
-  	}else{
-    	this.$el.html(this.template2(this.model.toJSON()));
-    }
+  render: function(){
+  	// if(status == 3){
+	  // 	this.$el.html(this.template2(this.model.toJSON()));
+  	// }else{
+   //  	this.$el.html(this.template2(this.model.toJSON()));
+   //  }
+   this.$el.html(this.template2(this.model.toJSON()));
     this.$el.draggable({
             helper: "clone",
             revert: "invalid",
@@ -67,15 +68,23 @@ var BestellingView = Backbone.View.extend({
 	             $(this).show();
 	         }
         });
+    if(this.model.get('status') == 3){
+		this.$el.css('background-color', 'green');
+	}
+
+	if(this.model.get('status') == 2){
+		console.log(this.model.get('id'));
+		this.$el.css("background-color", "red");
+	}
     return this;
   },
   
   showmodule: function(){
   	  var bestellingRevealView = new BestellingRevealView({model: this.model});
 	  $('#checkmodal').reveal();
-	  $('#checkmodal .inforit').html(bestellingRevealView.render(this.model.get('status')).el);
-	  //$('#checkmodal .go').click(;
+	  $('#checkmodal .inforit').html(bestellingRevealView.render(2).el);
   },
+
 
 });
 
@@ -87,22 +96,24 @@ var BestellingRevealView = Backbone.View.extend({
 		"click button" : "go",
 	},
 	
-	render: function(status){
-		if(status == 1 || status == 3){
+	render: function(temp){
+		if(temp == 1){
+			this.$el.html(this.template1(this.model.toJSON()));
+		}
+		if(temp == 2){
 			this.$el.html(this.template2(this.model.toJSON()));
 		}
-		if(status == 2){
-			this.$el.html(this.template2(this.model.toJSON()));
-		}
+
 		return this;
 	},
 	
 	go: function(){
 		this.model.setstatus(2);
-		$('#'+this.model.get('id')).remove();
+		$('#'+this.model.get('id')).css("background-color", "red");
+		// $('#'+this.model.get('id')).remove();
 		$('#checkmodal').trigger('reveal:close');
-		var bestellingView = new BestellingView({model: this.model});
-		$('#col'+this.model.get('status')+' ul').append(bestellingView.render(this.model.get('status')).el);
+		// var bestellingView = new BestellingView({model: this.model});
+		// $('#col'+this.model.get('status')+' ul').append(bestellingView.render(this.model.get('status')).el);
 	}
 });
 
@@ -114,10 +125,15 @@ var BestellingListView = Backbone.View.extend({
 	
 	addOne: function(bestelling){
 		console.log(bestelling.get('status'));
-		if(bestelling.get('afgerond') == null || bestelling.get('status') == 3){
-			var bestellingView = new BestellingView({model: bestelling});
-			$('#col'+bestelling.get('status')+' ul').append(bestellingView.render(bestelling.get('status')).el);
+		console.log(bestelling.get('taxi'));
+		
+		var bestellingView = new BestellingView({model: bestelling});
+		if(bestelling.get('taxi') == 0){
+			$('#col1 ul').append(bestellingView.render().el);
+		}else{
+			$('#taxi_'+bestelling.get('taxi')+' ul').append(bestellingView.render().el);
 		}
+
 	},
 	
 	addAll: function(){
@@ -139,6 +155,7 @@ var TaxiView = Backbone.View.extend({
   template: Handlebars.compile(taxi_template),
   
   render: function(){
+  	 this.el.id = 'taxi_' + this.model.get('id');
 	 this.$el.html(this.template(this.model.toJSON()));
 	 this.$el.droppable({
          activeClass: "ui-state-default",
@@ -149,6 +166,23 @@ var TaxiView = Backbone.View.extend({
 
   dropped: function(event, ui){
     this.$el.find('.ritten').append(ui.draggable);
+    var dragid = ui.draggable.find('li').attr('id');
+    var dragged = ui.draggable;
+    var bestelling = AdminPanel.bestellingList.get(dragid);
+    bestelling.set({
+		'taxi': this.model.get('id'),
+	});
+    var bestellingRevealView = new BestellingRevealView({model: bestelling});
+    if(bestelling.get('status') == 1){
+		$('#checkmodal').reveal({ 
+			"closed": function () {
+				if(bestelling.get('status') == 1){
+			 		$('#col1 ul').append(dragged);
+			 	}
+			} 
+		});
+	}
+	$('#checkmodal .inforit').html(bestellingRevealView.render(1).el);
   }
   
 });
@@ -166,11 +200,13 @@ var TaxiListView = Backbone.View.extend({
 	
 	addAll: function(){
 		this.collection.forEach(this.addOne, this);
+		AdminPanel.bestellingList.fetch();
 	},
 	
 	render: function(){
 		this.addAll();
 	}
+
 });
 
 //Router
@@ -188,11 +224,9 @@ var AdminPanel = new (Backbone.Router.extend({
 	},
 	start: function(){
 		Backbone.history.start({pushState: true});
-		this.bestellingList.fetch();
 		this.user.fetch();
 	},
 	index: function(){
-		this.bestellingList.fetch();
 		this.user.fetch();
 	}
 }));
@@ -201,10 +235,11 @@ var AdminPanel = new (Backbone.Router.extend({
 
 //Allen Test
 // Enable pusher logging - don't include this in production
+/*
 Pusher.log = function(message) {
   if (window.console && window.console.log) window.console.log(message);
 };
-
+*/
 // Flash fallback logging - don't include this in production
 WEB_SOCKET_DEBUG = true;
 //Stop Test
@@ -220,11 +255,15 @@ WEB_SOCKET_DEBUG = true;
     });
     
     channel.bind('admin_'+$('#hiddenid').val(), function(data) {
-    	$('#'+data).remove();
-    	var modelget = AdminPanel.bestellingList.get(data);
-    	var bestellingView = new BestellingView({model: modelget});
-		$('#col3 ul').append(bestellingView.render(3).el);
-		col3drag();
+  //   	$('#'+data).remove();
+		var modelget = AdminPanel.bestellingList.get(data);
+  //   	var bestellingView = new BestellingView({model: modelget});
+		// $('#col3 ul').append(bestellingView.render(3).el);
+		// col3drag();
+		modelget.set({
+			'status': 3,
+		});
+		$('#'+data).css('background-color', 'green');
 	});
     
      channel.bind('delete', function(data) {
@@ -238,6 +277,10 @@ WEB_SOCKET_DEBUG = true;
 $(document).ready(function() {
 	console.log('document ready!');//Alleen Test
 	AdminPanel.start();
+	// $(".col1 ul").droppable({
+ //         activeClass: "ui-state-default",
+ //         hoverClass: "ui-state-hover",
+ //      }).sortable({items: "li"});
  });
 
 $("#extra_kolom_btn p").click(function(){
