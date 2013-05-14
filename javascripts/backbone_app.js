@@ -52,6 +52,21 @@ var BestellingView = Backbone.View.extend({
   	}else{
     	this.$el.html(this.template2(this.model.toJSON()));
     }
+    this.$el.draggable({
+            helper: "clone",
+            revert: "invalid",
+            cursor: "move",
+            
+             start: function(e, ui)
+             {
+	             $(ui.helper).addClass("ui-draggable-helper");
+	             $(this).hide();
+	         },
+	         stop: function(e, ui)
+             {
+	             $(this).show();
+	         }
+        });
     return this;
   },
   
@@ -117,12 +132,24 @@ var BestellingListView = Backbone.View.extend({
 var TaxiView = Backbone.View.extend({
   className: "col",
 
+  events: {
+		"drop" : "dropped",
+	},
+
   template: Handlebars.compile(taxi_template),
   
   render: function(){
 	 this.$el.html(this.template(this.model.toJSON()));
+	 this.$el.droppable({
+         activeClass: "ui-state-default",
+         hoverClass: "ui-state-hover",
+      }).sortable({items: "li"});
     return this;
   },
+
+  dropped: function(event, ui){
+    this.$el.find('.ritten').append(ui.draggable);
+  }
   
 });
 
@@ -228,35 +255,3 @@ $("#extra_kolom_btn p").click(function(){
     });
  
 
-var liid; 
-    
-function col1drag(){
-	$("#col1 li").mousedown(function(){
-	   liid = $(this).attr('id');
-    });
-    
-    $( "#col1 li" ).draggable({
-            helper: "clone",
-            revert: "invalid",
-            cursor: "move",
-            
-             start: function(e, ui)
-             {
-	             $(ui.helper).addClass("ui-draggable-helper");
-	             $(this).hide();
-	         },
-	         stop: function(e, ui)
-             {
-	             $(this).show();
-	         }
-        });
-        
-        $( ".new ul" ).droppable({
-            activeClass: "ui-state-default",
-            hoverClass: "ui-state-hover",
-            drop: function( event, ui ) {
-                $( "#"+liid ).appendTo( this );  
-            }
-       }).sortable({items: "li"});
-
-}
