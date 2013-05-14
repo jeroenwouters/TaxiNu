@@ -20,9 +20,9 @@
 					 <input type="hidden" name="naam">
 					 <input type="hidden" name="tel">
 					 <input type="hidden" name="email">
-					<button type="submit" class="thoughtbot nonactive" id="order" disabled="disabled">Bevestigen.</button>
+					<button type="submit" class="thoughtbot" id="order">Taxi bestellen</button>
 					<?php echo form_close();?>
-					<button class="thoughtbot" id="help">Uw gegevens</button>
+					<button class="thoughtbot" id="help">Bevestigen</button>
 				
 				</div>
 			</div>
