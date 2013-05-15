@@ -1,7 +1,7 @@
 
 //Backbone Options
 Backbone.emulateHTTP = true
-
+var current_user_id;
 //Models
 
 var Bestelling = Backbone.Model.extend({
@@ -32,6 +32,7 @@ var User = Backbone.Model.extend({
 	url: 'admin/getuser',
 	
 	parse: function(data, options) {
+		current_user_id = data.id;
 		AdminPanel.taxiList.fetch( { data: { userid: data.id} });
 	}
 })
@@ -277,21 +278,14 @@ WEB_SOCKET_DEBUG = true;
 $(document).ready(function() {
 	console.log('document ready!');//Alleen Test
 	AdminPanel.start();
-	// $(".col1 ul").droppable({
- //         activeClass: "ui-state-default",
- //         hoverClass: "ui-state-hover",
- //      }).sortable({items: "li"});
+	$("#extra_kolom_btn").click(function(){
+		AdminPanel.taxiList.create({
+			Login: $('#nieuw_kolom').val(),
+			fkUser: current_user_id
+		});
+	});
  });
 
-$("#extra_kolom_btn p").click(function(){
-	    
-	    var naamkolom = $('#nieuw_kolom').val(); 
-	    var kolomhtml = $('<div class="col new"><h1>'+ naamkolom +'</h1><ul class="ritten"></ul></div>');
-	    
-	    console.log(naamkolom);
-	    $(".wrapper").append(kolomhtml);   
-	    col3drag();
-    });
 
  $("#settings").click(function() {
       $("#settings_modal").reveal();

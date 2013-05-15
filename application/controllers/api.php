@@ -92,7 +92,7 @@ class Api extends REST_Controller
         $query = $this->m_taxis->get( $_GET['userid']);
         
         foreach($query->result() as $r){
-            $taxis[] = array('id' => $r->id, 'fkuser' => $r->fkUser, 'login' => $r->Login);
+            $taxis[] = array('id' => $r->id, 'fkuser' => $r->fkUser, 'Login' => $r->Login);
         }
 
         echo json_encode($taxis);
