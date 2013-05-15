@@ -261,7 +261,7 @@ WEB_SOCKET_DEBUG = true;
 		// $('#col3 ul').append(bestellingView.render(3).el);
 		// col3drag();
 		modelget.set({
-			'status': 3,
+		'status': 3,
 		});
 		$('#'+data).css('background-color', 'green');
 	});

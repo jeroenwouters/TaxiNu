@@ -23,12 +23,13 @@ Class M_status extends CI_Model
 		$this->db->insert('tblStatus', $data);
 	}
 	
-	function update($data, $id1, $id2){
-		$this->db->where('fkBestelling', $id2);
-		$data2['status'] = 0;
-		$this->db->update('tblStatus', $data2);
-		$this->db->where('fkUser', $id1);
+	function update($data, $id, $id2){
+		$this->db->where('fkBestelling', $id);
+		$this->db->where('fkUser', $id2);
 		$this->db->update('tblStatus', $data);
+		 return(TRUE);
+		// $this->db->where('fkUser', $id1);
+		// $this->db->update('tblStatus', $data);
 	}
 
 }

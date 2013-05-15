@@ -107,6 +107,7 @@ class Home extends CI_Controller {
 		$_POST['id'] = $this->m_bestellingen->insertbestelling($_POST);
 		$data['id'] = $_POST['id'];
 		$_POST['status'] = 1;
+		$_POST['taxi'] = 0;
 		$this->load->library('pusher');
 		$this->pusher->trigger('admin_all', 'taxi_bestelt', $_POST);
 		
@@ -121,7 +122,7 @@ class Home extends CI_Controller {
 	{
 		$data['Status'] = 3;
 		$this->load->model('m_status');
-		$this->m_status->update($data, $this->uri->segment(4), $this->uri->segment(3));
+		$this->m_status->update($data, $this->uri->segment(3), $this->uri->segment(4));
 		
 		$data2['Afgerond'] = 1;
 		$this->load->model('m_bestellingen');

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Machine: localhost
--- Genereertijd: 23 jan 2013 om 13:08
+-- Genereertijd: 15 mei 2013 om 11:17
 -- Serverversie: 5.5.25
 -- PHP-versie: 5.4.4
 
@@ -37,14 +37,14 @@ CREATE TABLE `tblBestellingen` (
   `Tel` int(15) DEFAULT NULL,
   `Afgerond` int(1) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=138 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=190 ;
 
 --
 -- Gegevens worden uitgevoerd voor tabel `tblBestellingen`
 --
 
 INSERT INTO `tblBestellingen` (`id`, `Adres1`, `Adres2`, `Tijd`, `Personen`, `Naam`, `Email`, `Tel`, `Afgerond`) VALUES
-(137, 'Fortsebaan 28-64, 2930 Brasschaat, België', 'Bierwertslei, Brasschaat, België', '0000-00-00 00:00:00', 3, 'Jeroen', 'jeroen.wou@gmail.com', 498845545, 1);
+(189, 'Fortsebaan 28-64, 2930 Brasschaat, België', 'Bierwertslei, Brasschaat, België', '2013-05-15 11:13:00', 3, 'jeroen', 'jeroen.wou@gmail.com', 498845545, 1);
 
 -- --------------------------------------------------------
 
@@ -58,15 +58,37 @@ CREATE TABLE `tblStatus` (
   `fkUser` int(11) DEFAULT NULL,
   `Status` int(11) DEFAULT '1',
   `Wachttijd` int(11) DEFAULT NULL,
+  `fkTaxi` int(255) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=144 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=187 ;
 
 --
 -- Gegevens worden uitgevoerd voor tabel `tblStatus`
 --
 
-INSERT INTO `tblStatus` (`id`, `fkBestelling`, `fkUser`, `Status`, `Wachttijd`) VALUES
-(143, 137, 1, 3, 3);
+INSERT INTO `tblStatus` (`id`, `fkBestelling`, `fkUser`, `Status`, `Wachttijd`, `fkTaxi`) VALUES
+(186, 189, 1, 3, 5, 2);
+
+-- --------------------------------------------------------
+
+--
+-- Tabelstructuur voor tabel `tblTaxis`
+--
+
+CREATE TABLE `tblTaxis` (
+  `id` int(255) NOT NULL AUTO_INCREMENT,
+  `fkUser` int(255) NOT NULL,
+  `Login` varchar(99) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Gegevens worden uitgevoerd voor tabel `tblTaxis`
+--
+
+INSERT INTO `tblTaxis` (`id`, `fkUser`, `Login`) VALUES
+(1, 1, 'Taxi1'),
+(2, 1, 'Taxi2');
 
 -- --------------------------------------------------------
 

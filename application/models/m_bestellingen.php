@@ -22,6 +22,7 @@ class M_bestellingen extends CI_Model {
     function update($data, $id){
 	    $this->db->where('id', $id);
 	    $this->db->update('tblBestellingen', $data);
+	    return(TRUE);
     }
     
     function insert($data){
