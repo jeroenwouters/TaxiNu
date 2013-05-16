@@ -10,14 +10,63 @@ var User = Backbone.Model.extend({
 	
 	parse: function(data, options) {
 		current_user_id = data.id;
-		console.log(data.username);
 		current_user_login = data.username;
+		AdminPanel.rittenList.fetch( { data: { userid: data.id} });
+		var channel = pusher.subscribe('admin_all');
+	    channel.bind('taxi_'+current_user_id, function(data) {
+	    	var newrit = new Rit(data);
+    		AdminPanel.rittenList.add(newrit);
+	    });
 	}
 })
 
+var Rit = Backbone.Model.extend({
+	
+});
+
+var RittenList = Backbone.Collection.extend({
+	model: Rit,
+	url: 'api/ritten',
+});
 
 //Views
+var RittenView = Backbone.View.extend({
+  template: Handlebars.compile(rit_tempalte),
+  
+  render: function(){
+  	this.$el.html(this.template(this.model.toJSON()));
+    if(this.model.get('status') == 3){
+		this.$el.css('background-color', 'green');
+	}
 
+	if(this.model.get('status') == 2){
+		this.$el.css("background-color", "red");
+	}
+    return this;
+  },
+  
+});
+
+var RittenListView = Backbone.View.extend({
+	initialize: function(){
+		this.collection.on('add', this.addOne, this);
+		this.collection.on('reset', this.addAll, this);
+	},
+	
+	addOne: function(rit){	
+		console.log(rit);	
+		var rittenView = new RittenView({model: rit});
+		$('.wrapper ul').append(rittenView.render().el);
+	},
+	
+	addAll: function(){
+		this.collection.forEach(this.addOne, this);
+	},
+	
+	render: function(){
+		this.addAll();
+	}
+});
 
 //Router
 
@@ -26,6 +75,8 @@ var AdminPanel = new (Backbone.Router.extend({
 	
 	initialize: function(){
 		this.user = new User();
+		this.rittenList = new RittenList();
+		this.rittenListView = new RittenListView({collection: this.rittenList});
 	},
 	start: function(){
 		Backbone.history.start({pushState: true});
@@ -35,6 +86,8 @@ var AdminPanel = new (Backbone.Router.extend({
 		this.user.fetch();
 	}
 }));
+
+
 
 //Pusher
 
@@ -52,10 +105,7 @@ WEB_SOCKET_DEBUG = true;
 	var pusher = new Pusher('b075ffa0df361cc21bda');
     
     
-    var channel = pusher.subscribe('admin_all');
-    channel.bind('taxi_bestelt', function(data) {
-
-    });
+    
     
 
 //Document 
@@ -66,7 +116,6 @@ $(document).ready(function() {
 			swipeStatus : swipeStatus,
 			allowPageScroll:"vertical",
 		});
-	$('.naamklant').html($('.wrapper').width());
 });
 
 function swipeStatus(event, phase, direction, distance, fingers)

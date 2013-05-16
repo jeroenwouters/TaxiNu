@@ -9,10 +9,10 @@ var Bestelling = Backbone.Model.extend({
 	setstatus: function(newstatus){
 		this.set({
 		'status': newstatus,
-		'wachttijd': $('.wachttijd').val()
+		'wachttijd': $('.wachttijd').val(),
 		});
 		this.save();
-	}
+	}, 
 });
 
 var BestellingList = Backbone.Collection.extend({
@@ -185,6 +185,8 @@ var TaxiView = Backbone.View.extend({
 			 	}
 			} 
 		});
+	}else{
+		bestelling.save();
 	}
 	$('#checkmodal .inforit').html(bestellingRevealView.render(1).el);
   }

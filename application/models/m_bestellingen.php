@@ -15,7 +15,6 @@ class M_bestellingen extends CI_Model {
     function get($id){
 	    $this->db->where('id', $id);
 	    $query = $this->db->get('tblBestellingen');
-	    
 	    return($query);
     }
     
@@ -38,6 +37,24 @@ class M_bestellingen extends CI_Model {
 		$this->db->insert('tblBestellingen', $data);
 		
 		return($this->db->insert_id());
+	}
+
+	function getbytaxi($id){
+		$this->db->select('*');
+		$this->db->from('tblStatus');
+		$this->db->join('tblBestellingen', 'tblBestellingen.id = tblStatus.fkBestelling');
+		$this->db->where('fkTaxi', $id);
+		$query = $this->db->get();
+		return($query);
+	}
+
+	function getbyid($id){
+		$this->db->select('*');
+		$this->db->from('tblStatus');
+		$this->db->join('tblBestellingen', 'tblBestellingen.id = tblStatus.fkBestelling');
+		$this->db->where('tblBestellingen.id', $id);
+		$query = $this->db->get();
+		return($query);
 	}
 
 }

@@ -19,8 +19,21 @@ Class M_status extends CI_Model
 		return($data);
 	}
 
+
    function insert($data){
-		$this->db->insert('tblStatus', $data);
+   		$this->db->where('fkBestelling', $data['fkBestelling']);
+   		$this->db->where('fkUser', $data['fkUser']);
+   		$query = $this->db->get('tblStatus');
+   		if ($query->num_rows() > 0)
+		{
+			$this->db->where('fkBestelling', $data['fkBestelling']);
+   			$this->db->where('fkUser', $data['fkUser']);
+			$this->db->update('tblStatus', $data);
+			return('update');
+		}else{
+			$this->db->insert('tblStatus', $data);
+			return('new');
+		}
 	}
 	
 	function update($data, $id, $id2){

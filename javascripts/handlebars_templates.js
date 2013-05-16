@@ -46,3 +46,14 @@ var taxi_template =
 <div class="set"><img src="http://192.168.0.241:8888/TaxiNu/images/settings.png"></div> \
 <ul class="ritten"> \
 </ul>';
+
+var rit_tempalte =
+'<li class="rit" id="{{id}}"> \
+<p class="vertrek">{{adresformat adres1}}</p> \
+<p class="tussenteken">></p> \
+<p class="bestemming">{{adresformat adres2}}</p> \
+<p class="uur">{{tijdformat tijd}}</p> \
+<p class="afstand"> 15km</p> \
+<p class="naamklant">{{naam}}</p> \
+</li>';
+

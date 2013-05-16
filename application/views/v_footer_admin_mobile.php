@@ -49,7 +49,7 @@
   	<!-- handlebars -->
   	<script src="<?php echo base_url();?>javascripts/handlebars.js"></script>
   	<script src="<?php echo base_url();?>javascripts/handlebars_helpers.js"></script>
-  	<script src="<?php echo base_url();?>javascripts/handlebars_templates_mobile.js"></script>
+  	<script src="<?php echo base_url();?>javascripts/handlebars_templates.js"></script>
  
    <!-- backbone -->
    <script src="<?php echo base_url();?>javascripts/underscore.js"></script>

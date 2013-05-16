@@ -51,13 +51,28 @@ class Api extends REST_Controller
     	$status['fkUser'] = $sessiondata['id'];
 		
 		$this->load->model('m_status');
-		$this->m_status->insert($status);
-		
+		$return = $this->m_status->insert($status);
 		$status['Username'] = $sessiondata['username'];
+
 		$this->load->library('pusher');
-		$this->pusher->trigger('client', 'client_'.$data['id'], $status);
-	    //$this->load->model('m_bestellingen');
-	    //$this->m_bestellingen->update($data, $id);
+        if($return == "new"){
+		  $this->pusher->trigger('client', 'client_'.$data['id'], $status);
+        }
+        $this->load->model('m_bestellingen');
+        $query = $this->m_bestellingen->getbyid($data['id']);
+        foreach($query->result() as $r){
+            $bestelling['id'] = $r->id;
+            $bestelling['adres1'] = $r->Adres1;
+            $bestelling['adres2'] = $r->Adres2;
+            $bestelling['tijd'] = $r->Tijd; 
+            $bestelling['personen'] = $r->Personen; 
+            $bestelling['naam'] = $r->Naam; 
+            $bestelling['tel'] = $r->Tel; 
+            $bestelling['status'] = $r->Status; 
+            $bestelling['afgerond'] = $r->Afgerond; 
+            $bestelling['taxi'] = $r->fkTaxi;
+        }
+        $this->pusher->trigger('admin_all', 'taxi_'.$data['taxi'], $bestelling);
     } 	
     
     function bestelling_post()
@@ -104,4 +119,14 @@ class Api extends REST_Controller
         $this->load->model('m_taxis');
         $this->m_taxis->insert($data);
     }   
+
+    function ritten_get()
+    {
+        $this->load->model('m_bestellingen');
+        $query = $this->m_bestellingen->getbytaxi($_GET['userid']);
+        foreach($query->result() as $r){
+            $bestelling[] = array('id' => $r->id, 'adres1' => $r->Adres1, 'adres2' => $r->Adres2, 'tijd' => $r->Tijd, 'personen' => $r->Personen, 'naam' => $r->Naam, 'email' => $r->Email, 'tel' => $r->Tel, 'status' => $r->Status, 'afgerond' => $r->Afgerond, 'taxi' => $r->fkTaxi);
+        }
+        echo json_encode($bestelling);
+    }
 }
