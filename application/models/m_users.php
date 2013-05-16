@@ -13,11 +13,27 @@ Class M_users extends CI_Model
 
    if($query -> num_rows() == 1)
    {
-     return $query->result();
+     $data['type'] = "admin";
+     $data['query'] = $query->result();
+     return($data);
    }
    else
    {
-     return false;
+      $this -> db -> select('id, Login, Pass');
+      $this -> db -> from('tblTaxis');
+      $this -> db -> where('Login = ' . "'" . $username . "'");
+      $this -> db -> where('Pass = ' . "'" . MD5($password) . "'");
+      $this -> db -> limit(1);
+
+       $query2 = $this -> db -> get();
+       if($query2 -> num_rows() == 1)
+       {
+          $data['type'] = "taxi";
+          $data['query'] = $query2->result();
+          return($data);
+       }else{
+        return false;
+       }
    }
  }
  
