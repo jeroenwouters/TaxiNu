@@ -43,6 +43,5 @@ var module_bestelling_template2 =
 
 var taxi_template = 
 '<h1>{{Naam}}</h1> \
-<div class="set"><img src="http://192.168.0.241:8888/TaxiNu/images/settings.png"></div> \
 <ul class="ritten"> \
 </ul>';

@@ -51,7 +51,7 @@ class Admin extends CI_Controller {
 				{
 					$sess_array = array(
 					'id' => $row->id,
-					'username' => $row->Username,
+					'username' => $row->Naam,
 					'type' => $result['type']
 					);
 				}

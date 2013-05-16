@@ -25,18 +25,7 @@
 				<h1>Aanvragen</h1>
 				<ul class="ritten">		
 				</ul>
-			</div>
-			
-			<div class="col ui-droppable ui-sortable" id="taxi_1">
-				<h1>TaxiTest</h1> 
-				<div class="set">
-					<img src="<?php echo base_url();?>images/settings.png">
-				</div>
-				<ul class="ritten"> 
-					
-				</ul>
-		    </div>
-			
+			</div>	
 		</div>
 		
 		<div id="checkmodal" class="reveal-modal xlarge" style="background-color: black; color: white;">

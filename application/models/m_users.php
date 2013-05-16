@@ -19,7 +19,7 @@ Class M_users extends CI_Model
    }
    else
    {
-      $this -> db -> select('id, Login, Pass');
+      $this -> db -> select('id, Login, Naam, Pass');
       $this -> db -> from('tblTaxis');
       $this -> db -> where('Login = ' . "'" . $username . "'");
       $this -> db -> where('Pass = ' . "'" . MD5($password) . "'");

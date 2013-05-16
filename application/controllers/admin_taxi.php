@@ -22,7 +22,10 @@ class Admin_taxi extends CI_Controller {
 		if($this->session->userdata('logged_in')){
 			$data = $this->session->userdata('logged_in');
 			if($data['type'] == 'taxi'){
-				echo "Taxi!!!";
+				$this->load->view('v_head_admin_mobile');
+				$this->load->view('v_admin_mobile');
+				$this->load->view('v_footer_admin_mobile');
+
 			}else{
 				redirect('admin');
 			}
