@@ -76,6 +76,26 @@ header{
 	
 }
 
+.set{
+	position: absolute;
+	top: 6px;
+	right: 0px;
+	img{
+		width: 50px;
+		
+	}
+	
+	&:hover{
+	
+		img {
+			background-color: rgba(225,225,225,0.75);
+			cursor: pointer;
+			
+		}
+	}
+	
+}
+
 #extra_kolom{
 	float: right;
 	margin-top: 10px;
@@ -111,6 +131,7 @@ header{
 	padding-top: 50px;
 
 	.col{
+		position: relative;
 		border-right: #dfdede solid 1px;
 		background: rgb(255,255,255); /* Old browsers */
 /* IE9 SVG, needs conditional override of 'filter' to 'none' */

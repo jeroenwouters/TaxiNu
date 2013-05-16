@@ -295,6 +295,12 @@ $(document).ready(function() {
 
  $("#settings").click(function() {
       $("#settings_modal").reveal();
-    });
+ });
+ 
+  $(".set").click(function() {
+      $("#taxi_settings_modal").reveal();
+ });
+ 
+ 
  
 
