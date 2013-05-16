@@ -2,6 +2,7 @@
 //Backbone Options
 Backbone.emulateHTTP = true
 var current_user_id;
+var current_user_login;
 //Models
 
 var Bestelling = Backbone.Model.extend({
@@ -33,6 +34,8 @@ var User = Backbone.Model.extend({
 	
 	parse: function(data, options) {
 		current_user_id = data.id;
+		console.log(data.username);
+		current_user_login = data.username;
 		AdminPanel.taxiList.fetch( { data: { userid: data.id} });
 	}
 })
@@ -280,10 +283,13 @@ $(document).ready(function() {
 	AdminPanel.start();
 	$("#extra_kolom_btn").click(function(){
 		AdminPanel.taxiList.create({
-			Login: $('#nieuw_kolom').val(),
-			fkUser: current_user_id
+			Login: current_user_login+'_'+$('#nieuw_kolom').val(),
+			fkUser: current_user_id,
+			Naam: $('#nieuw_kolom').val()
 		});
+		$('#nieuw_kolom').val("");
 	});
+
  });
 
 

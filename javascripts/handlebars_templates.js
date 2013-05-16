@@ -42,6 +42,6 @@ var module_bestelling_template2 =
 <p class="personen">{{personen}}</p>';
 
 var taxi_template = 
-'<h1>{{Login}}</h1> \
+'<h1>{{Naam}}</h1> \
 <ul class="ritten"> \
 </ul>';
