@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Machine: localhost
--- Genereertijd: 15 mei 2013 om 11:17
+-- Genereertijd: 16 mei 2013 om 14:16
 -- Serverversie: 5.5.25
 -- PHP-versie: 5.4.4
 
@@ -37,14 +37,16 @@ CREATE TABLE `tblBestellingen` (
   `Tel` int(15) DEFAULT NULL,
   `Afgerond` int(1) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=190 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=192 ;
 
 --
 -- Gegevens worden uitgevoerd voor tabel `tblBestellingen`
 --
 
 INSERT INTO `tblBestellingen` (`id`, `Adres1`, `Adres2`, `Tijd`, `Personen`, `Naam`, `Email`, `Tel`, `Afgerond`) VALUES
-(189, 'Fortsebaan 28-64, 2930 Brasschaat, België', 'Bierwertslei, Brasschaat, België', '2013-05-15 11:13:00', 3, 'jeroen', 'jeroen.wou@gmail.com', 498845545, 1);
+(189, 'Fortsebaan 28-64, 2930 Brasschaat, België', 'Bierwertslei, Brasschaat, België', '2013-05-15 11:13:00', 3, 'jeroen', 'jeroen.wou@gmail.com', 498845545, 1),
+(190, 'Fortsebaan 28-64, 2930 Brasschaat, België', 'Bierwertslei, Brasschaat, België', '2013-05-15 12:44:00', 3, 'jeroen', 'jeroen.wou@gmail.com', 498845545, NULL),
+(191, 'Fortsebaan 28-64, 2930 Brasschaat, België', 'Bierwertslei, Brasschaat, België', '2013-05-15 12:44:00', 3, 'jeroen', 'jeroen.wou@gmail.com', 498845545, NULL);
 
 -- --------------------------------------------------------
 
@@ -79,16 +81,21 @@ CREATE TABLE `tblTaxis` (
   `id` int(255) NOT NULL AUTO_INCREMENT,
   `fkUser` int(255) NOT NULL,
   `Login` varchar(99) NOT NULL,
+  `Naam` varchar(255) NOT NULL,
+  `pass` varchar(255) NOT NULL DEFAULT '21232f297a57a5a743894a0e4a801fc3',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
 
 --
 -- Gegevens worden uitgevoerd voor tabel `tblTaxis`
 --
 
-INSERT INTO `tblTaxis` (`id`, `fkUser`, `Login`) VALUES
-(1, 1, 'Taxi1'),
-(2, 1, 'Taxi2');
+INSERT INTO `tblTaxis` (`id`, `fkUser`, `Login`, `Naam`, `pass`) VALUES
+(1, 1, 'AntwerpTax_Taxi1', 'Taxi1', '21232f297a57a5a743894a0e4a801fc3'),
+(2, 1, 'AntwerpTax_Taxi2', 'Taxi2', '21232f297a57a5a743894a0e4a801fc3'),
+(7, 1, 'AntwerpTax_Taxi3', 'Taxi3', '21232f297a57a5a743894a0e4a801fc3'),
+(10, 1, 'AntwerpTax_Taxi4', 'Taxi4', '21232f297a57a5a743894a0e4a801fc3'),
+(11, 1, 'AntwerpTax_Taxi5', 'Taxi5', '21232f297a57a5a743894a0e4a801fc3');
 
 -- --------------------------------------------------------
 
