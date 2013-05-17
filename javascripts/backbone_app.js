@@ -173,7 +173,9 @@ var TaxiView = Backbone.View.extend({
     var dragid = ui.draggable.find('li').attr('id');
     var dragged = ui.draggable;
     var bestelling = AdminPanel.bestellingList.get(dragid);
+    var taxioud = bestelling.get('taxi');
     bestelling.set({
+    	'taxioud' : taxioud,
 		'taxi': this.model.get('id'),
 	});
     var bestellingRevealView = new BestellingRevealView({model: bestelling});
@@ -181,8 +183,8 @@ var TaxiView = Backbone.View.extend({
 		$('#checkmodal').reveal({ 
 			"closed": function () {
 				if(bestelling.get('status') == 1){
-			 		$('#col1 ul').append(dragged);
-			 	}
+				$('#col1 ul').append(dragged);
+				}
 			} 
 		});
 	}else{

@@ -17,6 +17,12 @@ var User = Backbone.Model.extend({
 	    	var newrit = new Rit(data);
     		AdminPanel.rittenList.add(newrit);
 	    });
+	     channel.bind('taxi_destroy_'+current_user_id, function(data) {
+	     	console.log('destory')
+	    	var rit = AdminPanel.rittenList.get(data);
+	    	AdminPanel.rittenList.remove(rit);
+	    	$('#'+data).remove();
+	    });
 	}
 })
 
@@ -35,6 +41,48 @@ var RittenView = Backbone.View.extend({
   
   render: function(){
   	this.$el.html(this.template(this.model.toJSON()));
+  	this.$el.find('li').swipe( {
+		triggerOnTouchEnd : true,
+		swipeStatus : function(event, phase, direction, distance, fingers)
+		{
+			var cancelpx = $('.wrapper').width()*0.7;
+
+			if( phase=="move" && direction=="right" ){
+				$(this).css("margin-left", distance);
+			}
+
+			if( phase=="move" && (direction=="left" || direction=="right") ){
+				if(distance > cancelpx){
+					$(this).css("opacity", "0.5");
+					remove = 1;
+				}else{
+					$(this).css("opacity", "1");
+					remove = 0;
+				}
+			}
+
+			if( phase=="cancel"){
+				$(this).animate({
+					marginLeft: "5%",
+				}, 250);
+			}
+
+			if( phase=="end"){
+				if(distance > cancelpx){
+					$(this).animate({
+						marginLeft: "100%",
+					}, 250).done(function(){
+						$(this).remove();
+					});
+				}else{
+					$(this).animate({
+						marginLeft: "5%",
+					}, 250);
+				}
+			}
+		},
+		allowPageScroll:"vertical",
+	});
     if(this.model.get('status') == 3){
 		this.$el.css('background-color', 'green');
 	}
@@ -111,52 +159,7 @@ WEB_SOCKET_DEBUG = true;
 //Document 
 $(document).ready(function() {
 	AdminPanel.start();
-	$('li').swipe( {
-			triggerOnTouchEnd : true,
-			swipeStatus : swipeStatus,
-			allowPageScroll:"vertical",
-		});
 });
 
-function swipeStatus(event, phase, direction, distance, fingers)
-{
-	var cancelpx = $('.wrapper').width()*0.7;
-
-	if( phase=="move" && direction=="right" ){
-		$('li').css("margin-left", distance);
-	}
-
-	if( phase=="move" && (direction=="left" || direction=="right") ){
-		if(distance > cancelpx){
-			$('li').css("opacity", "0.5");
-			remove = 1;
-		}else{
-			$('li').css("opacity", "1");
-			remove = 0;
-		}
-	}
-
-	if( phase=="cancel"){
-		$('li').animate({
-			marginLeft: "5%",
-		}, 250);
-	}
-
-	if( phase=="end"){
-		if(distance > cancelpx){
-			$('li').animate({
-				marginLeft: "100%",
-			}, 250).done(function(){
-				$('li').remove();
-			});
-		}else{
-			$('li').animate({
-				marginLeft: "5%",
-			}, 250);
-		}
-	}
-
-	
-}
 
 

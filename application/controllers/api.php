@@ -73,6 +73,7 @@ class Api extends REST_Controller
             $bestelling['taxi'] = $r->fkTaxi;
         }
         $this->pusher->trigger('admin_all', 'taxi_'.$data['taxi'], $bestelling);
+        $this->pusher->trigger('admin_all', 'taxi_destroy_'.$data['taxioud'], $bestelling['id']);
     } 	
     
     function bestelling_post()
