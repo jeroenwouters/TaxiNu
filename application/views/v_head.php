@@ -25,17 +25,20 @@
    <link rel="stylesheet" media="all" type="text/css" href="http://code.jquery.com/ui/1.9.1/themes/smoothness/jquery-ui.css" />
    <meta name="viewport" content="user-scalable=yes">
    
-    
+  <script src="<?php echo base_url();?>javascripts/jquery.js"></script>
+
   <script src="<?php echo base_url();?>javascripts/less.js" type="text/javascript"></script>
   <script src="<?php echo base_url();?>javascripts/modernizr.foundation.js"></script>
-  
- 
 
   <!-- IE Fix for HTML5 Tags -->
   <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
 <style>
+ 	#order{
+	 	display: none;
+ 	}
+	
 	header{
 	position: relative;
 	background-image: url(http://www.taxinu.be/images/straat2.jpg);

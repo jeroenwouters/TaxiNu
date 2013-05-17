@@ -78,7 +78,13 @@
   <!-- Included JS Files (Compressed) -->
    <script src="<?php echo base_url();?>javascripts/foundation.min.js"></script>
   <script src="<?php echo base_url();?>javascripts/app.js"></script>
-  <script src="<?php echo base_url();?>javascripts/jquery.js"></script>
+  
+  <script>
+  $(document).ready(function(){
+	  	    $('#order').hide(); 
+
+  });
+  </script>
   <script type="text/javascript" src="http://code.jquery.com/ui/1.9.1/jquery-ui.min.js"></script>
   <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.10.0/jquery.validate.js"></script>
   <script src="<?php echo base_url();?>javascripts/timepicker.js"></script>

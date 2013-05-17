@@ -1,6 +1,5 @@
 $(document).ready(function() {
     
-    $('#order').hide(); 
     var now = moment().format('DD/MM/YYYY HH:mm ');
     $('#timedate').val(now); 
 	  enquire.register("screen and (min-width: 500px)", function() {
@@ -69,7 +68,7 @@ $(document).ready(function() {
     	$("input[name=tel]").val($("input[name=TelBox]").val());
     	$("input[name=email]").val($("input[name=EmailBox]").val());
     	$('#order').show();
-    	$('#help').css('margin-top','-50px');
+    	$('#help').css('margin-top','-56px');
     	// $('#order').removeClass('nonactive').removeAttr("disabled");
     	$('#loginhelp').trigger('reveal:close');
     	$('#help').html("Info"); 

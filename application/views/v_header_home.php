@@ -45,7 +45,7 @@
 		<div class="row">
 		    <div class="six columns ad">
 		        <h1>Alleen maar voordelen!</h1>
-		        <ul>
+		        <ul class="bullet">
 		        	<li>Het is heel gemakkelijk!</li>
 		        	<li>Meer dan 100 taxi bedrijven in ons bestand!</li>
 		        	<li>Betaal contant of via PayPal!</li>
