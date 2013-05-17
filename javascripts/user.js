@@ -1,11 +1,12 @@
 $(document).ready(function() {
     
     $('#order').hide(); 
-
+    var now = moment().format('DD/MM/YYYY HH:mm ');
+    $('#timedate').val(now); 
 	  enquire.register("screen and (min-width: 500px)", function() {
 
           ///slideshow code here
-          $('#timedate').datetimepicker();
+          $('#timedate').datetimepicker({controlType: 'select'});
 
       }).listen();
       

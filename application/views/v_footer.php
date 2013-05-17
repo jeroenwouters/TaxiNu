@@ -89,7 +89,11 @@
   <script src="<?php echo base_url();?>javascripts/enquire.js"></script>
   <script src="http://maps.google.com/maps?file=api&v=2&key=AIzaSyBJGHEABxmLTzSTZ0HGDlmBMTuX1ktrsBc" type="text/javascript"></script>
   <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
+  <script src="<?php echo base_url();?>javascripts/moment.min.js"></script>
   <script src="<?php echo base_url();?>javascripts/user.js"></script>
+  
+
+  
   
  
   
