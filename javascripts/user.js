@@ -68,7 +68,7 @@ $(document).ready(function() {
     	$("input[name=tel]").val($("input[name=TelBox]").val());
     	$("input[name=email]").val($("input[name=EmailBox]").val());
     	$('#order').show();
-    	$('#help').css('margin-top','-56px');
+    	$('#help').css('margin-top','-56px').addClass('hidehelp');
     	// $('#order').removeClass('nonactive').removeAttr("disabled");
     	$('#loginhelp').trigger('reveal:close');
     	$('#help').html("Info"); 

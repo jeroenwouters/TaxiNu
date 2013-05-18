@@ -1,7 +1,7 @@
 
  		<header>
 		<div class="row">
-			<div class="five columns">
+			<div class="five columns hide-for-small">
 				<div id="map_canvas" class="maps">
 					
 				</div>
