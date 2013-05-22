@@ -33,7 +33,6 @@ var User = Backbone.Model.extend({
     		AdminPanel.rittenList.add(newrit);
 	    });
 	     channel.bind('taxi_destroy_'+current_user_id, function(data) {
-	     	console.log('destory')
 	    	var rit = AdminPanel.rittenList.get(data);
 	    	AdminPanel.rittenList.remove(rit);
 	    	$('#'+data).remove();
@@ -117,7 +116,6 @@ var RittenListView = Backbone.View.extend({
 	},
 	
 	addOne: function(rit){	
-		console.log(rit.get('adres1'));	
 		geocoder.geocode( { 'address': rit.get('adres1')}, function(results, status) {
 			if (status == google.maps.GeocoderStatus.OK) {
 				var marker = new google.maps.Marker({
