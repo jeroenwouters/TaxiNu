@@ -18,6 +18,10 @@ var map
   ;
 var geocoder = new google.maps.Geocoder();
 var markerBounds = new google.maps.LatLngBounds();
+var markers = new Array();
+var directionsDisplay;
+var directionsService = new google.maps.DirectionsService();
+
 //Models
 
 var User = Backbone.Model.extend({
@@ -52,6 +56,10 @@ var RittenList = Backbone.Collection.extend({
 //Views
 var RittenView = Backbone.View.extend({
   template: Handlebars.compile(rit_tempalte),
+
+  events: {
+  	"click" : "map"
+  },
   
   render: function(){
   	this.$el.html(this.template(this.model.toJSON()));
@@ -106,7 +114,20 @@ var RittenView = Backbone.View.extend({
 	}
     return this;
   },
+
+  map: function(){
+  	var ritMapView = new RitMapView({model: this.model});
+  	ritMapView.render();
+  }
   
+});
+
+var RitMapView = Backbone.View.extend({
+	render: function(){
+		clearOverlays();
+		calcRoute(this.model.get('adres1'),this.model.get('adres2'));
+		showmap();
+	}
 });
 
 var RittenListView = Backbone.View.extend({
@@ -122,6 +143,7 @@ var RittenListView = Backbone.View.extend({
 					map: map,
 					position: results[0].geometry.location
 				});
+				markers.push(marker);
 				markerBounds.extend(results[0].geometry.location);
 				map.fitBounds(markerBounds);
 			} else {
@@ -136,8 +158,29 @@ var RittenListView = Backbone.View.extend({
 		this.collection.forEach(this.addOne, this);
 	},
 	
-	render: function(){
-		this.addAll();
+	render: function(onlymarkers){
+		if(onlymarkers == true){
+			this.collection.forEach(this.onlymarkers, this);
+		}else{
+			this.addAll();
+		}
+	},
+
+	onlymarkers: function(rit){
+		directionsDisplay.setMap(null);
+		geocoder.geocode( { 'address': rit.get('adres1')}, function(results, status) {
+			if (status == google.maps.GeocoderStatus.OK) {
+				var marker = new google.maps.Marker({
+					map: map,
+					position: results[0].geometry.location
+				});
+				markers.push(marker);
+				markerBounds.extend(results[0].geometry.location);
+				map.fitBounds(markerBounds);
+			} else {
+			alert("Geocode was not successful for the following reason: " + status);
+			}
+		});
 	}
 });
 
@@ -190,16 +233,8 @@ $(document).ready(function() {
 	$("#loc").hide();
 
 	$("#world").click(function(){
-		$("#lijst").animate({
-			marginLeft: "-100%",
-		}, 250);
-		$("#map").animate({
-			marginLeft: "0%",
-		}, 250);
-		$("#world").hide();
-		$("#set").hide();
-		$("#list").show();
-		$("#loc").show();
+		AdminPanel.rittenListView.render(1);
+		showmap();
 	});
 
 	$("#list").click(function(){
@@ -222,11 +257,11 @@ $(document).ready(function() {
 
 
 function init() {
+  directionsDisplay = new google.maps.DirectionsRenderer();
   map = new google.maps.Map( document.getElementById('map')
                            , { zoom: zoom
                              , mapTypeId: google.maps.MapTypeId.ROADMAP
                              });
-
   if (navigator.geolocation)
     navigator.geolocation.watchPosition(gotPosition, function() {
       noGeolocation('Error: The Geolocation service failed.');
@@ -281,3 +316,43 @@ function marker(url, size, hotspot, origin) {
   return new google.maps.MarkerImage(url, size, origin || p(0, 0), hotspot);
 }
 
+function clearOverlays() {
+  for (var i = 0; i < markers.length; i++ ) {
+    markers[i].setMap(null);
+  }
+}
+
+function calcRoute(start, end) {
+	directionsDisplay.setMap(map);
+
+	var waypts = [];
+	 waypts.push({
+          location:start,
+          stopover:true}
+     );
+
+	var request = {
+		origin:pos,
+		destination:end,
+		 waypoints: waypts,
+		travelMode: google.maps.DirectionsTravelMode.DRIVING
+	};
+	directionsService.route(request, function(response, status) {
+		if (status == google.maps.DirectionsStatus.OK) {
+		    directionsDisplay.setDirections(response);
+		 }
+	});
+}
+
+function showmap(){
+	$("#lijst").animate({
+		marginLeft: "-100%",
+	}, 250);
+	$("#map").animate({
+		marginLeft: "0%",
+	}, 250);
+	$("#world").hide();
+	$("#set").hide();
+	$("#list").show();
+	$("#loc").show();
+}

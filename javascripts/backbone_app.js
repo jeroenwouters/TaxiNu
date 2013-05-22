@@ -51,11 +51,6 @@ var BestellingView = Backbone.View.extend({
   },
   
   render: function(){
-  	// if(status == 3){
-	  // 	this.$el.html(this.template2(this.model.toJSON()));
-  	// }else{
-   //  	this.$el.html(this.template2(this.model.toJSON()));
-   //  }
    this.$el.html(this.template2(this.model.toJSON()));
     this.$el.draggable({
             helper: "clone",
