@@ -63,16 +63,24 @@ $(document).ready(function() {
     	var valid = $('#form1').valid(); 
     	
     	if(valid){
-	    	
-	    $("input[name=naam]").val($("input[name=NaamBox]").val());
-    	$("input[name=tel]").val($("input[name=TelBox]").val());
-    	$("input[name=email]").val($("input[name=EmailBox]").val());
-    	$('#order').show();
-    	$('#help').css('margin-top','-56px').addClass('hidehelp');
-    	// $('#order').removeClass('nonactive').removeAttr("disabled");
-    	$('#loginhelp').trigger('reveal:close');
-    	$('#help').html("Info"); 
-	    	
+    	  $.ajax({
+		  type: 'GET',
+		  url: 'http://maps.googleapis.com/maps/api/distancematrix/json?origins='+$("input[name=adres1]").val()+'&destinations='+$("input[name=adres2]").val()+'&sensor=false',
+		  dataType: 'json',
+		  success: function(jsonData) {
+		  	 $("input[name=Afstand]").val(jsonData.rows[0].elements[0].distance.text);
+		  	 $("input[name=naam]").val($("input[name=NaamBox]").val());
+    	 	 $("input[name=naam]").val($("input[name=NaamBox]").val());
+	    	 $("input[name=tel]").val($("input[name=TelBox]").val());
+	    	 $("input[name=email]").val($("input[name=EmailBox]").val());
+	    	 $('#order').show();
+	    	 $('#help').css('margin-top','-56px').addClass('hidehelp');
+	    	 // $('#order').removeClass('nonactive').removeAttr("disabled");
+	    	 $('#loginhelp').trigger('reveal:close');
+	    	 $('#help').html("Info"); 
+		  },
+		});
+
     	}else{
 	    	
 	    	alert("Form is not valid!"); 

@@ -20,6 +20,7 @@
 					 <input type="hidden" name="naam">
 					 <input type="hidden" name="tel">
 					 <input type="hidden" name="email">
+					 <input type="hidden" name="Afstand">
 					<button type="submit" class="thoughtbot" id="order">Taxi bestellen</button>
 					<?php echo form_close();?>
 					<button class="thoughtbot" id="help">Bevestigen</button>

@@ -53,7 +53,7 @@ var rit_tempalte =
 <p class="tussenteken">></p> \
 <p class="bestemming">{{adresformat adres2}}</p> \
 <p class="uur">{{tijdformat tijd}}</p> \
-<p class="afstand"> 15km</p> \
+<p class="afstand">{{afstand}}</p> \
 <p class="naamklant">{{naam}}</p> \
 </li>';
 

@@ -198,7 +198,6 @@ $(document).ready(function() {
 		}, 250);
 		$("#world").hide();
 		$("#set").hide();
-		$("#logo").css("margin-left", "-45px");
 		$("#list").show();
 		$("#loc").show();
 	});
@@ -212,7 +211,6 @@ $(document).ready(function() {
 		}, 250);
 		$("#world").show();
 		$("#set").show();
-		$("#logo").css("margin-left", "0px");
 		$("#list").hide();
 		$("#loc").hide();
 	});

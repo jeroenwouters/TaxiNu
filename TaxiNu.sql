@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Machine: localhost
--- Genereertijd: 16 mei 2013 om 14:16
+-- Genereertijd: 22 mei 2013 om 18:39
 -- Serverversie: 5.5.25
 -- PHP-versie: 5.4.4
 
@@ -36,17 +36,16 @@ CREATE TABLE `tblBestellingen` (
   `Email` varchar(99) DEFAULT NULL,
   `Tel` int(15) DEFAULT NULL,
   `Afgerond` int(1) DEFAULT NULL,
+  `Afstand` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=192 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=207 ;
 
 --
 -- Gegevens worden uitgevoerd voor tabel `tblBestellingen`
 --
 
-INSERT INTO `tblBestellingen` (`id`, `Adres1`, `Adres2`, `Tijd`, `Personen`, `Naam`, `Email`, `Tel`, `Afgerond`) VALUES
-(189, 'Fortsebaan 28-64, 2930 Brasschaat, België', 'Bierwertslei, Brasschaat, België', '2013-05-15 11:13:00', 3, 'jeroen', 'jeroen.wou@gmail.com', 498845545, 1),
-(190, 'Fortsebaan 28-64, 2930 Brasschaat, België', 'Bierwertslei, Brasschaat, België', '2013-05-15 12:44:00', 3, 'jeroen', 'jeroen.wou@gmail.com', 498845545, NULL),
-(191, 'Fortsebaan 28-64, 2930 Brasschaat, België', 'Bierwertslei, Brasschaat, België', '2013-05-15 12:44:00', 3, 'jeroen', 'jeroen.wou@gmail.com', 498845545, NULL);
+INSERT INTO `tblBestellingen` (`id`, `Adres1`, `Adres2`, `Tijd`, `Personen`, `Naam`, `Email`, `Tel`, `Afgerond`, `Afstand`) VALUES
+(206, 'Fortsebaan 38, Brasschaat, België', 'Bierwertslei 41, Brasschaat, België', '2013-05-22 18:36:00', 5, 'jeroen', 'jeroen.wou@gmail.com', 498845545, 1, '3,6 km');
 
 -- --------------------------------------------------------
 
@@ -62,14 +61,14 @@ CREATE TABLE `tblStatus` (
   `Wachttijd` int(11) DEFAULT NULL,
   `fkTaxi` int(255) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=187 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=204 ;
 
 --
 -- Gegevens worden uitgevoerd voor tabel `tblStatus`
 --
 
 INSERT INTO `tblStatus` (`id`, `fkBestelling`, `fkUser`, `Status`, `Wachttijd`, `fkTaxi`) VALUES
-(186, 189, 1, 3, 5, 2);
+(203, 206, 1, 3, 2, 1);
 
 -- --------------------------------------------------------
 
@@ -93,9 +92,9 @@ CREATE TABLE `tblTaxis` (
 INSERT INTO `tblTaxis` (`id`, `fkUser`, `Login`, `Naam`, `pass`) VALUES
 (1, 1, 'AntwerpTax_Taxi1', 'Taxi1', '21232f297a57a5a743894a0e4a801fc3'),
 (2, 1, 'AntwerpTax_Taxi2', 'Taxi2', '21232f297a57a5a743894a0e4a801fc3'),
-(7, 1, 'AntwerpTax_Taxi3', 'Taxi3', '21232f297a57a5a743894a0e4a801fc3'),
-(10, 1, 'AntwerpTax_Taxi4', 'Taxi4', '21232f297a57a5a743894a0e4a801fc3'),
-(11, 1, 'AntwerpTax_Taxi5', 'Taxi5', '21232f297a57a5a743894a0e4a801fc3');
+(3, 1, 'AntwerpTax_Taxi3', 'Taxi3', '21232f297a57a5a743894a0e4a801fc3'),
+(4, 1, 'AntwerpTax_Taxi4', 'Taxi4', '21232f297a57a5a743894a0e4a801fc3'),
+(5, 1, 'AntwerpTax_Taxi5', 'Taxi5', '21232f297a57a5a743894a0e4a801fc3');
 
 -- --------------------------------------------------------
 
