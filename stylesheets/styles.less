@@ -37,8 +37,8 @@ li{
 header{
 	
 	max-width: 100%;
-	min-height: 400px;
-	overflow-x: hidden;
+	min-height: 600px;
+	overflow: hidden;
 	height:90%;
 	box-shadow: 0px 1px 3px 0px #717171;
 	
@@ -287,6 +287,7 @@ and (max-width: 480px){
 	header{
 		overflow: hidden;
 		background-image: url(../images/straat.jpg);
+		min-height: 400px;
 	}
 	
 	footer{
@@ -377,6 +378,16 @@ and (max-width: 480px){
 	background-color:rgba(255,255,255,0.8);
 	padding: 5px;
 	padding-left: 30px !important;
+
+	.question_btn{
+		margin-left:20px;
+		opacity: 0.6;
+		cursor: pointer;
+
+		&:hover{
+			opacity: 1;
+		}
+	}
 	
 }
 
@@ -496,6 +507,36 @@ li:before {
     color: #871719; /* or whatever color you prefer */
 }
 
+}
+
+.info{
+	width: 437px;
+	height: 98px;
+	position: absolute;
+	top: 640px;
+	background-color:  rgba(255,255,255,0.64);
+	left: 24%;
+	margin-left: -100px;
+	.rounded(3px);
+
+	img{
+		position: absolute;
+		top: -15px;
+		left: 52px;
+	width: 126px;
+	}
+		
+	ol{
+		margin-left: 175px;
+		font-size: 12px;
+		margin-top: 7px;
+
+		li{
+			font-size: 18px;
+			color: #222222;
+			font-weight: 100;
+		}
+	}
 }
 
 

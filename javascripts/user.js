@@ -1,12 +1,22 @@
 $(document).ready(function() {
-    
     var now = moment().format('DD/MM/YYYY HH:mm ');
     $('#timedate').val(now); 
 	  enquire.register("screen and (min-width: 500px)", function() {
 
           ///slideshow code here
           $('#timedate').datetimepicker({controlType: 'select'});
+ 		  
+ 		  
+ 		  $('.question_btn').one("click",function(){
+ 		  		once = true; 
+ 		  		$('.info').animate({
+				    top: '-=219'
+				  }, 1000, function() {
+				              $('.errors').fadeOut();
 
+				});
+ 		  });
+ 		
       }).listen();
       
       enquire.register("screen and (max-width: 500px)", function() {

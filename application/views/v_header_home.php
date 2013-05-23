@@ -20,7 +20,7 @@
 				</div>
 				<input name="adres2" type="text" value="<?php if(isset($flashdata_val_home)){ echo $flashdata_val_home['adres2'];}?>" placeholder="Bestemming" id="address2">
 				<input name="tijd" type="datetime" value="<?php if(isset($flashdata_val_home)){ echo $flashdata_val_home['tijd'];}?>" placeholder="12 December 12:12" id="timedate" class="timephone">
-				<button class="thoughtbot" type="submit">Taxi!</button>
+				<button class="thoughtbot" type="submit">Bestel Taxi!</button>
 				<?php echo form_close();?>
 				<div class="errors">
 					<?php if(isset($flashdata_val_home)){ echo $flashdata_val_home['error'];}  ?>
@@ -30,7 +30,8 @@
 			
 		</div>   
 		<div class="nav">
-			 <img src="<?php echo base_url();?>images/logo.png" width="200px">
+			 <img src="<?php echo base_url();?>images/logo.png" width="200px">			
+			 <img class="question_btn" src="<?php echo base_url();?>images/question.png" width="35px"> 
 			 <div class="social">
 			 	<img src="<?php echo base_url();?>images/f.png" width="15px;">
 			 	<img src="<?php echo base_url();?>images/t.png" width="50px;">
@@ -38,7 +39,16 @@
 			 	
 			 </div>
 		</div>
-		    
+		
+		<div class="info">
+			<img src="<?php echo base_url();?>images/question.png">
+			<ol>
+				<li>Vul uw vertreklocatie in!</li>
+				<li>Vul uw bestemming in!</li>
+				<li>Kies gewenste uur/dag!</li>
+			</ol>
+		</div> 
+
 		</header>
 		
 		
@@ -55,7 +65,7 @@
 		        </ul> 	
 		    </div>
 		    
-		    <div class="six columns ad">
+		    <div class="six columns ad">	
 		        <h1>Werkt op al uw apparaten!</h1><br />
 		        <img src="<?php echo base_url();?>images/mobiles.png" width="350px" id="mobiles">
 		    </div>
