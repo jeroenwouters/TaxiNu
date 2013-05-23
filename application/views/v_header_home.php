@@ -43,9 +43,9 @@
 		<div class="info">
 			<img src="<?php echo base_url();?>images/question.png">
 			<ol>
-				<li>Vul uw vertreklocatie in!</li>
-				<li>Vul uw bestemming in!</li>
-				<li>Kies gewenste uur/dag!</li>
+				<li>Vul uw <span style="color:red;">vertreklocatie</span> in!</li>
+				<li>Vul uw <span style="color:red">bestemming</span> in!</li>
+				<li>Kies gewenste <span style="color:red">uur/dag</span>!</li>
 			</ol>
 		</div> 
 

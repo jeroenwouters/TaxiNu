@@ -28,12 +28,18 @@
 		    </div>
 		</footer>  
  <div id="loginhelp" class="reveal-modal small" style="background-color: black; color: white; top: 100px; opacity: 1; visibility: hidden; display: none;">
-  <p>We hebben enkele gegevens van u nodig!</p>
+  <p>Bestaande klant</p>
+  <form onsubmit="return false" id="form1"> 
+    <input type="text" name="NaamBox" placeholder="E-mail">
+    <input type="text" name="TelBox" placeholder="Wachtwoord">
+    <button class="thoughtbot" type="submit" id="verder">Inloggen</button>
+  </form><br><br><br><br>
+  <p>Nieuwe klant?</p>
   <form onsubmit="return false" id="form1"> 
   	<input type="text" name="NaamBox" placeholder="Naam">
   	<input type="text" name="TelBox" placeholder="Telefoonnummer">
   	<input type="text" name="EmailBox" placeholder="E-mail">
-  	<button class="thoughtbot" type="submit" id="verder">Verder</button>
+  	<button class="thoughtbot" type="submit" id="verder">Registreer</button>
   </form>
   <a class="close-reveal-modal">×</a>
 </div>
