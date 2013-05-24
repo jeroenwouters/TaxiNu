@@ -29,11 +29,11 @@
 		</footer>  
  <div id="loginhelp" class="reveal-modal small" style="background-color: black; color: white; top: 100px; opacity: 1; visibility: hidden; display: none;">
   <p>Bestaande klant</p>
-  <form onsubmit="return false" id="form1"> 
-    <input type="text" name="NaamBox" placeholder="E-mail">
-    <input type="text" name="TelBox" placeholder="Wachtwoord">
-    <button class="thoughtbot" type="submit" id="verder">Inloggen</button>
-  </form><br><br><br><br>
+  <!--<form> 
+    <input type="text" placeholder="E-mail">
+    <input type="text" placeholder="Wachtwoord">
+    <button class="thoughtbot" id="verder">Inloggen</button>
+  </form><br><br><br><br>-->
   <p>Nieuwe klant?</p>
   <form onsubmit="return false" id="form1"> 
   	<input type="text" name="NaamBox" placeholder="Naam">

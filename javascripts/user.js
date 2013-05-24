@@ -6,6 +6,10 @@ $(document).ready(function() {
           ///slideshow code here
           $('#timedate').datetimepicker({controlType: 'select'});
  		  
+ 		  $('#address1').one("focus",function(){
+ 		  		$('.bread').fadeIn();
+ 		  });
+
  		  
  		  $('.question_btn').one("click",function(){
  		  		once = true; 
