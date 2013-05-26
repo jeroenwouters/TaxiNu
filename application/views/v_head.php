@@ -41,9 +41,12 @@
 	
 	header{
 	position: relative;
-	background-image: url(http://www.taxinu.be/images/straat2.jpg);
+	background-image: url(<?php echo base_url();?>/images/backtax.jpg);
 	background-repeat: no-repeat;
-	background-size: cover;}
+	-webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;}
 </style>
 
 
