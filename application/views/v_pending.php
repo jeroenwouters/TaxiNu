@@ -22,7 +22,6 @@
 
 <div class="nav">
 			 <img src="<?php echo base_url();?>images/logo.png" width="200px">			
-			 <img class="question_btn" src="<?php echo base_url();?>images/question.png" width="35px"> 
 			
 			 <ul class="bread" style="display:block;">
 			 	<li ><img src="<?php echo base_url();?>images/1.png">Ritgegevens</li>
