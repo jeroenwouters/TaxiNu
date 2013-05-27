@@ -11,5 +11,7 @@
 			<ul class="ritten"></ul>
 	</div>
 	<div class="wrapper" id="map">
-			
+		
+	</div>
+	<div id="maprit">
 	</div>

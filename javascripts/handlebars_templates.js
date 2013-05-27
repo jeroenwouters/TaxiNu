@@ -2,7 +2,6 @@ var bestelling_tempalte =
 '<li class="rit" id="{{id}}"> \
 	<p class="vertrek">{{adresformat adres1}}</p> \
 	<p class="bestemming">{{adresformat adres2}}</p> \
-	<div class="maps"></div> \
 	<p class="uur">{{tijdformat tijd}}</p> \
 	<p class="naamklant">{{naam}}</p> \
 	<p class="telklant">{{tel}}</p> \
@@ -14,7 +13,6 @@ var bestelling_tempalte2 =
 	<img src="http://localhost:8888/taxinu/images/drag.png" class="mark" width="20px"> \
 	<p class="vertrek">{{adresformat adres1}}</p> \
 	<p class="bestemming">{{adresformat adres2}}</p> \
-	<div class="maps"></div> \
 	<p class="uur">{{tijdformat tijd}}</p> \
 	<p class="naamklant">{{naam}}</p> \
 	<p class="telklant">{{tel}}</p> \
@@ -56,4 +54,9 @@ var rit_tempalte =
 <p class="afstand">{{afstand}}</p> \
 <p class="naamklant">{{naam}}</p> \
 </li>';
+
+var rit_map_template = 
+'<p class="uur">{{tijdformat tijd}}</p> \
+<p class="vertrek">{{adresformat adres1}}</p><p class="tussenteken">></p> \
+<p class="bestemming">{{adresformat adres2}}</p>';
 

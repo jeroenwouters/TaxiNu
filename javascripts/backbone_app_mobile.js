@@ -58,7 +58,8 @@ var RittenView = Backbone.View.extend({
   template: Handlebars.compile(rit_tempalte),
 
   events: {
-  	"click" : "map"
+  	"click" : "map",
+  	'touchstop' : "map"
   },
   
   render: function(){
@@ -117,16 +118,22 @@ var RittenView = Backbone.View.extend({
 
   map: function(){
   	var ritMapView = new RitMapView({model: this.model});
-  	ritMapView.render();
+  	$('#maprit').html(ritMapView.render().el);
   }
   
 });
 
 var RitMapView = Backbone.View.extend({
+	template: Handlebars.compile(rit_map_template),
+
 	render: function(){
 		clearOverlays();
 		calcRoute(this.model.get('adres1'),this.model.get('adres2'));
 		showmap();
+		$('#maprit').show();
+		this.$el.html(this.template(this.model.toJSON()));
+
+		return this;
 	}
 });
 
@@ -231,6 +238,7 @@ $(document).ready(function() {
 
 	$("#list").hide();
 	$("#loc").hide();
+	$("#maprit").hide();
 
 	$("#world").click(function(){
 		AdminPanel.rittenListView.render(1);
@@ -248,6 +256,7 @@ $(document).ready(function() {
 		$("#set").show();
 		$("#list").hide();
 		$("#loc").hide();
+		$("#maprit").hide();
 	});
 
 	$("#loc").click(function(){
