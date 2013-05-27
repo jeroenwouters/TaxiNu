@@ -103,7 +103,14 @@
   <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
   <script src="<?php echo base_url();?>javascripts/moment.min.js"></script>
   <script src="<?php echo base_url();?>javascripts/user.js"></script>
-  
+    <?php if($this->uri->segment(2) == 'volgtaxi'){?>
+    <script type="text/javascript">
+      var taxi = <?php echo $taxi;?>;
+      var bedrijf = <?php echo $this->uri->segment(4);?>;
+    </script>
+    <script src="http://js.pusher.com/1.12/pusher.min.js" type="text/javascript"></script>
+    <script src="<?php echo base_url();?>javascripts/maps_bevestig.js"></script>
+  <?php } ?>
 
   
   

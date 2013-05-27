@@ -86,6 +86,11 @@ class Admin extends CI_Controller {
 	{
 		if($this->session->userdata('logged_in')){
 			$data = $this->session->userdata('logged_in');
+			$this->load->model('m_taxis');
+			$query = $this->m_taxis->get($data['id']);
+			foreach ($query->result() as $r) {
+				$data['fkUser'] = $r->fkUser;
+			}
 			echo json_encode($data);
 		}else{
 			$this->load->view('v_login');

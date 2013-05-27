@@ -3,6 +3,7 @@
 Backbone.emulateHTTP = true
 var current_user_id;
 var current_user_login;
+var channel2;
 
 //map vals
 var map
@@ -30,6 +31,7 @@ var User = Backbone.Model.extend({
 	parse: function(data, options) {
 		current_user_id = data.id;
 		current_user_login = data.username;
+		channel2 = pusher.subscribe('private-bedrijf_'+data.fkUser);
 		AdminPanel.rittenList.fetch( { data: { userid: data.id} });
 		var channel = pusher.subscribe('admin_all');
 	    channel.bind('taxi_'+current_user_id, function(data) {
@@ -232,18 +234,16 @@ var AdminPanel = new (Backbone.Router.extend({
 
 //Allen Test
 // Enable pusher logging - don't include this in production
-/*
+
 Pusher.log = function(message) {
   if (window.console && window.console.log) window.console.log(message);
 };
-*/
+
 // Flash fallback logging - don't include this in production
 WEB_SOCKET_DEBUG = true;
 //Stop Test
-
+	Pusher.channel_auth_endpoint = 'pusher/auth.php';
 	var pusher = new Pusher('b075ffa0df361cc21bda');
-    
-    
     
     
 
@@ -292,7 +292,7 @@ function init() {
       noGeolocation('Error: The Geolocation service failed.');
     }, { enableHighAccuracy: true, maximumAge: 10e3, timeout: 20e3 });
   else
-    noGeolocation('Error: Your browser doesn\'t support geolocation.');
+    noGeolocation('Error: Your browser doesn\'t support geo.');
 }
 
 function gotPosition(position) {
@@ -323,6 +323,8 @@ function gotPosition(position) {
   if (z !== zoom) map.setZoom(zoom = z);
 
   map.fitBounds(markerBounds);
+
+   channel2.trigger('client-taxi_'+current_user_id, { lat: position.coords.latitude, lang: position.coords.longitude });
 }
 
 function noGeolocation(message) {

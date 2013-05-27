@@ -1,0 +1,2 @@
+[06-May-2013 08:41:49] PHP Parse error:  syntax error, unexpected T_STRING in /home/donbosco/taxinu/pusher/auth.php on line 2
+[06-May-2013 08:42:09] PHP Fatal error:  Class 'Pusher' not found in /home/donbosco/taxinu/pusher/auth.php on line 2

@@ -45,5 +45,15 @@ Class M_status extends CI_Model
 		// $this->db->update('tblStatus', $data);
 	}
 
+	function gettaxi($fkBestelling, $fkUser){
+		$this->db->where('fkBestelling', $fkBestelling);
+		$this->db->where('fkUser', $fkUser);
+		$query = $this->db->get('tblStatus');
+
+		foreach ($query->result() as $r) {
+			return($r->fkTaxi);
+		}
+	}
+
 }
 ?>
