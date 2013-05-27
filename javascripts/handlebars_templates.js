@@ -10,7 +10,7 @@ var bestelling_tempalte =
 
 var bestelling_tempalte2 =
 '<li class="rit" id="{{id}}"> \
-	<img src="http://localhost:8888/taxinu/images/drag.png" class="mark" width="20px"> \
+	<img src="images/drag.png" class="mark" width="20px"> \
 	<p class="vertrek">{{adresformat adres1}}</p> \
 	<p class="bestemming">{{adresformat adres2}}</p> \
 	<p class="uur">{{tijdformat tijd}}</p> \
@@ -41,7 +41,7 @@ var module_bestelling_template2 =
 
 var taxi_template = 
 '<h1>{{Naam}}</h1> \
-<div class="set"><img src="http://192.168.0.241:8888/TaxiNu/images/settings.png"></div> \
+<div class="set"><img src="images/settings.png"></div> \
 <ul class="ritten"> \
 </ul>';
 
@@ -58,5 +58,10 @@ var rit_tempalte =
 var rit_map_template = 
 '<p class="uur">{{tijdformat tijd}}</p> \
 <p class="vertrek">{{adresformat adres1}}</p><p class="tussenteken">></p> \
-<p class="bestemming">{{adresformat adres2}}</p>';
+<p class="bestemming">{{adresformat adres2}}</p> \
+<img src="images/loc.png"/> \
+<p id="afstandpos" class="afstand"></p> \
+<img class="hail" src="images/hail_icon.png"/> \
+<p class="afstand">{{afstand}}</p> \
+<img src="images/finish.png"/> ';
 

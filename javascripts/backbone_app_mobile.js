@@ -119,6 +119,14 @@ var RittenView = Backbone.View.extend({
   map: function(){
   	var ritMapView = new RitMapView({model: this.model});
   	$('#maprit').html(ritMapView.render().el);
+  	$.ajax({
+		type: 'GET',
+		url: 'http://maps.googleapis.com/maps/api/distancematrix/json?origins='+pos+'&destinations='+this.model.get("adres1")+'&sensor=false',
+		dataType: 'json',
+		success: function(jsonData) {
+		  	$("#afstandpos").html(jsonData.rows[0].elements[0].distance.text);
+		 },
+	});
   }
   
 });
@@ -132,7 +140,6 @@ var RitMapView = Backbone.View.extend({
 		showmap();
 		$('#maprit').show();
 		this.$el.html(this.template(this.model.toJSON()));
-
 		return this;
 	}
 });
