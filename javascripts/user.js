@@ -1,7 +1,10 @@
 $(document).ready(function() {
     var now = moment().format('DD/MM/YYYY HH:mm ');
     $('#timedate').val(now); 
-	  enquire.register("screen and (min-width: 500px)", function() {
+	
+	$('header').animate({"opacity": 1},300);
+
+	enquire.register("screen and (min-width: 500px)", function() {
 
           ///slideshow code here
           $('#timedate').datetimepicker({controlType: 'select'});
