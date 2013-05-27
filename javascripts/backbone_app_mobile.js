@@ -118,6 +118,7 @@ var RittenView = Backbone.View.extend({
 
   map: function(){
   	var ritMapView = new RitMapView({model: this.model});
+  	$('#maprit').css("height", "100px");
   	$('#maprit').html(ritMapView.render().el);
   	$.ajax({
 		type: 'GET',
@@ -134,6 +135,10 @@ var RittenView = Backbone.View.extend({
 var RitMapView = Backbone.View.extend({
 	template: Handlebars.compile(rit_map_template),
 
+	events: {
+  		"click" : "open",
+  	},
+
 	render: function(){
 		clearOverlays();
 		calcRoute(this.model.get('adres1'),this.model.get('adres2'));
@@ -141,6 +146,10 @@ var RitMapView = Backbone.View.extend({
 		$('#maprit').show();
 		this.$el.html(this.template(this.model.toJSON()));
 		return this;
+	}, 
+
+	open: function(){
+		$('#maprit').css("height", "auto");
 	}
 });
 

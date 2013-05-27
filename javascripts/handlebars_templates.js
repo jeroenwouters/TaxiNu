@@ -63,5 +63,11 @@ var rit_map_template =
 <p id="afstandpos" class="afstand"></p> \
 <img class="hail" src="images/hail_icon.png"/> \
 <p class="afstand">{{afstand}}</p> \
-<img src="images/finish.png"/> ';
+<img src="images/finish.png"/> \
+<div class="compleet_adres"> \
+<p>{{adres1}}</p> \
+<p>{{adres2}}</p> \
+<p>{{naam}}</p> \
+<p>{{tel}}</p> \
+<p>{{personen}} Personen</p></div>';
 
