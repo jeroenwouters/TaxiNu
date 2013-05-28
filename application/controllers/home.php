@@ -148,7 +148,6 @@ class Home extends CI_Controller {
 		$this->load->view('v_head');
 		$this->load->view('v_taxibesteld', $data);
 		$this->load->view('v_footer');
-		// $this->load->view('map');
 	}
 }
 

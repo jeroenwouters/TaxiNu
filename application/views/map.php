@@ -30,7 +30,7 @@
 		
 		    // Flash fallback logging - don't include this in production
 		    WEB_SOCKET_DEBUG = true;
-		    Pusher.channel_auth_endpoint = 'pusher/auth.php';
+		    Pusher.channel_auth_endpoint = 'http://192.168.0.240:8888/TaxiNu/pusher/auth.php';
 		    var pusher = new Pusher('b075ffa0df361cc21bda');
 		    var channel = pusher.subscribe('private-bedrijf_1');
 		    channel.bind('client-taxi_1', function(data) {
