@@ -27,6 +27,14 @@
    
   <script src="<?php echo base_url();?>javascripts/jquery.js"></script>
 
+  <script>
+  $(document).ready(function() {
+
+  $('.info').hide();
+
+});
+</script>
+
   <script src="<?php echo base_url();?>javascripts/less.js" type="text/javascript"></script>
   <script src="<?php echo base_url();?>javascripts/modernizr.foundation.js"></script>
 
@@ -34,6 +42,8 @@
   <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
+
+
 <style>
  	#order{
 	 	display: none;

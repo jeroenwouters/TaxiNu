@@ -16,8 +16,9 @@ $(document).ready(function() {
  		  
  		  $('.question_btn').one("click",function(){
  		  		once = true; 
- 		  		$('.info').animate({
-				    top: '-=219'
+ 		  		$('.info').show().animate({
+				    top: '-=219', 
+				    opacity: '1.0'
 				  }, 1000, function() {
 				              $('.errors').fadeOut();
 
