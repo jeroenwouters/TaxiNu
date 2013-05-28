@@ -8,6 +8,12 @@ Class M_taxis extends CI_Model
    return($query);
  }
 
+ function getbyid($id){
+    $this->db->where('id', $id);
+   $query = $this->db->get('tblTaxis');
+   return($query);
+ }
+
  function insert($data){
   $this->db->insert('tblTaxis', $data);
  }

@@ -39,9 +39,9 @@ var User = Backbone.Model.extend({
     		AdminPanel.rittenList.add(newrit);
 	    });
 	     channel.bind('taxi_destroy_'+current_user_id, function(data) {
-	    	var rit = AdminPanel.rittenList.get(data);
+	    	var rit = AdminPanel.rittenList.get(data.id);
 	    	AdminPanel.rittenList.remove(rit);
-	    	$('#'+data).remove();
+	    	$('#'+data.id).remove();
 	    });
 	}
 })
