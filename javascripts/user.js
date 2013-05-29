@@ -81,6 +81,7 @@ $(document).ready(function() {
     	var valid = $('#form1').valid(); 
     	
     	if(valid){
+    		$.post("register", { naam: $("input[name=NaamBox]").val(), tel: $("input[name=TelBox]").val(), email: $("input[name=EmailBox]").val(), pass: $("input[name=password]").val() } );
     	  $.ajax({
 		  type: 'GET',
 		  url: 'http://maps.googleapis.com/maps/api/distancematrix/json?origins='+$("input[name=adres1]").val()+'&destinations='+$("input[name=adres2]").val()+'&sensor=false',
@@ -96,9 +97,9 @@ $(document).ready(function() {
 	    	 // $('#order').removeClass('nonactive').removeAttr("disabled");
 	    	 $('#loginhelp').trigger('reveal:close');
 	    	 $('#help').html("Info"); 
-		  },
-		});
-
+		  	},
+		 });
+    	 
     	}else{
 	    	
 	    	alert("Form is not valid!"); 

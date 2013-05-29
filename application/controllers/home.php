@@ -149,6 +149,12 @@ class Home extends CI_Controller {
 		$this->load->view('v_taxibesteld', $data);
 		$this->load->view('v_footer');
 	}
+
+	 function register(){
+        $this->load->model('m_klanten');
+        $_POST['pass'] = md5($_POST['pass']);
+        $this->m_klanten->insert($_POST);
+    }
 }
 
 /* End of file welcome.php */
