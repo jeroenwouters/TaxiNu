@@ -155,6 +155,15 @@ class Home extends CI_Controller {
         $_POST['pass'] = md5($_POST['pass']);
         $this->m_klanten->insert($_POST);
     }
+
+    function login(){
+    	$this->load->model('m_klanten');
+    	$data = $this->login($_POST['username'], $_POST['password']);
+    	if($data -> num_rows() == 1)
+	   	{
+	      echo json_encode($data);
+	   	}
+    }
 }
 
 /* End of file welcome.php */
