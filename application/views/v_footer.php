@@ -39,6 +39,7 @@
   	<input type="text" name="NaamBox" placeholder="Naam">
   	<input type="text" name="TelBox" placeholder="Telefoonnummer">
   	<input type="text" name="EmailBox" placeholder="E-mail">
+    <input type="password" name="password" placeholder="Wachtwoord" >
   	<button class="thoughtbot" type="submit" id="verder">Registreer</button>
   </form>
   <a class="close-reveal-modal">×</a>
