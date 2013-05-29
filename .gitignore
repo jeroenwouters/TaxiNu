@@ -6,3 +6,5 @@
 >>>>>>> .ds_store bij gitignore
 application/config/config.php
 
+.DS_Store
+
