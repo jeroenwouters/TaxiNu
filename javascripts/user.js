@@ -93,32 +93,38 @@ $(document).ready(function() {
     	
     	if(valid){
     		$.post("register", { naam: $("input[name=NaamBox]").val(), tel: $("input[name=TelBox]").val(), email: $("input[name=EmailBox]").val(), pass: $("input[name=password]").val() } );
-    	  $.ajax({
-		  type: 'GET',
-		  url: 'http://maps.googleapis.com/maps/api/distancematrix/json?origins='+$("input[name=adres1]").val()+'&destinations='+$("input[name=adres2]").val()+'&sensor=false',
-		  dataType: 'json',
-		  success: function(jsonData) {
-		  	 $("input[name=Afstand]").val(jsonData.rows[0].elements[0].distance.text);
-		  	 $("input[name=naam]").val($("input[name=NaamBox]").val());
-    	 	 $("input[name=naam]").val($("input[name=NaamBox]").val());
-	    	 $("input[name=tel]").val($("input[name=TelBox]").val());
-	    	 $("input[name=email]").val($("input[name=EmailBox]").val());
-	    	 $('#order').show();
-	    	 $('#help').css('margin-top','-56px').addClass('hidehelp');
-	    	 // $('#order').removeClass('nonactive').removeAttr("disabled");
-	    	 $('#loginhelp').trigger('reveal:close');
-	    	 $('#help').html("Info"); 
-		  	},
-		 });
+    	  	modelok($("input[name=NaamBox]").val(), $("input[name=TelBox]").val(), $("input[name=EmailBox]").val() );
     	 
     	}else{
 	    	
 	    	alert("Form is not valid!"); 
 	    	
     	}
-    	
-    	
+
     });
+
+	$('#loginbtn').click(function(){
+		var valid = $('#login').valid();
+		var data = {username: $("input[name=loginemail]").val() ,password: $("input[name=loginpass]").val()};
+
+    	if(valid){
+    		$.ajax({
+			  type: 'POST',
+			  url: 'login',
+			  data: data,
+			  dataType: 'json',
+			  success: function(jsonData) {
+			  		if(jsonData != "false"){
+			  			console.log(jsonData);
+			  			modelok(jsonData[0].naam, jsonData[0].email, jsonData[0].tel);
+			  		}else{
+			  			//als login gefaalt is
+			  			console.log('loginfalse');
+			  		}
+			  	}
+    		});
+    	}
+	});
       
       
     $("#location").click(function(){huidigeLocatie();});
@@ -176,3 +182,21 @@ function codeLatLng(lat, lng) {
     });
 }
 
+function modelok(naam, email, tel){
+	$.ajax({
+		  type: 'GET',
+		  url: 'http://maps.googleapis.com/maps/api/distancematrix/json?origins='+$("input[name=adres1]").val()+'&destinations='+$("input[name=adres2]").val()+'&sensor=false',
+		  dataType: 'json',
+		  success: function(jsonData) {
+		  	 $("input[name=Afstand]").val(jsonData.rows[0].elements[0].distance.text);
+    	 	 $("input[name=naam]").val(naam);
+	    	 $("input[name=tel]").val(tel);
+	    	 $("input[name=email]").val(email);
+	    	 $('#order').show();
+	    	 $('#help').css('margin-top','-56px').addClass('hidehelp');
+	    	 // $('#order').removeClass('nonactive').removeAttr("disabled");
+	    	 $('#loginhelp').trigger('reveal:close');
+	    	 $('#help').html("Info"); 
+		  	},
+		 });
+}

@@ -8,14 +8,16 @@ Class M_klanten extends CI_Model
 
  function login($email, $pass)
  {
-   $this -> db -> select('id, email, pass, naam, tel');
-   $this -> db -> from('tblKlanten');
-   $this -> db -> where('email = ' . "'" . $email . "'");
-   $this -> db -> where('pass = ' . "'" . MD5($pass) . "'");
-   $this -> db -> limit(1);
+    $this->db->where('email', $email);
+    $this->db->where('pass', md5($pass));
+        
+        // Run the quey
+        $query = $this->db->get('tblKlanten');
+        // Let's check if there are any results
+        if($query->num_rows == 1){
+          return($query->result());
+        }
+}
 
-   $query = $this -> db -> get();
-
-   return($query);
 }
 ?>

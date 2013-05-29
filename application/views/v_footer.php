@@ -32,10 +32,10 @@
   <div class="switch" style="display: none">
     <br><br><br><br>
   <p>Bestaande klant</p>
-  <form id="login"> 
+  <form onsubmit="return false" id="login"> 
     <input type="text" name="loginemail" placeholder="E-mail">
     <input type="text" name="loginpass" placeholder="Wachtwoord">
-    <button class="thoughtbot" id="verder">Inloggen</button>
+    <button class="thoughtbot" id="loginbtn">Inloggen</button>
   </form>
 </div><br><br><br><br>
   <div class="switch">
