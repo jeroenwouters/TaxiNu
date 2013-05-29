@@ -1,5 +1,7 @@
 $(document).ready(function() {
     var now = moment().format('DD/MM/YYYY HH:mm ');
+    
+
     $('#timedate').val(now); 
 	
 	$('header').animate({"opacity": 1},300);
@@ -73,8 +75,17 @@ $(document).ready(function() {
 			EmailBox: "Gelieve een geldig emailadres in te geven."
 		}
     });
-    
-    
+
+    $('#login').validate({
+	    rules: { 
+		    loginemail: {            
+			required: true, 
+			email: true }	
+		}, 	
+		messages: {
+			loginemail: "Geen geldig emailadres."
+		}
+    });
     
     $('#verder').click(function(){
     	
@@ -112,7 +123,21 @@ $(document).ready(function() {
       
     $("#location").click(function(){huidigeLocatie();});
     
-    
+   
+    $("#userswitch").click(function () {
+		$(".switch").toggle();
+
+		var btntext = $("#userswitch").text(); 
+
+		if(btntext == "Bestaande klant?"){
+			$("#userswitch").text("Nieuwe klant");
+		}else{
+			console.log(btntext);
+			$("#userswitch").text("Bestaande klant?");
+		}
+
+	});
+
     
 });
 
