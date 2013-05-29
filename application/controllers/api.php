@@ -132,4 +132,10 @@ class Api extends REST_Controller
         }
         echo json_encode($bestelling);
     }
+
+    function klanten_post(){
+        $data = $this->request->body;
+        $this->load->model('m_klanten');
+        $this->m_klanten->insert($data);
+    }
 }

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Machine: localhost
--- Genereertijd: 22 mei 2013 om 18:39
+-- Genereertijd: 29 mei 2013 om 15:26
 -- Serverversie: 5.5.25
 -- PHP-versie: 5.4.4
 
@@ -38,14 +38,22 @@ CREATE TABLE `tblBestellingen` (
   `Afgerond` int(1) DEFAULT NULL,
   `Afstand` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=207 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=223 ;
+
+-- --------------------------------------------------------
 
 --
--- Gegevens worden uitgevoerd voor tabel `tblBestellingen`
+-- Tabelstructuur voor tabel `tblKlanten`
 --
 
-INSERT INTO `tblBestellingen` (`id`, `Adres1`, `Adres2`, `Tijd`, `Personen`, `Naam`, `Email`, `Tel`, `Afgerond`, `Afstand`) VALUES
-(206, 'Fortsebaan 38, Brasschaat, België', 'Bierwertslei 41, Brasschaat, België', '2013-05-22 18:36:00', 5, 'jeroen', 'jeroen.wou@gmail.com', 498845545, 1, '3,6 km');
+CREATE TABLE `tblKlanten` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `naam` varchar(255) NOT NULL,
+  `tel` int(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `pass` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -61,14 +69,15 @@ CREATE TABLE `tblStatus` (
   `Wachttijd` int(11) DEFAULT NULL,
   `fkTaxi` int(255) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=204 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=208 ;
 
 --
 -- Gegevens worden uitgevoerd voor tabel `tblStatus`
 --
 
 INSERT INTO `tblStatus` (`id`, `fkBestelling`, `fkUser`, `Status`, `Wachttijd`, `fkTaxi`) VALUES
-(203, 206, 1, 3, 2, 1);
+(206, 221, 1, 3, NULL, 4),
+(207, 222, 1, 3, 4, 1);
 
 -- --------------------------------------------------------
 
@@ -83,7 +92,7 @@ CREATE TABLE `tblTaxis` (
   `Naam` varchar(255) NOT NULL,
   `pass` varchar(255) NOT NULL DEFAULT '21232f297a57a5a743894a0e4a801fc3',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- Gegevens worden uitgevoerd voor tabel `tblTaxis`
