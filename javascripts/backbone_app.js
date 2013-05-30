@@ -8,8 +8,8 @@ var current_user_login;
 var Bestelling = Backbone.Model.extend({
 	setstatus: function(newstatus){
 		this.set({
-		'status': newstatus,
-		'wachttijd': $('.wachttijd').val(),
+			'status': newstatus,
+			'wachttijd': $('.wachttijd').val(),
 		});
 		this.save();
 	}, 
@@ -72,8 +72,12 @@ var BestellingView = Backbone.View.extend({
 	}
 
 	if(this.model.get('status') == 2){
-		console.log(this.model.get('id'));
 		this.$el.css("background-color", "red");
+	}
+
+	if(this.model.get('status') == 4){
+		console.log(this.model.get('id'));
+		this.$el.css("background-color", "orange");
 	}
     return this;
   },
@@ -238,11 +242,11 @@ var AdminPanel = new (Backbone.Router.extend({
 
 //Allen Test
 // Enable pusher logging - don't include this in production
-/*
+
 Pusher.log = function(message) {
   if (window.console && window.console.log) window.console.log(message);
 };
-*/
+
 // Flash fallback logging - don't include this in production
 WEB_SOCKET_DEBUG = true;
 //Stop Test
@@ -259,14 +263,22 @@ WEB_SOCKET_DEBUG = true;
     
     channel.bind('admin_'+$('#hiddenid').val(), function(data) {
   //   	$('#'+data).remove();
-		var modelget = AdminPanel.bestellingList.get(data);
+  		console.log('satus: '+data.status);
+		var modelget = AdminPanel.bestellingList.get(data.id);
   //   	var bestellingView = new BestellingView({model: modelget});
 		// $('#col3 ul').append(bestellingView.render(3).el);
 		// col3drag();
 		modelget.set({
-		'status': 3,
+		'status': data.status,
 		});
-		$('#'+data).css('background-color', 'green');
+
+		if(data.status == 3){
+			$('#'+data.id).css('background-color', 'green');
+		}
+
+		if(data.status == 4){
+			$('#'+data.id).css('background-color', 'orange');
+		}
 	});
     
      channel.bind('delete', function(data) {

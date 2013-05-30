@@ -47,7 +47,13 @@ var User = Backbone.Model.extend({
 })
 
 var Rit = Backbone.Model.extend({
-	
+	setstatus: function(status){
+		this.set({
+			'status': status, 
+			'userid': current_user_id
+		});
+		this.save();
+	}
 });
 
 var RittenList = Backbone.Collection.extend({
@@ -109,11 +115,15 @@ var RittenView = Backbone.View.extend({
 		allowPageScroll:"vertical",
 	});
     if(this.model.get('status') == 3){
-		this.$el.css('background-color', 'green');
+		this.$el.find('li').css('background', 'green');
 	}
 
 	if(this.model.get('status') == 2){
-		this.$el.css("background-color", "red");
+		this.$el.find('li').css("background", "red");
+	}
+
+	if(this.model.get('status') == 4){
+		this.$el.find('li').css("background", "orange");
 	}
     return this;
   },
@@ -139,6 +149,7 @@ var RitMapView = Backbone.View.extend({
 
 	events: {
   		"click" : "open",
+  		"click #passagier" : "statusto4"
   	},
 
 	render: function(){
@@ -152,6 +163,13 @@ var RitMapView = Backbone.View.extend({
 
 	open: function(){
 		$('#maprit').css("height", "auto");
+	},
+
+	statusto4: function(){
+		this.model.setstatus(4);
+		this.$el.find('#passagier').hide();
+		console.log('#'+this.model.get('id'));
+		$('#'+this.model.get('id')).css("background", "orange");
 	}
 });
 

@@ -131,7 +131,9 @@ class Home extends CI_Controller {
 		$this->load->library('pusher');
 		$datapush['idbestelling'] = $this->uri->segment(3);
 		$datapush['iduser'] = $this->uri->segment(4);
-		$this->pusher->trigger('admin_all', 'admin_'.$this->uri->segment(4), $this->uri->segment(3));
+		$status['id'] = $this->uri->segment(3);
+		$status['status'] = 3;
+		$this->pusher->trigger('admin_all', 'admin_'.$this->uri->segment(4), $status);
 		$this->pusher->trigger('admin_all', 'delete', $datapush);
 		
 		// $this->load->view('v_head');

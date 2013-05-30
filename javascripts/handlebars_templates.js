@@ -69,5 +69,6 @@ var rit_map_template =
 <p>{{adres2}}</p> \
 <p>{{naam}}</p> \
 <p>{{tel}}</p> \
-<p>{{personen}} Personen</p></div>';
+<p>{{personen}} Personen</p> \
+<p><a id="passagier">passagier</a></p></div>';
 
