@@ -28,18 +28,19 @@
 		    </div>
 		</footer>  
  <div id="loginhelp" class="reveal-modal small" style="background-color: black; color: white; top: 100px; opacity: 1; visibility: hidden; display: none;">
-  <button class="thoughtbot" id="userswitch">Bestaande klant?</button>
+    <div class="loginerror">
+      <p>Opgegeven login combinatie is niet correct!</p> 
+    </div>
+    Bent u een <p id="userswitch">bestaande klant</p>?
+    <br><br>
   <div class="switch" style="display: none">
-    <br><br><br><br>
-  <p>Bestaande klant</p>
   <form onsubmit="return false" id="login"> 
     <input type="text" name="loginemail" placeholder="E-mail">
-    <input type="text" name="loginpass" placeholder="Wachtwoord">
+    <input type="password" name="loginpass" placeholder="Wachtwoord">
     <button class="thoughtbot" id="loginbtn">Inloggen</button>
   </form>
-</div><br><br><br><br>
+</div>
   <div class="switch">
-  <p>Nieuwe klant?</p>
   <form onsubmit="return false" id="form1"> 
   	<input type="text" name="NaamBox" placeholder="Naam">
   	<input type="text" name="TelBox" placeholder="Telefoonnummer">

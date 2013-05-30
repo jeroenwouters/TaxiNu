@@ -103,6 +103,8 @@ $(document).ready(function() {
 
     });
 
+    $(".loginerror").hide();
+
 	$('#loginbtn').click(function(){
 		var valid = $('#login').valid();
 		var data = {username: $("input[name=loginemail]").val() ,password: $("input[name=loginpass]").val()};
@@ -118,8 +120,7 @@ $(document).ready(function() {
 			  			console.log(jsonData);
 			  			modelok(jsonData[0].naam, jsonData[0].email, jsonData[0].tel);
 			  		}else{
-			  			//als login gefaalt is
-			  			console.log('loginfalse');
+			  			$(".loginerror").fadeIn().delay(1000).fadeOut();
 			  		}
 			  	}
     		});
@@ -135,11 +136,11 @@ $(document).ready(function() {
 
 		var btntext = $("#userswitch").text(); 
 
-		if(btntext == "Bestaande klant?"){
-			$("#userswitch").text("Nieuwe klant");
+		if(btntext == "bestaande klant"){
+			$("#userswitch").text("nieuwe klant");
 		}else{
 			console.log(btntext);
-			$("#userswitch").text("Bestaande klant?");
+			$("#userswitch").text("bestaande klant");
 		}
 
 	});
