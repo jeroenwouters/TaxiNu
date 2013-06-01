@@ -38,6 +38,9 @@ var User = Backbone.Model.extend({
 	    	var newrit = new Rit(data);
     		AdminPanel.rittenList.add(newrit);
 	    });
+	    channel.bind('green_taxi_'+current_user_id, function(data) {
+	    	$('#'+data).css('background', 'green');
+	    });
 	     channel.bind('taxi_destroy_'+current_user_id, function(data) {
 	    	var rit = AdminPanel.rittenList.get(data.id);
 	    	AdminPanel.rittenList.remove(rit);

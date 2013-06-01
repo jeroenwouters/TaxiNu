@@ -87,8 +87,9 @@ class Api extends REST_Controller
     
     function bestelling_delete()
     {
-	    $this->load->model('m_bestellingen');
-	    $this->m_bestellingen->delete($this->uri->segment(3));
+        $data = $this->request->body;
+	    // $this->load->model('m_status');
+	    // $this->m_status->delete();
     }
     /*
     function bestellingen_get()

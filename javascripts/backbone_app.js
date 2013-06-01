@@ -51,35 +51,38 @@ var BestellingView = Backbone.View.extend({
   },
   
   render: function(){
-   this.$el.html(this.template2(this.model.toJSON()));
-    this.$el.draggable({
-            helper: "clone",
-            revert: "invalid",
-            cursor: "move",
-            
-             start: function(e, ui)
-             {
-	             $(ui.helper).addClass("ui-draggable-helper");
-	             $(this).hide();
-	         },
-	         stop: function(e, ui)
-             {
-	             $(this).show();
-	         }
-        });
-    if(this.model.get('status') == 3){
-		this.$el.css('background-color', 'green');
-	}
+  	console.log('status: '+this.model.get('status')+'afgerond: '+this.model.get('afgerond'));
+   if(!(this.model.get('status') == 1 && this.model.get('afgerond') == 1)){
+	   this.$el.html(this.template2(this.model.toJSON()));
+	    this.$el.draggable({
+	            helper: "clone",
+	            revert: "invalid",
+	            cursor: "move",
+	            
+	             start: function(e, ui)
+	             {
+		             $(ui.helper).addClass("ui-draggable-helper");
+		             $(this).hide();
+		         },
+		         stop: function(e, ui)
+	             {
+		             $(this).show();
+		         }
+	        });
+	    if(this.model.get('status') == 3){
+			this.$el.css('background-color', 'green');
+		}
 
-	if(this.model.get('status') == 2){
-		this.$el.css("background-color", "red");
-	}
+		if(this.model.get('status') == 2){
+			this.$el.css("background-color", "red");
+		}
 
-	if(this.model.get('status') == 4){
-		console.log(this.model.get('id'));
-		this.$el.css("background-color", "orange");
+		if(this.model.get('status') == 4){
+			console.log(this.model.get('id'));
+			this.$el.css("background-color", "orange");
+		}
+	    return this;
 	}
-    return this;
   },
   
   showmodule: function(){
@@ -284,6 +287,8 @@ WEB_SOCKET_DEBUG = true;
      channel.bind('delete', function(data) {
      	if(data.iduser != $('#hiddenid').val()){
 	     	$('#'+data.idbestelling).remove();
+	     	var bestelling = AdminPanel.bestellingList.get(data.idbestelling);
+	    	AdminPanel.bestellingList.remove(bestelling);
      	}
      });
   

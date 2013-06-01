@@ -55,5 +55,15 @@ Class M_status extends CI_Model
 		}
 	}
 
+	function delete($fkBestelling, $fkUser){
+		$this->db->where('fkBestelling', $fkBestelling);
+		$this->db->where('fkUser', $fkUser);
+		$this->db->delete('tblStatus');
+	}
+
+	function delete_over($fkBestelling, $fkUser){
+		$this->db->query('DELETE FROM tblStatus WHERE fkBestelling='.$fkBestelling.' AND fkUser!='.$fkUser.';');
+	}
+
 }
 ?>

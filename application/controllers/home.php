@@ -136,10 +136,11 @@ class Home extends CI_Controller {
 		$this->pusher->trigger('admin_all', 'admin_'.$this->uri->segment(4), $status);
 		$this->pusher->trigger('admin_all', 'delete', $datapush);
 		
-		// $this->load->view('v_head');
-		// $this->load->view('v_taxibesteld');
-		//$this->load->view('v_info');
-		// $this->load->view('v_footer');
+		$taxi = $this->m_status->gettaxi($this->uri->segment(3), $this->uri->segment(4));
+		$this->pusher->trigger('admin_all', 'green_taxi_'.$taxi, $this->uri->segment(3));
+
+		$this->m_status->delete_over($this->uri->segment(3), $this->uri->segment(4));
+		
 		redirect('home/volgtaxi/'.$this->uri->segment(3).'/'.$this->uri->segment(4));
 	}
 

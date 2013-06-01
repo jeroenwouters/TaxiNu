@@ -98,6 +98,8 @@
 	  	    $('#order').hide(); 
 
   });
+
+  var base_url = "<?php echo base_url();?>";
   </script>
   <script type="text/javascript" src="http://code.jquery.com/ui/1.9.1/jquery-ui.min.js"></script>
   <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.10.0/jquery.validate.js"></script>
