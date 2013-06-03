@@ -19,8 +19,7 @@
   -->
   
   <!-- Included CSS Files (Compressed) -->
-  <link rel="stylesheet
-  " href="<?php echo base_url();?>stylesheets/foundation.min.css">
+  <link rel="stylesheet" href="<?php echo base_url();?>stylesheets/foundation.min.css">
   <link rel="stylesheet" href="<?php echo base_url();?>stylesheets/app.css">
    <link rel="stylesheet/less" type="text/css" href="<?php echo base_url();?>stylesheets/styles.less">
    <link rel="stylesheet" media="all" type="text/css" href="http://code.jquery.com/ui/1.9.1/themes/smoothness/jquery-ui.css" />
@@ -58,15 +57,6 @@
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;}
-
-  @media only screen
-and (max-width: 800px){
-  header{
-    background-image: url(<?php echo base_url();?>/images/headersmall.jpg);
-  }
-
-
-}
 </style>
 
 

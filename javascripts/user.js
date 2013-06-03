@@ -13,9 +13,6 @@ $(document).ready(function() {
  		  
  		  $('#address1').one("focus",function(){
  		  		$('.bread').fadeIn();
- 		  		$('#animate').animate({
-				    top: '+=60'
-				  });
  		  });
 
  		  
@@ -148,18 +145,8 @@ $(document).ready(function() {
 
 	});
 
-	
-    function pulse(){
-	console.log("color");
-	$('#bedrijven li').animate({backgroundColor: '#f3f3f3'}, 2000);
-	$('#bedrijven li').animate({backgroundColor: '#fbbaba'}, 2000);
-	}
-
-	setInterval(pulse,2500);
-
     
 });
-
 
 function huidigeLocatie(){
 	 getGPS();
