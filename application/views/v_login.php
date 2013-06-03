@@ -16,7 +16,7 @@
 		
 		<div class="logo">
 			<img src="<?php echo base_url();?>images/logo.png" width="300px" >	
-			<h3>Admin Login</h3>
+			<h3>Welkom, gelieve in te loggen!</h3>
 		</div>
 			
 			<?php echo form_open('admin/login');?>
@@ -35,7 +35,19 @@
 						<button  type="submit" name="commit" ><i class="icon-arrow-right icon-large"></i></button>
 		</p>
 			<?php echo form_close();?>	
+			
+		<section class="logininfo">
+			<h3>Deze gebruikers met account kunnen inloggen:</h3>
+			<ul>
+				<li>Taxiklanten</li>
+				<li>Taxichauffeurs</li>
+				<li>Taxibedrijven</li>
+			</ul>
 		</section>
+
+		</section>
+
+		
 				
 
 
