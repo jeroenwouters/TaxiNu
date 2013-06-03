@@ -21,32 +21,18 @@
     clear: both;
 }
 
-.logo, .logininfo{
-	margin-top: 50px;
+.logo{
+	padding-top: 50px;
 	margin-left: auto;
 	margin-right: auto;
-	width: 350px;
+	width: 300px;
 	text-align: center;	
-    padding: 10px;
 }
 
-h3{
+.logo h3{
 	margin-top: 5px;
-    color: white;
-	text-shadow: 1px 1px 2px #000000;
+	
 }
-
-li{ 
-    margin-top: 5px;
-    color:black;
-    font-weight: bold;
-    list-style-type: none;
-}
-
-.logininfo{
-    background-color: rgba(255, 255, 255, 0.4); 
-}
-
 
 form {
     /* Size & position */
