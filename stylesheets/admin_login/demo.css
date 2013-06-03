@@ -5,7 +5,8 @@ html { height: 100%; }
 
 body {
     font-family: 'Lato', Calibri, Arial, sans-serif;
-    background: #ddd url(../../images/bg.jpg) repeat top left;
+    background: #ddd url(../../images/backlogin.jpg);
+    background-size: cover;
     font-weight: 300;
     font-size: 15px;
     color: #333;
