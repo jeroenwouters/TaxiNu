@@ -31,14 +31,16 @@
 		</div>   
 		<div class="nav">
 			 <img src="<?php echo base_url();?>images/logo.png" width="200px">			
-<!-- 			 <img class="question_btn" src="<?php echo base_url();?>images/question.png" width="35px"> 
- -->			 <ul class="bread">
+			 <img class="question_btn" src="<?php echo base_url();?>images/question.png" width="35px"> 
+			 <ul class="bread">
 			 	<li class="active"><img src="<?php echo base_url();?>images/1.png">Ritgegevens</li>
 			 	<li><img src="<?php echo base_url();?>images/2.png">Uw Gegevens</li>
 			 	<li><img src="<?php echo base_url();?>images/3.png">Bevestiging rit</li>
 			 </ul>
 			 <div class="social">
-			 	<div class="set"><a href="admin"><img src="images/settings.png"></a></div>
+			 	<img src="<?php echo base_url();?>images/f.png" width="15px;">
+			 	<img src="<?php echo base_url();?>images/t.png" width="50px;">
+			 	<img src="<?php echo base_url();?>images/p.png" width="25px;">
 			 	
 			 </div>
 		</div>
