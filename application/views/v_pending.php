@@ -21,7 +21,10 @@
 					<input type="hidden" id="hiddenid" name="id" value="<?php echo $id;?>"/>
 					<section class="toaccept">
 					<ul id="bedrijven">
-					
+					<li><p>AntwerpTax</p><p>Wachttijd: <span class="minutes">10</span> min.</p><a href="http://localhost:8888/TaxiNu/home/bevestig/232/1"><button class="thoughtbot">Bevestig</button></a></li>
+					<li><p>AntwerpTax</p><p>Wachttijd: <span class="minutes">10</span> min.</p><a href="http://localhost:8888/TaxiNu/home/bevestig/232/1"><button class="thoughtbot">Bevestig</button></a></li>
+					<li><p>AntwerpTax</p><p>Wachttijd: <span class="minutes">10</span> min.</p><a href="http://localhost:8888/TaxiNu/home/bevestig/232/1"><button class="thoughtbot">Bevestig</button></a></li>
+
 					</ul>
 					</section>
 				<br>
