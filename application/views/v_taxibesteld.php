@@ -5,7 +5,7 @@
 		
 			<div class="twelve colums">
 				
-				<div id="loading">
+				<div id="loading2">
 					<h3>Uw taxi is besteld en onderweg.</h3>
 					<div id="map-canvas" style="width:500; height: 500px;"></div>
 				<br>

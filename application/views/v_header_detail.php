@@ -1,5 +1,13 @@
 
  		<header>
+		<section class="topbar" style="top:0px">
+				<ul class="bread" style="display:block">
+			 	<li><img src="<?php echo base_url();?>images/1.png">Ritgegevens</li>
+			 	<li class="active"><img src="<?php echo base_url();?>images/2.png">Uw Gegevens</li>
+			 	<li><img src="<?php echo base_url();?>images/3.png">Bevestiging rit</li>
+			 </ul>
+			 </ul>
+		</section>  
 		<div class="row">
 			<div class="five columns hide-for-small">
 				<div id="map_canvas" class="maps">
@@ -34,16 +42,10 @@
 		<div class="nav">
 			 <a href="index.html"><img src="<?php echo base_url();?>images/logo.png" width="200px"></a>
 			 
-			 <ul class="bread" style="display:block">
-			 	<li><img src="<?php echo base_url();?>images/1.png">Ritgegevens</li>
-			 	<li class="active"><img src="<?php echo base_url();?>images/2.png">Uw Gegevens</li>
-			 	<li><img src="<?php echo base_url();?>images/3.png">Bevestiging rit</li>
-			 </ul>
+			 
 
 			 <div class="social">
-			 	<img src="<?php echo base_url();?>images/f.png" width="15px;">
-			 	<img src="<?php echo base_url();?>images/t.png" width="50px;">
-			 	<img src="<?php echo base_url();?>images/p.png" width="25px;">
+			 	<div class="set"><a href="admin"><img src="../images/settings.png"></a></div>
 			 	
 			 </div>
 		</div>

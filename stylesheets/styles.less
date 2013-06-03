@@ -111,10 +111,32 @@ footer{
 }
 
 #loading{
+	position: relative;
 	background-color: rgba(255,255,255,0.86); 
-	margin-top:50px; 
+	margin-top:90px; 
 	width: 88%;
 	height: auto;
+	overflow: hidden;
+	padding: 30px;
+	padding-bottom: 80px;
+	margin-left: auto;
+	margin-right: auto; 
+	.rounded(5px);
+	#loader{
+		width: 39px;
+		margin-top: 30px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+#loading2{
+	position: relative;
+	background-color: rgba(255,255,255,0.86); 
+	margin-top:10px; 
+	width: 88%;
+	height: auto;
+	overflow: hidden;
 	padding: 30px;
 	padding-bottom: 80px;
 	margin-left: auto;
@@ -136,11 +158,15 @@ input{
 
 #bedrijven{
 	list-style-type: none;
-	margin-left: -20px;
+	margin-left: -40px;
 	li{
 		float: left;
-		border-right: 1px solid #cfcfcf;
-		padding-right: 40px; 
+		padding-top: 25px;
+		padding-right: 20px; 
+		background-color: #fbbaba;
+		padding-left:5px;
+		padding-bottom: 10px;
+		.rounded(3px);
 		
 		.minutes{
 			color: red;
@@ -561,9 +587,9 @@ li:before {
 .bread{
 	display: none;
 	position: absolute;
-	left: 62%;
+	left: 55%;
 	width: 700px;
-	margin-left: -340px;
+	margin-left: -350px;
 	top:0px;
 
 	li{
@@ -615,6 +641,8 @@ and (max-width: 1024px){
 
 }
 
+
+
 #userswitch{
 	display: inline;
 	text-decoration: underline;
@@ -637,6 +665,21 @@ and (max-width: 1024px){
 		margin-bottom: 2px !important;
 		line-height: 74px;
 	}
+}
+
+.topbar{
+	height: 60px;
+	width: 100%;
+	background-color:rgba(255,255,255,0.8);
+	position: absolute;
+top: -60px;
+
+}
+
+.toaccept{
+	position: relative;
+	height: auto;
+
 }
 
 
