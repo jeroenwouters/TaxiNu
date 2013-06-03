@@ -137,11 +137,14 @@ class Api extends REST_Controller
     function ritten_put()
     {
          $data = $this->request->body;
-         $status['status'] = $data['status'];
-         $this->load->model('m_status');
-         $this->m_status->update($status, $data['id'], $data['userid']);
-         $status['id'] = $data['id'];
-        $this->pusher->trigger('admin_all', 'admin_'.$data['userid'], $status);
+         
+             $status['status'] = $data['status'];
+             $this->load->model('m_status');
+             $this->m_status->update($status, $data['id'], $data['userid']);
+          if($data['status'] == 4 ){
+             $status['id'] = $data['id'];
+             $this->pusher->trigger('admin_all', 'admin_'.$data['userid'], $status);
+          }
     }
 
 }

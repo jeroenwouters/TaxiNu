@@ -75,6 +75,7 @@ var RittenView = Backbone.View.extend({
   
   render: function(){
   	this.$el.html(this.template(this.model.toJSON()));
+  	var rit = this.model;
   	this.$el.find('li').swipe( {
 		triggerOnTouchEnd : true,
 		swipeStatus : function(event, phase, direction, distance, fingers)
@@ -105,8 +106,12 @@ var RittenView = Backbone.View.extend({
 				if(distance > cancelpx){
 					$(this).animate({
 						marginLeft: "100%",
-					}, 250).done(function(){
-						$(this).remove();
+					}, 250,  function() {
+				 		$('.wrapper ul').append(this);
+						$(this).css('margin-left', "5%");
+						$(this).swipe("destroy");
+						$(this).css('background-color', "");
+						rit.setstatus(5);
 					});
 				}else{
 					$(this).animate({
