@@ -6,7 +6,7 @@ $(document).ready(function() {
 	
 	$('header').animate({"opacity": 1},300);
 
-	enquire.register("screen and (min-width: 500px)", function() {
+	enquire.register("screen and (min-width: 600px)", function() {
 
           ///slideshow code here
           $('#timedate').datetimepicker({controlType: 'select'});
@@ -32,8 +32,17 @@ $(document).ready(function() {
  		
       }).listen();
       
-      enquire.register("screen and (max-width: 500px)", function() {
+      enquire.register("screen and (max-width: 600px)", function() {
 
+      	$('#address1').one("focus",function(){
+ 		  		$('.bread').fadeIn();
+ 		  		$('#animate').animate({
+				    top: '+=120'
+				  });
+ 		  		$('.search').animate({
+				    top: '+=120'
+				  });
+ 		  });	
           ///slideshow code here
           $('.errors').remove();
 

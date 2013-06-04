@@ -45,7 +45,7 @@
 			 
 
 			 <div class="social">
-			 	<div class="set"><a href="admin"><img src="../images/settings.png"></a></div>
+			 	<div class="set"><a href="../admin"><img src="../images/settings.png"></a></div>
 			 	
 			 </div>
 		</div>
