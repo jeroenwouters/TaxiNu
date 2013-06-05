@@ -40,9 +40,7 @@
 			
 		</div>   
 		<div class="nav">
-			 <a href="index.html"><img src="<?php echo base_url();?>images/logo.png" width="200px"></a>
-			 
-			 
+			 <a href="index.html"><a href="<?php echo base_url();?>"><img src="<?php echo base_url();?>images/logo.png" width="200px"></a>
 
 			 <div class="social">
 			 	<div class="set"><a href="../admin"><img src="../images/settings.png"></a></div>

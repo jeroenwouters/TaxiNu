@@ -41,7 +41,7 @@
 		</div>
 
 		<div class="nav">
-			 <img src="<?php echo base_url();?>images/logo.png" width="200px">			
+			 <a href="<?php echo base_url();?>"><img src="<?php echo base_url();?>images/logo.png" width="200px"></a>			
 <!-- 			 <img class="question_btn" src="<?php echo base_url();?>images/question.png" width="35px"> 
  -->			 
 			 
