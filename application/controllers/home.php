@@ -169,6 +169,12 @@ class Home extends CI_Controller {
 	    	echo json_encode("false");
 	    }
     }
+
+    function user(){
+    	$this->load->view('v_head');
+		$this->load->view('v_user');
+		$this->load->view('v_footer');
+    }
 }
 
 /* End of file welcome.php */
