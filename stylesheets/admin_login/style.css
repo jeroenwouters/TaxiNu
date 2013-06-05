@@ -38,9 +38,11 @@ h3{
 
 li{ 
     margin-top: 5px;
-    color:black;
+    color:#c23d3d;
     font-weight: bold;
     list-style-type: none;
+        text-shadow: 0px 1px  #ffffff;
+
 }
 
 .logininfo{

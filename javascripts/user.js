@@ -2,6 +2,7 @@ $(document).ready(function() {
     var now = moment().format('DD/MM/YYYY HH:mm ');
     
 
+
     $('#timedate').val(now); 
 	
 	$('header').animate({"opacity": 1},300);
@@ -88,6 +89,24 @@ $(document).ready(function() {
 		}
     });
 
+    $('#update').validate({
+	    rules: { 
+		    NaamBox: {required: true,
+			          minlength: 3},    
+		    TelBox: {
+			required: true, 
+			digits: true},
+		    EmailBox: {            
+			required: true, 
+			email: true }	
+		}, 	
+		messages: {
+			NaamBox: "Gelieve uw naam in te voeren",
+			TelBox: "Gelieve uw telefoonnr. zonder tekens in te voeren.",
+			EmailBox: "Gelieve een geldig emailadres in te geven."
+		}
+    });
+
     $('#login').validate({
 	    rules: { 
 		    loginemail: {            
@@ -109,7 +128,7 @@ $(document).ready(function() {
     	 
     	}else{
 	    	
-	    	alert("Form is not valid!"); 
+	    	alert("Geen correcte gegevens!"); 
 	    	
     	}
 
@@ -157,14 +176,54 @@ $(document).ready(function() {
 
 	});
 
+    $('.profile_user').hide();
+
+	$("#click_profile").click(function(){
+		$('.user_ritten').hide();
+    	$('.profile_user').show();
+    	$("#click_profile").addClass('active');
+    	$("#click_rit").removeClass('active');
+
+	}); 
+
+
+	$("#click_rit").click(function(){
+		$('.profile_user').hide();
+		$('.user_ritten').show();	
+		$("#click_rit").addClass('active');
+		$("#click_profile").removeClass('active');
+
+	}); 
+
+	 $(".user_set").click(function() {
+      $("#usersettings_modal").reveal();
+ 	});
+
 	
     function pulse(){
-	console.log("color");
-	$('#bedrijven li').animate({backgroundColor: '#f3f3f3'}, 2000);
-	$('#bedrijven li').animate({backgroundColor: '#fbbaba'}, 2000);
+		$('#bedrijven li').animate({backgroundColor: '#f3f3f3'}, 2000);
+		$('#bedrijven li').animate({backgroundColor: '#fbbaba'}, 2000);
 	}
 
 	setInterval(pulse,2500);
+
+	var timer;
+
+	$('.set img, .user_set img').hover(function() {
+
+	    var angle = 0,
+	        $this = $(this);
+
+	    timer = setInterval(function() {
+	        angle += 4;
+	        $this.rotate(angle);
+	    }, 50);
+	},
+	function() {
+
+	    timer && clearInterval(timer);
+	    $(this).rotate(0);
+	});
 
     
 });

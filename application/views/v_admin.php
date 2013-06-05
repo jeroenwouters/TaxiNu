@@ -51,7 +51,7 @@
 			  <a class="close-reveal-modal">&#215;</a>		
 		</div>
 		
-		<div id="settings_modal" class="reveal-modal large" style="background-color: black; color: white;">
+		<div id="userset_modal" class="reveal-modal small" style="background-color: black; color: white;">
 			  
 			  <p class="lead">Instellingen</p>
 			  

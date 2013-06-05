@@ -316,6 +316,8 @@ $(document).ready(function() {
   $(".set").click(function() {
       $("#taxi_settings_modal").reveal();
  });
+
+ 
  
  
  

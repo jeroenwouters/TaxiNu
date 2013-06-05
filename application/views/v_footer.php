@@ -106,14 +106,14 @@
   <script src="<?php echo base_url();?>javascripts/timepicker.js"></script>
   <script src="<?php echo base_url();?>javascripts/jquery.foundation.reveal.js"></script>
   <?php if($this->uri->segment(2) == 'detail'){?>
-  	<script src="<?php echo base_url();?>javascripts/maps.js"></script>
-    <script src="http://maps.google.com/maps?file=api&v=2&key=AIzaSyBJGHEABxmLTzSTZ0HGDlmBMTuX1ktrsBc" type="text/javascript"></script>
+  <script src="<?php echo base_url();?>javascripts/maps.js"></script>
+  <script src="http://maps.google.com/maps?file=api&v=2&key=AIzaSyBJGHEABxmLTzSTZ0HGDlmBMTuX1ktrsBc" type="text/javascript"></script>
   <?php } ?>
   <script src="<?php echo base_url();?>javascripts/enquire.js"></script>
   <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
   <script src="<?php echo base_url();?>javascripts/moment.min.js"></script>
-  
-    <?php if($this->uri->segment(2) == 'volgtaxi'){?>
+  <script src="<?php echo base_url();?>javascripts/jQueryRotateCompressed.2.2.js"></script>
+  <?php if($this->uri->segment(2) == 'volgtaxi'){?>
     <script type="text/javascript">
       var taxi = <?php echo $taxi;?>;
       var bedrijf = <?php echo $this->uri->segment(4);?>;
