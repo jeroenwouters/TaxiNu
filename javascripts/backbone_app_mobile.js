@@ -66,6 +66,9 @@ var RittenList = Backbone.Collection.extend({
 
 //Views
 var RittenView = Backbone.View.extend({
+  tagName: 'li',
+  className: 'rit',
+
   template: Handlebars.compile(rit_tempalte),
 
   events: {
@@ -76,7 +79,7 @@ var RittenView = Backbone.View.extend({
   render: function(){
   	this.$el.html(this.template(this.model.toJSON()));
   	var rit = this.model;
-  	this.$el.find('li').swipe( {
+  	this.$el.swipe( {
 		triggerOnTouchEnd : true,
 		swipeStatus : function(event, phase, direction, distance, fingers)
 		{
@@ -123,16 +126,22 @@ var RittenView = Backbone.View.extend({
 		allowPageScroll:"vertical",
 	});
     if(this.model.get('status') == 3){
-		this.$el.find('li').css('background', 'green');
+		this.$el.css('background', 'green');
 	}
 
 	if(this.model.get('status') == 2){
-		this.$el.find('li').css("background", "red");
+		this.$el.css("background", "red");
 	}
 
 	if(this.model.get('status') == 4){
-		this.$el.find('li').css("background", "orange");
+		this.$el.css("background", "orange");
 	}
+	
+	if(this.model.get('status') == 5){
+		this.$el.swipe("destroy");
+		this.$el.css("opacity", "0.5");
+	}
+
     return this;
   },
 
@@ -201,12 +210,13 @@ var RittenListView = Backbone.View.extend({
 			alert("Geocode was not successful for the following reason: " + status);
 			}
 		});
-		var rittenView = new RittenView({model: rit});
+		var rittenView = new RittenView({model: rit, id: rit.get('id')});
 		$('.wrapper ul').append(rittenView.render().el);
 	},
 	
 	addAll: function(){
 		this.collection.forEach(this.addOne, this);
+		this.collection.forEach(this.volegorde, this);
 	},
 	
 	render: function(onlymarkers){
@@ -232,6 +242,12 @@ var RittenListView = Backbone.View.extend({
 			alert("Geocode was not successful for the following reason: " + status);
 			}
 		});
+	},
+
+	volegorde: function(rit){
+		if(rit.get('status') == 5){
+			$('#'+rit.get('id')).appendTo('.wrapper ul');
+		}
 	}
 });
 

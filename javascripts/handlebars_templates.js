@@ -45,15 +45,13 @@ var taxi_template =
 <ul class="ritten"> \
 </ul>';
 
-var rit_tempalte =
-'<li class="rit" id="{{id}}"> \
-<p class="vertrek">{{adresformat adres1}}</p> \
+var rit_tempalte = 
+'<p class="vertrek">{{adresformat adres1}}</p> \
 <p class="tussenteken">></p> \
 <p class="bestemming">{{adresformat adres2}}</p> \
 <p class="uur">{{tijdformat tijd}}</p> \
 <p class="afstand">{{afstand}}</p> \
-<p class="naamklant">{{naam}}</p> \
-</li>';
+<p class="naamklant">{{naam}}</p>';
 
 var rit_map_template = 
 '<p class="uur">{{tijdformat tijd}}</p> \
