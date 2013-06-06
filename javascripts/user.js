@@ -1,8 +1,6 @@
 $(document).ready(function() {
     var now = moment().format('DD/MM/YYYY HH:mm ');
     
-
-
     $('#timedate').val(now); 
 	
 	$('header').animate({"opacity": 1},300);

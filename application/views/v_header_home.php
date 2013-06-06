@@ -33,7 +33,6 @@
 				</div>
 				</div>
 			</div>
-			
 		</div>   
 		<div class="nav">
 			 <a href="<?php echo base_url();?>"><img src="<?php echo base_url();?>images/logo.png" width="200px"></a>			
