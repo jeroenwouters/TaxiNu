@@ -89,7 +89,7 @@ var RittenView = Backbone.View.extend({
 
 	if(this.model.get('status') == 4){
 		this.$el.css("background", "orange");
-		enable_swipe_destory(this.$el);
+		enable_swipe_destory(this.$el, this.model);
 	}
 	
 	if(this.model.get('status') == 5){
@@ -384,7 +384,7 @@ function showmap(){
 	$("#loc").show();
 }
 
-function enable_swipe_destory(elswipe){
+function enable_swipe_destory(elswipe, rit){
   	elswipe.swipe( {
 		triggerOnTouchEnd : true,
 		swipeStatus : function(event, phase, direction, distance, fingers)

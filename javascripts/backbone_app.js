@@ -34,7 +34,6 @@ var User = Backbone.Model.extend({
 	
 	parse: function(data, options) {
 		current_user_id = data.id;
-		console.log(data.username);
 		current_user_login = data.username;
 		AdminPanel.taxiList.fetch( { data: { userid: data.id} });
 	}
@@ -51,35 +50,27 @@ var BestellingView = Backbone.View.extend({
   },
   
   render: function(){
-  	console.log('status: '+this.model.get('status')+'afgerond: '+this.model.get('afgerond'));
    if(!(this.model.get('status') == 1 && this.model.get('afgerond') == 1)){
-	   this.$el.html(this.template2(this.model.toJSON()));
-	    this.$el.draggable({
-	            helper: "clone",
-	            revert: "invalid",
-	            cursor: "move",
-	            
-	             start: function(e, ui)
-	             {
-		             $(ui.helper).addClass("ui-draggable-helper");
-		             $(this).hide();
-		         },
-		         stop: function(e, ui)
-	             {
-		             $(this).show();
-		         }
-	        });
+
+	   		this.$el.html(this.template2(this.model.toJSON()));
+	    	
+		
 	    if(this.model.get('status') == 3){
 			this.$el.css('background-color', 'green');
+			enable_drag(this.$el);
 		}
 
 		if(this.model.get('status') == 2){
 			this.$el.css("background-color", "red");
+			enable_drag(this.$el);
 		}
 
 		if(this.model.get('status') == 4){
-			console.log(this.model.get('id'));
 			this.$el.css("background-color", "orange");
+		}
+
+		if(this.model.get('status') == 5){
+			this.$el.css("opacity", "0.5");
 		}
 	    return this;
 	}
@@ -130,14 +121,20 @@ var BestellingListView = Backbone.View.extend({
 	},
 	
 	addOne: function(bestelling){
-		console.log(bestelling.get('status'));
-		console.log(bestelling.get('taxi'));
 		
 		var bestellingView = new BestellingView({model: bestelling});
 		if(bestelling.get('taxi') == 0){
-			$('#col1 ul').append(bestellingView.render().el);
+			$('#col1 ul').prepend(bestellingView.render().el);
 		}else{
-			$('#taxi_'+bestelling.get('taxi')+' ul').append(bestellingView.render().el);
+			if(bestelling.get('status') == 4){
+				$('#taxi_'+bestelling.get('taxi')+' ul').find(".status4").before(bestellingView.render().el);
+			}
+			if(bestelling.get('status') == 2 || bestelling.get('status') == 3){
+				$('#taxi_'+bestelling.get('taxi')+' ul').find(".status4").after(bestellingView.render().el);
+			}
+			if(bestelling.get('status') == 5){
+				$('#taxi_'+bestelling.get('taxi')+' ul').find(".afgerond").after(bestellingView.render().el);
+			}
 		}
 
 	},
@@ -166,12 +163,13 @@ var TaxiView = Backbone.View.extend({
 	 this.$el.droppable({
          activeClass: "ui-state-default",
          hoverClass: "ui-state-hover",
-      }).sortable({items: "li"});
+      }); 
+      //.sortable({items: "li"});
     return this;
   },
 
   dropped: function(event, ui){
-    this.$el.find('.ritten').append(ui.draggable);
+    this.$el.find('.ritten').find('.afgerond').before(ui.draggable);
     var dragid = ui.draggable.find('li').attr('id');
     var dragged = ui.draggable;
     var bestelling = AdminPanel.bestellingList.get(dragid);
@@ -266,7 +264,6 @@ WEB_SOCKET_DEBUG = true;
     
     channel.bind('admin_'+$('#hiddenid').val(), function(data) {
   //   	$('#'+data).remove();
-  		console.log('satus: '+data.status);
 		var modelget = AdminPanel.bestellingList.get(data.id);
   //   	var bestellingView = new BestellingView({model: modelget});
 		// $('#col3 ul').append(bestellingView.render(3).el);
@@ -281,6 +278,7 @@ WEB_SOCKET_DEBUG = true;
 
 		if(data.status == 4){
 			$('#'+data.id).css('background-color', 'orange');
+			$('#'+data.id).parent('ul').prepend($('#'+data.id).html());
 		}
 	});
     
@@ -295,7 +293,6 @@ WEB_SOCKET_DEBUG = true;
     
 //Document 
 $(document).ready(function() {
-	console.log('document ready!');//Alleen Test
 	AdminPanel.start();
 	$("#extra_kolom_btn").click(function(){
 		AdminPanel.taxiList.create({
@@ -318,5 +315,21 @@ $(document).ready(function() {
  });
  
  
- 
+ function enable_drag(el){
+ 	el.draggable({
+	            helper: "clone",
+	            revert: "invalid",
+	            cursor: "move",
+	            
+	             start: function(e, ui)
+	             {
+		             $(ui.helper).addClass("ui-draggable-helper");
+		             $(this).hide();
+		         },
+		         stop: function(e, ui)
+	             {
+		             $(this).show();
+		         }
+	        });
+ }
 

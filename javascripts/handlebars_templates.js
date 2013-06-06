@@ -43,6 +43,8 @@ var taxi_template =
 '<h1>{{Naam}}</h1> \
 <div class="set"><img src="images/settings.png"></div> \
 <ul class="ritten"> \
+<li class="status4"></li> \
+<li class="afgerond"></li> \
 </ul>';
 
 var rit_tempalte = 
