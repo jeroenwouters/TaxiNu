@@ -5,7 +5,6 @@
 					<li id="click_rit" class="active">Ritten</li>
 					<li id="click_profile">Uw gegevens</li>
 				</ul>
-							 	<div class="user_set"><img src="../images/settings.png"></div>
 
 			</div>
 		</div>
@@ -44,6 +43,10 @@
 			 <a href="<?php echo base_url();?>"><img src="<?php echo base_url();?>images/logo.png" width="200px"></a>			
 <!-- 			 <img class="question_btn" src="<?php echo base_url();?>images/question.png" width="35px"> 
  -->			 
+ 			 <div class="social">
+							 	<div class="user_set"><img src="../images/settings.png"></div>
+			 	
+			 </div>
 			 
 		</div>
 		

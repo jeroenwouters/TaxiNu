@@ -11,8 +11,8 @@
 		
 			<div class="twelve colums">
 				<div class="search">
-				<img src="<?php echo base_url();?>images/logo.png" width="250px" id="logophone">
-				<p id="titel">Snel een taxi zonder zorgen.</p>
+<!-- 				<img src="<?php echo base_url();?>images/logo.png" width="250px" id="logophone">
+ -->				<p id="titel">Snel een taxi zonder zorgen.</p>
 				<?php 
 				if($this->session->flashdata('val_home')){
 					$flashdata_val_home = $this->session->flashdata('val_home');	
