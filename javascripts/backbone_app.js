@@ -66,10 +66,12 @@ var BestellingView = Backbone.View.extend({
 		}
 
 		if(this.model.get('status') == 4){
+			this.$el.find('.mark').hide();
 			this.$el.css("background-color", "orange");
 		}
 
 		if(this.model.get('status') == 5){
+			this.$el.find('.mark').hide();
 			this.$el.css("opacity", "0.5");
 		}
 	    return this;
@@ -278,7 +280,13 @@ WEB_SOCKET_DEBUG = true;
 
 		if(data.status == 4){
 			$('#'+data.id).css('background-color', 'orange');
-			$('#'+data.id).parent('ul').prepend($('#'+data.id).html());
+			$('#taxi_'+modelget.get('taxi')+' ul').find(".status4").before($('#'+data.id));
+		}
+
+		if(data.status == 5){
+			$('#'+data.id).css('opacity', '0.5');
+			$('#'+data.id).css('background', 'none');
+			$('#taxi_'+modelget.get('taxi')+' ul').find(".afgerond").after($('#'+data.id));
 		}
 	});
     

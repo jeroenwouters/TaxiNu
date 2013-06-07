@@ -144,7 +144,8 @@ var RitMapView = Backbone.View.extend({
 		this.model.setstatus(4);
 		this.$el.find('#passagier').hide();
 		$('#'+this.model.get('id')).css("background", "orange");
-
+		$('.wrapper ul').find(".status4").before($('#'+this.model.get('id')));
+		enable_swipe_destory($('#'+this.model.get('id')), this.model)
 	}
 });
 
@@ -169,7 +170,16 @@ var RittenListView = Backbone.View.extend({
 			}
 		});
 		var rittenView = new RittenView({model: rit, id: rit.get('id')});
-		$('.wrapper ul').append(rittenView.render().el);
+		//$('.wrapper ul').append(rittenView.render().el);
+		if(rit.get('status') == 4){
+			$('.wrapper ul').find(".status4").before(rittenView.render().el);
+		}
+		if(rit.get('status') == 2 || rit.get('status') == 3){
+			$('.wrapper ul').find(".status4").after(rittenView.render().el);
+		}
+		if(rit.get('status') == 5){
+			$('.wrapper ul').find(".afgerond").after(rittenView.render().el);
+		}
 	},
 	
 	addAll: function(){

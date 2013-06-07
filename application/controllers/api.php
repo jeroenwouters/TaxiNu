@@ -141,10 +141,11 @@ class Api extends REST_Controller
              $status['status'] = $data['status'];
              $this->load->model('m_status');
              $this->m_status->update($status, $data['id'], $data['userid']);
-          if($data['status'] == 4 ){
+          if($data['status'] == 4 || $data['status'] == 5 ){
              $status['id'] = $data['id'];
              $this->pusher->trigger('admin_all', 'admin_'.$data['userid'], $status);
           }
+
     }
 
 }

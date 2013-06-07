@@ -8,7 +8,10 @@
 	</header>
 	
 	<div id="lijst" class="wrapper">
-			<ul class="ritten"></ul>
+			<ul class="ritten">
+				<li class="status4"></li> 
+				<li class="afgerond"></li>
+			</ul>
 	</div>
 	<div class="wrapper" id="map">
 		
