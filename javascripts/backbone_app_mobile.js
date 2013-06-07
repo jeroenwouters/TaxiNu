@@ -333,7 +333,7 @@ function gotPosition(position) {
   if (z !== zoom) map.setZoom(zoom = z);
 
   map.fitBounds(markerBounds);
-
+ 	console.log(position);
    channel2.trigger('client-taxi_'+current_user_id, { lat: position.coords.latitude, lang: position.coords.longitude });
 }
 

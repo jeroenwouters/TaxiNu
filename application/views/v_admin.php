@@ -26,6 +26,7 @@
 				<ul class="ritten">		
 				</ul>
 			</div>	
+			<div class="colmap"  id="map-canvas"></div>
 		</div>
 		
 		<div id="checkmodal" class="reveal-modal xlarge" style="background-color: black; color: white;">

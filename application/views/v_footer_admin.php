@@ -36,6 +36,9 @@
   -->
   
   <!-- Included JS Files (Compressed) -->
+  <script type="text/javascript">
+    var base_url = "<?php echo base_url();?>";
+  </script>
    <script src="<?php echo base_url();?>javascripts/foundation.min.js"></script>
   <script src="<?php echo base_url();?>javascripts/app.js"></script>
   <script src="<?php echo base_url();?>javascripts/jquery.js"></script>

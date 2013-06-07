@@ -3,6 +3,10 @@
 Backbone.emulateHTTP = true
 var current_user_id;
 var current_user_login;
+
+//Gmaps
+var map;
+
 //Models
 
 var Bestelling = Backbone.Model.extend({
@@ -167,6 +171,7 @@ var TaxiView = Backbone.View.extend({
          hoverClass: "ui-state-hover",
       }); 
       //.sortable({items: "li"});
+      this.marker(this.model);
     return this;
   },
 
@@ -196,6 +201,15 @@ var TaxiView = Backbone.View.extend({
 		}
 		$('#checkmodal .inforit').html(bestellingRevealView.render(1).el);
 	}
+  }, 
+
+  marker : function(taxi){
+  	 var myLatLng = new google.maps.LatLng(taxi.get('id'),4.483333);
+     var marker = new google.maps.Marker( {position: myLatLng, map: map} );
+     channel_bedrijf.bind('client-taxi_'+taxi.get('id'), function(data) {
+            marker.setPosition( new google.maps.LatLng( data.lat, data.lang ) );                
+     });
+     marker.setIcon(base_url+'images/markers/number_'+taxi.get('id')+'.png');
   }
   
 });
@@ -208,7 +222,7 @@ var TaxiListView = Backbone.View.extend({
 	
 	addOne: function(taxi){
 		var taxiView = new TaxiView({model: taxi});
-		$('.wrapper').append(taxiView.render().el);
+		$('.colmap').before(taxiView.render().el);
 	},
 	
 	addAll: function(){
@@ -258,9 +272,11 @@ WEB_SOCKET_DEBUG = true;
 //Stop Test
 
 	var pusher = new Pusher('b075ffa0df361cc21bda');
-    
-    
+    Pusher.channel_auth_endpoint = base_url+'pusher/auth.php';
+
+    var channel_bedrijf = pusher.subscribe('private-bedrijf_1');
     var channel = pusher.subscribe('admin_all');
+
     channel.bind('taxi_bestelt', function(data) {
     	var newbestelling = new Bestelling(data);
     	AdminPanel.bestellingList.add(newbestelling);
@@ -312,8 +328,10 @@ $(document).ready(function() {
 			Naam: $('#nieuw_kolom').val()
 		});
 		$('#nieuw_kolom').val("");
+		
 	});
 
+	taximap();
  });
 
 
@@ -342,5 +360,18 @@ $(document).ready(function() {
 		             $(this).show();
 		         }
 	        });
+ }
+
+ function taximap(){
+ 	var mapOptions = {
+    	zoom: 13,
+        center: new google.maps.LatLng(51.283333,4.483333),
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+    }
+    map = new google.maps.Map(document.getElementById('map-canvas'),mapOptions);
+ }
+
+ function new_taxi_map(taxi){
+
  }
 
