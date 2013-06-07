@@ -60,18 +60,18 @@ var BestellingView = Backbone.View.extend({
 	    	
 		
 	    if(this.model.get('status') == 3){
-			this.$el.css('background-color', 'green');
+			this.$el.css('background-color', '#90BD3C');
 			enable_drag(this.$el);
 		}
 
 		if(this.model.get('status') == 2){
-			this.$el.css("background-color", "red");
+			this.$el.css("background-color", "#FD4000");
 			enable_drag(this.$el);
 		}
 
 		if(this.model.get('status') == 4){
 			this.$el.find('.mark').hide();
-			this.$el.css("background-color", "orange");
+			this.$el.css("background-color", "#F2A81D");
 		}
 
 		if(this.model.get('status') == 5){
@@ -112,7 +112,7 @@ var BestellingRevealView = Backbone.View.extend({
 	
 	go: function(){
 		this.model.setstatus(2);
-		$('#'+this.model.get('id')).css("background-color", "red");
+		$('#'+this.model.get('id')).css("background-color", "#FD4000");
 		// $('#'+this.model.get('id')).remove();
 		$('#checkmodal').trigger('reveal:close');
 		// var bestellingView = new BestellingView({model: this.model});
@@ -294,11 +294,11 @@ WEB_SOCKET_DEBUG = true;
 		});
 
 		if(data.status == 3){
-			$('#'+data.id).css('background-color', 'green');
+			$('#'+data.id).css('background-color', '#90BD3C');
 		}
 
 		if(data.status == 4){
-			$('#'+data.id).css('background-color', 'orange');
+			$('#'+data.id).css('background-color', '#F2A81D');
 			$('#taxi_'+modelget.get('taxi')+' ul').find(".status4").before($('#'+data.id));
 		}
 

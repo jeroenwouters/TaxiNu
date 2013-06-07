@@ -39,7 +39,7 @@ var User = Backbone.Model.extend({
     		AdminPanel.rittenList.add(newrit);
 	    });
 	    channel.bind('green_taxi_'+current_user_id, function(data) {
-	    	$('#'+data).css('background', 'green');
+	    	$('#'+data).css('background', '#90BD3C');
 	    });
 	     channel.bind('taxi_destroy_'+current_user_id, function(data) {
 	    	var rit = AdminPanel.rittenList.get(data.id);
@@ -80,15 +80,15 @@ var RittenView = Backbone.View.extend({
   	this.$el.html(this.template(this.model.toJSON()));
   	
     if(this.model.get('status') == 3){
-		this.$el.css('background', 'green');
+		this.$el.css('background', '#90BD3C');
 	}
 
 	if(this.model.get('status') == 2){
-		this.$el.css("background", "red");
+		this.$el.css("background", "#FD4000");
 	}
 
 	if(this.model.get('status') == 4){
-		this.$el.css("background", "orange");
+		this.$el.css("background", "#F2A81D");
 		enable_swipe_destory(this.$el, this.model);
 	}
 	
@@ -143,7 +143,7 @@ var RitMapView = Backbone.View.extend({
 	statusto4: function(){
 		this.model.setstatus(4);
 		this.$el.find('#passagier').hide();
-		$('#'+this.model.get('id')).css("background", "orange");
+		$('#'+this.model.get('id')).css("background", "#F2A81D");
 		$('.wrapper ul').find(".status4").before($('#'+this.model.get('id')));
 		enable_swipe_destory($('#'+this.model.get('id')), this.model)
 	}
