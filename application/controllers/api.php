@@ -71,6 +71,7 @@ class Api extends REST_Controller
             $bestelling['status'] = $r->Status; 
             $bestelling['afgerond'] = $r->Afgerond; 
             $bestelling['taxi'] = $r->fkTaxi;
+            $bestelling['afstand'] = $r->Afstand;
         }
         $this->pusher->trigger('admin_all', 'taxi_'.$data['taxi'], $bestelling);
         $destory['id'] = $bestelling['id'];

@@ -171,28 +171,31 @@ var TaxiView = Backbone.View.extend({
   },
 
   dropped: function(event, ui){
-    this.$el.find('.ritten').find('.afgerond').before(ui.draggable);
-    var dragid = ui.draggable.find('li').attr('id');
-    var dragged = ui.draggable;
-    var bestelling = AdminPanel.bestellingList.get(dragid);
-    var taxioud = bestelling.get('taxi');
-    bestelling.set({
-    	'taxioud' : taxioud,
-		'taxi': this.model.get('id'),
-	});
-    var bestellingRevealView = new BestellingRevealView({model: bestelling});
-    if(bestelling.get('status') == 1){
-		$('#checkmodal').reveal({ 
-			"closed": function () {
-				if(bestelling.get('status') == 1){
-				$('#col1 ul').append(dragged);
-				}
-			} 
+  	var dragid = ui.draggable.find('li').attr('id');
+  	var bestelling = AdminPanel.bestellingList.get(dragid);
+  	if(bestelling.get('taxi') != this.model.get('id')){
+	    this.$el.find('.ritten').find('.afgerond').before(ui.draggable);
+	    var dragid = ui.draggable.find('li').attr('id');
+	    var dragged = ui.draggable;  
+	    var taxioud = bestelling.get('taxi');
+	    bestelling.set({
+	    	'taxioud' : taxioud,
+			'taxi': this.model.get('id'),
 		});
-	}else{
-		bestelling.save();
+	    var bestellingRevealView = new BestellingRevealView({model: bestelling});
+	    if(bestelling.get('status') == 1){
+			$('#checkmodal').reveal({ 
+				"closed": function () {
+					if(bestelling.get('status') == 1){
+					$('#col1 ul').append(dragged);
+					}
+				} 
+			});
+		}else{
+			bestelling.save();
+		}
+		$('#checkmodal .inforit').html(bestellingRevealView.render(1).el);
 	}
-	$('#checkmodal .inforit').html(bestellingRevealView.render(1).el);
   }
   
 });
