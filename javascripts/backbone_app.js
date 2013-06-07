@@ -336,11 +336,16 @@ $(document).ready(function() {
 
 
  $("#settings").click(function() {
+      console.log('test');
       $("#settings_modal").reveal();
  });
  
   $(".set").click(function() {
       $("#taxi_settings_modal").reveal();
+ });
+
+  $("#taximap_click").click(function() {
+      $("#taximap").reveal();
  });
  
  

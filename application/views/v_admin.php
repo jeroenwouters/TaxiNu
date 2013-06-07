@@ -4,6 +4,9 @@
 		<div id="settings">
 			<img src="<?php echo base_url();?>images/settings.png">
 		</div>
+		<div id="taximap_click">
+			<img src="<?php echo base_url();?>images/pinmap.png">
+		</div>
 		<div id="welkom">
 				<?php $sessiondata = $this->session->userdata('logged_in');?>
 				<input id="hiddenid" hidden="" value="<?php echo $sessiondata['id'];?>"/>
@@ -29,6 +32,8 @@
 			<div class="colmap"  id="map-canvas"></div>
 		</div>
 		
+		<div id="taximap" class="reveal-modal xlarge" style="background-color: black; color: white;"></div>
+
 		<div id="checkmodal" class="reveal-modal xlarge" style="background-color: black; color: white;">
 			  <div class="mapsmodal"></div>
 			  <p class="lead">Gegevens rit</p>
@@ -52,7 +57,7 @@
 			  <a class="close-reveal-modal">&#215;</a>		
 		</div>
 		
-		<div id="userset_modal" class="reveal-modal small" style="background-color: black; color: white;">
+		<div id="settings_modal" class="reveal-modal small" style="background-color: black; color: white;">
 			  
 			  <p class="lead">Instellingen</p>
 			  
