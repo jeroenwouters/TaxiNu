@@ -27,11 +27,13 @@
 				<div class="twelve columns">
 					<div class="profupdate">
 					<form onsubmit="return false" id="update"> 
-					  	<input type="text" name="NaamBox" placeholder="Naam">
-					  	<input type="text" name="TelBox" placeholder="Telefoonnummer">
-					  	<input type="text" name="EmailBox" placeholder="E-mail">
-					    <input type="password" name="password" placeholder="Wachtwoord" >
-					  	<button class="thoughtbot" type="submit" id="verder">Wijzigen</button>
+						<?php foreach ($query->result() as $r) { ?>
+						  	<input type="text" name="NaamBox" placeholder="Naam" value="<?php echo $r->naam;?>">
+						  	<input type="text" name="TelBox" placeholder="Telefoonnummer" value="<?php echo $r->tel;?>">
+						  	<input type="text" name="EmailBox" placeholder="E-mail" value="<?php echo $r->email;?>">
+						    <input type="password" name="password" placeholder="Wachtwoord">
+						  	<button class="thoughtbot" type="submit" id="verder">Wijzigen</button>
+					  	<?php } ?>
 					</form>
 					<div style="clear:both;"></div>
 					</div>

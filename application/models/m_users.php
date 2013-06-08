@@ -32,7 +32,21 @@ Class M_users extends CI_Model
           $data['query'] = $query2->result();
           return($data);
        }else{
-        return false;
+        $this -> db -> select('id, email, Naam, pass');
+        $this -> db -> from('tblKlanten');
+        $this -> db -> where('email = ' . "'" . $username . "'");
+        $this -> db -> where('pass = ' . "'" . MD5($password) . "'");
+        $this -> db -> limit(1);
+
+         $query2 = $this -> db -> get();
+         if($query2 -> num_rows() == 1)
+         {
+            $data['type'] = "klant";
+            $data['query'] = $query2->result();
+            return($data);
+         }else{
+          return false;
+         }
        }
    }
  }

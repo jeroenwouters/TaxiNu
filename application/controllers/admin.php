@@ -57,7 +57,9 @@ class Admin extends CI_Controller {
 				}
 				$this->session->set_userdata('logged_in', $sess_array);
 				redirect('admin_taxi');
-			}else{
+			}
+
+			if($result['type'] == "admin"){
 				foreach($query as $row)
 				{
 					$sess_array = array(
@@ -68,6 +70,19 @@ class Admin extends CI_Controller {
 				}
 				$this->session->set_userdata('logged_in', $sess_array);
 				redirect('admin');
+			}
+
+			if($result['type'] == "klant"){
+				foreach($query as $row)
+				{
+					$sess_array = array(
+					'id' => $row->id,
+					'username' => $row->email,
+					'type' => $result['type']
+					);
+				}
+				$this->session->set_userdata('logged_in', $sess_array);
+				redirect('home/user');
 			}
 		}
 		else

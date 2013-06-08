@@ -200,8 +200,12 @@ class Home extends CI_Controller {
     }
 
     function user(){
+    	$this->load->model('m_klanten');
+    	$sess = $this->session->userdata('logged_in');
+    	$data['query'] = $this->m_klanten->get($sess['id']);
+
     	$this->load->view('v_head');
-		$this->load->view('v_user');
+		$this->load->view('v_user', $data);
 		$this->load->view('v_footer');
     }
 

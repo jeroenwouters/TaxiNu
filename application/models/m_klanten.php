@@ -19,5 +19,12 @@ Class M_klanten extends CI_Model
         }
 }
 
+function get($id){
+	$this->db->where('id', $id);
+	$query = $this->db->get('tblKlanten');
+
+	return($query);
+}
+
 }
 ?>

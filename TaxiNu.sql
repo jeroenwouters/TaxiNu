@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Machine: localhost
--- Genereertijd: 29 mei 2013 om 15:26
+-- Genereertijd: 08 jun 2013 om 19:56
 -- Serverversie: 5.5.25
 -- PHP-versie: 5.4.4
 
@@ -37,8 +37,9 @@ CREATE TABLE `tblBestellingen` (
   `Tel` int(15) DEFAULT NULL,
   `Afgerond` int(1) DEFAULT NULL,
   `Afstand` varchar(255) NOT NULL,
+  `notif_email` int(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=223 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=59 ;
 
 -- --------------------------------------------------------
 
@@ -53,7 +54,15 @@ CREATE TABLE `tblKlanten` (
   `email` varchar(255) NOT NULL,
   `pass` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+
+--
+-- Gegevens worden uitgevoerd voor tabel `tblKlanten`
+--
+
+INSERT INTO `tblKlanten` (`id`, `naam`, `tel`, `email`, `pass`) VALUES
+(7, 'jeroen', 976544, 'jeroen.wou@gmail.com', '098f6bcd4621d373cade4e832627b4f6'),
+(8, 'ben', 345678909, 'ben@mail.be', '6efe6cb7c3085b237d9d534bf134e599');
 
 -- --------------------------------------------------------
 
@@ -69,15 +78,7 @@ CREATE TABLE `tblStatus` (
   `Wachttijd` int(11) DEFAULT NULL,
   `fkTaxi` int(255) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=208 ;
-
---
--- Gegevens worden uitgevoerd voor tabel `tblStatus`
---
-
-INSERT INTO `tblStatus` (`id`, `fkBestelling`, `fkUser`, `Status`, `Wachttijd`, `fkTaxi`) VALUES
-(206, 221, 1, 3, NULL, 4),
-(207, 222, 1, 3, 4, 1);
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=47 ;
 
 -- --------------------------------------------------------
 
@@ -92,7 +93,7 @@ CREATE TABLE `tblTaxis` (
   `Naam` varchar(255) NOT NULL,
   `pass` varchar(255) NOT NULL DEFAULT '21232f297a57a5a743894a0e4a801fc3',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
 
 --
 -- Gegevens worden uitgevoerd voor tabel `tblTaxis`
@@ -103,7 +104,10 @@ INSERT INTO `tblTaxis` (`id`, `fkUser`, `Login`, `Naam`, `pass`) VALUES
 (2, 1, 'AntwerpTax_Taxi2', 'Taxi2', '21232f297a57a5a743894a0e4a801fc3'),
 (3, 1, 'AntwerpTax_Taxi3', 'Taxi3', '21232f297a57a5a743894a0e4a801fc3'),
 (4, 1, 'AntwerpTax_Taxi4', 'Taxi4', '21232f297a57a5a743894a0e4a801fc3'),
-(5, 1, 'AntwerpTax_Taxi5', 'Taxi5', '21232f297a57a5a743894a0e4a801fc3');
+(5, 1, 'AntwerpTax_Taxi5', 'Taxi5', '21232f297a57a5a743894a0e4a801fc3'),
+(6, 2, 'DtmTaxi_taxi1', 'taxi1', '21232f297a57a5a743894a0e4a801fc3'),
+(7, 2, 'DtmTaxi_taxi2', 'taxi2', '21232f297a57a5a743894a0e4a801fc3'),
+(8, 2, 'DtmTaxi_taxi3', 'taxi3', '21232f297a57a5a743894a0e4a801fc3');
 
 -- --------------------------------------------------------
 
@@ -125,7 +129,7 @@ CREATE TABLE `tblUsers` (
 
 INSERT INTO `tblUsers` (`pkUsers`, `Username`, `Pass`, `Naam`) VALUES
 (1, 'AntwerpTax', '21232f297a57a5a743894a0e4a801fc3', 0),
-(2, 'DtmTaxi', 'c84258e9c39059a89ab77d846ddab909', 0);
+(2, 'DtmTaxi', '21232f297a57a5a743894a0e4a801fc3', 0);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
