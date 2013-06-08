@@ -52,6 +52,7 @@ class M_bestellingen extends CI_Model {
 		$this->db->select('*');
 		$this->db->from('tblStatus');
 		$this->db->join('tblBestellingen', 'tblBestellingen.id = tblStatus.fkBestelling');
+		$this->db->join('tblUsers', 'tblStatus.fkUser = tblUsers.pkUsers');
 		$this->db->where('tblBestellingen.id', $id);
 		$query = $this->db->get();
 		return($query);

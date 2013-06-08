@@ -105,17 +105,23 @@ class Home extends CI_Controller {
 		
 		
 		$_POST['id'] = $this->m_bestellingen->insertbestelling($_POST);
-		$data['id'] = $_POST['id'];
+		
 		$_POST['status'] = 1;
 		$_POST['taxi'] = 0;
 		$this->load->library('pusher');
 		$this->pusher->trigger('admin_all', 'taxi_bestelt', $_POST);
 		
+		redirect('home/aanvragen/'.$_POST['id']);
+		}
+	}
+
+	public function aanvragen(){
+		$data['id'] = $this->uri->segment(3);
+		$this->load->model('m_bestellingen');
+		$data['query'] = $this->m_bestellingen->getbyid($data['id']);
 		$this->load->view('v_head');
 		$this->load->view('v_pending', $data);
-		//$this->load->view('v_info');
 		$this->load->view('v_footer');
-		}
 	}
 	
 	public function bevestig()
