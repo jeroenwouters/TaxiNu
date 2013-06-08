@@ -54,10 +54,7 @@ class Api extends REST_Controller
 		$return = $this->m_status->insert($status);
 		$status['Username'] = $sessiondata['username'];
 
-		$this->load->library('pusher');
-        if($return == "new"){
-		  $this->pusher->trigger('client', 'client_'.$data['id'], $status);
-        }
+		
         $this->load->model('m_bestellingen');
         $query = $this->m_bestellingen->getbyid($data['id']);
         foreach($query->result() as $r){
@@ -72,6 +69,34 @@ class Api extends REST_Controller
             $bestelling['afgerond'] = $r->Afgerond; 
             $bestelling['taxi'] = $r->fkTaxi;
             $bestelling['afstand'] = $r->Afstand;
+            $bestelling['notif_email'] = $r->notif_email;
+            $bestelling['email'] = $r->Email;
+        }
+        $this->load->library('pusher');
+        if($return == "new"){
+            $this->pusher->trigger('client', 'client_'.$data['id'], $status);
+            if($bestelling['notif_email'] == 1){
+                $email_config = Array(
+                    'protocol'  => 'smtp',
+                    'smtp_host' => 'ssl://smtp.googlemail.com',
+                    'smtp_port' => '465',
+                    'smtp_user' => '23ste.dropping@gmail.com',
+                    'smtp_pass' => 'negerballen',
+                    'mailtype'  => 'html',
+                    'starttls'  => true,
+                    'newline'   => "\r\n"
+                );
+
+                $this->load->library('email', $email_config);
+
+                $this->email->from(' 23ste.dropping@gmail.com', 'Taxinu');
+                $this->email->to( $bestelling['email']);
+                $this->email->subject('Taxinu bestelling');
+                $this->email->message('<a href="'.base_url().'home/aanvragen/'.$bestelling['id'].'"/>klik hier</a>');
+
+                $this->email->send();
+                
+            }
         }
         $this->pusher->trigger('admin_all', 'taxi_'.$data['taxi'], $bestelling);
         $destory['id'] = $bestelling['id'];

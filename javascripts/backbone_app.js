@@ -132,9 +132,13 @@ var BestellingListView = Backbone.View.extend({
 	addOne: function(bestelling){
 		
 		var bestellingView = new BestellingView({model: bestelling});
-		if(bestelling.get('taxi') == 0){
-			$('#col1 ul').prepend(bestellingView.render().el);
-		}else{
+		// if(bestelling.get('taxi') == 0){
+		// 	$('#col1 ul').prepend(bestellingView.render().el);
+		// }else{
+			if(bestelling.get('status') == 1){
+			 	$('#col1 ul').prepend(bestellingView.render().el);
+			 }
+
 			if(bestelling.get('status') == 4){
 				$('#taxi_'+bestelling.get('taxi')+' ul').find(".status4").before(bestellingView.render().el);
 			}
@@ -144,7 +148,7 @@ var BestellingListView = Backbone.View.extend({
 			if(bestelling.get('status') == 5){
 				$('#taxi_'+bestelling.get('taxi')+' ul').find(".afgerond").after(bestellingView.render().el);
 			}
-		}
+		// }
 
 	},
 	

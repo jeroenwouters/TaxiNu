@@ -147,6 +147,29 @@ class Home extends CI_Controller {
 
 		$this->m_status->delete_over($this->uri->segment(3), $this->uri->segment(4));
 		
+		$email_config = Array(
+            'protocol'  => 'smtp',
+            'smtp_host' => 'ssl://smtp.googlemail.com',
+            'smtp_port' => '465',
+            'smtp_user' => '23ste.dropping@gmail.com',
+            'smtp_pass' => 'negerballen',
+            'mailtype'  => 'html',
+            'starttls'  => true,
+            'newline'   => "\r\n"
+         );
+
+         $this->load->library('email', $email_config);
+         $query = $this->m_bestellingen->get($this->uri->segment(3));
+         foreach ($query->result() as $r) {
+         	$email = $r->Email;
+         }
+         $this->email->from(' 23ste.dropping@gmail.com', 'Taxinu');
+         $this->email->to($email);
+         $this->email->subject('Taxinu volg taxi');
+         $this->email->message('<a href="'.base_url().'home/volgtaxi/'.$this->uri->segment(3).'/'.$this->uri->segment(4).'"/>klik hier</a>');
+
+          $this->email->send();
+
 		redirect('home/volgtaxi/'.$this->uri->segment(3).'/'.$this->uri->segment(4));
 	}
 
@@ -180,6 +203,12 @@ class Home extends CI_Controller {
     	$this->load->view('v_head');
 		$this->load->view('v_user');
 		$this->load->view('v_footer');
+    }
+
+    function setemail(){
+    	$data['notif_email'] = 1;
+    	$this->load->model('m_bestellingen');
+    	$this->m_bestellingen->update($data, $_POST['id']);
     }
 }
 

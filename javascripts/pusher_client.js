@@ -14,3 +14,9 @@
     	console.log(data.fkUser);
     	$('#bedrijven').append('<li><p>'+data.Username+'</p><p>Wachttijd: <span class="minutes">'+data.Wachttijd+'</span> min.</p><a href="'+base_url+'home/bevestig/'+data.fkBestelling+'/'+data.fkUser+'"><button class="thoughtbot">Bevestig</button>');
     });
+
+    $(document).ready(function() {
+        $(window).bind('beforeunload', function() {
+            $.post(base_url+'home/setemail',{id:bestelling_id});
+        }); 
+    });

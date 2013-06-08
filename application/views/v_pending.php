@@ -49,7 +49,9 @@
 		</div>
 
 </header>
-	
+<script type="text/javascript">
+	var bestelling_id = "<?php echo $this->uri->segment(3);?>";
+</script>
 <script src="http://js.pusher.com/1.12/pusher.min.js" type="text/javascript"></script>
 <script src="<?php echo base_url();?>javascripts/jquery.js"></script>
 <script src="<?php echo base_url();?>javascripts/pusher_client.js"></script>
