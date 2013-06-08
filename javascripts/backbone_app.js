@@ -56,8 +56,11 @@ var BestellingView = Backbone.View.extend({
   render: function(){
    if(!(this.model.get('status') == 1 && this.model.get('afgerond') == 1)){
 
-	   		this.$el.html(this.template2(this.model.toJSON()));
-	    	
+	   	this.$el.html(this.template2(this.model.toJSON()));
+	   
+	   	if(this.model.get('status') == 1){
+	   		enable_drag(this.$el);
+	   	}
 		
 	    if(this.model.get('status') == 3){
 			this.$el.css('background-color', '#90BD3C');
