@@ -29,9 +29,14 @@
 				<ul class="ritten">		
 				</ul>
 			</div>	
-			<div class="colmap"  id="map-canvas"></div>
+			<div class="colmap"></div>
+				<div class="sidebar">
+					<div id="map-canvas" class="adminmap"></div>
+				</div>
+
 		</div>
-		
+
+
 		<div id="taximap" class="reveal-modal xlarge" style="background-color: black; color: white;"></div>
 
 		<div id="checkmodal" class="reveal-modal xlarge" style="background-color: black; color: white;">

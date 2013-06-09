@@ -339,6 +339,15 @@ $(document).ready(function() {
 	});
 
 	taximap();
+
+	$('#taximap_click').toggle(function () {
+     $('.sidebar').animate({right:"0px"}, 500); 
+     $('#taximap_click img').css("background-color","rgba(225,225,225,0.75)");     
+   },function () {
+       $('.sidebar').animate({right: "-500px"}, 500); 
+       $('#taximap_click img').css("background-color","inherit");     
+    
+	});
  });
 
 
@@ -351,9 +360,9 @@ $(document).ready(function() {
       $("#taxi_settings_modal").reveal();
  });
 
-  $("#taximap_click").click(function() {
-      $("#taximap").reveal();
- });
+ //  $("#taximap_click").click(function() {
+ //      $("#taximap").reveal();
+ // });
  
  
  function enable_drag(el){
