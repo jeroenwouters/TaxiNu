@@ -150,6 +150,18 @@ class Api extends REST_Controller
         $this->m_taxis->insert($data);
     }   
 
+    function taxi_put(){
+        $data = $this->request->body;
+        $data2['Naam'] = $data['Naam'];
+        $this->load->model('m_taxis');
+        $this->m_taxis->update($data2, $data['id']);
+    }
+
+    function taxi_delete(){
+        $this->load->model('m_taxis');
+        $this->m_taxis->delete($this->uri->segment('3'));  
+    }
+
     function ritten_get()
     {
         $this->load->model('m_bestellingen');

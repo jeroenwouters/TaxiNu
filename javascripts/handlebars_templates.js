@@ -61,3 +61,9 @@ var rit_map_template =
 <p>{{personen}} Personen</p> \
 <p><a id="passagier">passagier</a></p></div>';
 
+var taxi_settings = 
+'<p class="lead">Taxi Instellingen</p> \
+<input type="text" placeholder="Taxi naam wijzigen" value="{{Naam}}" style="width:210px"> \
+<a href="#"><button class="thoughtbot" id="loguit">Update</button></a> \
+<a href="#" ><button style="margin-left:10px;"class="thoughtbot" id="delete">Delete</button></a> \
+<a class="close-reveal-modal">&#215;</a>';'	'

@@ -159,12 +159,36 @@ var BestellingListView = Backbone.View.extend({
 		this.addAll();
 	}
 });
+ 
+
+var TaxiListView = Backbone.View.extend({
+	initialize: function(){
+		this.collection.on('add', this.addOne, this);
+		this.collection.on('reset', this.addAll, this);
+	},
+	
+	addOne: function(taxi){
+		var taxiView = new TaxiView({model: taxi});
+		$('.colmap').before(taxiView.render().el);
+	},
+	
+	addAll: function(){
+		this.collection.forEach(this.addOne, this);
+		AdminPanel.bestellingList.fetch();
+	},
+	
+	render: function(){
+		this.addAll();
+	}
+
+});
 
 var TaxiView = Backbone.View.extend({
   className: "col",
 
   events: {
 		"drop" : "dropped",
+		"click .set": "settings"
 	},
 
   template: Handlebars.compile(taxi_template),
@@ -216,30 +240,44 @@ var TaxiView = Backbone.View.extend({
             marker.setPosition( new google.maps.LatLng( data.lat, data.lang ) );                
      });
      marker.setIcon(base_url+'images/markers/number_'+taxi.get('id')+'.png');
+  }, 
+
+  settings: function(){
+  	console.log(this.model);
+  	var taxisettingsView = new TaxisettingsView({model: this.model});
+	$('#taxi_settings_modal').reveal();
+	$('#taxi_settings_modal').html(taxisettingsView.render().el);
   }
-  
 });
 
-var TaxiListView = Backbone.View.extend({
-	initialize: function(){
-		this.collection.on('add', this.addOne, this);
-		this.collection.on('reset', this.addAll, this);
-	},
+var TaxisettingsView = Backbone.View.extend({
+	template: Handlebars.compile(taxi_settings),
 	
-	addOne: function(taxi){
-		var taxiView = new TaxiView({model: taxi});
-		$('.colmap').before(taxiView.render().el);
-	},
-	
-	addAll: function(){
-		this.collection.forEach(this.addOne, this);
-		AdminPanel.bestellingList.fetch();
+	events: {
+		"click #loguit" : "update",
+		"click #delete" : "delete"
 	},
 	
 	render: function(){
-		this.addAll();
-	}
+		this.$el.html(this.template(this.model.toJSON()));
+		return this;
+	},
+	
+	update: function(){
+		this.model.set({
+			'Naam': this.$el.find('input').val()
+		});
+		this.model.save();
+		this.$el.trigger('reveal:close');
+		$('#taxi_'+this.model.get('id')).find('h1').html(this.model.get('Naam'));
+	},
 
+	delete: function(){
+		$('#taxi_'+this.model.get('id')).remove();
+	    // AdminPanel.taxiList.remove(this.model);
+	    this.model.destroy();
+	    this.$el.trigger('reveal:close');
+	}
 });
 
 //Router
@@ -356,9 +394,7 @@ $(document).ready(function() {
       $("#settings_modal").reveal();
  });
  
-  $(".set").click(function() {
-      $("#taxi_settings_modal").reveal();
- });
+
 
  //  $("#taximap_click").click(function() {
  //      $("#taximap").reveal();
