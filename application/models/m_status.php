@@ -65,5 +65,10 @@ Class M_status extends CI_Model
 		$this->db->query('DELETE FROM tblStatus WHERE fkBestelling='.$fkBestelling.' AND fkUser!='.$fkUser.';');
 	}
 
+	function getall(){
+		$query = $this->db->get('tblStatus');
+		return($query);
+	}
+
 }
 ?>

@@ -126,7 +126,7 @@ class Home extends CI_Controller {
 	
 	public function bevestig()
 	{
-		$data['Status'] = 3;
+		$data['status'] = 3;
 		$this->load->model('m_status');
 		$this->m_status->update($data, $this->uri->segment(3), $this->uri->segment(4));
 		
@@ -138,7 +138,7 @@ class Home extends CI_Controller {
 		$datapush['idbestelling'] = $this->uri->segment(3);
 		$datapush['iduser'] = $this->uri->segment(4);
 		$status['id'] = $this->uri->segment(3);
-		$status['status'] = 3;
+		$status['Status'] = 3;
 		$this->pusher->trigger('admin_all', 'admin_'.$this->uri->segment(4), $status);
 		$this->pusher->trigger('admin_all', 'delete', $datapush);
 		
@@ -208,7 +208,8 @@ class Home extends CI_Controller {
     	foreach ($data['query']->result() as $r) {
     		$data['query2'] = $this->m_bestellingen->getbyemail($r->email);
     	}
-
+    	$this->load->model('m_status');
+    	$data['query3'] = $this->m_status->getall();
     	$this->load->view('v_head');
 		$this->load->view('v_user', $data);
 		$this->load->view('v_footer');

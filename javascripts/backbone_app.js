@@ -47,7 +47,6 @@ var User = Backbone.Model.extend({
 //Views
 var BestellingView = Backbone.View.extend({
   template: Handlebars.compile(bestelling_tempalte),
-  template2: Handlebars.compile(bestelling_tempalte2),
   
   events: {
 	  "click button" : "showmodule",
@@ -56,7 +55,7 @@ var BestellingView = Backbone.View.extend({
   render: function(){
    if(!(this.model.get('status') == 1 && this.model.get('afgerond') == 1)){
 
-	   	this.$el.html(this.template2(this.model.toJSON()));
+	   	this.$el.html(this.template(this.model.toJSON()));
 	   
 	   	if(this.model.get('status') == 1){
 	   		enable_drag(this.$el);
@@ -130,7 +129,7 @@ var BestellingListView = Backbone.View.extend({
 	},
 	
 	addOne: function(bestelling){
-		
+		console.log(bestelling);
 		var bestellingView = new BestellingView({model: bestelling});
 		// if(bestelling.get('taxi') == 0){
 		// 	$('#col1 ul').prepend(bestellingView.render().el);
@@ -289,8 +288,9 @@ WEB_SOCKET_DEBUG = true;
     	AdminPanel.bestellingList.add(newbestelling);
     	//AdminPanel.bestellingList.fetch();
     });
-    
+    console.log('admin_'+$('#hiddenid').val());
     channel.bind('admin_'+$('#hiddenid').val(), function(data) {
+
   //   	$('#'+data).remove();
 		var modelget = AdminPanel.bestellingList.get(data.id);
   //   	var bestellingView = new BestellingView({model: modelget});
@@ -300,16 +300,16 @@ WEB_SOCKET_DEBUG = true;
 		'status': data.status,
 		});
 
-		if(data.status == 3){
+		if(data.Status == 3){
 			$('#'+data.id).css('background-color', '#90BD3C');
 		}
 
-		if(data.status == 4){
+		if(data.Status == 4){
 			$('#'+data.id).css('background-color', '#F2A81D');
 			$('#taxi_'+modelget.get('taxi')+' ul').find(".status4").before($('#'+data.id));
 		}
 
-		if(data.status == 5){
+		if(data.Status == 5){
 			$('#'+data.id).css('opacity', '0.5');
 			$('#'+data.id).css('background', 'none');
 			$('#taxi_'+modelget.get('taxi')+' ul').find(".afgerond").after($('#'+data.id));

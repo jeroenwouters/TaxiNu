@@ -57,5 +57,10 @@ Class M_users extends CI_Model
 	 $query = $this->db->get('tblUsers');
 	 return($query);
  }
+
+ function getall(){
+    $query = $this->db->get('tblUsers');
+    return($query);
+ }
 }
 ?>

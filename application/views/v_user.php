@@ -18,11 +18,13 @@
 				 	<p class="naamklant"><?php echo $r2->Naam;?></p> 	
 				 	<p class="telklant"><?php echo $r2->Tel;?></p> 	
 				 	<?php if($r2->Afgerond == 1 ){?>
-						<?php if($r2->Status == 3){?>
-						    <a  href="<?php echo base_url();?>home/volgtaxi/<?php echo $r2->fkBestelling;?>/<?php echo $r2->fkUser;?>" class="thoughtbot"  id="verder">Volg</a>
-						 <?php } ?>
+				 		<?php foreach ($query3->result() as $r3) { ?>
+				 			<?php if($r3->fkBestelling == $r2->id && $r3->Status == 3){?>
+						 		<a  href="<?php echo base_url();?>home/volgtaxi/<?php echo $r2->id;?>/<?php echo $r3->fkUser;?>" class="thoughtbot"  id="verder">Volg</a>
+							<?php } ?>
+						<?php } ?>
 					<?php }else{ ?>
-						 <a href="<?php echo base_url();?>home/aanvragen/<?php echo $r2->fkBestelling;?>" class="thoughtbot"  id="verder">Ga</a>
+						 <a href="<?php echo base_url();?>home/aanvragen/<?php echo $r2->id;?>" class="thoughtbot"  id="verder">Ga</a>
 					<?php } ?>
 				</div>	
 			<?php } ?>	
