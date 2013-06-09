@@ -41,7 +41,7 @@ $(document).ready(function() {
  		  		$('.search').animate({
 				    top: '+=60'
 				  });
- 		  		$('.nav').hide();
+ 		  		$('.nav').hide(); 
  		  });	
           ///slideshow code here
           $('.errors').remove();
