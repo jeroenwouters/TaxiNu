@@ -2,28 +2,13 @@
 		<footer>
 		    <div class="row">
 		        <div class="four columns">
-		        	<h1>Contact</h1>
-		        		<ul>
-				        	<li>Jeroen Wouters</li>
-				        	<li>Nick Van Walleghem</li>
-				       </ul> 	
+		        	
 		        </div>
 		        <div class="four columns">
-		        	<h1>Sitemap</h1>
-		        	<ul>
-		        		<li>Home</li>
-		        		<li>Registreer</li>
-		        		<li>Zoek</li>
-		        		<li>Beheer</li>
-		        		<li>Favorieten</li>
-		        		<li>Disclaimer</li>
-		        	</ul> 	
+		        
 		        </div>
 		        <div class="four columns">
-		        	<h1>Partners</h1>
-		        	<ul>
-		        		<li>Karel de Grote-Hogeschool</li>
- 		        	</ul>
+		        	
 		        </div>
 		    </div>
 		</footer>  

@@ -265,7 +265,16 @@ button.thoughtbot {
 	width: 20px !important;
 	float: left !important;
 }
-    
+ 
+
+.ad{
+	margin-top: 30px !important;
+	margin-bottom: 30px !important;
+	padding-left: 30px !important;
+	overflow: hidden;
+	
+}
+
 @media only screen
 and (max-width: 908px){
 		.detail #address2 {
@@ -319,11 +328,10 @@ and (max-width: 480px){
 		
 	}
 	
-	// .nav{
-	// 	visibility: hidden;
-	// 	.box-shadow(0 1px 2px black);	
-			
-	// }
+	.nav{
+		position: fixed !important; 
+		bottom:0;
+	}
 	
 	button.thoughtbot {
 		float: left;
@@ -331,6 +339,7 @@ and (max-width: 480px){
 	}
 	
 	header{
+		height:100%;
 		overflow: hidden;
 		background-image: url(../images/backtax.jpg);
 	}
@@ -351,14 +360,13 @@ and (max-width: 480px){
 	.ad{
 	margin-top: 0px !important;
 	margin-bottom: 0px !important;
-	padding-left: 0px !important;
+	padding-left: 30px !important;
 	margin-left: -30px;
 	overflow: hidden;
 	height: 240px;	
 	
 		li{
 		font-size: 1.2em;
-		list-style-type: square !important;
 		}
 		
 		img{
@@ -366,6 +374,9 @@ and (max-width: 480px){
 		}
 	}
 	
+	.up{
+		margin-top: 0px !important;
+	}
 
 				
 	.maps{
@@ -436,13 +447,7 @@ and (max-width: 480px){
 	
 }
 
-.ad{
-	margin-top: 30px !important;
-	margin-bottom: 30px !important;
-	padding-left: 30px !important;
-	overflow: hidden;
-	
-}
+
 
 #mobiles{
 	margin-left: 30px;
@@ -687,7 +692,7 @@ margin-top: 143px !important;
 
 }
 
-#loading, #loading2 {
+#loading {
 margin-top: 150px;
 
 }
@@ -906,6 +911,24 @@ and (max-width: 1024px){
 		display:none;
 	}
 
+}
+
+.flex {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px;
+    height: 0;
+    overflow: hidden;
+}
+
+.flex iframe,   
+.flex object,  
+.flex embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 
 

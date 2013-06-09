@@ -69,7 +69,7 @@
 		        </ul> 	
 		    </div>
 		    
-		    <div class="six columns ad">	
+		    <div class="six columns ad up">	
 		        <h1>Werkt op al uw apparaten!</h1><br />
 		        <img src="<?php echo base_url();?>images/mobiles.png" width="350px" id="mobiles">
 		    </div>
