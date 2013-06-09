@@ -23,7 +23,13 @@ class Admin extends CI_Controller {
 			$data = $this->session->userdata('logged_in');
 			if($data['type'] == 'taxi'){
 				redirect('admin_taxi');
-			}else{
+			}
+
+			if($data['type'] == 'klant'){
+				redirect('home/user');
+			}
+
+			if($data['type'] == 'admin'){
 				$this->load->view('v_head_admin');
 				$this->load->view('v_admin');
 				$this->load->view('v_footer_admin');

@@ -21,12 +21,14 @@
 					<input type="hidden" id="hiddenid" name="id" value="<?php echo $id;?>"/>
 					<section class="toaccept">
 					<ul id="bedrijven">
+						
 						<?php foreach($query->result() as $r){?>
 							<li>
 								<p><?php echo $r->Username;?></p>
 								<p>Wachttijd: <span class="minutes"><?php echo $r->Wachttijd;?></span> min.</p>
 								<a href="<?php echo base_url();?>home/bevestig/<?php echo $r->fkBestelling;?>/<?php echo $r->fkUser;?>">
 								<button class="thoughtbot">Bevestig</button>
+								</a>
 							</li>
 						<?php } ?>
 					</ul>

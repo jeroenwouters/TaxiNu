@@ -10,16 +10,22 @@
 		</div>
 
 		<div class="row user_ritten">
-		
+			<?php foreach ($query2->result() as $r2) { ?>
 				<div class="three columns rit_user">
-					<p class="vertrek"> Brasschaat</p>
-				 	<p class="bestemming"> Kapellen</p> 	
-				 	<p class="uur">05/06/12 - 14:13</p> 	
-				 	<p class="naamklant">Nick</p> 	
-				 	<p class="telklant">475214440</p> 	
-				 	<button class="thoughtbot check">Info</button>
+					<p class="vertrek"> <?php echo $r2->Adres1;?></p>
+				 	<p class="bestemming"> <?php echo $r2->Adres2;?></p> 	
+				 	<p class="uur"><?php echo $r2->Tijd;?></p> 	
+				 	<p class="naamklant"><?php echo $r2->Naam;?></p> 	
+				 	<p class="telklant"><?php echo $r2->Tel;?></p> 	
+				 	<?php if($r2->Afgerond == 1 ){?>
+						<?php if($r2->Status == 3){?>
+						    <a  href="<?php echo base_url();?>home/volgtaxi/<?php echo $r2->fkBestelling;?>/<?php echo $r2->fkUser;?>" class="thoughtbot"  id="verder">Volg</a>
+						 <?php } ?>
+					<?php }else{ ?>
+						 <a href="<?php echo base_url();?>home/aanvragen/<?php echo $r2->fkBestelling;?>" class="thoughtbot"  id="verder">Ga</a>
+					<?php } ?>
 				</div>	
-				
+			<?php } ?>	
 		</div>
 
 		<div class="row profile_user">

@@ -1,6 +1,7 @@
 
 //Backbone Options
 Backbone.emulateHTTP = true
+var current_taxi_id;
 var current_user_id;
 var current_user_login;
 var channel2;
@@ -29,19 +30,21 @@ var User = Backbone.Model.extend({
 	url: 'admin/getuser',
 	
 	parse: function(data, options) {
-		current_user_id = data.id;
+		current_taxi_id = data.id;
+		current_user_id = data.fkUser;
 		current_user_login = data.username;
+		console.log(current_user_id);
 		channel2 = pusher.subscribe('private-bedrijf_'+data.fkUser);
 		AdminPanel.rittenList.fetch( { data: { userid: data.id} });
 		var channel = pusher.subscribe('admin_all');
-	    channel.bind('taxi_'+current_user_id, function(data) {
+	    channel.bind('taxi_'+current_taxi_id, function(data) {
 	    	var newrit = new Rit(data);
     		AdminPanel.rittenList.add(newrit);
 	    });
-	    channel.bind('green_taxi_'+current_user_id, function(data) {
+	    channel.bind('green_taxi_'+current_taxi_id, function(data) {
 	    	$('#'+data).css('background', '#90BD3C');
 	    });
-	     channel.bind('taxi_destroy_'+current_user_id, function(data) {
+	     channel.bind('taxi_destroy_'+current_taxi_id, function(data) {
 	    	var rit = AdminPanel.rittenList.get(data.id);
 	    	AdminPanel.rittenList.remove(rit);
 	    	$('#'+data.id).remove();
@@ -335,7 +338,7 @@ function gotPosition(position) {
 
   map.fitBounds(markerBounds);
  	console.log(position);
-   channel2.trigger('client-taxi_'+current_user_id, { lat: position.coords.latitude, lang: position.coords.longitude });
+   channel2.trigger('client-taxi_'+current_taxi_id, { lat: position.coords.latitude, lang: position.coords.longitude });
 }
 
 function noGeolocation(message) {

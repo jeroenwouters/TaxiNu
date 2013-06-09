@@ -164,7 +164,7 @@ class Api extends REST_Controller
     {
          $data = $this->request->body;
          
-             $status['status'] = $data['status'];
+             $status['Status'] = $data['status'];
              $this->load->model('m_status');
              $this->m_status->update($status, $data['id'], $data['userid']);
           if($data['status'] == 4 || $data['status'] == 5 ){

@@ -58,4 +58,13 @@ class M_bestellingen extends CI_Model {
 		return($query);
 	}
 
+	function getbyemail($email){
+		$this->db->select('*');
+		$this->db->from('tblBestellingen');
+		$this->db->join('tblStatus', 'tblBestellingen.id = tblStatus.fkBestelling', 'left');
+		$this->db->join('tblUsers', 'tblStatus.fkUser = tblUsers.pkUsers', 'left');
+		$this->db->where('tblBestellingen.Email', $email);
+		$query = $this->db->get();
+		return($query);
+	}
 }

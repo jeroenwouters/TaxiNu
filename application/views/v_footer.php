@@ -77,7 +77,7 @@
   <!-- Included JS Files (Compressed) -->
    <script src="<?php echo base_url();?>javascripts/foundation.min.js"></script>
   <script src="<?php echo base_url();?>javascripts/app.js"></script>
-  
+
   <script>
   $(document).ready(function(){
 	  	    $('#order').hide(); 
