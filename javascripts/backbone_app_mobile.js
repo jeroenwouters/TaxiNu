@@ -85,6 +85,7 @@ var RittenView = Backbone.View.extend({
 
 	if(this.model.get('status') == 2){
 		this.$el.css("background", "#FD4000");
+		$(".uur").css("color", "#FFFFFF");
 	}
 
 	if(this.model.get('status') == 4){

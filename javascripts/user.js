@@ -39,8 +39,9 @@ $(document).ready(function() {
 				    top: '+=120'
 				  });
  		  		$('.search').animate({
-				    top: '+=120'
+				    top: '+=60'
 				  });
+ 		  		$('.nav').hide();
  		  });	
           ///slideshow code here
           $('.errors').remove();

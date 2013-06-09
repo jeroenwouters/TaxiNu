@@ -15,7 +15,7 @@
 		<section class="main">	
 		
 		<div class="logo">
-			<img src="<?php echo base_url();?>images/logo.png" width="300px" >	
+			<a href="<?php echo base_url();?>"><img src="<?php echo base_url();?>images/logo.png" width="300px"></a>
 			<h3>Welkom, gelieve in te loggen!</h3>
 		</div>
 			
