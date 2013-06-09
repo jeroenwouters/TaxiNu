@@ -29,6 +29,16 @@ var module_bestelling_template2 =
 <p class="telklant">{{tel}}</p> \
 <p class="personen">{{personen}}</p>';
 
+var module_bestelling_template3 = 
+'<p class="vertrek">{{adres1}}</p> \
+<p class="bestemming">{{adres2}}</p> \
+<div class="maps"></div> \
+<p class="uur">{{tijd}}</p> \
+<p class="naamklant">{{naam}}</p> \
+<p class="telklant">{{tel}}</p> \
+<p class="personen">{{personen}}</p> \
+<button class="thoughtbot check cancel">Annuleer bestelling</button>';
+
 var taxi_template = 
 '<h1>{{Naam}}</h1> \
 <div class="set"><img src="images/settings.png"></div> \

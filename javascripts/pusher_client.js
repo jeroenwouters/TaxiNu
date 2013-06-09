@@ -12,7 +12,11 @@
     var channel = pusher.subscribe('client');
     channel.bind('client_'+$('#hiddenid').val(), function(data) {
     	console.log(data.fkUser);
-    	$('#bedrijven').append('<li><p>'+data.Username+'</p><p>Wachttijd: <span class="minutes">'+data.Wachttijd+'</span> min.</p><a href="'+base_url+'home/bevestig/'+data.fkBestelling+'/'+data.fkUser+'"><button class="thoughtbot">Bevestig</button>');
+    	$('#bedrijven').append('<li id="'+data.fkBestelling+'"><p>'+data.Username+'</p><p>Wachttijd: <span class="minutes">'+data.Wachttijd+'</span> min.</p><a href="'+base_url+'home/bevestig/'+data.fkBestelling+'/'+data.fkUser+'"><button class="thoughtbot">Bevestig</button>');
+    });
+
+    channel.bind('client_remove'+$('#hiddenid').val(), function(data) {
+        $('#bedrijven').find('#'+data).remove();
     });
 
     $(document).ready(function() {

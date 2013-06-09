@@ -87,7 +87,12 @@ var BestellingView = Backbone.View.extend({
   showmodule: function(){
   	  var bestellingRevealView = new BestellingRevealView({model: this.model});
 	  $('#checkmodal').reveal();
-	  $('#checkmodal .inforit').html(bestellingRevealView.render(2).el);
+	  if(this.model.get('status') == 2){
+	  	var template = 3;
+	  }else{
+	  	var template = 2;
+	  }
+	  $('#checkmodal .inforit').html(bestellingRevealView.render(template).el);
   },
 
 
@@ -96,9 +101,11 @@ var BestellingView = Backbone.View.extend({
 var BestellingRevealView = Backbone.View.extend({
 	template1: Handlebars.compile(module_bestelling_template1),
 	template2: Handlebars.compile(module_bestelling_template2),
+	template3: Handlebars.compile(module_bestelling_template3),
 	
 	events: {
-		"click button" : "go",
+		"click .go" : "go",
+		"click .cancel" : "cancel"
 	},
 	
 	render: function(temp){
@@ -107,6 +114,9 @@ var BestellingRevealView = Backbone.View.extend({
 		}
 		if(temp == 2){
 			this.$el.html(this.template2(this.model.toJSON()));
+		}
+		if(temp == 3){
+			this.$el.html(this.template3(this.model.toJSON()));
 		}
 
 		return this;
@@ -119,6 +129,14 @@ var BestellingRevealView = Backbone.View.extend({
 		$('#checkmodal').trigger('reveal:close');
 		// var bestellingView = new BestellingView({model: this.model});
 		// $('#col'+this.model.get('status')+' ul').append(bestellingView.render(this.model.get('status')).el);
+	},
+
+	cancel: function(){
+		$.post(base_url+'admin/cancelorderadmin/'+this.model.get('id')+'/'+current_user_id);
+		$('#col1 ul').append($('#'+this.model.get('id')));	
+		$('#'+this.model.get('id')).css('background-color', "");
+		enable_drag($('#'+this.model.get('id')));
+		this.$el.trigger('reveal:close');
 	}
 });
 

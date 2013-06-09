@@ -23,7 +23,7 @@
 					<ul id="bedrijven">
 						
 						<?php foreach($query->result() as $r){?>
-							<li>
+							<li id ="<?php echo $r->id;?>">
 								<p><?php echo $r->Username;?></p>
 								<p>Wachttijd: <span class="minutes"><?php echo $r->Wachttijd;?></span> min.</p>
 								<a href="<?php echo base_url();?>home/bevestig/<?php echo $r->fkBestelling;?>/<?php echo $r->fkUser;?>">

@@ -118,7 +118,11 @@ class Admin extends CI_Controller {
 		}
 	}
 
-	
+	 function cancelorderadmin(){
+        $this->load->model('m_status');
+        $this->m_status->delete($this->uri->segment(3), $this->uri->segment(4));
+        $this->pusher->trigger('client', 'client_remove'.$this->uri->segment(3), $this->uri->segment(3));
+    }
 }
 
 /* End of file welcome.php */
