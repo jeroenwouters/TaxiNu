@@ -487,7 +487,7 @@
                                                 <h1>Taxinu.be - Bestelling</h1>
                                                 <h3>Bedankt voor uw bestelling:</h3>
 												
-												Volg hier u taxi. -- LINK NAAR VOLG MAP -- 
+												Volg <a href="<?php echo base_url();?>home/volgtaxi/<?php echo $idbestelling;?>/<?php echo $iduser;?>"/>hier</a> u taxi.
 
 	                                            </td>
                                         </tr>

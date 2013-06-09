@@ -166,9 +166,10 @@ class Home extends CI_Controller {
          $this->email->from(' 23ste.dropping@gmail.com', 'Taxinu');
          $this->email->to($email);
          $this->email->subject('Taxinu volg taxi');
-         $this->email->message('<a href="'.base_url().'home/volgtaxi/'.$this->uri->segment(3).'/'.$this->uri->segment(4).'"/>klik hier</a>');
-
-          $this->email->send();
+         //$this->email->message('<a href="'.base_url().'home/volgtaxi/'.$this->uri->segment(3).'/'.$this->uri->segment(4).'"/>klik hier</a>');
+         $message = $this->load->view('v_mail_volg',$datapush,TRUE);
+         $this->email->message($message);
+         $this->email->send();
 
 		redirect('home/volgtaxi/'.$this->uri->segment(3).'/'.$this->uri->segment(4));
 	}
