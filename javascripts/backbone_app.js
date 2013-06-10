@@ -6,7 +6,10 @@ var current_user_login;
 
 //Gmaps
 var map;
-
+var map_model;
+var geocoder = new google.maps.Geocoder();
+var markerBounds = new google.maps.LatLngBounds();
+var directionsDisplay;
 //Models
 
 var Bestelling = Backbone.Model.extend({
@@ -93,9 +96,7 @@ var BestellingView = Backbone.View.extend({
 	  	var template = 2;
 	  }
 	  $('#checkmodal .inforit').html(bestellingRevealView.render(template).el);
-  },
-
-
+  }
 });
 
 var BestellingRevealView = Backbone.View.extend({
@@ -449,4 +450,6 @@ $(document).ready(function() {
  function new_taxi_map(taxi){
 
  }
+
+ 
 
