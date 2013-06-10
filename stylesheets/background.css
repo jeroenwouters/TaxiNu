@@ -37,7 +37,7 @@
 
 .backslide li:nth-child(1) span { background-image: url(../images/backtax.jpg) }
 .backslide li:nth-child(2) span {
-    background-image: url(../images/straat2.jpg);
+    background-image: url(../images/groenplaats.jpg);
     -webkit-animation-delay: 18s;
     -moz-animation-delay: 18s;
     -o-animation-delay: 18s;
