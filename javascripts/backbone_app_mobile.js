@@ -276,6 +276,10 @@ $(document).ready(function() {
 	AdminPanel.start();
 	init();
 
+	$("#set").click(function() {
+      $("#settings_modal").reveal();
+ 	});
+
 	$("#list").hide();
 	$("#loc").hide();
 	$("#maprit").hide();

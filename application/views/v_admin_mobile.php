@@ -18,3 +18,10 @@
 	</div>
 	<div id="maprit">
 	</div>
+
+	<div id="settings_modal" class="reveal-modal small" style="background-color: black; color: white;">		  
+			  <p class="lead">Instellingen</p>		   		  
+			  <a href="<?php echo base_url();?>admin/logout"><button class="thoughtbot" id="loguit">Uitloggen</button></a>
+			  <a href="#"><button class="thoughtbot" id="loguit">Pauze</button></a> 		  
+			  <a class="close-reveal-modal">&#215;</a>		
+	</div>

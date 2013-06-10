@@ -411,7 +411,7 @@ $(document).ready(function() {
 
  $("#settings").click(function() {
       console.log('test');
-       $('#timedate').datetimepicker({controlType: 'select'});
+      $('#timedate').datetimepicker({controlType: 'select'});
 
       var now = moment().format('DD/MM/YYYY HH:mm ');
       	
