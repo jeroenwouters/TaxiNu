@@ -1,5 +1,11 @@
 
  		<header>
+ 			<ul class="backslide">
+            <li><span>Image 01</span></li>
+            <li><span>Image 02</span></li>   
+            <li><span>Image 03</span></li>       
+            <li><span>Image 04</span></li>            
+        </ul>
 		<section class="topbar" style="top:0px">
 				<ul class="bread" style="display:block">
 			 	<li><img src="<?php echo base_url();?>images/1.png">Ritgegevens</li>

@@ -16,7 +16,7 @@
 			<p>+</p>
 		</div>
 		<div id="extra_kolom">
-			<input type="text" id="nieuw_kolom" placeholder="Naam nieuwe kolom">
+			<input type="text" id="nieuw_kolom" placeholder="Naam nieuwe taxi">
 		</div>
 		
 		
@@ -72,7 +72,7 @@
 			  <a class="close-reveal-modal">&#215;</a>		
 		</div>
 		
-		<div id="taxi_settings_modal" class="reveal-modal large" style="background-color: black; color: white;">
+		<div id="taxi_settings_modal" class="reveal-modal small" style="background-color: black; color: white;">
 			  
 			  	
 		</div>

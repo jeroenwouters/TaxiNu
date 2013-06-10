@@ -1,5 +1,22 @@
 	
 		<header>
+		<div class="nav">
+			 <a href="<?php echo base_url();?>"><img src="<?php echo base_url();?>images/logo.png" width="200px"></a>			
+<!-- 			 <img class="question_btn" src="<?php echo base_url();?>images/question.png" width="35px"> 
+ -->			 
+			 <div class="social">
+			 	<div class="set"><a href="admin"><img src="images/settings.png"></a></div>
+			 	
+			 </div>
+		</div>
+		<ul class="backslide">
+            <li><span>Image 01</span></li>
+            <li><span>Image 02</span></li>   
+            <li><span>Image 03</span></li>       
+            <li><span>Image 04</span></li>            
+     
+         
+        </ul>
 		<section class="topbar" id="animate">
 				<ul class="bread">
 			 	<li class="active"><img src="<?php echo base_url();?>images/1.png">Ritgegevens</li>
@@ -34,15 +51,7 @@
 				</div>
 			</div>
 		</div>   
-		<div class="nav">
-			 <a href="<?php echo base_url();?>"><img src="<?php echo base_url();?>images/logo.png" width="200px"></a>			
-<!-- 			 <img class="question_btn" src="<?php echo base_url();?>images/question.png" width="35px"> 
- -->			 
-			 <div class="social">
-			 	<div class="set"><a href="admin"><img src="images/settings.png"></a></div>
-			 	
-			 </div>
-		</div>
+		
 		
 		<div class="info">
 			<img src="<?php echo base_url();?>images/question.png">
@@ -56,7 +65,7 @@
 		</header>
 		
 		
-		<div class="row">
+		<div class="row" style="z-index: 10">
 		    <div class="six columns ad">
 		        <h1>Alleen maar voordelen!</h1>
 		        <ul class="bullet">

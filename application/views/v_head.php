@@ -22,6 +22,7 @@
   <link rel="stylesheet
   " href="<?php echo base_url();?>stylesheets/foundation.min.css">
   <link rel="stylesheet" href="<?php echo base_url();?>stylesheets/app.css">
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>stylesheets/background.css" />
    <link rel="stylesheet/less" type="text/css" href="<?php echo base_url();?>stylesheets/styles.less">
    <link rel="stylesheet" media="all" type="text/css" href="http://code.jquery.com/ui/1.9.1/themes/smoothness/jquery-ui.css" />
    <meta name="viewport" content="user-scalable=yes">
@@ -52,8 +53,8 @@
 	
 	header{
 	position: relative;
-	background-image: url(<?php echo base_url();?>/images/backtax.jpg);
-	background-repeat: no-repeat;
+	/*background-image: url(<?php echo base_url();?>/images/backtax.jpg);
+	background-repeat: no-repeat;*/
 	-webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
