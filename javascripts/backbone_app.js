@@ -385,6 +385,7 @@ WEB_SOCKET_DEBUG = true;
 //Document 
 $(document).ready(function() {
 	AdminPanel.start();
+
 	$("#extra_kolom_btn").click(function(){
 		AdminPanel.taxiList.create({
 			Login: current_user_login+'_'+$('#nieuw_kolom').val(),
@@ -410,6 +411,12 @@ $(document).ready(function() {
 
  $("#settings").click(function() {
       console.log('test');
+       $('#timedate').datetimepicker({controlType: 'select'});
+
+      var now = moment().format('DD/MM/YYYY HH:mm ');
+      	
+      $('#timedate').val(now); 
+
       $("#settings_modal").reveal();
  });
  

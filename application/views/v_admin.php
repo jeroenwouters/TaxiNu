@@ -64,9 +64,21 @@
 		
 		<div id="settings_modal" class="reveal-modal small" style="background-color: black; color: white;">
 			  
-			  <p class="lead">Instellingen</p>
+			  <p class="lead">Instellingen</p>		   
+
 			  
 			  <a href="<?php echo base_url();?>admin/logout"><button class="thoughtbot" id="loguit">Uitloggen</button></a>
+		      
+		      <br><br><br>
+			  <p class="lead">Manueel rit toevoegen</p> 
+			  <input type="text" placeholder="Naam klant" style="width:210px"> 
+			  <input type="text" placeholder="Telefoon nummer klant" style="width:210px"> 
+			  <input type="text" placeholder="Ophaaladres" style="width:210px"> 
+			  <input type="text" placeholder="Bestemming" value="" style="width:210px"> 
+			  <input type="text" placeholder="" value="" id="timedate" style="width:210px"> 
+
+
+			  <a href="#"><button class="thoughtbot" id="loguit">Voeg toe</button></a> 
 			 			 
 			  
 			  <a class="close-reveal-modal">&#215;</a>		
