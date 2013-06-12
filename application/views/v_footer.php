@@ -2,13 +2,20 @@
 		<footer>
 		    <div class="row">
 		        <div class="four columns">
-		        	
+		        	<h1 style="margin-left:0px">Contacteer ons</h1>
+              <form id="contact">
+                  <input type="text" placeholder="Naam"></input>
+                  <input type="text" placeholder="Email"></input>
+                  <input type="text" placeholder="Bericht" style="height: 60px"></input>
+                  <button class="contact_btn">Verzenden</button>
+              </a>
 		        </div>
 		        <div class="four columns">
-		        
-		        </div>
+                  <img class="logo_footer"src="<?php echo base_url();?>images/logo.png" width="250px">		        </div>
 		        <div class="four columns">
-		        	
+		        <h1 style="margin-left:0px">Over Taxinu.be</h1>
+            <p style="margin-bottom: 0px;">Taxinu is een online webplatform dat zowel de taxigebruiker als de taxibedrijven in staat stelt om eenvoudig taxi's te bestellen of om te laten bestellen. <br><br><br><br> Webdesign/development:<br>
+            <a href="#" class="we">Jeroen Wouters</a> - <a href="#" class="we">Nick Van Walleghem</a></span></p>
 		        </div>
 		    </div>
 		</footer>  
@@ -99,7 +106,8 @@
     var mapOptions = {
                   zoom: 13,
                     center: new google.maps.LatLng(51.283333,4.483333),
-                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                    mapTypeId: google.maps.MapTypeId.ROADMAP,
+                    scrollwheel: false,
                   }
     var map = new google.maps.Map(document.getElementById('homemap'),mapOptions);
     var myLatLng = new google.maps.LatLng(51.283333,4.483333);
