@@ -90,24 +90,6 @@
   <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.10.0/jquery.validate.js"></script>
   <script src="<?php echo base_url();?>javascripts/timepicker.js"></script>
   <script src="<?php echo base_url();?>javascripts/jquery.foundation.reveal.js"></script>
-   
-   <?php if($this->uri->segment(2) == ''){?>   
-<script src="http://maps.google.com/maps?file=api&v=2&key=AIzaSyBJGHEABxmLTzSTZ0HGDlmBMTuX1ktrsBc" type="text/javascript"></script>
-    <script>
-    $(document).ready(function() {
-
-    var mapOptions = {
-                  zoom: 13,
-                    center: new google.maps.LatLng(51.283333,4.483333),
-                    mapTypeId: google.maps.MapTypeId.ROADMAP
-                  }
-    var map = new google.maps.Map(document.getElementById('homemap'),mapOptions);
-    var myLatLng = new google.maps.LatLng(51.283333,4.483333);
-    var marker = new google.maps.Marker( {position: myLatLng, map: map} );
-    });
-  </script>
-<?php } ?>
-
   <?php if($this->uri->segment(2) == 'detail'){?>
   <script src="<?php echo base_url();?>javascripts/maps.js"></script>
   <script src="http://maps.google.com/maps?file=api&v=2&key=AIzaSyBJGHEABxmLTzSTZ0HGDlmBMTuX1ktrsBc" type="text/javascript"></script>
@@ -118,17 +100,27 @@
   <script src="<?php echo base_url();?>javascripts/jQueryRotateCompressed.2.2.js"></script>
   <?php if($this->uri->segment(2) == 'volgtaxi'){?>
     <script type="text/javascript">
-      var taxi = <?php echo $taxi;?>;
-      var bedrijf = <?php echo $this->uri->segment(4);?>;
+    $(document).ready(function() {
+
+    var taxi = <?php echo $taxi;?>;
+    var bedrijf = <?php echo $this->uri->segment(4);?>;
+    var mapOptions = {
+                  zoom: 13,
+                    center: new google.maps.LatLng(51.283333,4.483333),
+                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                  }
+    var map = new google.maps.Map(document.getElementById('homemap'),mapOptions);
+    var myLatLng = new google.maps.LatLng(51.283333,4.483333);
+    var marker = new google.maps.Marker( {position: myLatLng, map: map} );
+    });
     </script>
     <script src="http://js.pusher.com/1.12/pusher.min.js" type="text/javascript"></script>
     <script src="<?php echo base_url();?>javascripts/maps_bevestig.js"></script>
   <?php } else{ ?>
-    
     <script src="<?php echo base_url();?>javascripts/user.js"></script>
   <?php } ?>
 
-  
+    
   
  
   

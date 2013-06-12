@@ -28,49 +28,46 @@
     opacity: 0.0;
     z-index: 0;
 	-webkit-backface-visibility: hidden;
-    -webkit-animation: imageAnimation 72s linear infinite alternate ;
-    -moz-animation: imageAnimation 72s linear infinite alternate;
-    -o-animation: imageAnimation 72s linear infinite alternate;
-    -ms-animation: imageAnimation 72s linear infinite alternate;
-    animation: imageAnimation 72s linear infintite alternate;
+    -webkit-animation: imageAnimation 36s linear;
+    -moz-animation: imageAnimation 36s linear;
+    -o-animation: imageAnimation 36s linear;
+    -ms-animation: imageAnimation 36s linear;
+    animation: imageAnimation 36s linear;
 }
 
 .backslide li:nth-child(1) span { background-image: url(../images/backtax.jpg) }
 .backslide li:nth-child(2) span {
     background-image: url(../images/groenplaats.jpg);
+    -webkit-animation-delay: 9s;
+    -moz-animation-delay: 9s;
+    -o-animation-delay: 9s;
+    -ms-animation-delay: 9s;
+    animation-delay: 9s;
+}
+.backslide li:nth-child(3) span {
+    background-image: url(../images/backlogin.jpg);
     -webkit-animation-delay: 18s;
     -moz-animation-delay: 18s;
     -o-animation-delay: 18s;
     -ms-animation-delay: 18s;
     animation-delay: 18s;
 }
-.backslide li:nth-child(3) span {
-    background-image: url(../images/backlogin.jpg);
-    -webkit-animation-delay: 36s;
-    -moz-animation-delay: 36s;
-    -o-animation-delay: 36s;
-    -ms-animation-delay: 36s;
-    animation-delay: 36s;
-}
 
 .backslide li:nth-child(4) span {
     background-image: url(../images/backtax.jpg);
-    -webkit-animation-delay: 54s;
-    -moz-animation-delay: 54s;
-    -o-animation-delay: 54s;
-    -ms-animation-delay: 54s;
-    animation-delay: 54s;
+    -webkit-animation-delay: 27s;
+    -moz-animation-delay: 27s;
+    -o-animation-delay: 27s;
+    -ms-animation-delay: 27s;
+    animation-delay: 27s;
 }
-
-
-
 
 @-webkit-keyframes imageAnimation { 
 	0% {
 	    opacity: 0;
 	    -webkit-animation-timing-function: ease-in;
 	}
-	8% {
+	5% {
 	    opacity: 1;
 	    -webkit-animation-timing-function: ease-out;
 	}

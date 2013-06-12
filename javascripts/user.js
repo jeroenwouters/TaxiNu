@@ -3,6 +3,12 @@ $(document).ready(function() {
     
     $('#timedate').val(now); 
 	
+
+$(function() {
+      setTimeout(function() {
+    				$(".backslide li span").css("-webkit-animation-play-state", "paused");
+            }, 32000);
+});
 	$('header').animate({"opacity": 1},300);
 
 	enquire.register("screen and (min-width: 600px)", function() {
