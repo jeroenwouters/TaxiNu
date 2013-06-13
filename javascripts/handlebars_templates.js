@@ -1,8 +1,8 @@
 var bestelling_tempalte =
 '<li class="rit" id="{{id}}"> \
 	<img src="images/drag.png" class="mark" width="20px"> \
-	<p class="vertrek">{{adres1}}</p> \
-	<p class="bestemming">{{adres2}}</p> \
+	<p class="vertrek"><b>Vertrek</b><br>{{adres1}}</p> \
+	<p class="bestemming"><b>Bestemming</b><br>{{adres2}}</p> \
 	<p class="uur">{{tijdformat tijd}}</p> \
 	<p class="naamklant">{{naam}}</p> \
 	<p class="telklant">{{tel}}</p> \
@@ -48,7 +48,7 @@ var taxi_template =
 </ul>';
 
 var rit_tempalte = 
-'<p class="vertrek">{{adres1}}</p> \
+'<p class="vertrek">test{{adres1}}</p> \
 <p class="bestemming">{{adres2}}</p> \
 <p class="uur">{{tijdformat tijd}}</p> \
 <p class="afstand">{{afstand}}</p> \
