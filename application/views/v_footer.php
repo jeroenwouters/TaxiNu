@@ -8,7 +8,7 @@
                   <input type="text" placeholder="Email"></input>
                   <input type="text" placeholder="Bericht" style="height: 60px"></input>
                   <button class="contact_btn">Verzenden</button>
-              </a> -->
+              -->
 		        </div>
 		        <div class="four columns">
                   <img class="logo_footer"src="<?php echo base_url();?>images/logo.png" width="250px">		        </div>

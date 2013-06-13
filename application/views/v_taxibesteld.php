@@ -26,7 +26,7 @@
 			 
 
 			 <div class="social">
-			 	<div class="set"><a href="../admin"><img src="<?php echo base_url();?>images/settings.png"></a></div>
+			 	<div class="set"><a href="<?php echo base_url();?>/admin"><img src="<?php echo base_url();?>images/settings.png"></a></div>
 			 	
 			 </div>
 		</div>

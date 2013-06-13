@@ -36,6 +36,25 @@ input[type=text]:focus, textarea:focus {
   border: 1px solid #d51a1a;
 }
 
+.pac-item{
+	height:30px;
+	color: #891100;
+	line-height: 30px;
+	border-bottom: 1px dashed #891100;
+	min-width: 400px;
+}
+
+.pac-selected{
+		background-color: #891100;
+		color: white;
+}
+
+.pac-container{
+	opacity: 0.8;
+	width: 236px !important;
+	.border-radius(2px, 2px, 2px, 0);
+}
+
 h1{
 	font-size: 30px;
 	font-style: normal !important;
@@ -780,7 +799,10 @@ border-bottom: 1px dashed gray;
 	.vertrek{
 		position: absolute;
 		top: 5px;
-		left: 35px;
+		left: 15px;
+		width: 200px;
+		line-height: 15px;
+
 		
 		&:after{
 		margin-left: 5px;
@@ -790,8 +812,10 @@ border-bottom: 1px dashed gray;
 	
 	.bestemming{
 		position: absolute;
-		top: 5px;
-		left: 140px;	
+		top: 45px;
+		left: 15px;	
+		width: 200px;
+		line-height: 15px;
 	}
 	.maps{
 		position: absolute;
@@ -802,9 +826,9 @@ border-bottom: 1px dashed gray;
 	}
 	.uur{
 		position: absolute;
-		top: 27px;
-		left: 35px;
-		color: white; 
+		top: 110px;
+		left: 8px;
+		color: #891100; 
 		font-size: 25px;	
 	}
 	.naamklant{
@@ -816,6 +840,12 @@ border-bottom: 1px dashed gray;
 		position: absolute;
 		left: 130px;
 		top: 70px;
+	}
+
+	.checkrit{
+		position: absolute;
+top: 95px;
+left: 75px;
 	}
 	
 	.check{
@@ -993,5 +1023,7 @@ and (max-width: 1024px){
 	color:#891100;
 }
 >>>>>>> f62888242cd9faf69619d6a0cbf0fa2484f9c9c9
+
+
 
 	 

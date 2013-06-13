@@ -8,23 +8,27 @@
 
 			</div>
 		</div>
-
+		<ul class="backslide">
+            <li><span>Image 01</span></li>
+            <li><span>Image 02</span></li>   
+            <li><span>Image 03</span></li>       
+            <li><span>Image 04</span></li>       
+            <li><span>Image 05</span></li>            
+        </ul>
 		<div class="row user_ritten">
 			<?php foreach ($query2->result() as $r2) { ?>
 				<div class="three columns rit_user">
-					<p class="vertrek"> <?php echo $r2->Adres1;?></p>
-				 	<p class="bestemming"> <?php echo $r2->Adres2;?></p> 	
-				 	<p class="uur"><?php echo $r2->Tijd;?></p> 	
-				 	<p class="naamklant"><?php echo $r2->Naam;?></p> 	
-				 	<p class="telklant"><?php echo $r2->Tel;?></p> 	
+					<p class="vertrek"><b>Vertrek</b><br><?php echo $r2->Adres1;?></p>
+				 	<p class="bestemming"><b>Bestemming</b><br><?php echo $r2->Adres2;?></p> 	
+				 	<p class="uur"><?php echo $r2->Tijd;?></p> 		
 				 	<?php if($r2->Afgerond == 1 ){?>
 				 		<?php foreach ($query3->result() as $r3) { ?>
 				 			<?php if($r3->fkBestelling == $r2->id && $r3->Status == 3){?>
-						 		<a  href="<?php echo base_url();?>home/volgtaxi/<?php echo $r2->id;?>/<?php echo $r3->fkUser;?>" class="thoughtbot"  id="verder">Volg</a>
+						 		<a  href="<?php echo base_url();?>home/volgtaxi/<?php echo $r2->id;?>/<?php echo $r3->fkUser;?>" class="checkrit">Volg uw rit</a>
 							<?php } ?>
 						<?php } ?>
 					<?php }else{ ?>
-						 <a href="<?php echo base_url();?>home/aanvragen/<?php echo $r2->id;?>" class="thoughtbot"  id="verder">Ga</a>
+						 <a href="<?php echo base_url();?>home/aanvragen/<?php echo $r2->id;?>" class="checkrit">Bekijk uw rit</a>
 					<?php } ?>
 				</div>	
 			<?php } ?>	
@@ -54,7 +58,7 @@
 <!-- 			 <img class="question_btn" src="<?php echo base_url();?>images/question.png" width="35px"> 
  -->			 
  			 <div class="social">
-							 	<div class="user_set"><img src="../images/settings.png"></div>
+							 	<div class="user_set"><img src="<?php echo base_url();?>images/settings.png"></div>
 			 	
 			 </div>
 			 
