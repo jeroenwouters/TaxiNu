@@ -5,7 +5,7 @@
 <!-- 			 <img class="question_btn" src="<?php echo base_url();?>images/question.png" width="35px"> 
  -->			 
 			 <div class="social">
-			 	<div class="set"><a href="admin"><img src="../images/settings.png"></a></div>
+			 	<div class="set"><a href="admin"><img src="images/settings.png"></a></div>
 			 	
 			 </div>
 		</div>
