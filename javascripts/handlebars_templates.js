@@ -48,14 +48,15 @@ var taxi_template =
 </ul>';
 
 var rit_tempalte = 
-'<p class="vertrek">test{{adres1}}</p> \
+'<p class="vertrek">{{adres1}}</p> \
 <p class="bestemming">{{adres2}}</p> \
 <p class="uur">{{tijdformat tijd}}</p> \
 <p class="afstand">{{afstand}}</p> \
 <p class="naamklant">{{naam}}</p>';
 
 var rit_map_template = 
-'<p class="uur">{{tijdformat tijd}}</p> \
+'<p><a id="passagier">Passagier</a></p> \
+<p class="uur">{{tijdformat tijd}}</p> \
 <p class="vertrek">{{adres1}}</p>\
 <p class="bestemming">{{adres2}}</p> \
 <img src="images/loc.png"/> \
@@ -69,7 +70,7 @@ var rit_map_template =
 <p>{{naam}}</p> \
 <p>{{tel}}</p> \
 <p>{{personen}} Personen</p> \
-<p><a id="passagier">passagier</a></p></div>';
+</div>';
 
 var taxi_settings = 
 '<p class="lead">Taxi Naam</p> \

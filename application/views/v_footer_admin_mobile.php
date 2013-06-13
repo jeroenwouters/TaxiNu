@@ -39,6 +39,7 @@
    <script src="<?php echo base_url();?>javascripts/foundation.min.js"></script>
   <script src="<?php echo base_url();?>javascripts/app.js"></script>
   <script src="<?php echo base_url();?>javascripts/jquery.js"></script>
+  <script src="<?php echo base_url();?>javascripts/jquery.sidr.min.js"></script>
   <script type="text/javascript" src="http://code.jquery.com/ui/1.9.1/jquery-ui.min.js"></script>
   <script src="<?php echo base_url();?>javascripts/jquery.foundation.reveal.js"></script>
   <script type="text/javascript" src="http://labs.skinkers.com/content/touchSwipe/jquery.touchSwipe.min.js"></script>
