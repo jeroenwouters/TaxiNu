@@ -5,8 +5,23 @@ html, body{
 	font-family: "Gill Sans" !important;
 }
 
+h1{
+	margin-left: 0px !important;
+}
 
-
+body:before 
+{ 
+   content: "";
+   position: fixed;
+   top: -10px;
+   left: 0;
+   width: 100%;
+   height: 10px;
+   z-index: 100;
+   -webkit-box-shadow: 0px 0px 10px rgba(0,0,0,.8);
+   -moz-box-shadow: 0px 0px 10px rgba(0,0,0,.8);
+   box-shadow: 0px 0px 10px rgba(0,0,0,.8);
+ }
 /* Webkit */
 ::selection {
     background: #ee432e;
@@ -117,18 +132,17 @@ header{
 	}
 }
 
-<<<<<<< HEAD
-=======
 #homemap{
 	height: 300px;
 	width: 100%;
+	border-bottom: 4px solid #891100;
 }
 
->>>>>>> f62888242cd9faf69619d6a0cbf0fa2484f9c9c9
 footer{
 	background-color: #4a4a4a;
 	width: 100%;
 	height: 300px;
+	border-top: #891100 4px solid;
 	
 	h1{
 		color: white;	
@@ -372,12 +386,12 @@ and (max-width: 480px){
 		background-image: url(../images/backtax.jpg);
 	}
 	
-	footer{
-		visibility: hidden;
-		height: 1px;
-		overflow: hidden;
+	// footer{
+	// 	visibility: hidden;
+	// 	height: 1px;
+	// 	overflow: hidden;
 		
-	}
+	// }
 	
 	h1{
 		font-size: 1.3em !important;
@@ -975,10 +989,6 @@ and (max-width: 1024px){
     height: 100%;
 }
 
-
-
-<<<<<<< HEAD
-=======
 .videoWrapper {
 	position: relative;
 	padding-bottom: 45%; /* 16:9 */
@@ -991,6 +1001,10 @@ and (max-width: 1024px){
 	height: 100%;
 	margin-left: 10%; 
 	margin-right: 10%;
+	border:10px solid white;
+	-webkit-box-shadow: 0 1px 3px -1px grey;
+	   -moz-box-shadow: 0 1px 3px -1px grey;
+	        box-shadow: 0 1px 3px -1px grey;
 }
 
 .contact_btn{
@@ -1022,7 +1036,6 @@ and (max-width: 1024px){
 .we{
 	color:#891100;
 }
->>>>>>> f62888242cd9faf69619d6a0cbf0fa2484f9c9c9
 
 
 
