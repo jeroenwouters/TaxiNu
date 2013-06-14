@@ -153,7 +153,7 @@ var BestellingListView = Backbone.View.extend({
 		// if(bestelling.get('taxi') == 0){
 		// 	$('#col1 ul').prepend(bestellingView.render().el);
 		// }else{
-			if(bestelling.get('status') == 1){
+			if(bestelling.get('status') == 1 && bestelling.get('afgerond') == null){
 			 	$('#col1 ul').prepend(bestellingView.render().el);
 			 }
 
