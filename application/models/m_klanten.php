@@ -6,6 +6,11 @@ Class M_klanten extends CI_Model
     $this->db->insert('tblKlanten', $data);
  }
 
+ function getall(){
+    $query = $this->db->get('tblKlanten');
+    return($query);
+ }
+
  function login($email, $pass)
  {
     $this->db->where('email', $email);

@@ -127,9 +127,14 @@ $(function() {
     	var valid = $('#form1').valid(); 
     	
     	if(valid){
-    		$.post("register", { naam: $("input[name=NaamBox]").val(), tel: $("input[name=TelBox]").val(), email: $("input[name=EmailBox]").val(), pass: $("input[name=password]").val() } );
-    	  	modelok($("input[name=NaamBox]").val(), $("input[name=EmailBox]").val(), $("input[name=TelBox]").val());
-    	 
+    		$.post("register", { naam: $("input[name=NaamBox]").val(), tel: $("input[name=TelBox]").val(), email: $("input[name=EmailBox]").val(), pass: $("input[name=password]").val() },
+    		function(data){
+    			if(data == 0){
+    				alert('email bestaat al!');
+    			}else{
+    				modelok($("input[name=NaamBox]").val(), $("input[name=EmailBox]").val(), $("input[name=TelBox]").val());
+    			}
+    		});
     	}else{
 	    	
 	    	alert("Geen correcte gegevens!"); 
@@ -174,7 +179,6 @@ $(function() {
 		if(btntext == "bestaande klant"){
 			$("#userswitch").text("nieuwe klant");
 		}else{
-			console.log(btntext);
 			$("#userswitch").text("bestaande klant");
 		}
 

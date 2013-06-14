@@ -185,8 +185,21 @@ class Home extends CI_Controller {
 
 	 function register(){
         $this->load->model('m_klanten');
-        $_POST['pass'] = md5($_POST['pass']);
-        $this->m_klanten->insert($_POST);
+        $query = $this->m_klanten->getall();
+        $bestaat = 0;
+        foreach ($query->result() as $r) {
+        	if($_POST['email'] == $r->email){
+        		$bestaat = 1; 
+        	}
+        }
+        if($bestaat == 0){
+	        $_POST['pass'] = md5($_POST['pass']);
+	        $this->m_klanten->insert($_POST);
+	        $response = 1;
+	    }else{
+	    	$response = 0;
+	    }
+	    echo json_encode($response);
      }
 
     function login(){
