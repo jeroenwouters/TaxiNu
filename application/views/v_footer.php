@@ -3,12 +3,12 @@
 		    <div class="row">
 		        <div class="four columns">
 		        	<h1 style="margin-left:0px">Contacteer ons</h1>
-              <!-- <form id="contact">
+              <form id="contact">
                   <input type="text" placeholder="Naam"></input>
                   <input type="text" placeholder="Email"></input>
                   <input type="text" placeholder="Bericht" style="height: 60px"></input>
                   <button class="contact_btn">Verzenden</button>
-              -->
+              </form>
 		        </div>
 		        <div class="four columns">
                   <img class="logo_footer"src="<?php echo base_url();?>images/logo.png" width="250px">		        </div>
