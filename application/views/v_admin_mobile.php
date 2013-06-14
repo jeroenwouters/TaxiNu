@@ -10,8 +10,8 @@
 	<div id="sidr">
   <!-- Your content -->
   <ul>
+    <li><label>Pauze<input type="checkbox" class="ios-switch"><div class="switch"></div></label></li>
     <li><a href="<?php echo base_url();?>admin/logout">Uitloggen</a></li>
-    <li class="active"><a href="#">In pauze gaan</a></li>
   </ul>
 </div>
 

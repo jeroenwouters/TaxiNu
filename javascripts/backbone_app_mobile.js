@@ -114,7 +114,7 @@ var RittenView = Backbone.View.extend({
 
   map: function(){
   	var ritMapView = new RitMapView({model: this.model});
-  	$('#maprit').css("height", "100px");
+  	$('#maprit').css("height", "115px");
   	$('#maprit').html(ritMapView.render().el);
   	$.ajax({
 		type: 'GET',
