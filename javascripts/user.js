@@ -44,9 +44,8 @@ $(function() {
 				    top: '+=120'
 				  });
  		  		$('.search').animate({
-				    top: '+=60'
+				    top: '+=80'
 				  });
- 		  		$('.nav').hide(); 
  		  });	
           ///slideshow code here
           $('.errors').remove();

@@ -1,6 +1,4 @@
 
-@media only screen
-and (min-width: 800px){
 .backslide,
 .backslide:after {
     position: absolute;
@@ -156,7 +154,7 @@ and (min-width: 800px){
 	100% { opacity: 0 }
 }
 
-}
+
 
 /* Fallback */
 .no-cssanimations .backslide li span{

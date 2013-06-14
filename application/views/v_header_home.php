@@ -1,5 +1,5 @@
 	
-		<header>
+		<header class="homehead">
 		<div class="nav">
 			 <a href="<?php echo base_url();?>"><img src="<?php echo base_url();?>images/logo.png" width="200px"></a>			
 <!-- 			 <img class="question_btn" src="<?php echo base_url();?>images/question.png" width="35px"> 
@@ -9,7 +9,7 @@
 			 	
 			 </div>
 		</div>
-		<ul class="backslide">
+		<ul class="backslide hide-for-small">
             <li><span>Image 01</span></li>
             <li><span>Image 02</span></li>   
             <li><span>Image 03</span></li>       
@@ -50,16 +50,6 @@
 				</div>
 			</div>
 		</div>   
-		
-		
-		<div class="info">
-			<img src="<?php echo base_url();?>images/question.png">
-			<ol>
-				<li>Vul uw <span style="color:red;">vertreklocatie</span> in!</li>
-				<li>Vul uw <span style="color:red">bestemming</span> in!</li>
-				<li>Kies gewenste <span style="color:red">uur/dag</span>!</li>
-			</ol>
-		</div> 
 
 		</header>
 		
@@ -87,7 +77,7 @@
 
     	</div>
 
-		<div class="row" style="z-index: 10">
+		<div class="row hide-for-small" style="z-index: 10">
 		    <div class="twelve columns">
 		        <h1 style="text-align:center">Dit is Taxinu.be!</h1>
 				<div class="videoWrapper">

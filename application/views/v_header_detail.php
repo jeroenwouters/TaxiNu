@@ -1,6 +1,6 @@
 
  		<header>
- 			<ul class="backslide">
+ 			<ul class="backslide hide-for-small">
             <li><span>Image 01</span></li>
             <li><span>Image 02</span></li>   
             <li><span>Image 03</span></li>       
@@ -30,7 +30,7 @@
 					<input name="adres1" type="text" value="<?php echo $_POST['adres1'];?>" placeholder="Brasschaat" id="address1">
 					<input name="adres2" type="text" value="<?php echo $_POST['adres2'];?>" placeholder="Antwerpen Centrum" id="address2">
 					<input name="tijd" type="text" value="<?php echo $_POST['tijd'];?>" placeholder="12 December 12:12" id="timedate">
-					<input name="personen" type="text" placeholder="Hoeveel personen?">
+					<input name="personen" type="text" placeholder="Hoeveel personen?" id="pers">
 					 <input type="hidden" name="naam">
 					 <input type="hidden" name="tel">
 					 <input type="hidden" name="email">
