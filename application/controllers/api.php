@@ -186,6 +186,27 @@ class Api extends REST_Controller
 
     }
 
-   
+    function phonegapBestelling_post(){
+        $data = $this->request->body;
+
+        $tijd = $data['Tijd'];
+        $data['Tijd'] = substr($tijd, 6, 4).'-'.substr($tijd, 3, 2).'-'.substr($tijd, 0, 2).' '.substr($tijd, 11, 5);
+
+        $this->load->model('m_bestellingen');
+        $data['id'] = $this->m_bestellingen->insertbestelling($data);
+        $data['adres1'] = $data['Adres1'];
+        $data['adres2'] = $data['Adres2'];
+        $data['tijd'] = $data['Tijd'];
+        $data['naam'] = $data['Naam'];
+        $data['email'] = $data['Email'];
+        $data['tel'] = $data['Tel'];
+        $data['personen'] = $data['Personen'];
+        $data['status'] = 1;
+        $data['taxi'] = 0;
+        $this->load->library('pusher');
+        $this->pusher->trigger('admin_all', 'taxi_bestelt', $data);
+
+        echo json_encode($data['id']);
+    }
 
 }
