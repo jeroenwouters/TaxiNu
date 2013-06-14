@@ -128,7 +128,7 @@ $(function() {
     	
     	if(valid){
     		$.post("register", { naam: $("input[name=NaamBox]").val(), tel: $("input[name=TelBox]").val(), email: $("input[name=EmailBox]").val(), pass: $("input[name=password]").val() } );
-    	  	modelok($("input[name=NaamBox]").val(), $("input[name=TelBox]").val(), $("input[name=EmailBox]").val() );
+    	  	modelok($("input[name=NaamBox]").val(), $("input[name=EmailBox]").val(), $("input[name=TelBox]").val());
     	 
     	}else{
 	    	
