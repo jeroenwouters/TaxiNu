@@ -102,6 +102,28 @@ class Admin extends CI_Controller {
    $this->session->unset_userdata('logged_in');
    redirect('admin', 'refresh');
    }
+
+   function sendgcm(){
+   	$this->load->library('gcm');
+   	$this->gcm->setMessage('Test message '.date('d.m.Y H:s:i'));
+   	$this->gcm->addRecepient('APA91bFZHKeyhDd8Hu8dC80p4TUgC1xLvKmYmNRjJMvp1vhuyr9yLHfYJY-3Y9kbW5qHkyZtUdbxJlv9qegZf8b6fLlO5m5HgTYQCwKwfF7dLGS69L1wbwJgM2XF3BeKE63BA78mAR9IGXutXpbLip8aPQhgiyo3WQ');
+   	$this->gcm->setData(array(
+        'some_key' => 'some_val'
+    ));
+     // then send
+        if ($this->gcm->send())
+            echo 'Success for all messages';
+        else
+            echo 'Some messages have errors';
+
+    // and see responses for more info
+        print_r($this->gcm->status);
+        print_r($this->gcm->messagesStatuses);
+   }
+
+   function insertgcm(){
+   	$this->db->insert('gcm', $_POST);
+   }
   
    public function getuser()
 	{
