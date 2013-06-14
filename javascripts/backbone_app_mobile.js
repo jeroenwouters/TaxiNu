@@ -276,10 +276,8 @@ $(document).ready(function() {
 	AdminPanel.start();
 	init();
 
-	$("#set").click(function() {
-      $("#settings_modal").reveal();
- 	});
-
+    $('#simple-menu').sidr();
+ 	
 	$("#list").hide();
 	$("#loc").hide();
 	$("#maprit").hide();
@@ -306,6 +304,8 @@ $(document).ready(function() {
 	$("#loc").click(function(){
 		 map.panTo(pos);
 	});
+
+
 });
 
 

@@ -185,22 +185,32 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 	text-decoration: none;
 	height: 100%; 
 	width: 100%;
+	font-family: "Gill Sans" !important;
 	
 	.vertrek{
 		position: absolute;
-		top: 5px;
-		left: 35px;
+		top: 7px;
+		left: 30px;
+		width: 200px;
+		line-height: 15px;
+		word-wrap: break-word;
+		white-space: pre-wrap;
+
 		
-		// &:after{
-		// margin-left: 5px;
-		// content: '>'; 
-		// }
+		&:after{
+		margin-left: 5px;
+		content: '>'; 
+		}
 	}
 	
 	.bestemming{
+		width: 200px;
 		position: absolute;
-		top: 25px;
-		left: 35px;	
+		top: 50px;
+		left: 30px;	
+		line-height: 15px;
+		word-wrap: break-word;
+		white-space: pre-wrap;
 	}
 	.maps{
 		position: absolute;
@@ -211,26 +221,48 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 	}
 	.uur{
 		position: absolute;
-		top: 53px;
-		left: 35px;
-		color: black; 
-		font-size: 30px;		
+		top: 108px;
+		left: 22px;
+		color: #891100; 
+		font-size: 37px;	
 	}
 	.naamklant{
 		position: absolute;
-		top: 110px;
-		left: 35px;
+		top: 92px;
+		left: 30px;
+		white-space: pre-wrap;
+		word-wrap: break-word;
+		width: 100px;
+
 	}
 	.telklant{
 		position: absolute;
-		left: 130px;
-		top: 120px;
+		left: 147px;
+		top: 92px;
+		white-space: pre-wrap;
+		word-wrap: break-word;
+		width: 100px;
+	}
+
+	.checkrit{
+		position: absolute;
+top: 95px;
+left: 75px;
 	}
 	
 	.check{
 		position: absolute;
-		top: 60px;
-		left: 130px;		
+top: 120px;
+left: 146px;
+width: 97px;
+height: 35px;
+	}
+
+	.cancel{
+		position: absolute;
+		top: 95px;
+		left: 35px;
+		width: 60px;		
 	}
 }
 

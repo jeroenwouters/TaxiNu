@@ -1,8 +1,8 @@
 var bestelling_tempalte =
 '<li class="rit" id="{{id}}"> \
 	<img src="images/drag.png" class="mark" width="20px"> \
-	<p class="vertrek">{{adres1}}</p> \
-	<p class="bestemming">{{adres2}}</p> \
+	<p class="vertrek"><b>Vertrek</b><br>{{adres1}}</p> \
+	<p class="bestemming"><b>Bestemming</b><br>{{adres2}}</p> \
 	<p class="uur">{{tijdformat tijd}}</p> \
 	<p class="naamklant">{{naam}}</p> \
 	<p class="telklant">{{tel}}</p> \
@@ -55,7 +55,8 @@ var rit_tempalte =
 <p class="naamklant">{{naam}}</p>';
 
 var rit_map_template = 
-'<p class="uur">{{tijdformat tijd}}</p> \
+'<p><a id="passagier">Passagier</a></p> \
+<p class="uur">{{tijdformat tijd}}</p> \
 <p class="vertrek">{{adres1}}</p>\
 <p class="bestemming">{{adres2}}</p> \
 <img src="images/loc.png"/> \
@@ -69,7 +70,7 @@ var rit_map_template =
 <p>{{naam}}</p> \
 <p>{{tel}}</p> \
 <p>{{personen}} Personen</p> \
-<p><a id="passagier">passagier</a></p></div>';
+</div>';
 
 var taxi_settings = 
 '<p class="lead">Taxi Naam</p> \
