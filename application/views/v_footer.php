@@ -128,6 +128,12 @@
     <script type="text/javascript">
       var taxi = <?php echo $taxi;?>;
       var bedrijf = <?php echo $this->uri->segment(4);?>;
+
+      $(function() {
+      setTimeout(function() {
+            $(".backslide li span").css("-webkit-animation-play-state", "paused");
+            }, 32000);
+});
     </script>
     <script src="http://js.pusher.com/1.12/pusher.min.js" type="text/javascript"></script>
     <script src="<?php echo base_url();?>javascripts/maps_bevestig.js"></script>
