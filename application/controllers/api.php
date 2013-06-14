@@ -92,8 +92,9 @@ class Api extends REST_Controller
                 $this->email->from(' 23ste.dropping@gmail.com', 'Taxinu');
                 $this->email->to( $bestelling['email']);
                 $this->email->subject('Taxinu bestelling');
-                $this->email->message('<a href="'.base_url().'home/aanvragen/'.$bestelling['id'].'"/>klik hier</a>');
-
+                $message = $this->load->view('v_mail_bestelling',$bestelling,TRUE);
+                //$this->email->message('<a href="'.base_url().'home/aanvragen/'.$bestelling['id'].'"/>klik hier</a>');
+                $this->email->message($message);
                 $this->email->send();
                 
             }

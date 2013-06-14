@@ -471,7 +471,7 @@
                                     <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templateHeader">
                                         <tr>
                                             <td valign="top" class="headerContent">
-                                            	<img src="mail-header.jpg" style="max-width:600px;" id="headerImage" mc:label="header_image" mc:edit="header_image" mc:allowdesigner mc:allowtext />
+                                            	<imgsrc="<?php echo base_url();?>images/mail-header.jpg" style="max-width:600px;" id="headerImage" mc:label="header_image" mc:edit="header_image" mc:allowdesigner mc:allowtext />
                                             </td>
                                         </tr>
                                     </table>
@@ -485,15 +485,15 @@
                                         <tr>
                                             <td valign="top" class="bodyContent" mc:edit="body_content00">
                                                 <h1>Taxinu.be - Bestelling</h1>
-                                                <h3>Bekijk hier uw aanvraag:</h3>
+                                                <h3>Er is een nieuwe aanvraag binnengekomen:</h3>
 												
-												Uw bestelling. -- LINK NAAR BESTELLING -- 
+												<a href="<?php echo base_url();?>home/aanvragen/<?php echo $id;?>"/>klik hier</a>
 
 	                                            </td>
                                         </tr>
                                     	<tr>
                                         	<td class="bodyContent" style="padding-top:0; padding-bottom:0;">
-                                            	<img src="mail-middle.jpg" style="max-width:560px;" id="bodyImage" mc:label="body_image" mc:edit="body_image" mc:allowtext />
+                                            	<imgsrc="<?php echo base_url();?>images/mail-middle.jpg" style="max-width:560px;" id="bodyImage" mc:label="body_image" mc:edit="body_image" mc:allowtext />
                                             </td>
                                         </tr>
                                         <tr>
