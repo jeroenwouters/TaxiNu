@@ -132,6 +132,7 @@ var BestellingRevealView = Backbone.View.extend({
 		$('#checkmodal').trigger('reveal:close');
 		// var bestellingView = new BestellingView({model: this.model});
 		// $('#col'+this.model.get('status')+' ul').append(bestellingView.render(this.model.get('status')).el);
+		console.log(this.model);
 	},
 
 	cancel: function(){
@@ -355,9 +356,9 @@ WEB_SOCKET_DEBUG = true;
 		// $('#col3 ul').append(bestellingView.render(3).el);
 		// col3drag();
 		modelget.set({
-		'status': data.status,
+		'status': data.Status,
 		});
-
+		console.log(modelget);
 		if(data.Status == 3){
 			$('#'+data.id).css('background-color', '#90BD3C');
 		}
