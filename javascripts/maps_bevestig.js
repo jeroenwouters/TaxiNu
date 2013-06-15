@@ -25,7 +25,7 @@
 		      WEB_SOCKET_DEBUG = true;
                 Pusher.channel_auth_endpoint = base_url+'pusher/auth.php';
                 var pusher = new Pusher('b075ffa0df361cc21bda');
-                channel = pusher.subscribe('private-bedrijf_1');
+                channel = pusher.subscribe('private-bedrijf_'+bedrijf);
                 
                 channel.bind('client-taxi_'+taxi, function(data) {
                    marker.setPosition( new google.maps.LatLng( data.lat, data.lang ) );                

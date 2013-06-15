@@ -71,6 +71,7 @@ class Api extends REST_Controller
             $bestelling['afstand'] = $r->Afstand;
             $bestelling['notif_email'] = $r->notif_email;
             $bestelling['email'] = $r->Email;
+            $bestelling['regid'] = $r->regid;
         }
         $this->load->library('pusher');
         if($return == "new"){
@@ -98,6 +99,16 @@ class Api extends REST_Controller
                 $this->email->send();
                 
             }
+            if($bestelling['regid'] != ""){
+                $this->load->library('gcm');
+                $this->gcm->setMessage('Taxi aanvraag van '.$status['Username']);
+                $this->gcm->addRecepient($bestelling['regid']);
+                $status['type'] = "aanvraag";
+                $this->gcm->setData($status);
+                 // then send
+                $this->gcm->send();
+            }
+
         }
         $this->pusher->trigger('admin_all', 'taxi_'.$data['taxi'], $bestelling);
         $destory['id'] = $bestelling['id'];

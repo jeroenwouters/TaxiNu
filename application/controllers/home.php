@@ -171,7 +171,31 @@ class Home extends CI_Controller {
          $this->email->message($message);
          $this->email->send();
 
-		redirect('home/volgtaxi/'.$this->uri->segment(3).'/'.$this->uri->segment(4));
+		 redirect('home/volgtaxi/'.$this->uri->segment(3).'/'.$this->uri->segment(4));
+	}
+
+	public function bevestig_gap()
+	{
+		$data['status'] = 3;
+		$this->load->model('m_status');
+		$this->m_status->update($data, $this->uri->segment(3), $this->uri->segment(4));
+		
+		$data2['Afgerond'] = 1;
+		$this->load->model('m_bestellingen');
+		$this->m_bestellingen->update($data2, $this->uri->segment(3));
+		
+		$this->load->library('pusher');
+		$datapush['idbestelling'] = $this->uri->segment(3);
+		$datapush['iduser'] = $this->uri->segment(4);
+		$status['id'] = $this->uri->segment(3);
+		$status['Status'] = 3;
+		$this->pusher->trigger('admin_all', 'admin_'.$this->uri->segment(4), $status);
+		$this->pusher->trigger('admin_all', 'delete', $datapush);
+		
+		$taxi = $this->m_status->gettaxi($this->uri->segment(3), $this->uri->segment(4));
+		$this->pusher->trigger('admin_all', 'green_taxi_'.$taxi, $this->uri->segment(3));
+
+		$this->m_status->delete_over($this->uri->segment(3), $this->uri->segment(4));
 	}
 
 	public function volgtaxi(){
