@@ -3,6 +3,7 @@
 Backbone.emulateHTTP = true
 var current_user_id;
 var current_user_login;
+var channel_bedrijf;
 
 //Gmaps
 var map;
@@ -43,6 +44,7 @@ var User = Backbone.Model.extend({
 		current_user_id = data.id;
 		current_user_login = data.username;
 		AdminPanel.taxiList.fetch( { data: { userid: data.id} });
+		channel_bedrijf = pusher.subscribe('private-bedrijf_'+current_user_id);
 	}
 })
 
@@ -337,7 +339,6 @@ WEB_SOCKET_DEBUG = true;
 	var pusher = new Pusher('b075ffa0df361cc21bda');
     Pusher.channel_auth_endpoint = base_url+'pusher/auth.php';
 
-    var channel_bedrijf = pusher.subscribe('private-bedrijf_1');
     var channel = pusher.subscribe('admin_all');
 
     channel.bind('taxi_bestelt', function(data) {

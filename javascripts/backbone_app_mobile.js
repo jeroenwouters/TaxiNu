@@ -54,6 +54,7 @@ var User = Backbone.Model.extend({
 	    	AdminPanel.rittenList.remove(rit);
 	    	$('#'+data.id).remove();
 	    });
+	    init();
 	}
 })
 
@@ -274,7 +275,7 @@ WEB_SOCKET_DEBUG = true;
 //Document 
 $(document).ready(function() {
 	AdminPanel.start();
-	init();
+	
 
     $('#simple-menu').sidr();
  	
