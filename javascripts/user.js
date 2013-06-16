@@ -62,7 +62,7 @@ $(function() {
 				  });
  		  });	
           ///slideshow code here
-          $('.errors').remove();
+          $('.errors').delay(3000).fadeOut();
 
       }).listen();
     
