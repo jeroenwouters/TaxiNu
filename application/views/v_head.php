@@ -19,6 +19,7 @@
   -->
   
   <!-- Included CSS Files (Compressed) -->
+<link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
   <link rel="stylesheet
   " href="<?php echo base_url();?>stylesheets/foundation.min.css">
   <link rel="stylesheet" href="<?php echo base_url();?>stylesheets/app.css">

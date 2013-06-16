@@ -23,6 +23,9 @@
     <div class="loginerror">
       <p>Opgegeven login combinatie is niet correct!</p> 
     </div>
+    <div class="logindup">
+      <p>Dit emailadres is reeds geregistreerd!</p> 
+    </div>
     Bent u een <p id="userswitch">bestaande klant</p>?
     <br><br>
   <div class="switch" style="display: none">

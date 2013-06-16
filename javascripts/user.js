@@ -7,13 +7,27 @@ $(document).ready(function() {
 $(function() {
       setTimeout(function() {
     				$(".backslide li span").css("-webkit-animation-play-state", "paused");
+    				$(".backslide li span").css("-moz-animation-play-state", "paused");
+    				$(".backslide li span").css("-o-animation-play-state", "paused");
+    				$(".backslide li span").css("-ms-animation-play-state", "paused");
+    				$(".backslide li span").css("animation-play-state", "paused");
             }, 32000);
 });
+	
+
+
+    if(!(navigator.userAgent.match(/(iPhone|iPod|iPad)/i))){
+    $('#timedate').datetimepicker({controlType: 'select'});
+	}
+
+	if(navigator.userAgent.match(/(iPhone|iPod|iPad)/i)){
+    	    $('#timedate').val(new Date().toJSON().slice(0,10));
+
+	}	
 
 	enquire.register("screen and (min-width: 600px)", function() {
 
           ///slideshow code here
-          $('#timedate').datetimepicker({controlType: 'select'});
  		  
  		  $('#address1').one("focus",function(){
  		  		$('.bread').fadeIn();
@@ -129,8 +143,7 @@ $(function() {
     		$.post("register", { naam: $("input[name=NaamBox]").val(), tel: $("input[name=TelBox]").val(), email: $("input[name=EmailBox]").val(), pass: $("input[name=password]").val() },
     		function(data){
     			if(data == 0){
-    				alert('email bestaat al!');
-    			}else{
+					$(".logindup").fadeIn().delay(1000).fadeOut();    			}else{
     				modelok($("input[name=NaamBox]").val(), $("input[name=EmailBox]").val(), $("input[name=TelBox]").val());
     			}
     		});
@@ -142,7 +155,7 @@ $(function() {
 
     });
 
-    $(".loginerror").hide();
+    $(".loginerror, .logindup").hide();
 
 	$('#loginbtn').click(function(){
 		var valid = $('#login').valid();
@@ -285,7 +298,7 @@ function modelok(naam, email, tel){
 	    	 $('#help').css('margin-top','-56px').addClass('hidehelp');
 	    	 // $('#order').removeClass('nonactive').removeAttr("disabled");
 	    	 $('#loginhelp').trigger('reveal:close');
-	    	 $('#help').html("Info"); 
+	    	 $('#help').css("opacity", "0.0").css("cursor", "default").attr("disabled", "disabled"); 
 		  	},
 		 });
 }

@@ -2,7 +2,8 @@
 
 html, body{
 	height: 100%;
-	font-family: "Gill Sans" !important;
+	font-family: "Gill Sans", 'Lato', sans-serif  !important;
+	-webkit-font-smoothing: antialiased !important;
 }
 
 
@@ -71,7 +72,7 @@ input[type=text]:focus, textarea:focus {
 h1{
 	font-size: 30px;
 	font-style: normal !important;
-	font-family: "Gill Sans" !important;
+	font-family: "Gill Sans", 'Lato', sans-serif !important;
 	font-weight: 100;
 	margin-left: 30px;
 }
@@ -79,7 +80,7 @@ h1{
 li{
 	font-size: 20px;
 	margin-left: 60px;
-	font-family: "Gill Sans" !important;
+	font-family: "Gill Sans", 'Lato', sans-serif !important;
 	font-weight: 100;	
 }
 
@@ -154,7 +155,7 @@ footer{
 
 #titel{
 	color: white;
-		font-family: "Gill Sans";
+		font-family: "Gill Sans", 'Lato', sans-serif;
 		font-size: 60px;
 		font-style: normal;
 		text-shadow: 2px 0px 4px black;
@@ -206,7 +207,7 @@ footer{
 }
 
 input{
-	font-family: "Gill Sans" !important;
+	font-family: "Gill Sans", 'Lato', sans-serif !important;
 	font-size: 17px !important;
 	font-weight: 200 !important;
 }
@@ -245,7 +246,7 @@ input{
 
 
 button.thoughtbot {
-  	font-family: "Gill Sans" !important;
+  	font-family: "Gill Sans", 'Lato', sans-serif !important;
   	font-weight: 500;
   	font-size: 20px;
   float: left;
@@ -332,19 +333,19 @@ and (max-width: 480px){
 	}
 
 	::-webkit-input-placeholder {
-   color: black;
+   color: gray;
 }
 
 :-moz-placeholder { /* Firefox 18- */
-   color: black;  
+   color: gray;  
 }
 
 ::-moz-placeholder {  /* Firefox 19+ */
-   color: black;  
+   color: gray;  
 }
 
 :-ms-input-placeholder {  
-   color: black;  
+   color: gray;  
 }
 
 	.homehead{
@@ -833,6 +834,22 @@ border-bottom: 1px dashed gray;
 	}
 }
 
+.logindup{
+	position: absolute;
+	top: 120px;
+	width: 323px;
+	height: 76px;
+	color: white;
+	background-color:  rgba(220,35,35,0.8);
+	text-align: center;	
+	.rounded(3px);
+
+	p{
+		margin-bottom: 2px !important;
+		line-height: 74px;
+	}
+}
+
 
 
 .toaccept{
@@ -1074,6 +1091,10 @@ and (max-width: 1024px){
 	color:#891100;
 }
 
-
+.reveal-modal{
+	background-color: rgba(255, 255, 255, 0.9) !important;
+	.rounded(2px);
+	color: gray !important;
+}
 
 	 
