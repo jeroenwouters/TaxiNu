@@ -179,7 +179,7 @@ class Api extends REST_Controller
         $this->load->model('m_bestellingen');
         $query = $this->m_bestellingen->getbytaxi($_GET['userid']);
         foreach($query->result() as $r){
-            $bestelling[] = array('id' => $r->id, 'adres1' => $r->Adres1, 'adres2' => $r->Adres2, 'afstand' => $r->Afstand, 'tijd' => $r->Tijd, 'personen' => $r->Personen, 'naam' => $r->Naam, 'email' => $r->Email, 'tel' => $r->Tel, 'status' => $r->Status, 'afgerond' => $r->Afgerond, 'taxi' => $r->fkTaxi);
+            $bestelling[] = array('id' => $r->id, 'adres1' => $r->Adres1, 'adres2' => $r->Adres2, 'afstand' => $r->Afstand, 'tijd' => $r->Tijd, 'personen' => $r->Personen, 'naam' => $r->Naam, 'email' => $r->Email,'regid' => $r->regid, 'tel' => $r->Tel, 'status' => $r->Status, 'afgerond' => $r->Afgerond, 'taxi' => $r->fkTaxi);
         }
         echo json_encode($bestelling);
     }
@@ -219,6 +219,36 @@ class Api extends REST_Controller
         $this->pusher->trigger('admin_all', 'taxi_bestelt', $data);
 
         echo json_encode($data['id']);
+    }
+
+    function klant_put(){
+        $data = $this->request->body;
+        $this->load->model('m_klanten');
+        $data['pass'] = md5($data['pass']);
+        $this->m_klanten->update($data['id'], $data);
+    }
+
+    function phonegapHistorie_get(){
+        $this->load->model('m_bestellingen');
+        $query = $this->m_bestellingen->getbyemail($_GET['email']);
+        foreach($query->result() as $r){
+            $data[] = array(
+                'Username' => $r->Username,
+                'Adres1' => $r->Adres1,
+                'Adres2' => $r->Adres2,
+                'Tijd' => $r->Tijd,
+                'Personen' => $r->Personen,
+                'Naam' => $r->Naam,
+                'Email' => $r->Email,
+                'Tel' => $r->Tel,
+                'Afgerond' => $r->Afgerond,
+                'fkBestelling' => $r->fkBestelling,
+                'fkUser' => $r->fkUser,
+                'Status' => $r->Status
+            );
+        }
+
+        echo json_encode($data);
     }
 
 }

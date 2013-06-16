@@ -31,5 +31,10 @@ function get($id){
 	return($query);
 }
 
+function update($id, $data){
+    $this->db->where('id', $id);
+    $this->db->update('tblKlanten', $data);
+}
+
 }
 ?>

@@ -24,6 +24,7 @@ var markerBounds = new google.maps.LatLngBounds();
 var markers = new Array();
 var directionsDisplay;
 var directionsService = new google.maps.DirectionsService();
+var pos;
 
 //Models
 
@@ -305,6 +306,11 @@ $(document).ready(function() {
 	$("#loc").click(function(){
 		 map.panTo(pos);
 	});
+	// var auto_refresh = setInterval(
+	// function ()
+	// {
+		
+	// }, 10000);		
 
 
 });
@@ -352,8 +358,18 @@ function gotPosition(position) {
   if (z !== zoom) map.setZoom(zoom = z);
 
   map.fitBounds(markerBounds);
- 	console.log(position);
    channel2.trigger('client-taxi_'+current_taxi_id, { lat: position.coords.latitude, lang: position.coords.longitude });
+   var regids = new Array();
+	AdminPanel.rittenList.forEach(function(rit){
+		if(rit.get('regid') != ""){
+			regids.push(rit.get('regid'));
+		}
+	});
+	if(regids.length != 0){
+		$.post('admin_taxi/gcmloc', { lat: position.coords.latitude, lang: position.coords.longitude, regid: regids });
+	}else{
+		console.log('nogcm!');
+	}
 }
 
 function noGeolocation(message) {

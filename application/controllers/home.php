@@ -246,8 +246,8 @@ class Home extends CI_Controller {
     	foreach ($data['query']->result() as $r) {
     		$data['query2'] = $this->m_bestellingen->getbyemail($r->email);
     	}
-    	$this->load->model('m_status');
-    	$data['query3'] = $this->m_status->getall();
+    	//$this->load->model('m_status');
+    	//$data['query3'] = $this->m_status->getall();
     	$this->load->view('v_head');
 		$this->load->view('v_user', $data);
 		$this->load->view('v_footer');

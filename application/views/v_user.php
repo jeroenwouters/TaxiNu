@@ -19,14 +19,15 @@
 			<?php foreach ($query2->result() as $r2) { ?>
 				<div class="three columns rit_user">
 					<p class="vertrek"><b>Vertrek</b><br><?php echo $r2->Adres1;?></p>
-				 	<p class="bestemming"><b>Bestemming</b><br><?php echo $r2->Adres2;?></p> 	
-				 	<p class="uur"><?php echo $r2->Tijd;?></p> 		
+				 	<p class="bestemming"><b>Bestemming</b><br><?php echo $r2->Adres2;?></p> 		
 				 	<?php if($r2->Afgerond == 1 ){?>
-				 		<?php foreach ($query3->result() as $r3) { ?>
-				 			<?php if($r3->fkBestelling == $r2->id && $r3->Status == 3){?>
-						 		<a  href="<?php echo base_url();?>home/volgtaxi/<?php echo $r2->id;?>/<?php echo $r3->fkUser;?>" class="checkrit">Volg uw rit</a>
+				 		<p class="bestemming"><b>Bedrijf</b><br><?php echo $r2->Username;?></p> 	
+				 		<p class="uur"><?php echo $r2->Tijd;?></p> 
+				 		<?php //foreach ($query3->result() as $r3) { ?>
+				 			<?php if($r2->Status == 3){?>
+						 		<a  href="<?php echo base_url();?>home/volgtaxi/<?php echo $r2->id;?>/<?php echo $r2->fkUser;?>" class="checkrit">Volg uw rit</a>
 							<?php } ?>
-						<?php } ?>
+						<?php //} ?>
 					<?php }else{ ?>
 						 <a href="<?php echo base_url();?>home/aanvragen/<?php echo $r2->id;?>" class="checkrit">Bekijk uw rit</a>
 					<?php } ?>

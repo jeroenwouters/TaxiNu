@@ -33,5 +33,20 @@ class Admin_taxi extends CI_Controller {
 			redirect('admin');
 		}
 	}
+
+	function gcmloc(){
+    	$this->load->library('gcm');
+        $this->gcm->setMessage('location');
+        foreach ($_POST['regid'] as $r) {
+        	$this->gcm->addRecepient($r);
+        } 
+        $loc['lat'] = $_POST['lat'];
+        $loc['lang'] = $_POST['lang'];
+        $loc['type'] = "loc";
+        var_dump($loc);
+        $this->gcm->setData($loc);
+           // then send
+        $this->gcm->send();
+    }
 }	
 	

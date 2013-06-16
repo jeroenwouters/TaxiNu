@@ -145,6 +145,8 @@ class Admin extends CI_Controller {
         $this->m_status->delete($this->uri->segment(3), $this->uri->segment(4));
         $this->pusher->trigger('client', 'client_remove'.$this->uri->segment(3), $this->uri->segment(3));
     }
+
+    
 }
 
 /* End of file welcome.php */
