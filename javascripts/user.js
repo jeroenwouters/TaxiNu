@@ -1,28 +1,23 @@
 $.fn.bgloader = function(url){
 	var t = this;
-	$(this).css({ 'opacity' : 0 });
+	$(this).css({ 'display' : 'none' });
 	$('<img />')
 		.attr('src', url)
 		.load(function(){ 
 			t.each(function(){ 
 				$(this)
 					.css('backgroundImage', "url('"+url+"')" )
-					.animate({ opacity: 1 }, 1000);
-					console.log("image loaded");
+					.fadeIn(1);
 			});
 		});
 	return this;
  }
 
-$(window).load(function() { 
-	// Lazy load background images
-	$("#first").each(function() { 
-		console.log('image loaded');
+$(document).ready(function() {
+    $("#first").each(function() { 
 		$(this).bgloader($(this).data('bg'));
 	});
-});
 
-$(document).ready(function() {
     var now = moment().format('DD/MM/YYYY HH:mm ');
     
     $('#timedate').val(now); 
