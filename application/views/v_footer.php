@@ -114,7 +114,7 @@
                   }
     var map = new google.maps.Map(document.getElementById('homemap'),mapOptions);
     var myLatLng = new google.maps.LatLng(51.283333,4.483333);
-    var marker = new google.maps.Marker( {position: myLatLng, map: map} );
+    var marker = new google.maps.Marker( {position: myLatLng, map: map, icon: '<?php echo base_url();?>/images/taxi.png', width: '10px'} );
     });
   </script>
 <?php } ?>
