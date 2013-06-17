@@ -36,7 +36,7 @@
     animation: imageAnimation 36s linear;
 }
 
-.backslide li:nth-child(1) span { background-image: url(../images/backtax.jpg) }
+.backslide li:nth-child(1) span { background-image: no-repeat }
 .backslide li:nth-child(2) span {
     background-image: url(../images/groenplaats.jpg);
     -webkit-animation-delay: 9s;

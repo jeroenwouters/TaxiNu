@@ -10,7 +10,7 @@
 			 </div>
 		</div>
 		<ul class="backslide hide-for-small">
-            <li><span>Image 01</span></li>
+            <li><span id="first" data-bg="<?php echo base_url();?>images/backtax.jpg">Image 01</span></li>
             <li><span>Image 02</span></li>   
             <li><span>Image 03</span></li>       
             <li><span>Image 04</span></li>       

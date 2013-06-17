@@ -1,3 +1,28 @@
+$.fn.bgloader = function(url){
+	var t = this;
+	$(this).css({ 'opacity' : 0 });
+	//create an img so the browser will download the image:
+	$('<img />')
+		.attr('src', url)
+		.load(function(){ //attach onload to set background-image
+			t.each(function(){ 
+				$(this)
+					.css('backgroundImage', "url('"+url+"')" )
+					.animate({ opacity: 1 }, 1000);
+					console.log("image loaded");
+			});
+		});
+	return this;
+ }
+
+$(window).load(function() { 
+	// Lazy load background images
+	$("#first").each(function() { 
+		console.log('image loaded');
+		$(this).bgloader($(this).data('bg'));
+	});
+});
+
 $(document).ready(function() {
     var now = moment().format('DD/MM/YYYY HH:mm ');
     
