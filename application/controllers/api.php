@@ -165,6 +165,9 @@ class Api extends REST_Controller
     function taxi_put(){
         $data = $this->request->body;
         $data2['Naam'] = $data['Naam'];
+        if($data['pass']){
+            $data2['pass'] = md5($data['pass']);
+        }
         $this->load->model('m_taxis');
         $this->m_taxis->update($data2, $data['id']);
     }

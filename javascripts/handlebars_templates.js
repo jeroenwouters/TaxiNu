@@ -74,9 +74,9 @@ var rit_map_template =
 
 var taxi_settings = 
 '<p class="lead">Taxi Naam</p> \
-<input type="text" placeholder="Taxi naam wijzigen" value="{{Naam}}" style="width:210px"> \
+<input type="text" name="naam" placeholder="Taxi naam wijzigen" value="{{Naam}}" style="width:210px"> \
 <p class="lead">Paswoord wijzigen</p> \
-<input type="password" value="" style="width:210px"> \
+<input type="password" placeholder="nieuw paswoord" name="pass" value="" style="width:210px"> \
 <a href="#"><button class="thoughtbot" id="loguit">Update</button></a> \
 <a href="#" ><button style="margin-left:10px;"class="thoughtbot" id="delete">Delete</button></a> \
 <a class="close-reveal-modal">&#215;</a>';'	'

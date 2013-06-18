@@ -301,7 +301,8 @@ var TaxisettingsView = Backbone.View.extend({
 	
 	update: function(){
 		this.model.set({
-			'Naam': this.$el.find('input').val()
+			'Naam': this.$el.find('input[name=naam]').val(),
+			'pass': this.$el.find('input[name=pass]').val()
 		});
 		this.model.save();
 		this.$el.trigger('reveal:close');
