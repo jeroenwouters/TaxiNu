@@ -4,6 +4,7 @@ Backbone.emulateHTTP = true
 var current_taxi_id;
 var current_user_id;
 var current_user_login;
+var pauze = 0;
 var channel2;
 var passagier = 0;
 
@@ -43,6 +44,18 @@ var User = Backbone.Model.extend({
 	    	var newrit = new Rit(data);
     		AdminPanel.rittenList.add(newrit);
 	    });
+	    $.ajax({
+			type: 'POST',
+			url: 'admin_taxi/getpauze/'+current_taxi_id,
+			dataType: 'json',
+			success: function(jsonData) {
+				pauze = jsonData.pauze;
+			  	if(pauze == 1){
+			  		$('.switch').trigger('click');
+			  	}
+			 },
+		});
+	   
 	    channel.bind('green_taxi_'+current_taxi_id, function(data) {
 	    	$('#'+data).css('background', '#90BD3C');
 	    	var rit = AdminPanel.rittenList.get(data);
@@ -306,6 +319,16 @@ $(document).ready(function() {
 	$("#loc").click(function(){
 		 map.panTo(pos);
 	});
+
+	$(".switch").click(function(){
+		if(pauze == 0){
+			pauze = 1;
+		}else{
+			pauze = 0;
+		}
+		$.post("admin_taxi/pauze", {id: current_taxi_id, Pauze: pauze});
+	});
+
 	// var auto_refresh = setInterval(
 	// function ()
 	// {
