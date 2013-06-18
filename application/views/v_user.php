@@ -1,4 +1,4 @@
-<header>
+<header id="userpanel">
 		<div class="row user_panel">
 			<div class="twelve columns">
 				<ul>
@@ -8,12 +8,11 @@
 
 			</div>
 		</div>
-		<ul class="backslide">
-            <li><span>Image 01</span></li>
+		<ul class="backslide hide-for-small">
+            <li><span id="first" data-bg="<?php echo base_url();?>images/backtax.jpg">Image 01</span></li>
             <li><span>Image 02</span></li>   
             <li><span>Image 03</span></li>       
             <li><span>Image 04</span></li>       
-            <li><span>Image 05</span></li>            
         </ul>
 		<div class="row user_ritten">
 			<?php foreach ($query2->result() as $r2) { ?>
@@ -21,7 +20,7 @@
 					<p class="vertrek"><b>Vertrek</b><br><?php echo $r2->Adres1;?></p>
 				 	<p class="bestemming"><b>Bestemming</b><br><?php echo $r2->Adres2;?></p> 		
 				 	<?php if($r2->Afgerond == 1 ){?>
-				 		<p class="bestemming"><b>Bedrijf</b><br><?php echo $r2->Username;?></p> 	
+				 		<p class="bedrijf"><br><?php echo $r2->Username;?></p> 	
 				 		<p class="uur"><?php echo $r2->Tijd;?></p> 
 				 		<?php //foreach ($query3->result() as $r3) { ?>
 				 			<?php if($r2->Status == 3){?>

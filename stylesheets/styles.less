@@ -591,6 +591,7 @@ font-weight: bold;
 /* User Paneel*/
 
 .user_panel{
+	overflow: auto;
 	height: 50px;
 	width: 100%;
 	background-color:rgba(255,255,255,0.8);
@@ -655,24 +656,26 @@ font-weight: bold;
 
 	.vertrek{
 		position: absolute;
-		top: 5px;
+		top: 13px;
 		left: 15px;
 		width: 200px;
 		line-height: 15px;
-
-		
-		&:after{
-		margin-left: 5px;
-		content: '>'; 
-		}
 	}
 	
 	.bestemming{
 		position: absolute;
-		top: 45px;
+		top: 53px;
 		left: 15px;	
 		width: 200px;
 		line-height: 15px;
+	}
+
+	.bedrijf{
+		position: absolute;
+		top: -10px;
+		right: 5px;
+		line-height: 15px;
+		color: #891100;
 	}
 	.maps{
 		position: absolute;
@@ -683,10 +686,13 @@ font-weight: bold;
 	}
 	.uur{
 		position: absolute;
+		width:220px;
 		top: 110px;
 		left: 8px;
 		color: #891100; 
 		font-size: 25px;	
+		 left: 50%;
+  margin-left: -110px;
 	}
 	.naamklant{
 		position: absolute;
@@ -703,6 +709,9 @@ font-weight: bold;
 		position: absolute;
 		top: 95px;
 		left: 75px;
+		width: 80px;
+		left:50%;
+		margin-left: -40px;
 	}
 	
 	.check{
@@ -827,10 +836,24 @@ margin-left: -200px !important;
 margin-top: 65px;
 margin-bottom: 10px;
 }
+.uur{
+	font-size: 20px !important;
+	width: 170px !important;
+	margin-left: -85px !important;
+}
+}
+
+@media only screen
+and (max-width: 766px){
+		[class*="column"]+[class*="column"]:last-child {
+	float: none !important;
+}
+
 }
 
 @media only screen
 and (max-width: 480px){
+	
 	
 
 	body{
