@@ -67,4 +67,14 @@ class M_bestellingen extends CI_Model {
 		$query = $this->db->get();
 		return($query);
 	}
+	
+	function getaanvragen($id){
+		$this->db->select('*');
+		$this->db->from('tblBestellingen');
+		$this->db->join('tblStatus', 'tblBestellingen.id = tblStatus.fkBestelling', 'left');
+		$this->db->join('tblUsers', 'tblStatus.fkUser = tblUsers.pkUsers', 'left');
+		$this->db->where('tblBestellingen.id', $id);
+		$query = $this->db->get();
+		return($query);
+	}
 }

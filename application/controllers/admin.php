@@ -145,8 +145,19 @@ class Admin extends CI_Controller {
         $this->m_status->delete($this->uri->segment(3), $this->uri->segment(4));
         $this->pusher->trigger('client', 'client_remove'.$this->uri->segment(3), $this->uri->segment(3));
     }
-
     
+    function phoengapcheckdubbel(){
+	    $this->load->model('m_bestellingen');
+        $query = $this->m_bestellingen->getbyemail($_POST['email']);
+        $data = "false";
+        foreach($query->result() as $r){
+        	if($r->Status == 3 || $r->Afgerond == 0){
+	        	$data = "true";
+        	}
+        }
+        
+        echo json_encode($data);
+    }
 }
 
 /* End of file welcome.php */
