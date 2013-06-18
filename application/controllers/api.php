@@ -149,7 +149,7 @@ class Api extends REST_Controller
         $query = $this->m_taxis->get( $_GET['userid']);
         
         foreach($query->result() as $r){
-            $taxis[] = array('id' => $r->id, 'fkuser' => $r->fkUser, 'Login' => $r->Login, 'Naam' => $r->Naam);
+            $taxis[] = array('id' => $r->id, 'fkuser' => $r->fkUser, 'Login' => $r->Login, 'Naam' => $r->Naam, 'Pauze' => $r->pauze);
         }
 
         echo json_encode($taxis);
@@ -231,6 +231,35 @@ class Api extends REST_Controller
     function phonegapHistorie_get(){
         $this->load->model('m_bestellingen');
         $query = $this->m_bestellingen->getbyemail($_GET['email']);
+        $idbefore = 0;
+        foreach($query->result() as $r){
+        	if($r->fkBestelling != $idbefore){
+            $data[] = array(
+                'Username' => $r->Username,
+                'Adres1' => $r->Adres1,
+                'Adres2' => $r->Adres2,
+                'Tijd' => $r->Tijd,
+                'Personen' => $r->Personen,
+                'Naam' => $r->Naam,
+                'Email' => $r->Email,
+                'Tel' => $r->Tel,
+                'Afgerond' => $r->Afgerond,
+                'fkBestelling' => $r->fkBestelling,
+                'fkUser' => $r->fkUser,
+                'Status' => $r->Status,
+                'id' => $r->id
+            );
+            $idbefore = $r->fkBestelling;
+            }
+              
+        }
+
+        echo json_encode($data);
+    }
+    
+    function phonegapAanvragen_get(){
+	    $this->load->model('m_bestellingen');
+        $query = $this->m_bestellingen->getaanvragen($_GET['id']);
         foreach($query->result() as $r){
             $data[] = array(
                 'Username' => $r->Username,
@@ -244,11 +273,14 @@ class Api extends REST_Controller
                 'Afgerond' => $r->Afgerond,
                 'fkBestelling' => $r->fkBestelling,
                 'fkUser' => $r->fkUser,
-                'Status' => $r->Status
+                'Status' => $r->Status, 
+                'Wachttijd' => $r->Wachttijd,
             );
         }
 
         echo json_encode($data);
     }
+    
+    
 
 }
