@@ -125,16 +125,9 @@ class Api extends REST_Controller
     
     function bestelling_delete()
     {
-	    $this->load->model('m_status');
-        $this->load->model('m_bestellingen');
-        $query = $this->m_status->getbyfk($this->uri->segment('3'));
-        $data['id'] = $this->uri->segment('3');
-        foreach ($query->result() as $r) {
-          $this->load->library('pusher');
-          $this->pusher->trigger('admin_all', 'taxi_destroy_'.$r->fkTaxi, $data);  
-        }
-        $this->m_status->deleteid($this->uri->segment('3'));
-        $this->m_bestellingen->delete($this->uri->segment('3'));
+        $data = $this->request->body;
+	    // $this->load->model('m_status');
+	    // $this->m_status->delete();
     }
     /*
     function bestellingen_get()
