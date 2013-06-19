@@ -22,13 +22,13 @@
 				 	<?php if($r2->Afgerond == 1 ){?>
 				 		<p class="bedrijf"><br><?php echo $r2->Username;?></p> 	
 				 		<p class="uur"><?php echo $r2->Tijd;?></p> 
-				 		<?php //foreach ($query3->result() as $r3) { ?>
+				 		<?php foreach ($query3->result() as $r3) { ?>
 				 			<?php if($r2->Status == 3){?>
 						 		<a  href="<?php echo base_url();?>home/volgtaxi/<?php echo $r2->id;?>/<?php echo $r2->fkUser;?>" class="checkrit">Volg uw rit</a>
 							<?php } ?>
-						<?php //} ?>
+						<?php } ?>
 					<?php }else{ ?>
-						 <a href="<?php echo base_url();?>home/aanvragen/<?php echo $r2->id;?>" class="checkrit">Bekijk uw rit</a>
+						 <a href="<?php echo base_url();?>home/aanvragen/<?php echo $r2->fkBestelling;?>" class="checkrit">Bekijk uw rit</a>
 					<?php } ?>
 				</div>	
 			<?php } ?>	

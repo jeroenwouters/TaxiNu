@@ -21,6 +21,20 @@ var Bestelling = Backbone.Model.extend({
 		});
 		this.save();
 	}, 
+
+	showmodal: function(){
+	  var bestellingRevealView = new BestellingRevealView({model: this});
+	  $('#checkmodal').reveal();
+	  if(this.get('status') == 2){
+	  	var template = 3;
+	  }else{
+	  	var template = 2;
+	  }
+	  if(this.get('status') == 5){
+	  	template = 5;
+	  }
+	  $('#checkmodal .inforit').html(bestellingRevealView.render(template).el);
+	}
 });
 
 var BestellingList = Backbone.Collection.extend({
@@ -90,17 +104,7 @@ var BestellingView = Backbone.View.extend({
   },
   
   showmodule: function(){
-  	  var bestellingRevealView = new BestellingRevealView({model: this.model});
-	  $('#checkmodal').reveal();
-	  if(this.model.get('status') == 2){
-	  	var template = 3;
-	  }else{
-	  	var template = 2;
-	  }
-	  if(this.model.get('status') == 5){
-	  	template = 5;
-	  }
-	  $('#checkmodal .inforit').html(bestellingRevealView.render(template).el);
+  	  this.model.showmodal();
   }
 });
 
@@ -396,12 +400,18 @@ WEB_SOCKET_DEBUG = true;
 		if(data.Status == 4){
 			$('#'+data.id).css('background-color', '#F2A81D');
 			$('#taxi_'+modelget.get('taxi')+' ul').find(".status4").before($('#'+data.id));
+			$('#'+data.id).find('button').click(function(){
+				modelget.showmodal();
+			});
 		}
 
 		if(data.Status == 5){
 			$('#'+data.id).css('opacity', '0.5');
 			$('#'+data.id).css('background', 'none');
 			$('#taxi_'+modelget.get('taxi')+' ul').find(".afgerond").after($('#'+data.id));
+			$('#'+data.id).find('button').click(function(){
+				modelget.showmodal();
+			});
 		}
 	});
     
