@@ -75,7 +75,8 @@
 			  <input type="text" name="Adres1" placeholder="Ophaaladres" style="width:210px"> 
 			  <input type="text" name="Adres2" placeholder="Bestemming" value="" style="width:210px"> 
 			  <input type="text" name="Tijd" placeholder="" value="" id="timedate" style="width:210px"> 
-			  <select name="Taxi" id="taxiselect"></select>
+			  <select name="Taxi" id="taxiselect" style="width: 210px;"> </select>
+			  <br><br>
 
 			  <a href="#"><button class="thoughtbot" id="voegtoe">Voeg toe</button></a> 
 			 			 
