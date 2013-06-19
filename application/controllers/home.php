@@ -244,7 +244,7 @@ class Home extends CI_Controller {
     function user(){
     	if($this->session->userdata('logged_in')){
 			$data = $this->session->userdata('logged_in');
-			if($data['type'] == 'user'){
+			if($data['type'] == 'klant'){
 		    	$this->load->model('m_klanten');
 		    	$sess = $this->session->userdata('logged_in');
 		    	$data['query'] = $this->m_klanten->get($sess['id']);

@@ -38,9 +38,9 @@
 		
 				<div class="twelve columns">
 					<div class="profupdate">
-					<form action="<?php echo base_url;?>home/user_save" method="post" id="update"> 
+					<form action="<?php echo base_url();?>home/user_save" method="post" id="update"> 
 						<?php foreach ($query->result() as $r) { ?>
-							<input type="hidden" value="<?php echo $r->id;?>">
+							<input type="hidden" name="id" value="<?php echo $r->id;?>">
 						  	<input type="text" name="naam" placeholder="Naam" value="<?php echo $r->naam;?>">
 						  	<input type="text" name="tel" placeholder="Telefoonnummer" value="<?php echo $r->tel;?>">
 						  	<input type="text" name="email" placeholder="E-mail" value="<?php echo $r->email;?>">
