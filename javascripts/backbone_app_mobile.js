@@ -43,9 +43,20 @@ var User = Backbone.Model.extend({
 		AdminPanel.rittenList.fetch( { data: { userid: data.id} });
 		var channel = pusher.subscribe('admin_all');
 	    channel.bind('taxi_'+current_taxi_id, function(data) {
-	    	var newrit = new Rit(data);
-	    	console.log(newrit);
-    		AdminPanel.rittenList.add(newrit);
+	    	if(!data.afstand){
+	    		$.ajax({
+				  type: 'GET',
+				  url: 'http://maps.googleapis.com/maps/api/distancematrix/json?origins='+data.adres1+'&destinations='+data.adres2+'&sensor=false',
+				  dataType: 'json',
+				  success: function(jsonData) {
+				  	 	data.afstand = jsonData.rows[0].elements[0].distance.text;
+				  	 	var newrit = new Rit(data);
+				    	console.log(newrit);
+			    		AdminPanel.rittenList.add(newrit);
+			    	}
+			    });
+			 }
+	    	
 	    });
 	    $.ajax({
 			type: 'POST',
@@ -197,7 +208,7 @@ var RittenListView = Backbone.View.extend({
 				markerBounds.extend(results[0].geometry.location);
 				map.fitBounds(markerBounds);
 			} else {
-			alert("Geocode was not successful for the following reason: " + status);
+			//alert("Geocode was not successful for the following reason: " + status);
 			}
 		});
 		var rittenView = new RittenView({model: rit, id: rit.get('id')});
@@ -239,7 +250,7 @@ var RittenListView = Backbone.View.extend({
 				markerBounds.extend(results[0].geometry.location);
 				map.fitBounds(markerBounds);
 			} else {
-			alert("Geocode was not successful for the following reason: " + status);
+			//alert("Geocode was not successful for the following reason: " + status);
 			}
 		});
 	},

@@ -461,6 +461,7 @@ $(document).ready(function() {
 			status: 3, 
 			afgerond: 1,
 		}
+
 		$.ajax({
 			type: 'POST',
 			url: 'admin/bestellingtoevoegen',
@@ -536,8 +537,15 @@ $(document).ready(function() {
     map = new google.maps.Map(document.getElementById('map-canvas'),mapOptions);
  }
 
- function new_taxi_map(taxi){
-
+ function afstandfunc(adres1, adres2){
+ 	$.ajax({
+		  type: 'GET',
+		  url: 'http://maps.googleapis.com/maps/api/distancematrix/json?origins='+adres1+'&destinations='+adres2+'&sensor=false',
+		  dataType: 'json',
+		  success: function(jsonData) {
+		  	 return(jsonData.rows[0].elements[0].distance.text);
+		 }
+	});
  }
 
  

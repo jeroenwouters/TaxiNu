@@ -164,7 +164,8 @@ class Admin extends CI_Controller {
 		$data1['Tel'] = $_POST['tel'];
 		$data1['Adres1'] = $_POST['adres1'];
 		$data1['Adres2'] = $_POST['adres2'];
-		$data1['Tijd'] = $_POST['tijd'];
+		$tijd = $_POST['tijd'];
+		$data1['tijd'] = substr($tijd, 6, 4).'-'.substr($tijd, 3, 2).'-'.substr($tijd, 0, 2).' '.substr($tijd, 11, 5);
 		$data1['Afgerond'] = $_POST['afgerond'];
 
     	$this->load->model('m_bestellingen');
@@ -176,6 +177,13 @@ class Admin extends CI_Controller {
 
     	$this->load->model('m_status');
     	$this->m_status->insertnew($data2);
+
+    	$data1['fkUser'] = $_POST['fkUser'];
+    	$data1['Status'] = $_POST['status'];
+    	$data1['fkTaxi'] = $_POST['taxi'];
+
+    	$this->load->library('pusher');
+    	$this->pusher->trigger('admin_all', 'taxi_'.$data2['fkTaxi'], $_POST);
 
     	echo json_encode($data2);
     }
