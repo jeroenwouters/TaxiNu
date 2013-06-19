@@ -39,8 +39,7 @@
 
 		<div id="taximap" class="reveal-modal xlarge" style="background-color: black; color: white;"></div>
 
-		<div id="checkmodal" class="reveal-modal xlarge" style="background-color: black; color: white;">
-			  <div id="map-canvas2" class="mapsmodal"></div>
+		<div id="checkmodal" class="reveal-modal large" style="background-color: black; color: white;">
 			  <p class="lead">Gegevens rit</p>
 			  
 			  <div class="labels">

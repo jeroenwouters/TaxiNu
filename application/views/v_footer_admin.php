@@ -43,6 +43,8 @@
   <script src="<?php echo base_url();?>javascripts/app.js"></script>
   <script src="<?php echo base_url();?>javascripts/jquery.js"></script>
   <script type="text/javascript" src="http://code.jquery.com/ui/1.9.1/jquery-ui.min.js"></script>
+    <script src="<?php echo base_url();?>javascripts/jquery.ui.touch-punch.js"></script>
+
   <script src="<?php echo base_url();?>javascripts/jquery.foundation.reveal.js"></script>
   <script src="<?php echo base_url();?>javascripts/timepicker.js"></script>
     <script src="<?php echo base_url();?>javascripts/moment.min.js"></script>

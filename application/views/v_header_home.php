@@ -80,8 +80,7 @@
 		    <div class="twelve columns">
 		        <h1 style="text-align:center">Dit is Taxinu.be!</h1>
 				<div class="videoWrapper">
-					<iframe width="560" height="315" src="http://www.youtube.com/embed/PE2oNNtu930" frameborder="0" allowfullscreen></iframe>
-		</div>
+<iframe src="http://player.vimeo.com/video/68601410?title=0&amp;byline=0&amp;portrait=0&amp;color=f00008" width="400" height="300" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>		</div>
 				</div>
 		</div>
 
