@@ -97,6 +97,9 @@ var BestellingView = Backbone.View.extend({
 	  }else{
 	  	var template = 2;
 	  }
+	  if(this.model.get('status') == 5){
+	  	template = 5;
+	  }
 	  $('#checkmodal .inforit').html(bestellingRevealView.render(template).el);
   }
 });
@@ -105,10 +108,12 @@ var BestellingRevealView = Backbone.View.extend({
 	template1: Handlebars.compile(module_bestelling_template1),
 	template2: Handlebars.compile(module_bestelling_template2),
 	template3: Handlebars.compile(module_bestelling_template3),
+	template5: Handlebars.compile(module_bestelling_template5),
 	
 	events: {
 		"click .go" : "go",
-		"click .cancel" : "cancel"
+		"click .cancel" : "cancel",
+		"click .verwijder": "verwijder"
 	},
 	
 	render: function(temp){
@@ -120,6 +125,9 @@ var BestellingRevealView = Backbone.View.extend({
 		}
 		if(temp == 3){
 			this.$el.html(this.template3(this.model.toJSON()));
+		}
+		if(temp == 5){
+			this.$el.html(this.template5(this.model.toJSON()));
 		}
 
 		return this;
@@ -140,6 +148,12 @@ var BestellingRevealView = Backbone.View.extend({
 		$('#col1 ul').append($('#'+this.model.get('id')));	
 		$('#'+this.model.get('id')).css('background-color', "");
 		enable_drag($('#'+this.model.get('id')));
+		this.$el.trigger('reveal:close');
+	},
+
+	verwijder: function(){
+		$('#'+this.model.get('id')).remove();
+		this.model.destroy();
 		this.$el.trigger('reveal:close');
 	}
 });
