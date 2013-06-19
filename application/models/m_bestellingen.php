@@ -26,6 +26,7 @@ class M_bestellingen extends CI_Model {
     
     function insert($data){
 		$this->db->insert('tblBestellingen', $data);
+		return($this->db->insert_id());
 	}
 	
 	function delete($id){

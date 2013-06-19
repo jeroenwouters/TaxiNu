@@ -71,14 +71,14 @@
 		      
 		      <br><br><br>
 			  <p class="lead">Manueel rit toevoegen</p> 
-			  <input type="text" placeholder="Naam klant" style="width:210px"> 
-			  <input type="text" placeholder="Telefoon nummer klant" style="width:210px"> 
-			  <input type="text" placeholder="Ophaaladres" style="width:210px"> 
-			  <input type="text" placeholder="Bestemming" value="" style="width:210px"> 
-			  <input type="text" placeholder="" value="" id="timedate" style="width:210px"> 
+			  <input type="text" name="Naam" placeholder="Naam klant" style="width:210px"> 
+			  <input type="text" name="Tel" placeholder="Telefoon nummer klant" style="width:210px"> 
+			  <input type="text" name="Adres1" placeholder="Ophaaladres" style="width:210px"> 
+			  <input type="text" name="Adres2" placeholder="Bestemming" value="" style="width:210px"> 
+			  <input type="text" name="Tijd" placeholder="" value="" id="timedate" style="width:210px"> 
+			  <select name="Taxi" id="taxiselect"></select>
 
-
-			  <a href="#"><button class="thoughtbot" id="loguit">Voeg toe</button></a> 
+			  <a href="#"><button class="thoughtbot" id="voegtoe">Voeg toe</button></a> 
 			 			 
 			  
 			  <a class="close-reveal-modal">&#215;</a>		

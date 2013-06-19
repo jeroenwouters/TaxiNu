@@ -70,5 +70,9 @@ Class M_status extends CI_Model
 		return($query);
 	}
 
+	function insertnew($data){
+		$this->db->insert('tblStatus', $data);
+	}
+
 }
 ?>

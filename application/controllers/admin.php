@@ -28,7 +28,7 @@ class Admin extends CI_Controller {
 			if($data['type'] == 'klant'){
 				redirect('home/user');
 			}
-
+			
 			if($data['type'] == 'admin'){
 				$this->load->view('v_head_admin');
 				$this->load->view('v_admin');
@@ -157,6 +157,27 @@ class Admin extends CI_Controller {
         }
         
         echo json_encode($data);
+    }
+
+    function bestellingtoevoegen(){
+    	$data1['Naam'] = $_POST['naam'];
+		$data1['Tel'] = $_POST['tel'];
+		$data1['Adres1'] = $_POST['adres1'];
+		$data1['Adres2'] = $_POST['adres2'];
+		$data1['Tijd'] = $_POST['tijd'];
+		$data1['Afgerond'] = $_POST['afgerond'];
+
+    	$this->load->model('m_bestellingen');
+    	$data2['fkBestelling'] = $this->m_bestellingen->insert($data1);
+    	
+    	$data2['fkUser'] = $_POST['fkUser'];
+    	$data2['Status'] = $_POST['status'];
+    	$data2['fkTaxi'] = $_POST['taxi'];
+
+    	$this->load->model('m_status');
+    	$this->m_status->insertnew($data2);
+
+    	echo json_encode($data2);
     }
 }
 

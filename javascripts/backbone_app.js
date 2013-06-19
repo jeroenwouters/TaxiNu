@@ -191,7 +191,7 @@ var TaxiListView = Backbone.View.extend({
 	
 	addOne: function(taxi){
 		var taxiView = new TaxiView({model: taxi});
-		$('.colmap').before(taxiView.render().el);
+		$('.colmap').before(taxiView.render().el); 
 	},
 	
 	addAll: function(){
@@ -238,6 +238,7 @@ var TaxiView = Backbone.View.extend({
 		      	$('#taxi_'+data.id).find("h1").css('border-right', "solid 4px rgb(253, 64, 0)");
 		      }
 	    });
+      $('#taxiselect').append('<option value="'+this.model.get("id")+'">'+this.model.get("Naam")+'</option>');
     return this;
   },
 
@@ -423,6 +424,46 @@ $(document).ready(function() {
        $('#taximap_click img').css("background-color","inherit");     
     
 	});
+
+	$('#voegtoe').click(function(){
+		var data = {
+			naam: $('#settings_modal').find('input[name=Naam]').val(),
+			tel: $('#settings_modal').find('input[name=Tel]').val(),
+			adres1: $('#settings_modal').find('input[name=Adres1]').val(),
+			adres2: $('#settings_modal').find('input[name=Adres2]').val(),
+			tijd: $('#settings_modal').find('input[name=Tijd]').val(),
+			taxi: $('#settings_modal').find('select').val(),
+			fkUser: current_user_id,
+			status: 3, 
+			afgerond: 1,
+		}
+		$.ajax({
+			type: 'POST',
+			url: 'admin/bestellingtoevoegen',
+			data: data,
+			dataType: 'json',
+			success: function(jsonData) {
+				pauze = jsonData.pauze;
+			  		data = {
+			  			naam: $('#settings_modal').find('input[name=Naam]').val(),
+						tel: $('#settings_modal').find('input[name=Tel]').val(),
+						adres1: $('#settings_modal').find('input[name=Adres1]').val(),
+						adres2: $('#settings_modal').find('input[name=Adres2]').val(),
+						tijd: $('#settings_modal').find('input[name=Tijd]').val(),
+						taxi: $('#settings_modal').find('select').val(),
+						fkUser: current_user_id,
+						status: 3, 
+						afgerond: 1,
+			  			id: jsonData.fkBestelling
+			  		}
+					var newbestelling = new Bestelling(data);
+    				AdminPanel.bestellingList.add(newbestelling);
+    				$('#settings_modal').trigger('reveal:close');
+
+    				//$('#taxi_'+jsonData.fkTaxi+' ul').find(".status4").after(AdminPanel.bestellingView.render().el);
+			 },
+		});
+	});	
  });
 
 
