@@ -23,6 +23,8 @@ li{
 	font-weight: 100;	
 }
 
+
+
 /* Webkit */
 ::selection {
     background: #ee432e;
@@ -346,9 +348,10 @@ top: -60px;
 /* Footer/Important sectie */
 
 footer{
-	background-color: #4a4a4a;
+	background-image: url(../images/footerbg.jpg);
+	background-size: cover;	
 	width: 100%;
-	height: 300px;
+	height: 270px;
 	border-top: #891100 4px solid;
 	
 	h1{
@@ -358,6 +361,13 @@ footer{
 	li{
 		list-style-type: none;
 		color: white;
+	}
+
+	p{
+		color: gray;
+		background-color: rgba(255,255,255,0.86);
+		padding: 5px;
+		.rounded(2px);
 	}
 	
 }
@@ -439,27 +449,30 @@ footer{
 	list-style-type: none;
 	margin-left: -40px;
 	li{
+		position: relative;
 		float: left;
-		padding-top: 25px;
-		padding-right: 20px; 
-		background-color: #fbbaba;
-		padding-left:5px;
-		padding-bottom: 10px;
+		padding: 15px;
 		.rounded(3px);
+		margin-bottom: 30px;
+		text-align: center;
+		height: 170px;
+		border: 1px dashed rgba(210,210,210, 0.8);
 		
 		.minutes{
 			color: red;
 		}
 		
 		p{
-			font-size: 1.1em;
-			
+			font-size: 1.0em;
+			margin-bottom: 5px;
 		}
 		
 		.thoughtbot{
+			position: absolute;
 			width: 100px;
-			margin-left: 5px;
-			
+			left: 50%;
+			margin-left: -50px;
+			bottom:5px;
 		}
 		
 	}
@@ -857,6 +870,20 @@ and (max-width: 480px){
 		
 	}
 
+	footer{
+	
+	
+		h1{
+		color: black;	
+		}
+	
+		li{
+		list-style-type: none;
+		color: black;
+		}
+	
+	}
+
 		
     .loginerror, .logindup{
     	left: 0px !important;
@@ -922,7 +949,22 @@ and (max-width: 480px){
 			margin-left: -10px;
 			
 		}
+
+		label.error {
+			color: #c60f13;
+			position: absolute;
+			top: 192px;
+			left: 10px;
+			width: 200px;
+			text-align: center;
+			background-color:rgba(255,255,255,0.9);
+			padding: 20px;
+			.rounded(2px);
+			font-size: 13px;
+		}
 	}
+
+
 	
 	#pending{
 		height: auto !important;

@@ -1,6 +1,6 @@
 $.fn.bgloader = function(url){
 	var t = this;
-	$(this).css({ 'display' : 'none' });
+	$(this).css({ 'display' : 'block' });
 	$('<img />')
 		.attr('src', url)
 		.load(function(){ 
@@ -83,6 +83,21 @@ $(function() {
           ///slideshow code here
           $('.errors').delay(3000).fadeOut();
 
+          $('.search form').validate({
+	    rules: { 
+		    adres1: {required: true},    
+		    adres2: {
+			required: true},
+		    tijd: {            
+			required: true}	
+		}, 	
+		messages: {
+			adres1: "Adres invullen aub",
+			adres2: "Adres invullen aub",
+			tijd: "Tijd/datum invullen aub"
+		}
+    });
+
       }).listen();
     
 	
@@ -107,6 +122,7 @@ $(function() {
 	*/
 	//Op da form in die box moet jquery validatie komen zodat als die velden zijn ingevuld dat die dan in hidden fields worden gezeten. 
 	//Zodat die mee worden gestuurd met de rest van de info in de POST.         
+    
     $('#form1').validate({
 	    rules: { 
 		    NaamBox: {required: true,
@@ -239,12 +255,12 @@ $(function() {
  	});
 
 	
-    function pulse(){
-		$('#bedrijven li').animate({backgroundColor: '#f3f3f3'}, 2000);
-		$('#bedrijven li').animate({backgroundColor: '#fbbaba'}, 2000);
-	}
+ //    function pulse(){
+	// 	$('#bedrijven li').animate({backgroundColor: '#f3f3f3'}, 2000);
+	// 	$('#bedrijven li').animate({backgroundColor: '#fbbaba'}, 2000);
+	// }
 
-	setInterval(pulse,2500);
+	// setInterval(pulse,2500);
 
 	var timer;
 
