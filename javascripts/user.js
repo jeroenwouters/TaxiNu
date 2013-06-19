@@ -42,6 +42,7 @@ $(function() {
 	if(navigator.userAgent.match(/(iPhone|iPod|iPad)/i)){
     	var now = moment().format('YYYY-MM-DDTHH:mmZ');
 		$('#timedate').val(now);
+
 	}	
 
 	enquire.register("screen and (min-width: 600px)", function() {
