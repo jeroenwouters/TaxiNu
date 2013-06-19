@@ -239,7 +239,7 @@ var TaxiView = Backbone.View.extend({
       //.sortable({items: "li"});
       this.marker(this.model);
       if(this.model.get('Pauze') == 0){
-      	this.$el.find("h1").css('border-right', "solid 4px #F2A81D");
+      	this.$el.find("h1").css('border-right', "solid 4px rgb(144, 189, 60)");
       }else{
       	this.$el.find("h1").css('border-right', "solid 4px rgb(253, 64, 0)");
       }
@@ -247,7 +247,7 @@ var TaxiView = Backbone.View.extend({
       channeltaxi = pusher.subscribe('taxi_'+this.model.get('id'));
       channeltaxi.bind('taxi_pauze_'+this.model.get('id'), function(data) {
 			if(data.Pauze == 0){
-		      	$('#taxi_'+data.id).find("h1").css('border-right', "solid 4px #F2A81D");
+		      	$('#taxi_'+data.id).find("h1").css('border-right', "solid 4px rgb(144, 189, 60)");
 		      }else{
 		      	$('#taxi_'+data.id).find("h1").css('border-right', "solid 4px rgb(253, 64, 0)");
 		      }
