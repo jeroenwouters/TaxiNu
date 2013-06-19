@@ -842,9 +842,7 @@ font-weight: bold;
 @media only screen
 and (max-width: 908px){
 		.detail #address2 {
-margin-left: -200px !important;
-margin-top: 65px;
-margin-bottom: 10px;
+			margin-bottom: 10px;
 }
 .uur{
 	font-size: 20px !important;
@@ -964,7 +962,20 @@ and (max-width: 480px){
 		}
 	}
 
-
+	.detail{
+		label.error {
+			color: #c60f13;
+			position: absolute;
+			top: 441px;
+			left: 65px;
+			width: 200px;
+			text-align: center;
+			background-color:rgba(255,255,255,0.9);
+			padding: 20px;
+			.rounded(2px);
+			font-size: 13px;
+		}
+	}
 	
 	#pending{
 		height: auto !important;

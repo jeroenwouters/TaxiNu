@@ -38,24 +38,6 @@
 							</li>
 						<?php } ?>
 
-						<li id="152">
-								<p>AntwerpTax</p>
-								<p>Wachttijd: <span class="minutes">5</span> min.</p>
-								<a href="http://192.168.0.122:8888/TaxiNu/home/bevestig/152/1">
-								<button class="thoughtbot">Bevestig</button>
-								</a>
-								<br class="clear" />
-							</li>
-
-							<li id="152">
-								<p>AntwerpTax</p>
-								<p>Wachttijd: <span class="minutes">5</span> min.</p>
-								<a href="http://192.168.0.122:8888/TaxiNu/home/bevestig/152/1">
-								<button class="thoughtbot">Bevestig</button>
-								</a>
-								<br class="clear" />
-							</li>
-
 					</ul>
 					</section>
 				<br>

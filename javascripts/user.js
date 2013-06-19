@@ -98,6 +98,26 @@ $(function() {
 		}
     });
 
+          $('.detail form').validate({
+	    rules: { 
+		    adres1: {required: true},    
+		    adres2: {
+			required: true},
+		    tijd: {            
+			required: true}, 
+
+			personen: {
+				required: true
+			}
+		}, 	
+		messages: {
+			adres1: "Adres invullen aub",
+			adres2: "Adres invullen aub",
+			tijd: "Tijd/datum invullen aub",
+			personen: "Aantal personen invullen"
+		}
+    });
+
       }).listen();
     
 	

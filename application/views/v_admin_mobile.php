@@ -1,7 +1,7 @@
 
 	<header> 
 		<a id="simple-menu" href="#sidr"><img id="set" class="icon lefticon" id="world" src="<?php echo base_url();?>images/list.png"></a>
-		<img id="list" class="icon lefticon" id="world" src="<?php echo base_url();?>images/set.png">
+		<img id="list" class="icon lefticon" id="world" src="<?php echo base_url();?>images/taxi.png" width="10px">
 		<img id="logo" src="<?php echo base_url();?>images/logo.png" width="180px">
 		<img id="world" class="icon righticon"  src="<?php echo base_url();?>images/world.png">	
 		<img id="loc" class="icon righticon"  src="<?php echo base_url();?>images/loc.png">	
