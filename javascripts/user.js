@@ -1,141 +1,152 @@
-$.fn.bgloader = function(url){
+$.fn.bgloader = function(url) {
 	var t = this;
-	$(this).css({ 'display' : 'block' });
+	$(this).css({
+		'display': 'block'
+	});
 	$('<img />')
 		.attr('src', url)
-		.load(function(){ 
-			t.each(function(){ 
-				$(this)
-					.css('backgroundImage', "url('"+url+"')" )
-					.fadeIn(1);
-			});
+		.load(function() {
+		t.each(function() {
+			$(this)
+				.css('backgroundImage', "url('" + url + "')")
+				.fadeIn(1);
 		});
+	});
 	return this;
- }
+}
 
 $(document).ready(function() {
-    $("#first").each(function() { 
+	$("#first").each(function() {
 		$(this).bgloader($(this).data('bg'));
 	});
 
-    var now = moment().format('DD/MM/YYYY HH:mm ');
-    
-    $('#timedate').val(now); 
-	
+	var now = moment().format('DD/MM/YYYY HH:mm ');
 
-$(function() {
-      setTimeout(function() {
-    				$(".backslide li span").css("-webkit-animation-play-state", "paused");
-    				$(".backslide li span").css("-moz-animation-play-state", "paused");
-    				$(".backslide li span").css("-o-animation-play-state", "paused");
-    				$(".backslide li span").css("-ms-animation-play-state", "paused");
-    				$(".backslide li span").css("animation-play-state", "paused");
-            }, 32000);
-});
-	
+	$('#timedate').val(now);
 
 
-    if(!(navigator.userAgent.match(/(iPhone|iPod|iPad)/i))){
-    $('#timedate').datetimepicker({controlType: 'select'});
+	$(function() {
+		setTimeout(function() {
+			$(".backslide li span").css("-webkit-animation-play-state", "paused");
+			$(".backslide li span").css("-moz-animation-play-state", "paused");
+			$(".backslide li span").css("-o-animation-play-state", "paused");
+			$(".backslide li span").css("-ms-animation-play-state", "paused");
+			$(".backslide li span").css("animation-play-state", "paused");
+		}, 32000);
+	});
+
+
+	if (!(navigator.userAgent.match(/(iPhone|iPod|iPad)/i))) {
+		$('#timedate').datetimepicker({
+			controlType: 'select'
+		});
 	}
 
-	if(navigator.userAgent.match(/(iPhone|iPod|iPad)/i)){
-    	var now = moment().format('YYYY-MM-DDTHH:mmZ');
+	if (navigator.userAgent.match(/(iPhone|iPod|iPad)/i)) {
+		var now = moment().format('YYYY-MM-DDTHH:mmZ');
 		$('#timedate').val(now);
 
-	}	
+	}
 
 	enquire.register("screen and (min-width: 600px)", function() {
 
-          ///slideshow code here
- 		  
- 		  $('#address1').one("focus",function(){
- 		  		$('.bread').fadeIn();
- 		  		$('#animate').animate({
-				    top: '+=60'
-				  });
- 		  });
+		///slideshow code here
 
- 		  
- 		  $('.question_btn').one("click",function(){
- 		  		once = true; 
- 		  		$('.info').show().animate({
-				    top: '-=219', 
-				    opacity: '1.0'
-				  }, 1000, function() {
-				              $('.errors').fadeOut();
+		$('#address1').one("focus", function() {
+			$('.bread').fadeIn();
+			$('#animate').animate({
+				top: '+=60'
+			});
+		});
 
-				});
- 		  });
- 		
-      }).listen();
-      
-      enquire.register("screen and (max-width: 600px)", function() {
 
-      	$('#address1').one("focus",function(){
- 		  		$('.bread').fadeIn();
- 		  		$('#animate').animate({
-				    top: '+=120'
-				  });
- 		  		$('.search').animate({
-				    top: '+=80'
-				  });
- 		  });	
-          ///slideshow code here
-          $('.errors').delay(3000).fadeOut();
+		$('.question_btn').one("click", function() {
+			once = true;
+			$('.info').show().animate({
+				top: '-=219',
+				opacity: '1.0'
+			}, 1000, function() {
+				$('.errors').fadeOut();
 
-          $('.search form').validate({
-	    rules: { 
-		    adres1: {required: true},    
-		    adres2: {
-			required: true},
-		    tijd: {            
-			required: true}	
-		}, 	
-		messages: {
-			adres1: "Adres invullen aub",
-			adres2: "Adres invullen aub",
-			tijd: "Tijd/datum invullen aub"
-		}
-    });
+			});
+		});
 
-          $('.detail form').validate({
-	    rules: { 
-		    adres1: {required: true},    
-		    adres2: {
-			required: true},
-		    tijd: {            
-			required: true}, 
+	}).listen();
 
-			personen: {
-				required: true
+	enquire.register("screen and (max-width: 600px)", function() {
+
+		$('#address1').one("focus", function() {
+			$('.bread').fadeIn();
+			$('#animate').animate({
+				top: '+=120'
+			});
+			$('.search').animate({
+				top: '+=80'
+			});
+		});
+		///slideshow code here
+		$('.errors').delay(3000).fadeOut();
+
+		$('.search form').validate({
+			rules: {
+				adres1: {
+					required: true
+				},
+				adres2: {
+					required: true
+				},
+				tijd: {
+					required: true
+				}
+			},
+			messages: {
+				adres1: "Adres invullen aub",
+				adres2: "Adres invullen aub",
+				tijd: "Tijd/datum invullen aub"
 			}
-		}, 	
-		messages: {
-			adres1: "Adres invullen aub",
-			adres2: "Adres invullen aub",
-			tijd: "Tijd/datum invullen aub",
-			personen: "Aantal personen invullen"
-		}
-    });
+		});
 
-      }).listen();
-    
-	
+		$('.detail form').validate({
+			rules: {
+				adres1: {
+					required: true
+				},
+				adres2: {
+					required: true
+				},
+				tijd: {
+					required: true
+				},
+
+				personen: {
+					required: true
+				}
+			},
+			messages: {
+				adres1: "Adres invullen aub",
+				adres2: "Adres invullen aub",
+				tijd: "Tijd/datum invullen aub",
+				personen: "Aantal personen invullen"
+			}
+		});
+
+	}).listen();
+
+
 	var user_input1 = document.getElementById('address1');
 	var user_input2 = document.getElementById('address2');
 	var options = {
-		 types: ['geocode']
-		 };
-	
+		types: ['geocode']
+	};
+
 	userAutocomplete = new google.maps.places.Autocomplete(user_input1, options);
 	userAutocomplete = new google.maps.places.Autocomplete(user_input2, options);
-	
+
 	$("#help").click(function() {
-      $("#loginhelp").reveal();
-    });
- 
-    /*
+		$("#loginhelp").reveal();
+	});
+
+	/*
     $('#facebooklogin').click(function(){
 	    console.log('test');
 	    $('#order').removeClass('nonactive');
@@ -143,140 +154,159 @@ $(function() {
 	*/
 	//Op da form in die box moet jquery validatie komen zodat als die velden zijn ingevuld dat die dan in hidden fields worden gezeten. 
 	//Zodat die mee worden gestuurd met de rest van de info in de POST.         
-    
-    $('#form1').validate({
-	    rules: { 
-		    NaamBox: {required: true,
-			          minlength: 3},    
-		    TelBox: {
-			required: true, 
-			digits: true},
-		    EmailBox: {            
-			required: true, 
-			email: true }	
-		}, 	
+
+	$('#form1').validate({
+		rules: {
+			NaamBox: {
+				required: true,
+				minlength: 3
+			},
+			TelBox: {
+				required: true,
+				digits: true
+			},
+			EmailBox: {
+				required: true,
+				email: true
+			}
+		},
 		messages: {
 			NaamBox: "Gelieve uw naam in te voeren",
 			TelBox: "Gelieve uw telefoonnr. zonder tekens in te voeren.",
 			EmailBox: "Gelieve een geldig emailadres in te geven."
 		}
-    });
+	});
 
-    $('#update').validate({
-	    rules: { 
-		    NaamBox: {required: true,
-			          minlength: 3},    
-		    TelBox: {
-			required: true, 
-			digits: true},
-		    EmailBox: {            
-			required: true, 
-			email: true }	
-		}, 	
+	$('#update').validate({
+		rules: {
+			NaamBox: {
+				required: true,
+				minlength: 3
+			},
+			TelBox: {
+				required: true,
+				digits: true
+			},
+			EmailBox: {
+				required: true,
+				email: true
+			}
+		},
 		messages: {
 			NaamBox: "Gelieve uw naam in te voeren",
 			TelBox: "Gelieve uw telefoonnr. zonder tekens in te voeren.",
 			EmailBox: "Gelieve een geldig emailadres in te geven."
 		}
-    });
+	});
 
-    $('#login').validate({
-	    rules: { 
-		    loginemail: {            
-			required: true, 
-			email: true }	
-		}, 	
+	$('#login').validate({
+		rules: {
+			loginemail: {
+				required: true,
+				email: true
+			}
+		},
 		messages: {
 			loginemail: "Geen geldig emailadres."
 		}
-    });
-    
-    $('#verder').click(function(){
-    	
-    	var valid = $('#form1').valid(); 
-    	
-    	if(valid){
-    		$.post("register", { naam: $("input[name=NaamBox]").val(), tel: $("input[name=TelBox]").val(), email: $("input[name=EmailBox]").val(), pass: $("input[name=password]").val() },
-    		function(data){
-    			if(data == 0){
-					$(".logindup").fadeIn().delay(1000).fadeOut();    			}else{
-    				modelok($("input[name=NaamBox]").val(), $("input[name=EmailBox]").val(), $("input[name=TelBox]").val());
-    			}
-    		});
-    	}else{
-	    	
-	    	alert("Geen correcte gegevens!"); 
-	    	
-    	}
-
-    });
-
-    $(".loginerror, .logindup").hide();
-
-	$('#loginbtn').click(function(){
-		var valid = $('#login').valid();
-		var data = {username: $("input[name=loginemail]").val() ,password: $("input[name=loginpass]").val()};
-
-    	if(valid){
-    		$.ajax({
-			  type: 'POST',
-			  url: 'login',
-			  data: data,
-			  dataType: 'json',
-			  success: function(jsonData) {
-			  		if(jsonData != "false"){
-			  			console.log(jsonData);
-			  			modelok(jsonData[0].naam, jsonData[0].email, jsonData[0].tel);
-			  		}else{
-			  			$(".loginerror").fadeIn().delay(1000).fadeOut();
-			  		}
-			  	}
-    		});
-    	}
 	});
-      
-      
-    $("#location").click(function(){huidigeLocatie();});
-    
-   
-    $("#userswitch").click(function () {
+
+	$('#verder').click(function() {
+
+		var valid = $('#form1').valid();
+
+		if (valid) {
+			$.post("register", {
+				naam: $("input[name=NaamBox]").val(),
+				tel: $("input[name=TelBox]").val(),
+				email: $("input[name=EmailBox]").val(),
+				pass: $("input[name=password]").val()
+			}, function(data) {
+				if (data == 0) {
+					$(".logindup").fadeIn().delay(1000).fadeOut();
+				} else {
+					modelok($("input[name=NaamBox]").val(), $("input[name=EmailBox]").val(), $("input[name=TelBox]").val());
+				}
+			});
+		} else {
+
+			alert("Geen correcte gegevens!");
+
+		}
+
+	});
+
+	$(".loginerror, .logindup").hide();
+
+	$('#loginbtn').click(function() {
+		var valid = $('#login').valid();
+		var data = {
+			username: $("input[name=loginemail]").val(),
+			password: $("input[name=loginpass]").val()
+		};
+
+		if (valid) {
+			$.ajax({
+				type: 'POST',
+				url: 'login',
+				data: data,
+				dataType: 'json',
+				success: function(jsonData) {
+					if (jsonData != "false") {
+						console.log(jsonData);
+						modelok(jsonData[0].naam, jsonData[0].email, jsonData[0].tel);
+					} else {
+						$(".loginerror").fadeIn().delay(1000).fadeOut();
+					}
+				}
+			});
+		}
+	});
+
+
+	$("#location").click(function() {
+		huidigeLocatie();
+	});
+
+
+	$("#userswitch").click(function() {
 		$(".switch").toggle();
 
-		var btntext = $("#userswitch").text(); 
+		var btntext = $("#userswitch").text();
 
-		if(btntext == "bestaande klant"){
+		if (btntext == "bestaande klant") {
 			$("#userswitch").text("nieuwe klant");
-		}else{
+		} else {
 			$("#userswitch").text("bestaande klant");
 		}
 
 	});
 
-    $('.profile_user').hide();
+	$('.profile_user').hide();
 
-	$("#click_profile").click(function(){
+	$("#click_profile").click(function() {
 		$('.user_ritten').hide();
-    	$('.profile_user').show();
-    	$("#click_profile").addClass('active');
-    	$("#click_rit").removeClass('active');
+		$('.profile_user').show();
+		$("#click_profile").addClass('active');
+		$("#click_rit").removeClass('active');
 
-	}); 
+	});
 
 
-	$("#click_rit").click(function(){
+	$("#click_rit").click(function() {
 		$('.profile_user').hide();
-		$('.user_ritten').show();	
+		$('.user_ritten').show();
 		$("#click_rit").addClass('active');
 		$("#click_profile").removeClass('active');
 
-	}); 
+	});
 
-	 $(".user_set").click(function() {
-      $("#usersettings_modal").reveal();
- 	});
+	$(".user_set").click(function() {
+		$("#usersettings_modal").reveal();
+	});
 
-	
- //    function pulse(){
+
+	//    function pulse(){
 	// 	$('#bedrijven li').animate({backgroundColor: '#f3f3f3'}, 2000);
 	// 	$('#bedrijven li').animate({backgroundColor: '#fbbaba'}, 2000);
 	// }
@@ -287,74 +317,76 @@ $(function() {
 
 	$('.set img, .user_set img').hover(function() {
 
-	    var angle = 0,
-	        $this = $(this);
+		var angle = 0,
+			$this = $(this);
 
-	    timer = setInterval(function() {
-	        angle += 4;
-	        $this.rotate(angle);
-	    }, 50);
-	},
-	function() {
+		timer = setInterval(function() {
+			angle += 4;
+			$this.rotate(angle);
+		}, 50);
+	}, function() {
 
-	    timer && clearInterval(timer);
-	    $(this).rotate(0);
+		timer && clearInterval(timer);
+		$(this).rotate(0);
 	});
 
-    
+
 });
 
 
-function huidigeLocatie(){
-	 getGPS();
- }
+function huidigeLocatie() {
+	getGPS();
+}
 
 function getGPS() {
-	if (navigator.geolocation) {  
+	if (navigator.geolocation) {
 		navigator.geolocation.getCurrentPosition(showGPS, gpsError);
-	} else {  
-		alert("No GPS Functionality.");  
+	} else {
+		alert("No GPS Functionality.");
 	}
 }
 
 function gpsError(error) {
-	alert("GPS Error: "+error.code+", "+error.message);
+	alert("GPS Error: " + error.code + ", " + error.message);
 }
 
 function showGPS(position) {
-	 codeLatLng(position.coords.latitude, position.coords.longitude);
-	}
+	codeLatLng(position.coords.latitude, position.coords.longitude);
+}
 
 function codeLatLng(lat, lng) {
 	geocoder = new google.maps.Geocoder();
-    var latlng = new google.maps.LatLng(lat, lng);
-    geocoder.geocode({'latLng': latlng}, function(results, status) {
-      if (status == google.maps.GeocoderStatus.OK) {
-      	console.log(results);
-        if (results[1]) {
-          $("#address1").val(results[0].formatted_address);
-        }
-      } else {
-        alert("Adres niet gevonden: " + status);
-      }
-    });
+	var latlng = new google.maps.LatLng(lat, lng);
+	geocoder.geocode({
+		'latLng': latlng
+	}, function(results, status) {
+		if (status == google.maps.GeocoderStatus.OK) {
+			console.log(results);
+			if (results[1]) {
+				$("#address1").val(results[0].formatted_address);
+			}
+		} else {
+			alert("Adres niet gevonden: " + status);
+		}
+	});
 }
 
-function modelok(naam, email, tel){
+function modelok(naam, email, tel) {
 	$.ajax({
-		  type: 'GET',
-		  url: 'http://maps.googleapis.com/maps/api/distancematrix/json?origins='+$("input[name=adres1]").val()+'&destinations='+$("input[name=adres2]").val()+'&sensor=false',
-		  dataType: 'json',
-		  success: function(jsonData) {
-		  	 $("input[name=Afstand]").val(jsonData.rows[0].elements[0].distance.text);
-    	 	 $("input[name=naam]").val(naam);
-	    	 $("input[name=tel]").val(tel);
-	    	 $("input[name=email]").val(email);
-	    	 $('#order').show();
-	    	 $('#help').css('margin-top','-56px').addClass('hidehelp');
-	    	 // $('#order').removeClass('nonactive').removeAttr("disabled");
-	    	 $('#loginhelp').trigger('reveal:close');
-	    	 $('#help').css("opacity", "0.0").css("cursor", "default").attr("disabled", "disabled"); 
-		  	},
-		 });
+		type: 'GET',
+		url: 'http://maps.googleapis.com/maps/api/distancematrix/json?origins=' + $("input[name=adres1]").val() + '&destinations=' + $("input[name=adres2]").val() + '&sensor=false',
+		dataType: 'json',
+		success: function(jsonData) {
+			$("input[name=Afstand]").val(jsonData.rows[0].elements[0].distance.text);
+			$("input[name=naam]").val(naam);
+			$("input[name=tel]").val(tel);
+			$("input[name=email]").val(email);
+			$('#order').show();
+			$('#help').css('margin-top', '-56px').addClass('hidehelp');
+			// $('#order').removeClass('nonactive').removeAttr("disabled");
+			$('#loginhelp').trigger('reveal:close');
+			$('#help').css("opacity", "0.0").css("cursor", "default").attr("disabled", "disabled");
+		},
+	});
+
 }

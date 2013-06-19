@@ -93,7 +93,7 @@ class Admin extends CI_Controller {
 		}
 		else
 		{
-			$this->load->view('v_login');
+			redirect('admin');
 		}
    }
    
@@ -125,7 +125,7 @@ class Admin extends CI_Controller {
    	$this->db->insert('gcm', $_POST);
    }
   
-   public function getuser()
+    function getuser()
 	{
 		if($this->session->userdata('logged_in')){
 			$data = $this->session->userdata('logged_in');

@@ -38,12 +38,13 @@
 		
 				<div class="twelve columns">
 					<div class="profupdate">
-					<form onsubmit="return false" id="update"> 
+					<form action="<?php echo base_url;?>home/user_save" method="post" id="update"> 
 						<?php foreach ($query->result() as $r) { ?>
-						  	<input type="text" name="NaamBox" placeholder="Naam" value="<?php echo $r->naam;?>">
-						  	<input type="text" name="TelBox" placeholder="Telefoonnummer" value="<?php echo $r->tel;?>">
-						  	<input type="text" name="EmailBox" placeholder="E-mail" value="<?php echo $r->email;?>">
-						    <input type="password" name="password" placeholder="Wachtwoord">
+							<input type="hidden" value="<?php echo $r->id;?>">
+						  	<input type="text" name="naam" placeholder="Naam" value="<?php echo $r->naam;?>">
+						  	<input type="text" name="tel" placeholder="Telefoonnummer" value="<?php echo $r->tel;?>">
+						  	<input type="text" name="email" placeholder="E-mail" value="<?php echo $r->email;?>">
+						    <input type="password" name="pass" placeholder="Wachtwoord">
 						  	<button class="thoughtbot" type="submit" id="verder">Wijzigen</button>
 					  	<?php } ?>
 					</form>
