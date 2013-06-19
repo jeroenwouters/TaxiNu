@@ -843,18 +843,51 @@ font-weight: bold;
 and (max-width: 908px){
 		.detail #address2 {
 			margin-bottom: 10px;
+			margin-top: 10px;
+			float: left;
+			margin-left: 0px;
 }
 .uur{
 	font-size: 20px !important;
 	width: 170px !important;
 	margin-left: -85px !important;
 }
+
+.detail {
+		margin-top: 200px !important;
+
+	}
+.maps{
+	margin-top: 220px;
+}
+
+#order{
+margin-left: -230px;
+margin-top: 62px;}
+
 }
 
 @media only screen
 and (max-width: 766px){
 		[class*="column"]+[class*="column"]:last-child {
 	float: none !important;
+}
+
+.detail #address2 {
+			margin-bottom: 10px;
+			margin-top: 0px;
+			float: left;
+			margin-left: 30px;
+}
+
+}
+
+@media only screen
+and (max-width: 530px){
+.detail #address2 {
+	margin-top: 0px;
+			float: left;
+			margin-left: 10px;
 }
 
 }
@@ -1008,6 +1041,11 @@ and (max-width: 480px){
 		height: auto;
 		position: fixed;
 		z-index: 99999999;
+
+		button.thoughtbot {
+			height: 60px;
+			width: 150px;
+		}
 	}
 
 	h1{
@@ -1057,8 +1095,8 @@ and (max-width: 480px){
 	}
 	
 	#order{
-		margin-left: 0px !important;	
-		display: none;
+		margin-left: 10px !important;
+margin-top: 0px;
 	}
 	
 	#help{
@@ -1069,7 +1107,7 @@ and (max-width: 480px){
 	#address2{
 		margin-left: 10px !important;
 		margin-bottom: 0px;
-		margin-top: 10px;
+		margin-top: 10px !important; 
 		
 	}	
 	
@@ -1155,5 +1193,14 @@ and (max-width: 1024px){
 
 	.info{
 		display:none;
+	}
+
+	.reveal-modal, .reveal-modal.small, .reveal-modal.medium, .reveal-modal.large, .reveal-modal.xlarge {
+		
+
+		button.thoughtbot {
+			height: 60px;
+			width: 150px;
+		}
 	}
 }	 
