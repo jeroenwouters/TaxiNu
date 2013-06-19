@@ -45,7 +45,8 @@ class Api extends REST_Controller
     	$status['Status'] = $data['status'];
     	$status['Wachttijd'] = $data['wachttijd'];
         $status['fkTaxi'] = $data['taxi'];
-    	
+    	$bestelling['naam'] = $data['naam'];
+
     	$sessiondata = $this->session->userdata('logged_in');
     	
     	$status['fkUser'] = $sessiondata['id'];
@@ -53,7 +54,6 @@ class Api extends REST_Controller
 		$this->load->model('m_status');
 		$return = $this->m_status->insert($status);
 		$status['Username'] = $sessiondata['username'];
-
 		
         $this->load->model('m_bestellingen');
         $query = $this->m_bestellingen->getbyid($data['id']);
@@ -63,7 +63,7 @@ class Api extends REST_Controller
             $bestelling['adres2'] = $r->Adres2;
             $bestelling['tijd'] = $r->Tijd; 
             $bestelling['personen'] = $r->Personen; 
-            $bestelling['naam'] = $r->Naam; 
+            // $bestelling['naam'] = $r->Naam; 
             $bestelling['tel'] = $r->Tel; 
             $bestelling['status'] = $r->Status; 
             $bestelling['afgerond'] = $r->Afgerond; 

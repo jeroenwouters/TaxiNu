@@ -44,6 +44,7 @@ var User = Backbone.Model.extend({
 		var channel = pusher.subscribe('admin_all');
 	    channel.bind('taxi_'+current_taxi_id, function(data) {
 	    	var newrit = new Rit(data);
+	    	console.log(newrit);
     		AdminPanel.rittenList.add(newrit);
 	    });
 	    $.ajax({
