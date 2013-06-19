@@ -40,8 +40,8 @@ $(function() {
 	}
 
 	if(navigator.userAgent.match(/(iPhone|iPod|iPad)/i)){
-    	    $('#timedate').val(new Date().toJSON().slice(0,10));
-
+    	var now = moment().format('YYYY-MM-DDTHH:mmZ');
+		$('#timedate').val(now);
 	}	
 
 	enquire.register("screen and (min-width: 600px)", function() {
