@@ -36,6 +36,14 @@
                 channel2.bind('taxi_destroy_'+taxi, function(data) {
                      changetaxi(data.nieuwtaxi);  
                 });
+            channel.bind('taxis', function(data) {
+                var myLatLng = new google.maps.LatLng(data.lat,data.lang);
+                if(marker[data.taxi]){
+                  marker[data.taxi] = (new google.maps.Marker( {position: myLatLng, map: map, icon: base_url+'images/taxi.png', width: '10px'} ));
+                }else{
+                  marker[data.taxi].setPosition(myLatLng);
+                }
+            });
 
         });
 

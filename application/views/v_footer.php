@@ -100,21 +100,45 @@
   <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.10.0/jquery.validate.js"></script>
   <script src="<?php echo base_url();?>javascripts/timepicker.js"></script>
   <script src="<?php echo base_url();?>javascripts/jquery.foundation.reveal.js"></script>
-   
+       <script src="http://js.pusher.com/1.12/pusher.min.js" type="text/javascript"></script>
+
    <?php if($this->uri->segment(2) == ''){?>   
 <script src="http://maps.google.com/maps?file=api&v=2&key=AIzaSyBJGHEABxmLTzSTZ0HGDlmBMTuX1ktrsBc" type="text/javascript"></script>
     <script>
     $(document).ready(function() {
+      Pusher.channel_auth_endpoint = 'pusher/auth.php';
+      var pusher = new Pusher('b075ffa0df361cc21bda');
+      var channel = pusher.subscribe('private-alltaxi');
+      var mapOptions = {
+                    zoom: 13,
+                      center: new google.maps.LatLng(51.283333,4.483333),
+                      mapTypeId: google.maps.MapTypeId.ROADMAP,
+                      scrollwheel: false,
+                    }
+      var map = new google.maps.Map(document.getElementById('homemap'),mapOptions);
+        var markers = [];
+         Pusher.log = function(message) {
+           if (window.console && window.console.log) window.console.log(message);
+         };
 
-    var mapOptions = {
-                  zoom: 13,
-                    center: new google.maps.LatLng(51.283333,4.483333),
-                    mapTypeId: google.maps.MapTypeId.ROADMAP,
-                    scrollwheel: false,
-                  }
-    var map = new google.maps.Map(document.getElementById('homemap'),mapOptions);
-    var myLatLng = new google.maps.LatLng(51.283333,4.483333);
-    var marker = new google.maps.Marker( {position: myLatLng, map: map, icon: '<?php echo base_url();?>/images/taxi.png', width: '10px'} );
+         channel.bind('client-taxis', function(data) {
+            var myLatLng = new google.maps.LatLng(data.lat,data.lang);
+            // if(markers[data.taxi]){
+            //   markers[data.taxi] = (new google.maps.Marker( {position: myLatLng, map: map, icon: base_url+'images/taxi.png', width: '10px'} ));
+            // }else{
+            //   markers[data.taxi].setPosition(myLatLng);
+            // }
+            var newtaxi = 1;
+            for(var i = 0; i < markers.length; i++) {
+               if(markers[i].id === data.taxi) {
+                 markers[i].marker.setPosition(myLatLng);
+                 newtaxi = 0;
+               }
+            }
+            if( newtaxi == 1){
+             markers.push({id: data.taxi, marker: new google.maps.Marker( {position: myLatLng, map: map, icon: base_url+'images/taxi.png', width: '10px'} )});
+            }
+        });
     });
   </script>
 <?php } ?>
@@ -138,7 +162,6 @@
             }, 32000);
 });
     </script>
-    <script src="http://js.pusher.com/1.12/pusher.min.js" type="text/javascript"></script>
     <script src="<?php echo base_url();?>javascripts/maps_bevestig.js"></script>
   <?php } else{ ?>
     

@@ -6,6 +6,7 @@ var current_user_id;
 var current_user_login;
 var pauze = 0;
 var channel2;
+var channel3;
 var passagier = 0;
 
 //map vals
@@ -38,6 +39,7 @@ var User = Backbone.Model.extend({
 		current_user_login = data.username;
 		console.log(current_user_id);
 		channel2 = pusher.subscribe('private-bedrijf_'+data.fkUser);
+		channel3 = pusher.subscribe('private-alltaxi');
 		AdminPanel.rittenList.fetch( { data: { userid: data.id} });
 		var channel = pusher.subscribe('admin_all');
 	    channel.bind('taxi_'+current_taxi_id, function(data) {
@@ -382,6 +384,7 @@ function gotPosition(position) {
 
   map.fitBounds(markerBounds);
    channel2.trigger('client-taxi_'+current_taxi_id, { lat: position.coords.latitude, lang: position.coords.longitude });
+   channel3.trigger('client-taxis', { lat: position.coords.latitude, lang: position.coords.longitude, taxi: current_taxi_id });
    var regids = new Array();
 	AdminPanel.rittenList.forEach(function(rit){
 		if(rit.get('regid') != ""){
