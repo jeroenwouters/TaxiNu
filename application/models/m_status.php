@@ -61,6 +61,11 @@ Class M_status extends CI_Model
 		$this->db->delete('tblStatus');
 	}
 
+	function deleteid($fkBestelling){
+		$this->db->where('fkBestelling', $fkBestelling);
+		$this->db->delete('tblStatus');
+	}
+
 	function delete_over($fkBestelling, $fkUser){
 		$this->db->query('DELETE FROM tblStatus WHERE fkBestelling='.$fkBestelling.' AND fkUser!='.$fkUser.';');
 	}
@@ -74,5 +79,10 @@ Class M_status extends CI_Model
 		$this->db->insert('tblStatus', $data);
 	}
 
+	function getbyfk($id){
+		$this->db->where('fkBestelling', $id);
+		$query = $this->db->get('tblStatus');
+		return($query);
+	}
 }
 ?>
