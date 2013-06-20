@@ -10,6 +10,7 @@ var map_model;
 var geocoder = new google.maps.Geocoder();
 var markerBounds = new google.maps.LatLngBounds();
 var directionsDisplay;
+
 //Models
 
 var Bestelling = Backbone.Model.extend({
@@ -399,7 +400,6 @@ var channel = pusher.subscribe('admin_all');
 channel.bind('taxi_bestelt', function(data) {
 	var newbestelling = new Bestelling(data);
 	AdminPanel.bestellingList.add(newbestelling);
-	//AdminPanel.bestellingList.fetch();
 });
 console.log('admin_' + $('#hiddenid').val());
 channel.bind('admin_' + $('#hiddenid').val(), function(data) {

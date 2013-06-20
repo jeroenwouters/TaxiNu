@@ -51,6 +51,9 @@ var User = Backbone.Model.extend({
 						AdminPanel.rittenList.add(newrit);
 					}
 				});
+			}else{
+				var newrit = new Rit(data);
+				AdminPanel.rittenList.add(newrit);
 			}
 
 		});

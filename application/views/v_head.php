@@ -24,10 +24,9 @@
 " href="<?php echo base_url();?>stylesheets/foundation.min.css">
 <link rel="stylesheet" href="<?php echo base_url();?>stylesheets/app.css">
 <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>stylesheets/background.css" />
-<link rel="stylesheet/less" type="text/css" href="<?php echo base_url();?>stylesheets/styles.less">
+<link rel="stylesheet/less" type="text/css" href="<?php echo base_url();?>css/styles.css">
 <link rel="stylesheet" media="all" type="text/css" href="http://code.jquery.com/ui/1.9.1/themes/smoothness/jquery-ui.css" />
 <meta name="viewport" content="user-scalable=yes">
-
 <script src="<?php echo base_url();?>javascripts/jquery.js"></script>
 
 <script>

@@ -83,13 +83,5 @@ $(document).ready(function() {
 <script src="<?php echo base_url();?>javascripts/user.js"></script>
 <?php } ?>
 
-
-
-
-
-<!-- Initialize JS Plugins -->
-
-
-
 </body>
 </html>

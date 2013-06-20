@@ -21,7 +21,7 @@
 <!-- Included CSS Files (Compressed) -->
 <link rel="stylesheet" href="<?php echo base_url();?>stylesheets/foundation.min.css">
 <link rel="stylesheet" href="<?php echo base_url();?>stylesheets/app.css">
-<link rel="stylesheet/less" type="text/css" href="<?php echo base_url();?>stylesheets/admin_mobile.less">
+<link rel="stylesheet/less" type="text/css" href="<?php echo base_url();?>css/admin_mobile.css">
 <link rel="stylesheet/less" type="text/css" href="<?php echo base_url();?>stylesheets/jquery.sidr.light.css">
 
 <link rel="stylesheet" media="all" type="text/css" href="http://code.jquery.com/ui/1.9.1/themes/smoothness/jquery-ui.css" />
