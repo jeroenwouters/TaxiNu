@@ -15,7 +15,7 @@
 |
 */
 
-$config['base_url']	= 'http://localhost:8888/TaxiNu/';
+$config['base_url']	= 'http://192.168.0.240:8888/TaxiNu/';
 
 
 /*

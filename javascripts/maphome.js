@@ -40,4 +40,10 @@
        });
      }
    });
+
+   //timepicker ios
+   if (navigator.userAgent.match(/(iPhone|iPod|iPad)/i)) {
+    var now = moment().format('YYYY-MM-DDTHH:mmZ');
+    $('#timedate').val(now);
+    }
  });
