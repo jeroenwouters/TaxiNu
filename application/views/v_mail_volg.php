@@ -1,29 +1,29 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-	<head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <title>Taxinu.be Mail</title>
-        <style type="text/css">
-			/* /\/\/\/\/\/\/\/\/ CLIENT-SPECIFIC STYLES /\/\/\/\/\/\/\/\/ */
-			#outlook a{padding:0;} /* Force Outlook to provide a "view in browser" message */
-			.ReadMsgBody{width:100%;} .ExternalClass{width:100%;} /* Force Hotmail to display emails at full width */
-			.ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div {line-height: 100%;} /* Force Hotmail to display normal line spacing */
-			body, table, td, p, a, li, blockquote{-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%;} /* Prevent WebKit and Windows mobile changing default text sizes */
-			table, td{mso-table-lspace:0pt; mso-table-rspace:0pt;} /* Remove spacing between tables in Outlook 2007 and up */
-			img{-ms-interpolation-mode:bicubic;} /* Allow smoother rendering of resized image in Internet Explorer */
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Taxinu.be Mail</title>
+	<style type="text/css">
+	/* /\/\/\/\/\/\/\/\/ CLIENT-SPECIFIC STYLES /\/\/\/\/\/\/\/\/ */
+	#outlook a{padding:0;} /* Force Outlook to provide a "view in browser" message */
+	.ReadMsgBody{width:100%;} .ExternalClass{width:100%;} /* Force Hotmail to display emails at full width */
+	.ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div {line-height: 100%;} /* Force Hotmail to display normal line spacing */
+	body, table, td, p, a, li, blockquote{-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%;} /* Prevent WebKit and Windows mobile changing default text sizes */
+	table, td{mso-table-lspace:0pt; mso-table-rspace:0pt;} /* Remove spacing between tables in Outlook 2007 and up */
+	img{-ms-interpolation-mode:bicubic;} /* Allow smoother rendering of resized image in Internet Explorer */
 
-			/* /\/\/\/\/\/\/\/\/ RESET STYLES /\/\/\/\/\/\/\/\/ */
-			body{margin:0; padding:0;}
-			img{border:0; height:auto; line-height:100%; outline:none; text-decoration:none;}
-			table{border-collapse:collapse !important;}
-			body, #bodyTable, #bodyCell{height:100% !important; margin:0; padding:0; width:100% !important;}
+	/* /\/\/\/\/\/\/\/\/ RESET STYLES /\/\/\/\/\/\/\/\/ */
+	body{margin:0; padding:0;}
+	img{border:0; height:auto; line-height:100%; outline:none; text-decoration:none;}
+	table{border-collapse:collapse !important;}
+	body, #bodyTable, #bodyCell{height:100% !important; margin:0; padding:0; width:100% !important;}
 
-			/* /\/\/\/\/\/\/\/\/ TEMPLATE STYLES /\/\/\/\/\/\/\/\/ */
+	/* /\/\/\/\/\/\/\/\/ TEMPLATE STYLES /\/\/\/\/\/\/\/\/ */
 
-			#bodyCell{padding:20px;}
-			#templateContainer{width:600px;}
+	#bodyCell{padding:20px;}
+	#templateContainer{width:600px;}
 
-			/* ========== Page Styles ========== */
+	/* ========== Page Styles ========== */
 
 			/**
 			* @tab Page
@@ -318,10 +318,10 @@
 
 			/* /\/\/\/\/\/\/\/\/ MOBILE STYLES /\/\/\/\/\/\/\/\/ */
 
-            @media only screen and (max-width: 480px){
+			@media only screen and (max-width: 480px){
 				/* /\/\/\/\/\/\/ CLIENT-SPECIFIC MOBILE STYLES /\/\/\/\/\/\/ */
 				body, table, td, p, a, li, blockquote{-webkit-text-size-adjust:none !important;} /* Prevent Webkit platforms from changing default text sizes */
-                body{width:100% !important; min-width:100% !important;} /* Prevent iOS Mail from adding padding to the body */
+				body{width:100% !important; min-width:100% !important;} /* Prevent iOS Mail from adding padding to the body */
 
 				/* /\/\/\/\/\/\/ MOBILE RESET STYLES /\/\/\/\/\/\/ */
 				#bodyCell{padding:10px !important;}
@@ -442,91 +442,91 @@
 
 				.footerContent a{display:block !important;} /* Place footer social and utility links on their own lines, for easier access */
 			}
-		</style>
-    </head>
-    <body leftmargin="0" marginwidth="0" topmargin="0" marginheight="0" offset="0">
-    	<center>
-        	<table align="center" border="0" cellpadding="0" cellspacing="0" height="100%" width="100%" id="bodyTable">
-            	<tr>
-                	<td align="center" valign="top" id="bodyCell">
-                    	<!-- BEGIN TEMPLATE // -->
-                    	<table border="0" cellpadding="0" cellspacing="0" id="templateContainer">
-                        	<tr>
-                            	<td align="center" valign="top">
-                                	<!-- BEGIN PREHEADER // -->
-                                    <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templatePreheader">
-                                        <tr>
-                                            <td valign="top" class="preheaderContent" style="padding-top:10px; padding-right:20px; padding-bottom:10px; padding-left:20px;" mc:edit="preheader_content00">
-                                                Taxinu.be - Taxibestelling
-                                            </td>
-                                           
-                                        </tr>
-                                    </table>
-                                    <!-- // END PREHEADER -->
-                                </td>
-                            </tr>
-                        	<tr>
-                            	<td align="center" valign="top">
-                                	<!-- BEGIN HEADER // -->
-                                    <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templateHeader">
-                                        <tr>
-                                            <td valign="top" class="headerContent">
-                                            	<img src="<?php echo base_url();?>images/mail-header.jpg" style="max-width:600px;" id="headerImage" mc:label="header_image" mc:edit="header_image" mc:allowdesigner mc:allowtext />
-                                            </td>
-                                        </tr>
-                                    </table>
-                                    <!-- // END HEADER -->
-                                </td>
-                            </tr>
-                        	<tr>
-                            	<td align="center" valign="top">
-                                	<!-- BEGIN BODY // -->
-                                    <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templateBody">
-                                        <tr>
-                                            <td valign="top" class="bodyContent" mc:edit="body_content00">
-                                                <h1>Taxinu.be - Bestelling</h1>
-                                                <h3>Bedankt voor uw bestelling:</h3>
+			</style>
+		</head>
+		<body leftmargin="0" marginwidth="0" topmargin="0" marginheight="0" offset="0">
+			<center>
+				<table align="center" border="0" cellpadding="0" cellspacing="0" height="100%" width="100%" id="bodyTable">
+					<tr>
+						<td align="center" valign="top" id="bodyCell">
+							<!-- BEGIN TEMPLATE // -->
+							<table border="0" cellpadding="0" cellspacing="0" id="templateContainer">
+								<tr>
+									<td align="center" valign="top">
+										<!-- BEGIN PREHEADER // -->
+										<table border="0" cellpadding="0" cellspacing="0" width="100%" id="templatePreheader">
+											<tr>
+												<td valign="top" class="preheaderContent" style="padding-top:10px; padding-right:20px; padding-bottom:10px; padding-left:20px;" mc:edit="preheader_content00">
+													Taxinu.be - Taxibestelling
+												</td>
 												
-												Volg <a href="<?php echo base_url();?>home/volgtaxi/<?php echo $idbestelling;?>/<?php echo $iduser;?>"/>hier</a> u taxi.
+											</tr>
+										</table>
+										<!-- // END PREHEADER -->
+									</td>
+								</tr>
+								<tr>
+									<td align="center" valign="top">
+										<!-- BEGIN HEADER // -->
+										<table border="0" cellpadding="0" cellspacing="0" width="100%" id="templateHeader">
+											<tr>
+												<td valign="top" class="headerContent">
+													<img src="<?php echo base_url();?>images/mail-header.jpg" style="max-width:600px;" id="headerImage" mc:label="header_image" mc:edit="header_image" mc:allowdesigner mc:allowtext />
+												</td>
+											</tr>
+										</table>
+										<!-- // END HEADER -->
+									</td>
+								</tr>
+								<tr>
+									<td align="center" valign="top">
+										<!-- BEGIN BODY // -->
+										<table border="0" cellpadding="0" cellspacing="0" width="100%" id="templateBody">
+											<tr>
+												<td valign="top" class="bodyContent" mc:edit="body_content00">
+													<h1>Taxinu.be - Bestelling</h1>
+													<h3>Bedankt voor uw bestelling:</h3>
+													
+													Volg <a href="<?php echo base_url();?>home/volgtaxi/<?php echo $idbestelling;?>/<?php echo $iduser;?>"/>hier</a> u taxi.
 
-	                                            </td>
-                                        </tr>
-                                    	<tr>
-                                        	<td class="bodyContent" style="padding-top:0; padding-bottom:0;">
-                                            	<img src="<?php echo base_url();?>images/mail-middle.jpg" style="max-width:560px;" id="bodyImage" mc:label="body_image" mc:edit="body_image" mc:allowtext />
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td valign="top" class="bodyContent" mc:edit="body_content01">
-                                                <h2>Taxinu.be</h2>
-                                                <h4>Informatie over onze diensten</h4>
-                                            	Taxinu is een online taxi besteldienst, deze stelt de gebruiker instaat om op al zijn devices snel en eenvoudig een taxi te bestellen! Hebt u helemaal geen taxi besteld? Reply op deze mail de als antwoord jouw probleem! 
-                                            </td>
-                                        </tr>
-                                    </table>
-                                    <!-- // END BODY -->
-                                </td>
-                            </tr>
-                        	<tr>
-                            	<td align="center" valign="top">
-                                	<!-- BEGIN FOOTER // -->
-                                    <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templateFooter">
-                                        <tr>
-                                            <td valign="top" class="footerContent" mc:edit="footer_content00">
-                                               <a href="#">Bestelling doorsturen</a>&nbsp;
-                                            </td>
-                                        </tr>
-                                     
-                                  
-                                    </table>
-                                    <!-- // END FOOTER -->
-                                </td>
-                            </tr>
-                        </table>
-                        <!-- // END TEMPLATE -->
-                    </td>
-                </tr>
-            </table>
-        </center>
-    </body>
-</html>
+												</td>
+											</tr>
+											<tr>
+												<td class="bodyContent" style="padding-top:0; padding-bottom:0;">
+													<img src="<?php echo base_url();?>images/mail-middle.jpg" style="max-width:560px;" id="bodyImage" mc:label="body_image" mc:edit="body_image" mc:allowtext />
+												</td>
+											</tr>
+											<tr>
+												<td valign="top" class="bodyContent" mc:edit="body_content01">
+													<h2>Taxinu.be</h2>
+													<h4>Informatie over onze diensten</h4>
+													Taxinu is een online taxi besteldienst, deze stelt de gebruiker instaat om op al zijn devices snel en eenvoudig een taxi te bestellen! Hebt u helemaal geen taxi besteld? Reply op deze mail de als antwoord jouw probleem! 
+												</td>
+											</tr>
+										</table>
+										<!-- // END BODY -->
+									</td>
+								</tr>
+								<tr>
+									<td align="center" valign="top">
+										<!-- BEGIN FOOTER // -->
+										<table border="0" cellpadding="0" cellspacing="0" width="100%" id="templateFooter">
+											<tr>
+												<td valign="top" class="footerContent" mc:edit="footer_content00">
+													<a href="#">Bestelling doorsturen</a>&nbsp;
+												</td>
+											</tr>
+											
+											
+										</table>
+										<!-- // END FOOTER -->
+									</td>
+								</tr>
+							</table>
+							<!-- // END TEMPLATE -->
+						</td>
+					</tr>
+				</table>
+			</center>
+		</body>
+		</html>

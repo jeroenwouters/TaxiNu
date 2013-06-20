@@ -35,34 +35,33 @@ class Admin_taxi extends CI_Controller {
 	}
 
 	function gcmloc(){
-    	$this->load->library('gcm');
-        $this->gcm->setMessage('location');
-        foreach ($_POST['regid'] as $r) {
-        	$this->gcm->addRecepient($r);
-        } 
-        $loc['lat'] = $_POST['lat'];
-        $loc['lang'] = $_POST['lang'];
-        $loc['type'] = "loc";
-        var_dump($loc);
-        $this->gcm->setData($loc);
+		$this->load->library('gcm');
+		$this->gcm->setMessage('location');
+		foreach ($_POST['regid'] as $r) {
+			$this->gcm->addRecepient($r);
+		} 
+		$loc['lat'] = $_POST['lat'];
+		$loc['lang'] = $_POST['lang'];
+		$loc['type'] = "loc";
+		var_dump($loc);
+		$this->gcm->setData($loc);
            // then send
-        $this->gcm->send();
-    }
+		$this->gcm->send();
+	}
 
-    function getpauze(){
-    	$this->load->model('m_taxis');
-    	$query = $this->m_taxis->getbyid($this->uri->segment(3));
-    	foreach ($query->result() as $r) {
-    		echo json_encode($r);
-    	}
-    	
-    }
+	function getpauze(){
+		$this->load->model('m_taxis');
+		$query = $this->m_taxis->getbyid($this->uri->segment(3));
+		foreach ($query->result() as $r) {
+			echo json_encode($r);
+		}
+		
+	}
 
-    function pauze(){
-    	$this->load->model('m_taxis');
-    	$this->m_taxis->update($_POST, $_POST['id']);
-    	$this->load->library('pusher');
-    	$this->pusher->trigger('taxi_'.$_POST['id'], 'taxi_pauze_'.$_POST['id'], $_POST);
-    }
+	function pauze(){
+		$this->load->model('m_taxis');
+		$this->m_taxis->update($_POST, $_POST['id']);
+		$this->load->library('pusher');
+		$this->pusher->trigger('taxi_'.$_POST['id'], 'taxi_pauze_'.$_POST['id'], $_POST);
+	}
 }	
-	

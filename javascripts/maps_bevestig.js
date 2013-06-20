@@ -18,7 +18,8 @@
     var myLatLng = new google.maps.LatLng(51.283333, 4.483333);
     marker = new google.maps.Marker({
       position: myLatLng,
-      map: map
+      map: map,
+      icon: base_url + 'images/taxi.png'
     });
 
     // Enable pusher logging - don't include this in production
@@ -47,8 +48,7 @@
         marker[data.taxi] = (new google.maps.Marker({
           position: myLatLng,
           map: map,
-          icon: base_url + 'images/taxi.png',
-          width: '10px'
+          icon: base_url + 'images/taxi.png'
         }));
       } else {
         marker[data.taxi].setPosition(myLatLng);

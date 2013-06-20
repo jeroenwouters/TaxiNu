@@ -9,31 +9,31 @@
   <meta charset="utf-8" />
 
   <!-- Set the viewport width to device width for mobile -->
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">   
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">   
 
   <title>Taxinu.be</title>
   
   <!-- Included CSS Files (Uncompressed) -->
   <!--
   <link rel="stylesheet" href="<?php echo base_url();?>stylesheets/foundation.css">
-  -->
-  
-  <!-- Included CSS Files (Compressed) -->
-  <link rel="stylesheet" href="<?php echo base_url();?>stylesheets/foundation.min.css">
-  <link rel="stylesheet" href="<?php echo base_url();?>stylesheets/app.css">
-  <link rel="stylesheet/less" type="text/css" href="<?php echo base_url();?>stylesheets/admin_mobile.less">
-    <link rel="stylesheet/less" type="text/css" href="<?php echo base_url();?>stylesheets/jquery.sidr.light.css">
+-->
 
-   <link rel="stylesheet" media="all" type="text/css" href="http://code.jquery.com/ui/1.9.1/themes/smoothness/jquery-ui.css" />
+<!-- Included CSS Files (Compressed) -->
+<link rel="stylesheet" href="<?php echo base_url();?>stylesheets/foundation.min.css">
+<link rel="stylesheet" href="<?php echo base_url();?>stylesheets/app.css">
+<link rel="stylesheet/less" type="text/css" href="<?php echo base_url();?>stylesheets/admin_mobile.less">
+<link rel="stylesheet/less" type="text/css" href="<?php echo base_url();?>stylesheets/jquery.sidr.light.css">
 
-    
-  <script src="<?php echo base_url();?>javascripts/less.js" type="text/javascript"></script>
-  <script src="<?php echo base_url();?>javascripts/modernizr.foundation.js"></script>
+<link rel="stylesheet" media="all" type="text/css" href="http://code.jquery.com/ui/1.9.1/themes/smoothness/jquery-ui.css" />
 
-  <!-- IE Fix for HTML5 Tags -->
+
+<script src="<?php echo base_url();?>javascripts/less.js" type="text/javascript"></script>
+<script src="<?php echo base_url();?>javascripts/modernizr.foundation.js"></script>
+
+<!-- IE Fix for HTML5 Tags -->
   <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-  <![endif]-->
+    <![endif]-->
 
-</head>
-<body>
+  </head>
+  <body>

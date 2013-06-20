@@ -56,10 +56,10 @@ class Admin extends CI_Controller {
 				foreach($query as $row)
 				{
 					$sess_array = array(
-					'id' => $row->id,
-					'username' => $row->Naam,
-					'type' => $result['type']
-					);
+						'id' => $row->id,
+						'username' => $row->Naam,
+						'type' => $result['type']
+						);
 				}
 				$this->session->set_userdata('logged_in', $sess_array);
 				redirect('admin_taxi');
@@ -69,10 +69,10 @@ class Admin extends CI_Controller {
 				foreach($query as $row)
 				{
 					$sess_array = array(
-					'id' => $row->pkUsers,
-					'username' => $row->Username,
-					'type' => $result['type']
-					);
+						'id' => $row->pkUsers,
+						'username' => $row->Username,
+						'type' => $result['type']
+						);
 				}
 				$this->session->set_userdata('logged_in', $sess_array);
 				redirect('admin');
@@ -82,10 +82,10 @@ class Admin extends CI_Controller {
 				foreach($query as $row)
 				{
 					$sess_array = array(
-					'id' => $row->id,
-					'username' => $row->email,
-					'type' => $result['type']
-					);
+						'id' => $row->id,
+						'username' => $row->email,
+						'type' => $result['type']
+						);
 				}
 				$this->session->set_userdata('logged_in', $sess_array);
 				redirect('home/user');
@@ -95,37 +95,37 @@ class Admin extends CI_Controller {
 		{
 			redirect('admin');
 		}
-   }
-   
-   function logout()
-   {
-   $this->session->unset_userdata('logged_in');
-   redirect('admin', 'refresh');
-   }
+	}
+	
+	function logout()
+	{
+		$this->session->unset_userdata('logged_in');
+		redirect('admin', 'refresh');
+	}
 
-   function sendgcm(){
-   	$this->load->library('gcm');
-   	$this->gcm->setMessage('Test message '.date('d.m.Y H:s:i'));
-   	$this->gcm->addRecepient('APA91bFZHKeyhDd8Hu8dC80p4TUgC1xLvKmYmNRjJMvp1vhuyr9yLHfYJY-3Y9kbW5qHkyZtUdbxJlv9qegZf8b6fLlO5m5HgTYQCwKwfF7dLGS69L1wbwJgM2XF3BeKE63BA78mAR9IGXutXpbLip8aPQhgiyo3WQ');
-   	$this->gcm->setData(array(
-        'some_key' => 'some_val'
-    ));
+	function sendgcm(){
+		$this->load->library('gcm');
+		$this->gcm->setMessage('Test message '.date('d.m.Y H:s:i'));
+		$this->gcm->addRecepient('APA91bFZHKeyhDd8Hu8dC80p4TUgC1xLvKmYmNRjJMvp1vhuyr9yLHfYJY-3Y9kbW5qHkyZtUdbxJlv9qegZf8b6fLlO5m5HgTYQCwKwfF7dLGS69L1wbwJgM2XF3BeKE63BA78mAR9IGXutXpbLip8aPQhgiyo3WQ');
+		$this->gcm->setData(array(
+			'some_key' => 'some_val'
+			));
      // then send
-        if ($this->gcm->send())
-            echo 'Success for all messages';
-        else
-            echo 'Some messages have errors';
+		if ($this->gcm->send())
+			echo 'Success for all messages';
+		else
+			echo 'Some messages have errors';
 
     // and see responses for more info
-        print_r($this->gcm->status);
-        print_r($this->gcm->messagesStatuses);
-   }
+		print_r($this->gcm->status);
+		print_r($this->gcm->messagesStatuses);
+	}
 
-   function insertgcm(){
-   	$this->db->insert('gcm', $_POST);
-   }
-  
-    function getuser()
+	function insertgcm(){
+		$this->db->insert('gcm', $_POST);
+	}
+	
+	function getuser()
 	{
 		if($this->session->userdata('logged_in')){
 			$data = $this->session->userdata('logged_in');
@@ -140,27 +140,27 @@ class Admin extends CI_Controller {
 		}
 	}
 
-	 function cancelorderadmin(){
-        $this->load->model('m_status');
-        $this->m_status->delete($this->uri->segment(3), $this->uri->segment(4));
-        $this->pusher->trigger('client', 'client_remove'.$this->uri->segment(3), $this->uri->segment(3));
-    }
-    
-    function phoengapcheckdubbel(){
-	    $this->load->model('m_bestellingen');
-        $query = $this->m_bestellingen->getbyemail($_POST['email']);
-        $data = "false";
-        foreach($query->result() as $r){
-        	if($r->Status == 3 || $r->Afgerond == 0){
-	        	$data = "true";
-        	}
-        }
-        
-        echo json_encode($data);
-    }
+	function cancelorderadmin(){
+		$this->load->model('m_status');
+		$this->m_status->delete($this->uri->segment(3), $this->uri->segment(4));
+		$this->pusher->trigger('client', 'client_remove'.$this->uri->segment(3), $this->uri->segment(3));
+	}
+	
+	function phoengapcheckdubbel(){
+		$this->load->model('m_bestellingen');
+		$query = $this->m_bestellingen->getbyemail($_POST['email']);
+		$data = "false";
+		foreach($query->result() as $r){
+			if($r->Status == 3 || $r->Afgerond == 0){
+				$data = "true";
+			}
+		}
+		
+		echo json_encode($data);
+	}
 
-    function bestellingtoevoegen(){
-    	$data1['Naam'] = $_POST['naam'];
+	function bestellingtoevoegen(){
+		$data1['Naam'] = $_POST['naam'];
 		$data1['Tel'] = $_POST['tel'];
 		$data1['Adres1'] = $_POST['adres1'];
 		$data1['Adres2'] = $_POST['adres2'];
@@ -168,25 +168,25 @@ class Admin extends CI_Controller {
 		$data1['tijd'] = substr($tijd, 6, 4).'-'.substr($tijd, 3, 2).'-'.substr($tijd, 0, 2).' '.substr($tijd, 11, 5);
 		$data1['Afgerond'] = $_POST['afgerond'];
 
-    	$this->load->model('m_bestellingen');
-    	$data2['fkBestelling'] = $this->m_bestellingen->insert($data1);
-    	
-    	$data2['fkUser'] = $_POST['fkUser'];
-    	$data2['Status'] = $_POST['status'];
-    	$data2['fkTaxi'] = $_POST['taxi'];
+		$this->load->model('m_bestellingen');
+		$data2['fkBestelling'] = $this->m_bestellingen->insert($data1);
+		
+		$data2['fkUser'] = $_POST['fkUser'];
+		$data2['Status'] = $_POST['status'];
+		$data2['fkTaxi'] = $_POST['taxi'];
 
-    	$this->load->model('m_status');
-    	$this->m_status->insertnew($data2);
+		$this->load->model('m_status');
+		$this->m_status->insertnew($data2);
 
-    	$data1['fkUser'] = $_POST['fkUser'];
-    	$data1['Status'] = $_POST['status'];
-    	$data1['fkTaxi'] = $_POST['taxi'];
+		$data1['fkUser'] = $_POST['fkUser'];
+		$data1['Status'] = $_POST['status'];
+		$data1['fkTaxi'] = $_POST['taxi'];
 
-    	$this->load->library('pusher');
-    	$this->pusher->trigger('admin_all', 'taxi_'.$data2['fkTaxi'], $_POST);
+		$this->load->library('pusher');
+		$this->pusher->trigger('admin_all', 'taxi_'.$data2['fkTaxi'], $_POST);
 
-    	echo json_encode($data2);
-    }
+		echo json_encode($data2);
+	}
 }
 
 /* End of file welcome.php */
